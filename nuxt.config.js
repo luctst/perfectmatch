@@ -17,24 +17,36 @@ export default {
     ]
   },
   css: [
+    '@/assets/main.scss'
   ],
   plugins: [
   ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
+    '@nuxtjs/svg',
+    '@nuxtjs/google-fonts',
   ],
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    scss: ['@/assets/main.scss']
+  },
+  googleFonts: {
+    families: {
+      Roboto: {
+        wght: [400]
+      },
+      'Playfair+Display': {
+        wght: [400],
+      },
+    },
+  },
   axios: {
     credentials: true,
     baseUrl: process.env.APIURL,
-    headers: {
-      common: {
-        // Authorization: `Bearer ${process.env.APITOKEN}`,
-      },
-    },
   },
   build: {
   }
