@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+* CLASS
+*/
+.container-fluid {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+/**
+* VARIABLES
+*/
+$colorWhite: #FFFF;
+$colorBeige: #FDEADD;
+$colorGreen: #CEE4DA;
+$colorPurple: #E8D7EE;
+$textColor: #3B2321;
+$mainTypo: Roboto, sans-serif;
+$secondTypo: Playfair Display, sans-serif;
