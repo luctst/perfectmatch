@@ -6,9 +6,12 @@
     <template v-else-if="$fetchState.error">
       Error...
     </template>
-    <nuxt
-    v-else
-    keep-alive />
+    <template v-else>
+      <nuxt-child
+      :content="content"
+      :baseApiUrl="baseApiUrl"
+      keep-alive />
+    </template>
   </section>
 </template>
 
@@ -16,19 +19,31 @@
 export default {
   data() {
     return {
-      dataFetched: false,
-      contents: null,
-      content: null,
+      content: false,
+      baseApiUrl: 'https://the-perfect-match.herokuapp.com',
     };
   },
   async fetch() {
-    this.contents = (await this.$axios.$get(`/${this.$route.name}?locale=all`)).data;
-    this.dataFetched = true;
-  },
-  watch: {
-    dataFetched(newValue) {
-      if (!newValue) return false;
-    },
+    const routesToFetch = [
+      {
+        path: '/',
+        apiRoutes: 'accueil'
+      },
+      {
+        path: '/about',
+        apiRoutes: 'about',
+      },
+    ].find((r) => r.path === this.$route.path);
+
+    this.content = (await this.$axios.$get(
+      `/${routesToFetch.apiRoutes}`,
+      {
+        params: {
+          locale: 'fr-FR',
+          populate: '*',
+        },
+      }
+    )).data.attributes;
   },
 };
 </script>
