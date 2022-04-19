@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import qs from 'qs';
+
 export default {
   data() {
     return {
@@ -24,25 +26,30 @@ export default {
     };
   },
   async fetch() {
-    const routesToFetch = [
+    const d = [
       {
         path: '/',
-        apiRoutes: 'accueil'
+        apiRoutes: 'accueil',
       },
       {
         path: '/about',
         apiRoutes: 'about',
       },
-    ].find((r) => r.path === this.$route.path);
+    ];
+    const routesToFetch = d.find((r) => r.path === this.$route.path);
+    const populate = (await this.$axios.$get('/content-type-builder/components'))
+    .data
+    .filter((c) => c.category === routesToFetch.apiRoutes)
+    .reduce(
+      (prev, next) => {
+        prev.populate[next.apiId] = { populate: '*' };
+        return prev;
+      },
+      { populate: {}}
+    );
+    const query = qs.stringify(populate, { encodeValuesOnly: true });
 
-    this.content = (await this.$axios.$get(
-      `/${routesToFetch.apiRoutes}`,
-      {
-        params: {
-          locale: 'fr-FR',
-          populate: '*',
-        },
-      }
+    this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
     )).data.attributes;
   },
 };
