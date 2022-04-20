@@ -137,10 +137,12 @@ export default {
 }
 
 .header {
+  background-color: $colorBeige;
   box-sizing: border-box;
   height: 80px;
   position: fixed;
   width: 100%;
+  z-index: 10;
 
   &--desktop {
     align-items: center;

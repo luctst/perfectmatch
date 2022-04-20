@@ -46,7 +46,9 @@ export default {
   },
   axios: {
     credentials: true,
-    baseUrl: process.env.APIURL,
+    baseUrl: process.env.NODE_ENV === 'development'
+      ? 'http://localhost:1337/api'
+      : process.env.APIURL,
   },
   build: {
   }

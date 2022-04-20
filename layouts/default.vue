@@ -22,7 +22,9 @@ export default {
   data() {
     return {
       content: false,
-      baseApiUrl: 'https://the-perfect-match.herokuapp.com',
+      baseApiUrl: process.env.NODE_ENV === 'development'
+        ? 'http://localhost:1337/api'
+        : 'https://the-perfect-match.herokuapp.com'
     };
   },
   async fetch() {
