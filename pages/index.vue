@@ -1,18 +1,21 @@
 <template>
 <section class="home">
   <header-vue></header-vue>
-  <home-float-line :floatline="content.floatline"></home-float-line>
+  <home-float-line :content="content.floatline"></home-float-line>
+  <home-first-section :content="content.section1"></home-first-section>
 </section>
 </template>
 
 <script>
 import Header from '~/components/Header.vue';
 import HomeFloatline from '~/components/HomeFloatLine.vue';
+import HomeFirstSection from '~/components/HomeFirstSection.vue';
 
 export default {
   components: {
     'header-vue': Header,
     'home-float-line': HomeFloatline,
+    'home-first-section': HomeFirstSection,
   },
   layout: 'default',
   props: {
@@ -27,18 +30,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.home {
-  background-color: $colorBeige;
-  max-height: 100vh;
-
-  @media (min-width: 350px) {
-    height: 90vh;
-  }
-
-  @media (min-width: 800px) {
-    height: 100vh;
-  }
-}
-</style>
