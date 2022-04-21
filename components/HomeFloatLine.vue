@@ -4,34 +4,34 @@
       <loop></loop>
     </div>
     <div class="floatline--content">
-      <h1 v-html="floatline.title"></h1>
-      <h2>{{ floatline.subtitle }}</h2>
+      <h1 v-html="content.title"></h1>
+      <h2>{{ content.subtitle }}</h2>
     </div>
     <div class="floatline--slidermobile">
       <div class="is__container__img floatline--slidermobile--firstitem">
         <img
-        :src="floatline.imgleft.data.attributes.url"
-        :alt="floatline.imgleft.data.attributes.alternativeText"/>
+        :src="content.imgleft.data.attributes.url"
+        :alt="content.imgleft.data.attributes.alternativeText"/>
       </div>
       <div class="is__container__img floatline--slidermobile--seconditem">
         <div class="floatline--slidermobile--seconditem--overlay">
           <img
-          :src="floatline.imgright.data.attributes.url"
-          :alt="floatline.imgright.data.attributes.alternativeText"/>
+          :src="content.imgright.data.attributes.url"
+          :alt="content.imgright.data.attributes.alternativeText"/>
         </div>
       </div>
     </div>
     <div class="floatline--sliderdesktop">
       <div class="is__container__img floatline--sliderdesktop--firstitem">
         <img
-        :src="floatline.imgleft.data.attributes.url"
-        :alt="floatline.imgleft.data.attributes.alternativeText"/>
+        :src="content.imgleft.data.attributes.url"
+        :alt="content.imgleft.data.attributes.alternativeText"/>
       </div>
       <div class="is__container__img floatline--sliderdesktop--seconditem">
         <div class="floatline--sliderdesktop--seconditem--overlay">
           <img
-          :src="floatline.imgright.data.attributes.url"
-          :alt="floatline.imgright.data.attributes.alternativeText"/>
+          :src="content.imgright.data.attributes.url"
+          :alt="content.imgright.data.attributes.alternativeText"/>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@ export default {
     Loop,
   },
   props: {
-    floatline: {
+    content: {
       type: Object,
       required: true,
     },
@@ -82,6 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 .floatline {
+  background-color: $colorBeige;
   position: relative;
   @media (min-width: 350px) {
     padding-top: 8em!important;
