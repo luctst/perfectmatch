@@ -4,12 +4,12 @@
       <nav class="header--desktop--nav">
         <ul class="header--desktop--nav--list">
           <li
-          :class="[renderClassItemList(item)]"
           v-for="(item, i) in menuList"
-          :key="i">
+          :key="i"
+          :class="[renderClassItemList(item)]">
             <div
-            @click="menuList[i].active = !menuList[i].active"
-            v-if="item.dropdown">
+            v-if="item.dropdown"
+            @click="menuList[i].active = !menuList[i].active">
               <div class="header--desktop--nav--list--item--dropdown--actions">
                 <span class="is__menu__link">{{ item.content }}</span>
                 <div>
@@ -57,7 +57,7 @@ import MenuBurger from '~/assets/img/menuburger.svg?inline';
 import DropdownMenu from '~/assets/img/dropdownmenu.svg?inline';
 
 export default {
-  name: 'headerVue',
+  name: 'HeaderVue',
   components: {
     Logo,
     MenuBurger,
@@ -137,7 +137,6 @@ export default {
 }
 
 .header {
-  background-color: $colorBeige;
   box-sizing: border-box;
   height: 80px;
   position: fixed;
