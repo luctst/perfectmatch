@@ -119,6 +119,7 @@ export default {
   &--content {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     @media (min-width: 800px) {
       align-items: center;
@@ -187,6 +188,7 @@ export default {
   &--slidermobile {
     max-width: 100%;
     overflow: scroll;
+    z-index: 10;
 
     &--seconditem {
       &--overlay {
@@ -206,6 +208,7 @@ export default {
     @media (min-width: 350px) {
       display: flex;
       margin-top: 60px;
+      transform: translateY(11%);
 
       &--firstitem {
         margin-right: 20px;
