@@ -3,6 +3,7 @@
   <header-vue></header-vue>
   <home-float-line :content="content.floatline"></home-float-line>
   <home-first-section :content="content.section1"></home-first-section>
+  <home-second-section :content="{}"></home-second-section>
 </section>
 </template>
 
@@ -10,12 +11,14 @@
 import Header from '~/components/Header.vue';
 import HomeFloatline from '~/components/HomeFloatLine.vue';
 import HomeFirstSection from '~/components/HomeFirstSection.vue';
+import HomeSecondSection from '~/components/HomeSecondSection.vue';
 
 export default {
   components: {
     'header-vue': Header,
     'home-float-line': HomeFloatline,
     'home-first-section': HomeFirstSection,
+    'home-second-section': HomeSecondSection,
   },
   layout: 'default',
   props: {
