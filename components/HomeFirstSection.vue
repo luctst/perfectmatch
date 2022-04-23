@@ -26,6 +26,7 @@
 
 <script>
 import CircleType from 'circletype';
+import GlobalMixin from '~/mixins/global';
 import Icon from '~/assets/img/icon.svg?inline';
 
 export default {
@@ -33,16 +34,10 @@ export default {
   components: {
     Icon,
   },
-  inheritAttrs: false,
-  props: {
-    content: {
-      type: Object,
-      required: true,
-    },
-  },
+  mixins: [GlobalMixin],
   mounted() {
     new CircleType(this.$refs.pogitem)
-      .radius(113);
+      .radius(100);
     
     new CircleType(this.$refs.pogseconditem)
       .dir(-1)
@@ -58,7 +53,7 @@ export default {
 
   @media (min-width: 350px) {
     margin-top: 120px;
-    height: 90vh;
+    height: 70vh;
   }
 
   @media (min-width: 800px) {
