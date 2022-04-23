@@ -1,7 +1,7 @@
 <template>
   <section class="agency container">
     <div class="agency--wrapper--content">
-      <h1>Une agence d’organisation d’<span>évènements</span> privés.</h1>
+      <h3>Une agence d’organisation d’<span>évènements</span> privés.</h3>
       <div>Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
       <button class="is__btn__primary">En savoir plus</button>
     </div>
@@ -25,6 +25,11 @@ export default {
 
   @media (min-width: 350px) {
     height: 40vh;
+    margin-top: 80px;
+  }
+
+  @media (min-width: 800px) {
+    margin-top: 0;
   }
 
   @media (min-width: 1000px) {
@@ -32,7 +37,7 @@ export default {
   }
 
   &--wrapper--content {
-    h1 {
+    h3 {
       color: $textColor;
       font-family: $secondTypo;
       font-weight: normal;
