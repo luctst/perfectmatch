@@ -5,8 +5,63 @@ body {
 }
 
 /**
+* VARIABLES
+*/
+$bodyBackground: #F2F2F2;
+$colorWhite: #FFFF;
+$colorBeige: #FDEADD;
+$colorGreen: #CEE4DA;
+$colorPurple: #E8D7EE;
+$textColor: #3B2321;
+$mainTypo: helvetica, sans-serif;
+$mainTypoBold: helvetica-bold, sans-serif;
+$mainTypoNeueBold: helvetica-neue-bold, sans-serif;
+$secondTypo: 'roslindale-light', sans-serif;
+
+/*************
+Font
+*************/
+@font-face {
+  font-family: 'helvetica-neue-bold';
+  src: url('~assets/fonts/helvetice-neue-bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'roslindale-light';
+  src: url('~assets/fonts/roslindale-light.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'helvetica-bold';
+  src: url('~assets/fonts/Helvetica-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'helvetica';
+  src: url('~assets/fonts/Helvetica.ttf') format('ttf');
+}
+
+/**
 * CLASS
 */
+.is__btn__primary {
+  border: none;
+  align-items: center;
+  display: flex;
+  background-color: $colorBeige;
+  border-radius: 80px;
+  font-family: $mainTypo;
+  font-style: normal;
+  padding: 20px 24px 19px;
+  outline: none;
+  justify-content: center;
+  text-transform: uppercase;
+  
+  @media (min-width: 350px) {
+    font-size: 14px;
+  }
+}
+
 .container-fluid {
   padding: 0 15px;
   margin: 0 auto;
@@ -40,15 +95,3 @@ body {
     object-fit: cover;
   }
 }
-
-/**
-* VARIABLES
-*/
-$bodyBackground: #F2F2F2;
-$colorWhite: #FFFF;
-$colorBeige: #FDEADD;
-$colorGreen: #CEE4DA;
-$colorPurple: #E8D7EE;
-$textColor: #3B2321;
-$mainTypo: Roboto, sans-serif;
-$secondTypo: Playfair Display, sans-serif;
