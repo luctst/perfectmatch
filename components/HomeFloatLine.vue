@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import GlobalMixin from '~/mixins/global';
 import Loop from '~/assets/img/loop.svg?inline';
 
 export default {
@@ -46,12 +47,7 @@ export default {
   components: {
     Loop,
   },
-  props: {
-    content: {
-      type: Object,
-      required: true,
-    },
-  },
+  mixins: [GlobalMixin],
   mounted() {
     this.applyStyleToInner();
     window.addEventListener('resize', this.applyStyleToInner);
@@ -245,6 +241,10 @@ export default {
           width: 255px;
         }
       }
+    }
+
+    @media (min-width: 769px) {
+      justify-content: center;
     }
 
     @media (min-width: 800px) {
