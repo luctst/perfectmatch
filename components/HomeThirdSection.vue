@@ -39,9 +39,19 @@ export default {
 
     &--content {
       margin-top: 80px;
+      text-align: center;
 
       h3 {
         font-size: 1.9em;
+      }
+    }
+  }
+
+  @media (min-width: 662px) {
+    &--content {
+      h3 {
+        margin-left: 13%;
+        margin-right: 13%;
       }
     }
   }
@@ -54,6 +64,59 @@ export default {
     &--img {
       max-width: 324px;
       margin: 0;
+    }
+
+    &--content {
+      p {
+        text-align: left;
+        margin-top: 0;
+      }
+
+      h3 {
+        font-size: 2em;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+      }
+    }
+  }
+
+  @media (min-width: 828px) {
+    &--content {
+      margin-top: 0;
+
+      h3 {
+        margin-right: 3%;
+      }
+    }
+  }
+
+  @media (min-width: 950px) {
+    &--content {
+      h3 {
+        font-size: 3em;
+      }
+    }
+  }
+
+  @media (min-width: 1000px) {
+    &--img {
+      transform: translateY(-10%);
+    }
+
+    &--content {
+      margin-bottom: 5.6%;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    &--content {
+      margin-bottom: 3.2%;
+
+      h3 {
+        font-size: 3.5em;
+      }
     }
   }
 
@@ -81,7 +144,6 @@ export default {
     p,
     h3 {
       color: $textColor;
-      margin: 0;
     }
 
     p {
