@@ -28,12 +28,12 @@ export default {
     margin-top: 80px;
   }
 
-  @media (min-width: 800px) {
-    margin-top: 0;
-  }
-
   @media (min-width: 1000px) {
     height: 45vh;
+  }
+
+  @media (min-width: 1021px) {
+    margin-top: 0;
   }
 
   &--wrapper--content {

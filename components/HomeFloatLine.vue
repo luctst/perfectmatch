@@ -1,5 +1,5 @@
 <template>
-  <section ref="inner" class="floatline">
+  <section ref="inner" class="floatline container-fluid">
     <div class="floatline--loop">
       <loop></loop>
     </div>
@@ -49,8 +49,8 @@ export default {
   },
   mixins: [GlobalMixin],
   mounted() {
-    this.applyStyleToInner();
-    window.addEventListener('resize', this.applyStyleToInner);
+    // this.applyStyleToInner();
+    // window.addEventListener('resize', this.applyStyleToInner);
   },
   methods: {
     applyStyleToInner() {
@@ -146,7 +146,7 @@ export default {
       }
 
       @media (min-width: 800px) {
-        font-size: 100px;
+        font-size: 5em;
         margin: 0 15%;
         line-height: 96px;
       }
@@ -234,6 +234,10 @@ export default {
       }
     }
 
+    @media (min-width: 603px) {
+      justify-content: center;
+    }
+
     @media (min-width: 650px) {
       &--firstitem,
       &--seconditem {
@@ -241,10 +245,6 @@ export default {
           width: 255px;
         }
       }
-    }
-
-    @media (min-width: 769px) {
-      justify-content: center;
     }
 
     @media (min-width: 800px) {
@@ -278,7 +278,7 @@ export default {
       &--firstitem,
       &--seconditem {
         position: absolute;
-        width: 19%;
+        width: 26%;
       }
 
       &--firstitem {
