@@ -5,6 +5,7 @@
   <home-first-section :content="content.section1"></home-first-section>
   <home-second-section :content="{}"></home-second-section>
   <home-third-section :content="{}"></home-third-section>
+  <offers :content="{}"></offers>
 </section>
 </template>
 
@@ -14,6 +15,7 @@ import HomeFloatline from '~/components/HomeFloatLine.vue';
 import HomeFirstSection from '~/components/HomeFirstSection.vue';
 import HomeSecondSection from '~/components/HomeSecondSection.vue';
 import HomeThirdSection from '~/components/HomeThirdSection.vue';
+import Offers from '~/components/Offers.vue';
 
 export default {
   components: {
@@ -22,6 +24,7 @@ export default {
     'home-first-section': HomeFirstSection,
     'home-second-section': HomeSecondSection,
     'home-third-section': HomeThirdSection,
+    Offers,
   },
   layout: 'default',
   props: {
