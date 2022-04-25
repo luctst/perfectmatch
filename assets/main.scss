@@ -18,6 +18,28 @@ $mainTypoBold: helvetica-bold, sans-serif;
 $mainTypoNeueBold: helvetica-neue-bold, sans-serif;
 $secondTypo: 'roslindale-light', sans-serif;
 
+/**
+* MIXINS
+*/
+@mixin btnCommon($color) {
+  align-items: center;
+  border: none;
+  color: $textColor;
+  display: flex;
+  background-color: $color;
+  border-radius: 80px;
+  font-family: $mainTypo;
+  font-style: normal;
+  padding: 20px 24px 19px;
+  outline: none;
+  justify-content: center;
+  text-transform: uppercase;
+
+  @media (min-width: 350px) {
+    font-size: 14px;
+  }
+}
+
 /*************
 Font
 *************/
@@ -45,21 +67,11 @@ Font
 * CLASS
 */
 .is__btn__primary {
-  border: none;
-  align-items: center;
-  display: flex;
-  background-color: $colorBeige;
-  border-radius: 80px;
-  font-family: $mainTypo;
-  font-style: normal;
-  padding: 20px 24px 19px;
-  outline: none;
-  justify-content: center;
-  text-transform: uppercase;
-  
-  @media (min-width: 350px) {
-    font-size: 14px;
-  }
+  @include btnCommon($colorBeige);
+}
+
+.is__btn__secondary {
+  @include btnCommon(#FFF);
 }
 
 .container-fluid {
@@ -89,7 +101,8 @@ Font
 }
 
 .is__container__img {
-  img {
+  img,
+  svg {
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
