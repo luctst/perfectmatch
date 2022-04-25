@@ -6,6 +6,7 @@
   <home-second-section :content="{}"></home-second-section>
   <home-third-section :content="{}"></home-third-section>
   <offers :content="{}"></offers>
+  <events :content="{}"></events>
 </section>
 </template>
 
@@ -16,6 +17,7 @@ import HomeFirstSection from '~/components/HomeFirstSection.vue';
 import HomeSecondSection from '~/components/HomeSecondSection.vue';
 import HomeThirdSection from '~/components/HomeThirdSection.vue';
 import Offers from '~/components/Offers.vue';
+import Events from '~/components/Events.vue';
 
 export default {
   components: {
@@ -25,6 +27,7 @@ export default {
     'home-second-section': HomeSecondSection,
     'home-third-section': HomeThirdSection,
     Offers,
+    Events,
   },
   layout: 'default',
   props: {

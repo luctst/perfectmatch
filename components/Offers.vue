@@ -1,12 +1,12 @@
 <template>
   <section class="offers container-fluid">
     <div
-    @mouseenter="offer.active = true"
-    @mouseleave="offer.active = false"
     v-for="(offer, index) in offers"
     :key="index"
     :class="['offers--item', offer.active ? 'active' : 'inactive']"
-    :style="`border:1px solid ${offer.theme};background-color: ${offer.active ? offer.theme : 'transparent'};`">
+    :style="`border:1px solid ${offer.theme};background-color: ${offer.active ? offer.theme : 'transparent'};`"
+    @mouseenter="offer.active = true"
+    @mouseleave="offer.active = false">
       <div class="is__container__img">
         <component :is="offer.icon"></component>
       </div>
