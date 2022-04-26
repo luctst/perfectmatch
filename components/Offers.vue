@@ -130,7 +130,6 @@ export default {
     @media (min-width: 350px) {
       padding: 16% 50px 50px 50px;
       margin-top: 40px;
-      max-width: 335px;
 
       h4 {
         font-size: 1.39em;
@@ -142,6 +141,10 @@ export default {
         margin-top: 20px;
         margin-bottom: 45px;
       }
+    }
+
+    @media (min-width: 415px) {
+      max-width: 335px;
     }
 
     @media (min-width: 805px) {

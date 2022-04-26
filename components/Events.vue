@@ -39,10 +39,10 @@ import LoopEvent from '~/assets/img/loop-event.svg?inline';
 
 export default {
   name: 'Events',
-  mixins: [globalMixin],
   components: {
     LoopEvent,
   },
+  mixins: [globalMixin],
 };
 </script>
 
