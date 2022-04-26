@@ -10,13 +10,13 @@ body {
 $bodyBackground: #F2F2F2;
 $colorWhite: #FFFF;
 $colorBeige: #FDEADD;
-$colorGreen: #CEE4DA;
+$colorGreen: #E0F4EB;
 $colorPurple: #E8D7EE;
 $textColor: #3B2321;
 $mainTypo: helvetica, sans-serif;
 $mainTypoBold: helvetica-bold, sans-serif;
 $mainTypoNeueBold: helvetica-neue-bold, sans-serif;
-$secondTypo: 'roslindale-light', sans-serif;
+$secondTypo: roslindale-light, sans-serif;
 
 /**
 * MIXINS
@@ -45,22 +45,22 @@ Font
 *************/
 @font-face {
   font-family: 'helvetica-neue-bold';
-  src: url('~assets/fonts/helvetice-neue-bold.ttf') format('ttf');
+  src: url('~assets/fonts/Helvetica-Neue-Condensed-Bold_22501.woff') format('woff');
 }
 
 @font-face {
   font-family: 'roslindale-light';
-  src: url('~assets/fonts/roslindale-light.ttf') format('ttf');
+  src: url('~assets/fonts/RoslindaleDisplayCondensed-Light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'helvetica-bold';
-  src: url('~assets/fonts/Helvetica-Bold.ttf') format('ttf');
+  src: url('~assets/fonts/Helvetica-Bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'helvetica';
-  src: url('~assets/fonts/Helvetica.ttf') format('ttf');
+  src: url('~assets/fonts/Helvetica.woff') format('woff');
 }
 
 /**
@@ -77,6 +77,10 @@ Font
 .container-fluid {
   padding: 0 15px;
   margin: 0 auto;
+
+  @media (min-width: 1100px) {
+    padding: 0 50px;
+  }
 }
 
 .container {
