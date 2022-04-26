@@ -127,12 +127,13 @@ export default {
       color: $textColor;
       font-family: $secondTypo;
       font-weight: 100;
+      font-style: normal;
       text-align: center;
       margin: 0;
 
-      strong {
+      span {
+        font-family: $mainTypoNeueBold;
         display: inline-block;
-        font-weight: bold;
       }
 
       @media (min-width: 350px) {
