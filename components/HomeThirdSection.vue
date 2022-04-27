@@ -26,11 +26,14 @@ export default {
 
 <style lang="scss" scoped>
 .formulasinfos {
+  background-color: $colorWhite;
   display: flex;
+  position: relative;
+  z-index: 2;
 
   @media (min-width: 350px) {
     flex-direction: column;
-    margin-top: 80px;
+    padding-top: 80px;
 
     &--img {
       max-width: 335px;

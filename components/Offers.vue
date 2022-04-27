@@ -81,7 +81,11 @@ export default {
 }
 
 .offers {
+  background-color: $colorWhite;
   display: flex;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 80px;
 
   @media (min-width: 350px) {
     flex-direction: column;

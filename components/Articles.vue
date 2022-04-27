@@ -74,12 +74,17 @@ export default {
 }
 
 .articles {
+  background-color: $colorWhite;
+  position: relative;
+  z-index: 2;
+
   @media (min-width: 350px) {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 
   @media (min-width: 800px) {
-    margin-top: 160px;
+    padding-top: 160px;
+    padding-bottom: 80px;
   }
 
   &--content {

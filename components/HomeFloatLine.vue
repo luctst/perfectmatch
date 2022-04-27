@@ -80,6 +80,7 @@ export default {
 .floatline {
   background-color: $colorBeige;
   position: relative;
+  z-index: 4;
   @media (min-width: 350px) {
     padding-top: 8em!important;
   }

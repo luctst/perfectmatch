@@ -19,13 +19,16 @@ export default {
 
 <style lang="scss" scoped>
 .agency {
+  background-color: $colorWhite;
   display: flex;
   align-items: center;
   max-height: 50vh;
+  position: relative;
+  z-index: 2;
 
   @media (min-width: 350px) {
     height: 40vh;
-    margin-top: 80px;
+    padding-top: 80px;
   }
 
   @media (min-width: 1000px) {
@@ -33,7 +36,7 @@ export default {
   }
 
   @media (min-width: 1021px) {
-    margin-top: 0;
+    padding-top: 0;
   }
 
   &--wrapper--content {

@@ -50,9 +50,10 @@ export default {
 .events {
   background-color: $colorGreen;
   position: relative;
+  z-index: 4;
 
   @media (min-width: 350px) {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 
   @media (min-width: 800px) {

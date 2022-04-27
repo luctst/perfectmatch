@@ -48,21 +48,24 @@ export default {
 
 <style lang="scss" scoped>
 .gettingmaried {
+  background-color: $colorWhite;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 
   @media (min-width: 350px) {
-    margin-top: 120px;
+    padding-top: 120px;
     height: 70vh;
   }
 
   @media (min-width: 800px) {
-    margin-top: 170px;
+    padding-top: 170px;
   }
 
   @media (min-width: 840px) {
     height: 80vh;
-    margin-top: 200px;
+    padding-top: 200px;
   }
 
   &--title {
