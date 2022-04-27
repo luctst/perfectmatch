@@ -8,6 +8,7 @@
   <offers :content="{}"></offers>
   <events :content="{}"></events>
   <articles :content="{}"></articles>
+  <footer-vue :content="{}"></footer-vue>
 </section>
 </template>
 
@@ -20,6 +21,7 @@ import HomeThirdSection from '~/components/HomeThirdSection.vue';
 import Offers from '~/components/Offers.vue';
 import Events from '~/components/Events.vue';
 import Articles from '~/components/Articles.vue';
+import FooterVue from '~/components/Footer.vue';
 
 export default {
   components: {
@@ -31,6 +33,7 @@ export default {
     Offers,
     Events,
     Articles,
+    'footer-vue': FooterVue,
   },
   layout: 'default',
   props: {
