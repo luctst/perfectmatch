@@ -1,5 +1,5 @@
 <template>
-  <section class="agency container">
+  <section class="agency container-fluid">
     <div class="agency--wrapper--content">
       <h3>Une agence d’organisation d’<span>évènements</span> privés.</h3>
       <div>Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
@@ -31,12 +31,22 @@ export default {
     padding-top: 80px;
   }
 
+  @media (min-width: 500px) {
+    padding-left: 10%;
+  }
+
+  @media (min-width: 800px) {
+    padding-top: 70px;
+  }
+
   @media (min-width: 1000px) {
     height: 45vh;
+    padding-left: 13%;
   }
 
   @media (min-width: 1021px) {
     padding-top: 0;
+    padding: 0 15%;
   }
 
   &--wrapper--content {

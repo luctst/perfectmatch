@@ -10,6 +10,7 @@
     <div class="footer--contact">
       <div class="footer--contact--infos">
         <div>Coordonnées</div>
+        <h6>Alexandra Sanchez</h6>
         <h6>+33 6 51 79 15 08</h6>
         <h6>contact@theperfectmatch.com</h6>
       </div>
@@ -23,10 +24,10 @@
       <div class="footer--legales--first">
         <div>© 2022 The Perfect Match</div>
         <p>
-          <router-link to="/">Mentions légales</router-link>
+          <nuxt-link to="/">Mentions légales</nuxt-link>
         </p>
         <p>
-          <router-link to="/">Politique de confidentialité</router-link>
+          <nuxt-link to="/">Politique de confidentialité</nuxt-link>
         </p>
       </div>
       <div class="footer--legales--thanks">
@@ -67,23 +68,33 @@ div {
   background-color: $colorPurple;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
   position: sticky;
   inset: 0px;
-  max-height: 100vh;
-  min-height: 100vh;
+  overflow: auto;
   z-index: 1;
 
   @media (min-width: 350px) {
     padding-top: 80px;
   }
 
+  @media (min-width: 800px) {
+    padding-top: 130px;
+    justify-content: space-evenly;
+  }
+
+  @media (min-width: 1000px) {
+    justify-content: flex-start;
+  }
+
   &--loop {
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: -1;
 
     svg {
       object-fit: cover;
@@ -108,6 +119,30 @@ div {
         font-size: 3em;
         max-width: 250px;
       }
+
+      @media (min-width: 450px) {
+        font-size: 3.5em;
+        max-width: 281px;
+      }
+
+      @media (min-width: 550px) {
+        font-size: 3.7em;
+        max-width: 300px;
+      }
+
+      @media (min-width: 800px) {
+        margin: 0 10%;
+        max-width: 100%;
+      }
+
+      @media (min-width: 950px) {
+        font-size: 4.3em;
+      }
+
+      @media (min-width: 1100px) {
+        font-size: 5.3em;
+        margin: 0 15%;
+      }
     }
 
     button {
@@ -124,6 +159,16 @@ div {
   &--contact {
     @media (min-width: 350px) {
       margin-top: 75px;
+    }
+
+    @media (min-width: 800px) {
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1000px) {
+      margin-top: auto;
     }
 
     &--infos {
@@ -145,6 +190,10 @@ div {
       @media (min-width: 350px) {
         margin-bottom: 30px;
       }
+
+      @media (min-width: 800px) {
+        margin-bottom: 0;
+      }
     }
 
     &--social {
@@ -165,7 +214,14 @@ div {
   }
 
   &--legales {
-    p {
+    div {
+      color: #3C2A44;
+      opacity: .5;
+      text-transform: uppercase;
+    }
+
+    p,
+    div {
       font-family: $mainTypo;
       font-size: 12px;
       line-height: 13.8px;
@@ -177,13 +233,61 @@ div {
         opacity: 0.5;
       }
 
+      @media (min-width: 800px) {
+        font-size: 11px;
+      }
+    }
+
+    &--first {
       @media (min-width: 350px) {
-        margin-bottom: 15px;
+        p:first-of-type {
+          margin: 15px 0;
+        }
+
+        margin-bottom: 30px;
+      }
+
+      @media (min-width: 800px) {
+        display: flex;
+        margin-bottom: 0;
+
+        p:first-of-type {
+          margin: 0 15px;
+        }
+      }
+    }
+
+    &--thanks {
+      @media (min-width: 350px) {
+        margin-bottom: 60px;
+
+        p:first-child {
+          margin-bottom: 15px;
+        }
+      }
+
+      @media (min-width: 800px) {
+        display: flex;
+        margin-bottom: 0;
+
+        p:first-of-type {
+          margin-right: 15px;
+          margin-bottom: 0;
+        }
       }
     }
 
     @media (min-width: 350px) {
       margin-top: 60px;
+    }
+
+    @media (min-width: 800px) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 1000px) {
+      margin-top: 30px;
     }
   }
 }

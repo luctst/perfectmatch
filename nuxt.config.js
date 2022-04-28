@@ -19,8 +19,6 @@ export default {
   css: [
     '@/assets/main.scss'
   ],
-  plugins: [
-  ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -34,22 +32,10 @@ export default {
   styleResources: {
     scss: ['@/assets/main.scss']
   },
-  googleFonts: {
-    families: {
-      Roboto: {
-        wght: [400]
-      },
-      'Playfair+Display': {
-        wght: [400],
-      },
-    },
-  },
   axios: {
     credentials: true,
     baseUrl: process.env.NODE_ENV === 'development'
       ? 'http://localhost:1337/api'
       : process.env.APIURL,
   },
-  build: {
-  }
 }
