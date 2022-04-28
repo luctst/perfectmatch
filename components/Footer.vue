@@ -109,6 +109,7 @@ div {
 
     h5 {
       font-family: $secondTypo;
+      font-weight: 100;
       text-align: center;
 
       span {
