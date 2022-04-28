@@ -23,7 +23,6 @@ export default {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
-    '@nuxtjs/google-fonts',
   ],
   modules: [
     '@nuxtjs/axios',
