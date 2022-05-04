@@ -20,11 +20,11 @@
             </div>
             <div
             v-else-if="item.isBtn">
-              <router-link
+              <nuxt-link
               to="/"
               class="is__menu__link">
                 {{ item.content }}
-              </router-link>
+              </nuxt-link>
             </div>
             <div
             v-else-if="item.isLogo">
@@ -32,9 +32,9 @@
             </div>
             <div
             v-else>
-              <router-link
-              to="/"
-              class="is__menu__link">{{ item.content }}</router-link>
+              <nuxt-link
+              :to="`/${item.href}`"
+              class="is__menu__link">{{ item.content }}</nuxt-link>
             </div>
           </li>
         </ul>
@@ -68,7 +68,8 @@ export default {
       menuMobileOpen: false,
       menuList: [
         {
-          content: 'A props',
+          content: 'A propos',
+          href: 'about',
         },
         {
           content: 'Mariage',
