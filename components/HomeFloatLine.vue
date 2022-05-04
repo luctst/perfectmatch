@@ -1,5 +1,5 @@
 <template>
-  <section ref="inner" class="floatline container-fluid">
+  <section class="floatline container-fluid">
     <div class="floatline--loop">
       <loop></loop>
     </div>
@@ -48,31 +48,6 @@ export default {
     Loop,
   },
   mixins: [GlobalMixin],
-  mounted() {
-    // this.applyStyleToInner();
-    // window.addEventListener('resize', this.applyStyleToInner);
-  },
-  methods: {
-    applyStyleToInner() {
-      if (window.innerWidth > 800) {
-        if (this.$refs.inner.classList.contains('container-fluid')) return false;
-        if (this.$refs.inner.classList.contains('container')) {
-          this.$refs.inner.classList.remove('container');
-        }
-
-        this.$refs.inner.classList.add('container-fluid');
-        return true;
-      }
-
-      if (this.$refs.inner.classList.contains('container')) return false;
-        if (this.$refs.inner.classList.contains('container-fluid')) {
-          this.$refs.inner.classList.remove('container-fluid');
-        }
-
-      this.$refs.inner.classList.add('container');
-      return true;
-    },
-  },
 };
 </script>
 
