@@ -66,6 +66,17 @@ Font
 /**
 * CLASS
 */
+.is__chips {
+  color: $textColor;
+  background-color: $colorGreen;
+  border-radius: 80px;
+  font-family: $mainTypo;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 10px 14px 9px;
+  text-transform: uppercase;
+}
+
 .is__btn__primary {
   @include btnCommon($colorBeige);
 }
