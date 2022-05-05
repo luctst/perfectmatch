@@ -3,6 +3,7 @@
     <header-vue></header-vue>
     <about-float-line :content="{}"></about-float-line>
     <about-who-iam :content="{}"></about-who-iam>
+    <about-certif :content="{}"></about-certif>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
@@ -11,6 +12,7 @@
 import Header from '~/components/Header.vue';
 import AboutFloatLine from '~/components/AboutFloatLine.vue';
 import AboutWhoIam from '~/components/AboutWhoIam.vue';
+import AboutCertif from '~/components/AboutCertif.vue';
 import FooterVue from '~/components/Footer.vue';
 
 export default {
@@ -18,6 +20,7 @@ export default {
     'header-vue': Header,
     AboutFloatLine,
     AboutWhoIam,
+    AboutCertif,
     'footer-vue': FooterVue,
   },
   layout: 'default',
