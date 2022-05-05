@@ -4,6 +4,8 @@
     <about-float-line :content="{}"></about-float-line>
     <about-who-iam :content="{}"></about-who-iam>
     <about-certif :content="{}"></about-certif>
+    <about-location :content="{}"></about-location>
+    <about-accord :content="{}"></about-accord>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
@@ -13,6 +15,8 @@ import Header from '~/components/Header.vue';
 import AboutFloatLine from '~/components/AboutFloatLine.vue';
 import AboutWhoIam from '~/components/AboutWhoIam.vue';
 import AboutCertif from '~/components/AboutCertif.vue';
+import AboutLocation from '~/components/AboutLocation.vue';
+import AboutAccord from '~/components/AboutPerfectAccord.vue';
 import FooterVue from '~/components/Footer.vue';
 
 export default {
@@ -21,6 +25,8 @@ export default {
     AboutFloatLine,
     AboutWhoIam,
     AboutCertif,
+    AboutLocation,
+    AboutAccord,
     'footer-vue': FooterVue,
   },
   layout: 'default',

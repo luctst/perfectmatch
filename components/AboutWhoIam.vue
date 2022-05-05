@@ -44,6 +44,7 @@ export default {
   }
 
   @media (min-width: 1000px) {
+    height: 65vh;
     padding-top: 80px;
   }
 
