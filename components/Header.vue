@@ -139,7 +139,7 @@ export default {
 
 .header {
   box-sizing: border-box;
-  height: 80px;
+  height: 100px;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -181,6 +181,7 @@ export default {
 
                 div {
                   margin-left: 8px;
+                  margin-bottom: 6px;
                 }
               }
             }

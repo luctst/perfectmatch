@@ -4,7 +4,7 @@
       <loop-footer></loop-footer>
     </div>
     <div class="footer--title">
-      <h5>Prêts à rejoindre l'expérience The Perfect <span>Match</span> ?</h5>
+      <h1>Prêts à rejoindre l'expérience<br/> The Perfect <span>Match</span> ?</h1>
       <button class="is__btn__secondary">Contactez-nous</button>
     </div>
     <div class="footer--contact">
@@ -56,7 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h5,
 h6,
 p,
 div {
@@ -65,23 +64,23 @@ div {
 }
 
 .footer {
-  background-color: $colorPurple;
+  background-color: #F8ECFD;
   box-sizing: border-box;
   display: flex;
   height: 100vh;
   flex-direction: column;
-  min-height: 100vh;
-  position: sticky;
-  inset: 0px;
-  overflow: auto;
-  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
 
   @media (min-width: 350px) {
     padding-top: 80px;
   }
 
   @media (min-width: 800px) {
-    padding-top: 130px;
+    padding-top: 20vh;
+    padding-bottom: 45px;
     justify-content: space-evenly;
   }
 
@@ -90,61 +89,17 @@ div {
   }
 
   &--loop {
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: -1;
-
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
-    }
   }
 
   &--title {
     display: flex;
     flex-direction: column;
-
-    h5 {
-      font-family: $secondTypo;
-      font-weight: 100;
-      text-align: center;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 3em;
-        max-width: 250px;
-      }
-
-      @media (min-width: 450px) {
-        font-size: 3.5em;
-        max-width: 281px;
-      }
-
-      @media (min-width: 550px) {
-        font-size: 3.7em;
-        max-width: 300px;
-      }
-
-      @media (min-width: 800px) {
-        margin: 0 10%;
-        max-width: 100%;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 4.3em;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 5.3em;
-        margin: 0 15%;
-      }
-    }
 
     button {
       @media (min-width: 350px) {

@@ -1,11 +1,16 @@
 <template>
   <section class="floatline container-fluid">
-    <div class="floatline--loop">
+    <div class="floatline--loop is__container__img">
       <loop></loop>
     </div>
     <div class="floatline--content">
-      <h1 v-html="content.title"></h1>
-      <h2>{{ content.subtitle }}</h2>
+      <div class="floatline--content--title">
+        <h1>Là où <span>votre rêve</span><br/> prend vie</h1>
+      </div>
+      <div class="floatline--content--subtitle">
+        <p class="subtitle">{{ content.subtitle }}</p>
+        <div class="is__span__outside__h2"></div>
+      </div>
     </div>
     <div class="floatline--slidermobile">
       <div class="is__container__img floatline--slidermobile--firstitem">
@@ -56,29 +61,24 @@ export default {
   background-color: $colorBeige;
   position: relative;
   z-index: 4;
-  @media (min-width: 350px) {
-    padding-top: 8em!important;
-  }
 
   @media (min-width: 800px) {
-    padding-top: 12em!important;
-    height: calc(100vh - 12em);
+    height: 100vh;
   }
 
   &--loop {
+    height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
     z-index: 1;
 
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
-    }
-
     @media (min-width: 350px) {
       top: -80px;
+    }
+
+    @media (min-width: 800px) {
+      left: -40vw;
     }
   }
   
@@ -92,68 +92,48 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
+    height: inherit;
 
-    @media (min-width: 800px) {
+    &--title {
+      margin-top: auto;
+
+      h1 {
+        @media (min-width: 350px) {
+          margin-bottom: 50px;
+        }
+
+        @media (min-width: 800px) {
+          margin: 0 15%;
+        }
+      } 
+    }
+
+    &--subtitle {
       align-items: center;
-      justify-content: space-between;
-      height: inherit;
-    }
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
 
-    h1 {
-      color: $textColor;
-      font-family: $secondTypo;
-      font-weight: 100;
-      font-style: normal;
-      text-align: center;
-      margin: 0;
-
-      span {
-        font-family: $mainTypoNeueBold;
-        display: inline-block;
+      p {
+        @media (min-width: 500px) {
+          margin: 0 50px;
+        }
+        @media (min-width: 800px) {
+          margin: 0 30% 2%;
+          margin-top: auto;
+        }
+  
+        @media (min-width: 1100px) {
+          margin-left: 38%;
+          margin-right: 38%;
+        }
       }
 
-      @media (min-width: 350px) {
-        font-size: 68px;
-        margin-bottom: 50px;
-        line-height: 70px;
-      }
-
-      @media (min-width: 500px) {
-        font-size: 76px;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 5em;
-        margin: 0 15%;
-        line-height: 96px;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 115px;
-        line-height: 115px;
-      }
-    }
-
-    h2 {
-      color: $textColor;
-      font-family: $mainTypo;
-      line-height: 20px;
-      margin: 0;
-      text-align: center;
-
-      @media (min-width: 350px) {
-        font-size: 14px;
-      }
-      @media (min-width: 500px) {
-        margin: 0 50px;
-      }
-      @media (min-width: 800px) {
-        margin: 0 30% 2%;
-      }
-
-      @media (min-width: 1100px) {
-        margin-left: 38%;
-        margin-right: 38%;
+      div {
+        background-color: #EDCDB8;
+        height: 27px;
+        margin-bottom: 2%;
+        width: 1px;
       }
     }
   }
@@ -242,8 +222,8 @@ export default {
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
@@ -255,24 +235,29 @@ export default {
       &--firstitem,
       &--seconditem {
         position: absolute;
-        width: 26%;
-      }
-
-      &--firstitem {
-        bottom: -98px;
         z-index: 3;
       }
 
+      &--firstitem {
+        height: 45vh;
+        bottom: -98px;
+        width: 19%;
+      }
+
       &--seconditem {
+        width: 23%;
         bottom: 0;
-        right: 14px;
+        right: 15px;
+
+        &--overlay {
+          height: 50vh;
+        }
       }
     }
 
     @media (min-width: 1100px) {
-      &--firstitem,
       &--seconditem {
-        width: 20%;
+        right: 50px;
       }
     }
   }

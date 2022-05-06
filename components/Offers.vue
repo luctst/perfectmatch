@@ -3,18 +3,18 @@
     <div
     v-for="(offer, index) in offers"
     :key="index"
-    :class="['offers--item', offer.active ? 'active' : 'inactive']"
-    :style="`border:1px solid ${offer.theme};background-color: ${offer.active ? offer.theme : 'transparent'};`"
+    :class="renderClass(offer.active, index)"
+    :style="`border:1px solid ${offer.colorBorder};background-color:${index === 0 ? offer.theme : 'transparent'};`"
     @mouseenter="offer.active = true"
-    @mouseleave="offer.active = false">
+    @mouseleave="index === 0 ? offer.active = true : offer.active = false">
       <div class="is__container__img">
         <component :is="offer.icon"></component>
       </div>
-      <h4>{{ offer.content[0] }}</h4>
-      <p>{{ offer.content[1] }}</p>
+      <h3 :style="`color:${offer.colorText};`">{{ offer.content[0] }}</h3>
+      <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
       <button
       class="is__btn__secondary"
-      :style="`background-color:${offer.active ? '#FFF' : offer.theme };`">Découvrir</button>
+      :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">Découvrir</button>
     </div>
   </section>
 </template>
@@ -47,7 +47,9 @@ export default {
         },
         {
           active: false,
-          theme: '#CEE4DA',
+          colorBorder: '#AED7C5',
+          theme: '#E0F4EB',
+          colorText: '#2E332A',
           icon: OffersSecond,
           content: [
             'Organisation Partielle',
@@ -56,7 +58,9 @@ export default {
         },
         {
           active: false,
-          theme: '#E8D7EE',
+          colorBorder: '#DDC5E7',
+          theme: '#F8ECFD',
+          colorText: '#3C2A44',
           icon: OffersThird,
           content: [
             'Coordination Jour J',
@@ -66,18 +70,31 @@ export default {
       ],
     };
   },
+  methods: {
+    renderClass(isActive, index) {
+      const d = 'offers--item';
+
+      if (index === 0) {
+        return d.concat(' active');
+      }
+
+      return isActive ? d.concat(' active') : d.concat(' inactive');
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .active {
-  border-top-left-radius: 200px 200px;
-  border-top-right-radius: 200px 200px;
+  border-top-left-radius: 300px 300px;
+  border-top-right-radius: 300px 300px;
 }
 
 .inactive {
-  border-top-left-radius: 200px 200px;
-  border-top-right-radius: 200px 200px;
+  border-top-left-radius: 300px 300px;
+  border-top-right-radius: 300px 300px;
+  border-bottom-left-radius: 300px 300px;
+  border-bottom-right-radius: 300px 300px;
 }
 
 .offers {
@@ -85,10 +102,11 @@ export default {
   display: flex;
   position: relative;
   z-index: 2;
-  padding-bottom: 80px;
 
   @media (min-width: 350px) {
     flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 80px;
   }
 
   @media (min-width: 380px) {
@@ -97,11 +115,8 @@ export default {
 
   @media (min-width: 805px) {
     flex-direction: row;
-    justify-content: space-between;
-  }
-
-  @media (min-width: 1100px) {
-    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 180px;
   }
 
   &--item {
@@ -113,89 +128,49 @@ export default {
 
     div {
       margin: 0 auto;
+
+      @media (min-width: 1600px) {
+        width: 50%;
+      }
     }
 
-    h4,
-    p {
-      color: $textColor;
-      margin: 0;
+    h3 {
       text-align: center;
-    }
 
-    h4 {
-      font-family: $secondTypo;
+      @media (min-width: 800px) {
+        margin-top: 40px;
+      }
     }
 
     p {
-      font-family: $mainTypo;
-      line-height: 20px;
+      margin-bottom: 40px;
+    }
+
+    button {
+      margin-top: 60px;
     }
 
     @media (min-width: 350px) {
       padding: 16% 50px 50px 50px;
-      margin-top: 40px;
-
-      h4 {
-        font-size: 1.39em;
-        margin-top: 12px;
-      }
-
-      p {
-        font-size: 1.02em;
-        margin-top: 20px;
-        margin-bottom: 45px;
-      }
     }
 
     @media (min-width: 415px) {
-      max-width: 335px;
+      width: 335px;
     }
 
     @media (min-width: 805px) {
-      height: 562px;
-      max-height: 562px;
-      max-width: 251px;
-
-      h4 {
-        font-size: 1em;
-      }
-
-      p {
-        font-size: .8em;
-      }
-
-      button {
-        font-size: .7em;
-      }
-    }
-
-    @media (min-width: 903px) {
-      max-width: 280px;
+      width: 30vw;
     }
 
     @media (min-width: 1000px) {
-      max-width: 335px;
-
       &:nth-child(2) {
-        margin-left: 8%;
-        margin-right: 8%;
+        margin-left: 3%;
+        margin-right: 3%;
       }
     }
 
     @media (min-width: 1100px) {
       padding-top: 8%;
-
-      h4 {
-        font-size: 1.3em;
-      }
-
-      p {
-        font-size: .9em;
-      }
-
-      button {
-        font-size: 14px;
-      }
     }
   }
 }

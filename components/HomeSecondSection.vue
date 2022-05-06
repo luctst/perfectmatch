@@ -1,7 +1,7 @@
 <template>
   <section class="agency container-fluid">
     <div class="agency--wrapper--content">
-      <h3>Une agence d’organisation d’<span>évènements</span> privés.</h3>
+      <h2>Une agence d’organisation d’<span>évènements</span> privés.</h2>
       <div>Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
       <button class="is__btn__primary">En savoir plus</button>
     </div>
@@ -22,7 +22,6 @@ export default {
   background-color: $colorWhite;
   display: flex;
   align-items: center;
-  max-height: 50vh;
   position: relative;
   z-index: 2;
 
@@ -35,12 +34,8 @@ export default {
     padding-left: 10%;
   }
 
-  @media (min-width: 800px) {
-    padding-top: 70px;
-  }
-
   @media (min-width: 1000px) {
-    height: 45vh;
+    height: 55vh;
     padding-left: 13%;
   }
 
@@ -50,20 +45,8 @@ export default {
   }
 
   &--wrapper--content {
-    h3 {
-      color: $textColor;
-      font-family: $secondTypo;
-      font-weight: normal;
-      margin: 0;
-      
-      span {
-        display: inline-block;
-        font-family: $mainTypoNeueBold;
-      }
-  
-      @media (min-width: 350px) {
-        font-size: 1.7em;
-      }
+    h2 {
+      text-align: left;
 
       @media (min-width: 400px) {
         width: 90%;
@@ -78,19 +61,14 @@ export default {
       }
 
       @media (min-width: 769px) {
-        font-size: 2.2em;
         width: 63%;
       }
 
       @media (min-width: 800px) {
-        font-size: 3em;
-        width: 80%;
-      }
-
-      @media (min-width: 1100px) {
-        width: 59%;
+        width: 100%;
       }
     }
+
     div {
       color: $textColor;
       font-family: $mainTypo;
@@ -107,7 +85,7 @@ export default {
       }
 
       @media (min-width: 800px) {
-        margin: 40px 0 75px 0;
+        margin: 2vh 0 75px 0;
       }
 
       @media (min-width: 1100px) {

@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="formulasinfos--content">
-      <p>Mariage</p>
-      <h3>The Perfect Match vous propose <span>3 formules</span> pour votre mariage.</h3>
+      <p class="title--tag">Mariage</p>
+      <h2>The Perfect Match vous propose <br/><span>3 formules</span> pour votre mariage.</h2>
     </div>
   </section>
 </template>
@@ -33,6 +33,7 @@ export default {
 
   @media (min-width: 350px) {
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 80px;
 
     &--img {
@@ -43,17 +44,12 @@ export default {
     &--content {
       margin-top: 80px;
       text-align: center;
-
-      h3 {
-        font-size: 1.9em;
-      }
     }
   }
 
   @media (min-width: 662px) {
     &--content {
-      h3 {
-        margin-left: 13%;
+      h2 {
         margin-right: 13%;
       }
     }
@@ -63,6 +59,7 @@ export default {
     margin-top: 0;
     align-items: flex-end;
     flex-direction: row-reverse;
+    padding-top: 0;
 
     &--img {
       max-width: 324px;
@@ -75,12 +72,8 @@ export default {
         margin-top: 0;
       }
 
-      h3 {
-        font-size: 2em;
-        margin-bottom: 0;
-        margin-left: 0;
+      h2 {
         margin-right: 0;
-        text-align: left;
       }
     }
   }
@@ -88,18 +81,6 @@ export default {
   @media (min-width: 828px) {
     &--content {
       margin-top: 0;
-
-      h3 {
-        margin-right: 3%;
-      }
-    }
-  }
-
-  @media (min-width: 950px) {
-    &--content {
-      h3 {
-        font-size: 3em;
-      }
     }
   }
 
@@ -116,10 +97,6 @@ export default {
   @media (min-width: 1100px) {
     &--content {
       margin-bottom: 3.2%;
-
-      h3 {
-        font-size: 3.5em;
-      }
     }
   }
 
@@ -144,25 +121,8 @@ export default {
   }
 
   &--content {
-    p,
-    h3 {
-      color: $textColor;
-    }
-
-    p {
-      font-family: $mainTypo;
-      font-size: 12px;
-      text-transform: uppercase;
-      line-height: 13.8px;
-    }
-
-    h3 {
-      font-family: $secondTypo;
-      margin-top: 15px;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
+    h2 {
+      text-align: left;
     }
   }
 }

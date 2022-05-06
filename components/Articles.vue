@@ -1,9 +1,9 @@
 <template>
   <section class="articles container-fluid">
     <div class="articles--content">
-      <div>Articles</div>
-      <h4>En manque d'<span>inspiration</span></h4>
-      <h4>Envie d'un peu de lecture ?</h4>
+      <div class="title--tag">Articles</div>
+      <h2>En manque d'<span>inspiration</span></h2>
+      <h2>Envie d'un peu de lecture ?</h2>
     </div>
     <div class="articles--items--wrapper">
       <router-link
@@ -84,42 +84,13 @@ export default {
 
   @media (min-width: 800px) {
     padding-top: 160px;
-    padding-bottom: 80px;
+    padding-bottom: 130px;
   }
 
   &--content {
-    div,
-    h4 {
-      color: $textColor;
-      margin: 0;
-    }
-
-    div {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 12px;
-      line-height: 13.8px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    h4 {
-      font-family: $secondTypo;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-      }
-
-      @media (min-width: 500px) {
-        font-size: 2.5em;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 3em;
+    h2:last-of-type {
+      @media (min-width: 800px) {
+        margin-bottom: 100px;
       }
     }
   }
@@ -171,7 +142,7 @@ export default {
       }
 
       @media (min-width: 1100px) {
-        max-width: 335px;
+        max-width: 30vw;
       }
     }
 
@@ -198,6 +169,11 @@ export default {
         &:last-child {
           transform: translateY(-20%);
         }
+      }
+
+      &--item:nth-child(2) {
+        margin-left: 15vw;
+        margin-right: 10vw;
       }
     }
   }

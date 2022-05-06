@@ -1,12 +1,12 @@
 <template>
   <section class="events container-fluid">
-    <div class="events--loop">
+    <div class="events--loop is__container__img">
       <loop-event></loop-event>
     </div>
     <div class="events--content">
-      <div>évènements</div>
-      <h4>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h4>
-      <p><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
+      <div class="title--tag">évènements</div>
+      <h2>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h2>
+      <p class="subtitle"><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
       Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
       <button class="is__btn__secondary">Découvrir</button>
     </div>
@@ -48,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .events {
+  box-sizing: border-box;
   background-color: $colorGreen;
   position: relative;
   z-index: 4;
@@ -69,16 +70,11 @@ export default {
   }
 
   &--loop {
+    height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
     z-index: 1;
-
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
-    }
   }
 
   &--content,
@@ -98,96 +94,38 @@ export default {
 
     @media (min-width: 800px) {
       height: inherit;
-      max-width: 300px;
+      max-width: 45vw;
       margin: 0 auto;
-    }
-
-    @media (min-width: 950px) {
-      max-width: 350px;
-    }
-
-    @media (min-width: 1000px) {
-      max-width: 400px;
-    }
-
-    @media (min-width: 1100px) {
-      max-width: 500px;
+      margin-top: 10vh;
+      padding-left: 5vw;
     }
 
     div,
-    h4,
+    h2,
     p {
-      margin: 0;
+      color: #2E332A;
+      text-align: left;
     }
 
     div {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 12px;
-      line-height: 13.8px;
-      text-transform: uppercase;
-
       @media (min-width: 350px) {
         margin-top: 80px;
       }
-    }
-
-    h4 {
-      color: $textColor;
-      font-family: $secondTypo;
-      line-height: 40px;
-
-      span {
-        font-family: $mainTypoNeueBold;
-        font-weight: 700;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-        margin-top: 15px;
-        margin-bottom: 25px;
-      }
-
-      @media (min-width: 500px) {
-        font-size: 2.5em;
-      }
 
       @media (min-width: 800px) {
-        font-size: 2em;
+        margin-top: 0;
       }
+    }
 
-      @media (min-width: 950px) {
-        font-size: 2.5em;
-        margin-bottom: 40px;
-      }
-
-      @media (min-width: 1000px) {
-        font-size: 3em;
-        line-height: 60px;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 3.5em;
-        line-height: 70px;
+    h2 {
+      @media (min-width: 800px) {
+        margin-bottom: 2vh;
       }
     }
 
     p {
-      color: $textColor;
-      font-family: $mainTypo;
-      line-height: 20px;
-
-      span {
-        font-family: $mainTypoBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 14px;
-        margin-bottom: 40px;
-      }
-
-      @media (min-width: 1000px) {
-        margin-bottom: 60px;
+      @media (min-width: 800px) {
+        margin-bottom: 75px;
       }
     }
   }
@@ -264,6 +202,11 @@ export default {
   }
 
   &--sliderdesktop {
+    &--first,
+    &--second {
+      z-index: 3;
+    }
+
     &--second {
       &--overlay {
         background: transparent; 
@@ -299,7 +242,7 @@ export default {
 
       &--second {
         bottom: -98px;
-        right: 26px;
+        right: 15px;
       }
     }
 
@@ -307,6 +250,10 @@ export default {
       &--first,
       &--second {
         width: 20%;
+      }
+
+      &--second {
+        right: 50px;
       }
     }
   }

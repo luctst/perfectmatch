@@ -37,4 +37,7 @@ export default {
       ? 'http://localhost:1337/api'
       : process.env.APIURL,
   },
+  server: {
+    host: "0.0.0.0"
+  }
 }
