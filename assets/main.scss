@@ -1,10 +1,16 @@
+html {
+  background-color: #FDEADB;
+}
 body {
   background-color: #fff;
   margin: 0;
   padding: 0;
   position: relative;
   z-index: 2;
-  padding-bottom: 100vh;
+  
+  @media (min-width: 800px) {
+    padding-bottom: 100vh;
+  }
 }
 
 /**
@@ -15,6 +21,7 @@ $colorWhite: #FFFF;
 $colorBeige: #FDEADD;
 $colorGreen: #E0F4EB;
 $colorPurple: #E8D7EE;
+$colorSubTitle: #3B2321;
 $textColor: #3B2321;
 $mainTypo: helvetica, sans-serif;
 $mainTypoBold: helvetica-bold, sans-serif;
@@ -71,7 +78,7 @@ h2 {
   }
 
   @media (min-width: 350px) {
-    font-size: 1.9em;
+    font-size: 2.2em;
     font-weight: 400;
     line-height: 40px;
   }
@@ -106,6 +113,10 @@ h3 {
     font-family: $mainTypoNeueBold;
   }
 
+  @media (min-width: 350px) {
+    font-size: 1.8em;
+  }
+
   @media (min-width: 900px) {
     font-size: 2em;
   }
@@ -116,6 +127,21 @@ h3 {
 
   @media (min-width: 1600px) {
     font-size: 3em;
+  }
+}
+
+h4 {
+  font-family: $secondTypo;
+  color: $textColor;
+  font-weight: 100;
+  margin: 0;
+
+  span {
+    font-family: $mainTypoNeueBold;
+  }
+
+  @media (min-width: 350px) {
+    font-size: 1.8em;
   }
 }
 
@@ -192,6 +218,7 @@ Font
 
 .is__btn__secondary {
   @include btnCommon(#FFF);
+  color: #2E332A;
 }
 
 .container-fluid {
@@ -234,6 +261,7 @@ Font
 }
 
 .subtitle {
+  color: $colorSubTitle;
   font-family: $mainTypo;
   font-size: 14px;
   font-weight: 500;
@@ -242,6 +270,10 @@ Font
 
   span {
     font-family: $mainTypoBold;
+  }
+
+  @media (min-width: 350px) {
+    margin-top: 20px;
   }
 }
 

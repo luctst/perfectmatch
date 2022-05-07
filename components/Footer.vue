@@ -67,18 +67,19 @@ div {
   background-color: #F8ECFD;
   box-sizing: border-box;
   display: flex;
-  height: 100vh;
   flex-direction: column;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: -1;
 
   @media (min-width: 350px) {
+    height: auto;
     padding-top: 80px;
   }
 
   @media (min-width: 800px) {
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
     padding-top: 20vh;
     padding-bottom: 45px;
     justify-content: space-evenly;

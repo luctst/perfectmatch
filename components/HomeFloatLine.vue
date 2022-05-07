@@ -61,10 +61,7 @@ export default {
   background-color: $colorBeige;
   position: relative;
   z-index: 4;
-
-  @media (min-width: 800px) {
-    height: 100vh;
-  }
+  height: 100vh;
 
   &--loop {
     height: 100vh;
@@ -94,8 +91,14 @@ export default {
     position: relative;
     height: inherit;
 
+    @media (min-width: 350px) {
+      justify-content: center;
+    }
+
     &--title {
-      margin-top: auto;
+      @media (min-width: 800px) {
+        margin-top: auto;
+      }
 
       h1 {
         @media (min-width: 350px) {
@@ -103,6 +106,7 @@ export default {
         }
 
         @media (min-width: 800px) {
+          margin-top: auto;
           margin: 0 15%;
         }
       } 
@@ -112,7 +116,10 @@ export default {
       align-items: center;
       display: flex;
       flex-direction: column;
-      margin-top: auto;
+
+      @media (min-width: 800px) {
+        margin-top: auto;
+      }
 
       p {
         @media (min-width: 500px) {
@@ -160,8 +167,7 @@ export default {
 
     @media (min-width: 350px) {
       display: flex;
-      margin-top: 60px;
-      transform: translateY(11%);
+      transform: translateY(-15vh);
 
       &--firstitem {
         margin-right: 20px;

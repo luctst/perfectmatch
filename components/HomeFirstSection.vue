@@ -38,8 +38,8 @@ export default {
   z-index: 2;
 
   @media (min-width: 350px) {
-    padding-top: 120px;
-    height: 70vh;
+    padding-top: 45vh;
+    height: auto;
   }
 
   @media (min-width: 800px) {
@@ -65,12 +65,25 @@ export default {
   &--circle {
     position: relative;
 
-    div {
-      position: absolute;
-      top: 8vh;
-      left: 0;
+    @media (min-width: 350px) {
+      margin-top: 60px;
+      order: 2;
+    }
 
-      @media (min-width: 1600px) {
+    @media (min-width: 800px) {
+      margin-top: 0;
+    }
+
+    div {
+      @media (min-width: 350px) {
+        margin: 0 auto;
+        width: 70vw;
+      }
+
+      @media (min-width: 800px) {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 16vw;
       }
     }
@@ -79,6 +92,10 @@ export default {
   &--content {
     display: flex;
     justify-content: center;
+
+    @media (min-width: 350px) {
+      order: 1;
+    }
 
     p {
       @media (min-width: 800px) {

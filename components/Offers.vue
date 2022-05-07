@@ -93,8 +93,11 @@ export default {
 .inactive {
   border-top-left-radius: 300px 300px;
   border-top-right-radius: 300px 300px;
-  border-bottom-left-radius: 300px 300px;
-  border-bottom-right-radius: 300px 300px;
+
+  @media (min-width: 800px) {
+    border-bottom-left-radius: 300px 300px;
+    border-bottom-right-radius: 300px 300px;
+  }
 }
 
 .offers {
@@ -147,7 +150,13 @@ export default {
     }
 
     button {
-      margin-top: 60px;
+      @media (min-width: 350px) {
+        margin-top: 30px;
+      }
+
+      @media (min-width: 800px) {
+        margin-top: 60px;
+      }
     }
 
     @media (min-width: 350px) {
@@ -167,6 +176,10 @@ export default {
         margin-left: 3%;
         margin-right: 3%;
       }
+    }
+
+    @media (min-width: 350px) {
+      margin-top: 40px;
     }
 
     @media (min-width: 1100px) {

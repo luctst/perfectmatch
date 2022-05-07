@@ -20,8 +20,8 @@
           <img :src="article.cover"/>
         </div>
         <div class="articles--items--wrapper--item--content">
-          <h5>{{ article.title }}</h5>
-          <p>{{ article.subTitle }}</p>
+          <h4>{{ article.title }}</h4>
+          <p class="subtitle">{{ article.subTitle }}</p>
         </div>
       </router-link>
     </div>
@@ -67,7 +67,7 @@ export default {
 
 <style lang="scss" scoped>
 .active {
-  h5 {
+  h4 {
     text-decoration: underline;
     text-decoration-color: #EDCDB8;
   }
@@ -79,7 +79,8 @@ export default {
   z-index: 2;
 
   @media (min-width: 350px) {
-    padding-top: 80px;
+    padding-top: 110px;
+    padding-bottom: 80px;
   }
 
   @media (min-width: 800px) {
@@ -101,25 +102,6 @@ export default {
     &--item {
       display: inline-block;
       text-decoration: none;
-
-      &--content {
-        h5 {
-          color: $textColor;
-          font-family: $secondTypo;
-          line-height: 30px;
-          font-size: 1.5em;
-          font-weight: 100;
-          margin-top: 24px;
-          margin-bottom: 15px;
-        }
-
-        p {
-          color: $textColor;
-          font-family: $mainTypo;
-          line-height: 20px;
-          font-size: 14px;
-        }
-      }
 
       @media (min-width: 415px) {
         max-width: 335px;
@@ -144,6 +126,17 @@ export default {
       @media (min-width: 1100px) {
         max-width: 30vw;
       }
+
+      &--content {
+        h4 {
+          margin-top: 20px;
+        }
+
+        p {
+          text-align: left;
+          margin-top: 15px;
+        }
+      }
     }
 
     @media (min-width: 350px) {
@@ -152,7 +145,7 @@ export default {
       margin-top: 50px;
 
       &--item:not(:first-child) {
-        margin-top: 36px;
+        margin-top: 50px;
       }
     }
 

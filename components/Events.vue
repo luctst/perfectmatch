@@ -53,11 +53,8 @@ export default {
   position: relative;
   z-index: 4;
 
-  @media (min-width: 350px) {
-    padding-top: 80px;
-  }
-
   @media (min-width: 800px) {
+    padding-top: 80px;
     height: 75vh;
   }
 
@@ -128,6 +125,16 @@ export default {
         margin-bottom: 75px;
       }
     }
+
+    button {
+      @media (min-width: 350px) {
+        margin-top: 40px;
+      }
+
+      @media (min-width: 800px) {
+        margin-top: 0;
+      }
+    }
   }
 
   &--slidermobile {
@@ -152,7 +159,7 @@ export default {
 
     @media (min-width: 350px) {
       display: flex;
-      margin-top: 60px;
+      margin-top: 40px;
       transform: translateY(11%);
 
       &--first {

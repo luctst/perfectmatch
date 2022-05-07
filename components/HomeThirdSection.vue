@@ -4,13 +4,13 @@
       <div class="is__container__img formulasinfos--img--container">
         <img src="~/assets/img/flower.jpg">
       </div>
-      <div class="formulasinfos--img--content">
-        Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget. <span>A vous de choisir la formule qui vous correspond le mieux !</span>
+      <div class="formulasinfos--img--content subtitle">
+        Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget.<br/><span>A vous de choisir la formule qui vous correspond le mieux !</span>
       </div>
     </div>
     <div class="formulasinfos--content">
       <p class="title--tag">Mariage</p>
-      <h2>The Perfect Match vous propose <br/><span>3 formules</span> pour votre mariage.</h2>
+      <h2>The Perfect Match vous propose <br class="is__return__line"/><span>3 formules</span> pour votre mariage.</h2>
     </div>
   </section>
 </template>
@@ -25,6 +25,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__return__line {
+  @media (min-width: 350px) {
+    display: none;
+  }
+
+  @media (min-width: 800px) {
+    display: block;
+  }
+}
+
 .formulasinfos {
   background-color: $colorWhite;
   display: flex;
@@ -43,7 +53,6 @@ export default {
 
     &--content {
       margin-top: 80px;
-      text-align: center;
     }
   }
 
@@ -106,17 +115,7 @@ export default {
     }
 
     &--content {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 14px;
-      line-height: 20px;
-      margin: 0;
-      margin-top: 25px;
-
-      span {
-        display: inline-block;
-        font-family: $mainTypoBold;
-      }
+      text-align: left;
     }
   }
 

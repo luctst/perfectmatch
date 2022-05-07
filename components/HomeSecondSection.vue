@@ -2,7 +2,7 @@
   <section class="agency container-fluid">
     <div class="agency--wrapper--content">
       <h2>Une agence d’organisation d’<span>évènements</span> privés.</h2>
-      <div>Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
+      <div class="subtitle">Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
       <button class="is__btn__primary">En savoir plus</button>
     </div>
   </section>
@@ -70,13 +70,10 @@ export default {
     }
 
     div {
-      color: $textColor;
-      font-family: $mainTypo;
-      margin: 0;
-  
+      text-align: left;
+
       @media (min-width: 350px) {
-        font-size: 14px;
-        margin: 25px 0 40px 0;
+        margin-bottom: 40px;
         line-height: 20px;
       }
 
