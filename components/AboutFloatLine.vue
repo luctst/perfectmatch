@@ -4,9 +4,9 @@
       <loop></loop>
     </div>
     <div class="floatline--title">
-      <h1>La bienveillance, l'écoute et le <span>sur-mesure</span></h1>
+      <h1>La bienveillance, l'écoute <br class="is__return__line"/>et le <span>sur-mesure</span></h1>
       <div class="floatline--title--extra">
-        <h2>Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</h2>
+        <div class="subtitle">Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</div>
         <span class="is__span__outside__h2"></span>
       </div>
     </div>
@@ -32,6 +32,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__return__line {
+  @media (min-width: 350px) {
+    display: none;
+  }
+
+  @media (min-width: 920px) {
+    display: block;
+  }
+}
+
 .floatline {
   background-color: $colorBeige;
   position: relative;
@@ -42,7 +52,7 @@ export default {
     height: calc(100vh);
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     padding-top: 12em!important;
     height: calc(100vh - 12em);
   }
@@ -69,55 +79,20 @@ export default {
 
   &--title {
     h1 {
-      color: $textColor;
-      font-family: $secondTypo;
-      font-weight: 100;
-      font-style: normal;
-      margin: 0;
-
-      span {
-        font-family: $mainTypoNeueBold;
-        display: inline-block;
-      }
-
       @media (min-width: 350px) {
-        font-size: 68px;
         margin-bottom: 50px;
         text-align: center;
-        line-height: 70px;
       }
 
-      @media (min-width: 500px) {
-        font-size: 76px;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 4.5em;
-        line-height: 70px;
+      @media (min-width: 920px) {
         text-align: left;
         margin-bottom: 0;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 6.5em;
-        line-height: 115px;
       }
     }
 
     &--extra {
-      h2 {
-        color: $textColor;
-        font-family: $mainTypo;
-        line-height: 20px;
-        margin: 0;
-
-        span {
-          font-family: $mainTypoNeueBold;
-          display: inline-block;
-        }
-
+      div {
         @media (min-width: 350px) {
-          font-size: 14px;
           text-align: center;
           margin-bottom: 16px;
         }
@@ -127,10 +102,10 @@ export default {
         @media (min-width: 550px) {
           margin: 0 15% 16px 15%;
         }
-        @media (min-width: 800px) {
+        @media (min-width: 920px) {
           text-align: left;
           margin: 0 0 16px 0;
-          max-width: 350px;
+          max-width: 315px;
         }
       }
 
@@ -149,7 +124,7 @@ export default {
         flex-direction: column;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         align-items: flex-start;
         margin-bottom: 8%;
       }
@@ -163,7 +138,7 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -197,13 +172,23 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       justify-content: flex-end;
       transform: translateY(-80%);
+
+      div {
+        max-width: 35vw;
+      }
     }
 
     @media (min-width: 1100px) {
       transform: translateY(-60%);
+    }
+
+    @media (min-width: 1600px) {
+      div {
+        max-width: 40vw;
+      }
     }
   }
 }

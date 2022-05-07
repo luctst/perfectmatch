@@ -53,7 +53,7 @@ export default {
   position: relative;
   z-index: 4;
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     padding-top: 80px;
     height: 75vh;
   }
@@ -89,7 +89,7 @@ export default {
       align-items: flex-start;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       height: inherit;
       max-width: 45vw;
       margin: 0 auto;
@@ -109,19 +109,19 @@ export default {
         margin-top: 80px;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: 0;
       }
     }
 
     h2 {
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-bottom: 2vh;
       }
     }
 
     p {
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-bottom: 75px;
       }
     }
@@ -131,7 +131,7 @@ export default {
         margin-top: 40px;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: 0;
       }
     }
@@ -203,7 +203,7 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: none;
     }
   }
@@ -233,7 +233,7 @@ export default {
       display: none;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
 
       &--first,

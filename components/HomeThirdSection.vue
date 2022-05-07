@@ -30,7 +30,7 @@ export default {
     display: none;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     display: block;
   }
 }
@@ -64,7 +64,7 @@ export default {
     }
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     margin-top: 0;
     align-items: flex-end;
     flex-direction: row-reverse;

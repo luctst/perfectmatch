@@ -42,7 +42,7 @@ export default {
     height: auto;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     padding-top: 170px;
     height: 85vh;
   }
@@ -70,7 +70,7 @@ export default {
       order: 2;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       margin-top: 0;
     }
 
@@ -80,7 +80,7 @@ export default {
         width: 70vw;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         position: absolute;
         top: 0;
         left: 0;
@@ -98,7 +98,7 @@ export default {
     }
 
     p {
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: 5vh;
         max-width: 30%;
       }

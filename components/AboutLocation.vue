@@ -4,11 +4,11 @@
       <location-loop></location-loop>
     </div>
     <div class="location--title">
-      <div>L'agence est flexbile</div>
-      <h3>Basée entre <span>Bordeaux et Paris</span></h3>
+      <div class="title--tag">L'agence est flexbile</div>
+      <h2>Basée entre <span>Bordeaux et Paris</span></h2>
     </div>
     <div class="location--subtitle">
-      <p><span>L'agence se déplace autour de Bordeaux, en passant par son littoral et ses châteaux mais également au sein même de la capitale et de ses proches banlieues.</span> Notre valeur ajoutée ? Organiser vos événements sur Paris et alentour, grâce à notre réseau, mais aussi vous faire découvrir notre région Bordelaise en vous proposant des mariages insolites au cœur de nos vignes et châteaux ou au bord de nos jolies plages.</p>
+      <p class="subtitle"><span>L'agence se déplace autour de Bordeaux, en passant par son littoral et ses châteaux mais également au sein même de la capitale et de ses proches banlieues.</span> Notre valeur ajoutée ? Organiser vos événements sur Paris et alentour, grâce à notre réseau, mais aussi vous faire découvrir notre région Bordelaise en vous proposant des mariages insolites au cœur de nos vignes et châteaux ou au bord de nos jolies plages.</p>
     </div>
     <div class="location--illu">
       <div class="is__container__img">
@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .location {
+  box-sizing: border-box;
   background-color: $colorGreen;
   position: relative;
   z-index: 3;
@@ -46,68 +47,45 @@ export default {
 
   @media (min-width: 1000px) {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 15vh;
   } 
 
+  @media (min-width: 1600px) {
+    padding-top: 20vh;
+  }
+
   &--loop {
+    height: 100vh;
     position: absolute;
     z-index: 1;
+
+    svg {
+      height: 100%;
+    }
 
     @media (min-width: 350px) {
       top: -350px;
       right: 0;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       bottom: 0;
       top: 0;
       left: 0;
-    }
-
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
     }
   }
 
   &--title {
     div {
-      font-family: $mainTypo;
-      font-size: 12px;
-      text-transform: uppercase;
-      line-height: 13.8px;
+      color: #2E332A;
       margin-bottom: 15px;
     }
 
-    h3 {
-      font-family: $secondTypo;
-      line-height: 40px;
-      font-weight: 100;
-      margin: 0;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 3em;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 3.5em;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 4em;
-      }
+    h2 {
+      color: #2E332A;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       align-items: center;
       display: flex;
       flex-direction: column;
@@ -116,19 +94,11 @@ export default {
 
   &--subtitle {
     p {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 14px;
-      line-height: 20px;
-      margin: 0;
+      color: #2E332A;
 
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         text-align: center;
-        margin: 0 15%;
+        margin: 0 25%;
       }
     }
 
@@ -136,7 +106,7 @@ export default {
       margin: 25px 0 50px 0;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       margin: 40px 0 80px 0;
     }
   }

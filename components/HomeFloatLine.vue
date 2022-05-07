@@ -74,7 +74,7 @@ export default {
       top: -80px;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       left: -40vw;
     }
   }
@@ -96,7 +96,7 @@ export default {
     }
 
     &--title {
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: auto;
       }
 
@@ -105,7 +105,7 @@ export default {
           margin-bottom: 50px;
         }
 
-        @media (min-width: 800px) {
+        @media (min-width: 920px) {
           margin-top: auto;
           margin: 0 15%;
         }
@@ -117,7 +117,7 @@ export default {
       display: flex;
       flex-direction: column;
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: auto;
       }
 
@@ -125,7 +125,7 @@ export default {
         @media (min-width: 500px) {
           margin: 0 50px;
         }
-        @media (min-width: 800px) {
+        @media (min-width: 920px) {
           margin: 0 30% 2%;
           margin-top: auto;
         }
@@ -210,7 +210,7 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: none;
     }
   }
@@ -235,7 +235,7 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: block;
 
       &--firstitem,

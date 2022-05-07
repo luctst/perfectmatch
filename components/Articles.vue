@@ -83,14 +83,14 @@ export default {
     padding-bottom: 80px;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     padding-top: 160px;
     padding-bottom: 130px;
   }
 
   &--content {
     h2:last-of-type {
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-bottom: 100px;
       }
     }
@@ -111,7 +111,7 @@ export default {
         max-width: 400px;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         max-width: 240px;
       }
 
@@ -149,7 +149,7 @@ export default {
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       align-items: flex-start;
       flex-direction: row;
       justify-content: space-between;
@@ -178,7 +178,7 @@ export default {
       display: none;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
       justify-content: center;
     }

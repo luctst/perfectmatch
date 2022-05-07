@@ -124,7 +124,7 @@ export default {
   text-decoration: none;
   line-height: 13.8px;
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     font-size: 12px;
   }
 
@@ -151,7 +151,7 @@ export default {
     @media (min-width: 350px) {
       display: none;
     }
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
 
       &--nav {
@@ -260,7 +260,7 @@ export default {
         }
       }
     }
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: none;
     }
   }

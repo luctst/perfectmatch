@@ -64,7 +64,7 @@ export default {
         width: 63%;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         width: 100%;
       }
     }
@@ -81,7 +81,7 @@ export default {
         width: 58%;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin: 2vh 0 75px 0;
       }
 

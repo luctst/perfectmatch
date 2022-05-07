@@ -94,7 +94,7 @@ export default {
   border-top-left-radius: 300px 300px;
   border-top-right-radius: 300px 300px;
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     border-bottom-left-radius: 300px 300px;
     border-bottom-right-radius: 300px 300px;
   }
@@ -140,7 +140,7 @@ export default {
     h3 {
       text-align: center;
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: 40px;
       }
     }
@@ -154,7 +154,7 @@ export default {
         margin-top: 30px;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         margin-top: 60px;
       }
     }

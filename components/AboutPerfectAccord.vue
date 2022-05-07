@@ -6,10 +6,10 @@
       </div>
     </div>
     <div class="accord--content">
-      <div>Pourquoi The Perfect Match ?</div>
-      <h3>The Perfect Match</h3>
-      <h3>C'est <span>l'accord parfait</span></h3>
-      <p>L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
+      <div class="title--tag">Pourquoi The Perfect Match ?</div>
+      <h2>The Perfect Match</h2>
+      <h2>C'est <span>l'accord parfait</span></h2>
+      <p class="subtitle">L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
     </div>
   </section>
 </template>
@@ -35,11 +35,11 @@ export default {
     padding-top: 80px;
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     flex-direction: row;
     align-items: center;
-    padding-top: 160px;
-    padding-bottom: 120px;
+    padding-top: 180px;
+    padding-bottom: 180px;
   }
 
   &--picture {
@@ -51,7 +51,7 @@ export default {
       margin: 0 auto;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       div {
         max-width: none;
       }
@@ -60,48 +60,10 @@ export default {
 
   &--content {
     div {
-      font-family: $mainTypo;
-      font-size: 12px;
-      text-transform: uppercase;
-      line-height: 13.8px;
       margin-bottom: 15px;
     }
 
-    h3 {
-      font-family: $secondTypo;
-      line-height: 40px;
-      font-weight: 100;
-      margin: 0;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 3em;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 3.5em;
-        line-height: 56px;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 4em;
-      }
-    }
-
     p {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 14px;
-      line-height: 20px;
-      margin: 0;
-
       @media (min-width: 350px) {
         margin-top: 25px;
       }
@@ -111,7 +73,8 @@ export default {
         margin-right: 12%;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
+        text-align: left;
         margin-left: 0;
         margin-top: 40px;
       }
@@ -123,7 +86,7 @@ export default {
       text-align: center;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       text-align: left;
       margin-left: 6%;
       margin-top: 0;
