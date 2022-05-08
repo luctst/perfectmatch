@@ -6,6 +6,7 @@
     <about-certif :content="{}"></about-certif>
     <about-location :content="{}"></about-location>
     <about-accord :content="{}"></about-accord>
+    <about-event :content="{}"></about-event>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
@@ -17,6 +18,7 @@ import AboutWhoIam from '~/components/AboutWhoIam.vue';
 import AboutCertif from '~/components/AboutCertif.vue';
 import AboutLocation from '~/components/AboutLocation.vue';
 import AboutAccord from '~/components/AboutPerfectAccord.vue';
+import AboutEvent from '~/components/AboutEvent.vue';
 import FooterVue from '~/components/Footer.vue';
 
 export default {
@@ -27,7 +29,8 @@ export default {
     AboutCertif,
     AboutLocation,
     AboutAccord,
-    'footer-vue': FooterVue,
+    AboutEvent,
+    'footer-vue': FooterVue
   },
   layout: 'default',
   props: {
