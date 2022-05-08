@@ -17,6 +17,24 @@
                   :class="menuList[i].active && 'menu__dropdown__open'"></dropdown-menu>
                 </div>
               </div>
+              <div v-if="menuList[i].active" class="is__menu__dropdown__open container-fluid">
+                <router-link
+                class="menu--dropdown--item"
+                v-for="(itemDp, index) in item.dropdown"
+                :key="index"
+                :to="itemDp.href">
+                  <div
+                  :style="`border: 1px solid ${itemDp.borderColor};`"
+                  class="menu--dropdown--item--inner">
+                    <div class="menu--dropdown--item--inner--icon is__container__img">
+                      <component :is="itemDp.icon"></component>
+                    </div>
+                    <h3>
+                      {{ itemDp.content }}
+                    </h3>
+                  </div>
+                </router-link>
+              </div>
             </div>
             <div
             v-else-if="item.isBtn">
@@ -55,6 +73,9 @@
 import Logo from '~/assets/img/logo.svg?inline';
 import MenuBurger from '~/assets/img/menuburger.svg?inline';
 import DropdownMenu from '~/assets/img/dropdownmenu.svg?inline';
+import OffersFirst from '~/assets/img/offers-first.svg?inline';
+import flower2 from '~/assets/img/flower-2.svg?inline';
+import Flower3 from '~/assets/img/flower-3.svg?inline';
 
 export default {
   name: 'HeaderVue',
@@ -62,6 +83,9 @@ export default {
     Logo,
     MenuBurger,
     DropdownMenu,
+    OffersFirst,
+    flower2,
+    Flower3,
   },
   data() {
     return {
@@ -74,7 +98,26 @@ export default {
         {
           content: 'Mariage',
           active: false,
-          dropdown: [],
+          dropdown: [
+            {
+              content: 'Organisation Complète',
+              icon: OffersFirst,
+              href: '',
+              borderColor: '#FDEADD',
+            },
+            {
+              content: 'Organisation Partielle',
+              icon: flower2,
+              href: '/portfolio',
+              borderColor: '#E0F4EB',
+            },
+            {
+              content: 'Coordination Jour J',
+              icon: Flower3,
+              href: '',
+              borderColor: '#F8ECFD',
+            },
+          ],
         },
         {
           content: 'Evenements',
@@ -116,6 +159,45 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__menu__dropdown__open {
+  background-color: $colorWhite;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  align-items: center;
+  display: flex;
+
+  .menu--dropdown--item {
+    text-decoration: none;
+    display: inline-block;
+
+    &:nth-child(2) {
+      margin: 0 16px;
+    }
+
+    &--inner {
+      border-radius: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px 15px 25px;
+
+      &--icon {
+        margin-right: 16px;
+        width: 14%;
+      }
+    }
+  }
+
+
+  @media (min-width: 920px) {
+    height: 30vh;
+  }
+}
+
 .is__menu__link {
   color: $textColor;
   font-family: $mainTypo;
