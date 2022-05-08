@@ -190,6 +190,12 @@ export default {
         max-width: 40vw;
       }
     }
+
+    @media (min-width: 1720px) {
+      div {
+        max-width: 25vw;
+      }
+    }
   }
 }
 </style>
