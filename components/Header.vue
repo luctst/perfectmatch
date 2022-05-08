@@ -194,7 +194,7 @@ export default {
 
 
   @media (min-width: 920px) {
-    height: 30vh;
+    height: calc(30vh + 100px);
   }
 }
 
