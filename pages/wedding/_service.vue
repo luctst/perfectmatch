@@ -1,5 +1,5 @@
 <template>
-  <section class="wedding--service">
+  <section class="wedding">
     <header-vue></header-vue>
   </section>
 </template>

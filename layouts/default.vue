@@ -37,6 +37,10 @@ export default {
         path: '/about',
         apiRoutes: 'about',
       },
+      {
+        path: 'wedding/complete',
+        apiRoutes: 'weddingcomplete',
+      },
     ];
     const routesToFetch = d.find((r) => r.path === this.$route.path);
     const populate = (await this.$axios.$get('/content-type-builder/components'))
