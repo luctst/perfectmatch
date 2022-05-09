@@ -102,19 +102,19 @@ export default {
             {
               content: 'Organisation Complète',
               icon: OffersFirst,
-              href: '',
+              href: '/wedding/complete',
               borderColor: '#FDEADD',
             },
             {
               content: 'Organisation Partielle',
               icon: flower2,
-              href: '/portfolio',
+              href: '/wedding/partial',
               borderColor: '#E0F4EB',
             },
             {
               content: 'Coordination Jour J',
               icon: Flower3,
-              href: '',
+              href: '/wedding/dday',
               borderColor: '#F8ECFD',
             },
           ],
