@@ -9,7 +9,7 @@
     <template v-else>
       <nuxt-child
       :content="content"
-      :baseApiUrl="baseApiUrl"
+      :base-api-url="baseApiUrl"
       keep-alive />
     </template>
   </section>
@@ -28,35 +28,47 @@ export default {
     };
   },
   async fetch() {
-    const d = [
-      {
-        path: '/',
-        apiRoutes: 'accueil',
-      },
-      {
-        path: '/about',
-        apiRoutes: 'about',
-      },
-      {
-        path: 'wedding/complete',
-        apiRoutes: 'weddingcomplete',
-      },
-    ];
-    const routesToFetch = d.find((r) => r.path === this.$route.path);
-    const populate = (await this.$axios.$get('/content-type-builder/components'))
-    .data
-    .filter((c) => c.category === routesToFetch.apiRoutes)
-    .reduce(
-      (prev, next) => {
-        prev.populate[next.apiId] = { populate: '*' };
-        return prev;
-      },
-      { populate: {}}
-    );
-    const query = qs.stringify(populate, { encodeValuesOnly: true });
-
-    this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
-    )).data.attributes;
+    await this.fetchRouteContent();
+  },
+  watch: {
+    async $route() {
+      await this.fetchRouteContent();
+    }
+  },
+  methods: {
+    async fetchRouteContent() {
+      const d = [
+        {
+          path: '/',
+          apiRoutes: 'accueil',
+          compoCategory: 'accueil',
+        },
+        {
+          path: '/about',
+          apiRoutes: 'about',
+          compoCategory: 'about',
+        },
+        {
+          path: '/wedding/complete',
+          apiRoutes: 'wedding-complete',
+          compoCategory: 'wedding',
+        },
+      ];
+      const routesToFetch = d.find((r) => r.path === this.$route.path);
+      const populate = (await this.$axios.$get('/content-type-builder/components'))
+      .data
+      .filter((c) => c.category === routesToFetch.compoCategory)
+      .reduce(
+        (prev, next) => {
+          prev.populate[next.apiId] = { populate: '*' };
+          return prev;
+        },
+        { populate: {}}
+      );
+      const query = qs.stringify(populate, { encodeValuesOnly: true });
+      this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
+      )).data.attributes;
+    },
   },
 };
 </script>

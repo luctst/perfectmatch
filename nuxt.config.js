@@ -32,7 +32,7 @@ export default {
     scss: ['@/assets/main.scss']
   },
   axios: {
-    credentials: true,
+    // credentials: true,
     baseUrl: process.env.NODE_ENV === 'development'
       ? 'http://localhost:1337/api'
       : process.env.APIURL,
