@@ -23,18 +23,6 @@ export default {
   components: {
     Loop,
   },
-  created() {
-    const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
-
-    switch (this.$route.path) {
-      case '/wedding/complete':
-        this.theme = themes[0];
-        this.icon = OffersFirst;
-        break;
-      default:
-        break;
-    }
-  },
   props: {
     content: {
       type: [Object, Boolean],
@@ -46,6 +34,18 @@ export default {
       theme: '',
       icon: null,
     };
+  },
+  created() {
+    const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
+
+    switch (this.$route.path) {
+      case '/wedding/complete':
+        this.theme = themes[0];
+        this.icon = OffersFirst;
+        break;
+      default:
+        break;
+    }
   },
 }
 </script>
