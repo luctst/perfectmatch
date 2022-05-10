@@ -4,7 +4,7 @@
       <loop-footer></loop-footer>
     </div>
     <div class="footer--title">
-      <h1>Prêts à rejoindre l'expérience<br/> The Perfect <span>Match</span> ?</h1>
+      <h2 class="is__h1">Prêts à rejoindre l'expérience<br/> The Perfect <span>Match</span> ?</h2>
       <button class="is__btn__secondary">Contactez-nous</button>
     </div>
     <div class="footer--contact">
@@ -75,18 +75,22 @@ div {
   }
 
   @media (min-width: 920px) {
-    height: 100vh;
+    min-height: 100vh;
     position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: 100%;
     z-index: -1;
-    padding-top: 20vh;
     padding-bottom: 45px;
     justify-content: space-evenly;
   }
 
   @media (min-width: 1000px) {
     justify-content: flex-start;
+  }
+
+  @media (min-width: 1800px) {
+    padding-top: 25vh;
   }
 
   &--loop {
@@ -111,6 +115,10 @@ div {
     @media (min-width: 350px) {
       align-items: center;
     }
+
+    @media (min-width: 1100px) {
+      margin-top: 5rem;
+    }
   }
 
   &--contact {
@@ -122,6 +130,7 @@ div {
       align-items: flex-end;
       display: flex;
       justify-content: space-between;
+      margin-top: 1rem;
     }
 
     @media (min-width: 1000px) {

@@ -1,33 +1,35 @@
 <template>
-  <section class="articles container-fluid">
-    <div class="articles--content">
-      <div class="title--tag">Articles</div>
-      <h2>En manque d'<span>inspiration</span></h2>
-      <h2>Envie d'un peu de lecture ?</h2>
-    </div>
-    <div class="articles--items--wrapper">
-      <router-link
-       v-for="(article, index) in articles"
-      :id="index"
-      :key="index"
-      :class="['articles--items--wrapper--item', article.active && 'active']"
-      to="/"
-      @mouseenter.native="article.active = true"
-      @mouseleave.native="article.active = false">
-        <div
-        :style="`:hover { cursor: ${cursorUrl};}`"
-        class="is__container__img articles--items--wrapper--item--img">
-          <img :src="article.cover"/>
-        </div>
-        <div class="articles--items--wrapper--item--content">
-          <h4>{{ article.title }}</h4>
-          <p class="subtitle">{{ article.subTitle }}</p>
-        </div>
-      </router-link>
-    </div>
-    <div class="articles--actions">
-      <button class="is__btn__primary">Voir plus</button>
-    </div>
+  <section class="articles--wrapper">
+    <section class="articles container-fluid">
+      <div class="articles--content">
+        <div class="title--tag">Articles</div>
+        <h2>En manque d'<span>inspiration</span></h2>
+        <h2>Envie d'un peu de lecture ?</h2>
+      </div>
+      <div class="articles--items--wrapper">
+        <router-link
+        v-for="(article, index) in articles"
+        :id="index"
+        :key="index"
+        :class="['articles--items--wrapper--item', article.active && 'active']"
+        to="/"
+        @mouseenter.native="article.active = true"
+        @mouseleave.native="article.active = false">
+          <div
+          :style="`:hover { cursor: ${cursorUrl};}`"
+          class="is__container__img articles--items--wrapper--item--img">
+            <img :src="article.cover"/>
+          </div>
+          <div class="articles--items--wrapper--item--content">
+            <h4>{{ article.title }}</h4>
+            <p class="subtitle">{{ article.subTitle }}</p>
+          </div>
+        </router-link>
+      </div>
+      <div class="articles--actions">
+        <button class="is__btn__primary">Voir plus</button>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -73,8 +75,11 @@ export default {
   }
 }
 
-.articles {
+.articles--wrapper {
   background-color: $colorWhite;
+}
+
+.articles {
   position: relative;
   z-index: 2;
 
@@ -165,8 +170,15 @@ export default {
       }
 
       &--item:nth-child(2) {
-        margin-left: 15vw;
-        margin-right: 10vw;
+        margin-left: 10vw;
+        margin-right: 6vw;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      &--item:nth-child(2) {
+        margin-left: 10vw;
+        margin-right: 6vw;
       }
     }
   }

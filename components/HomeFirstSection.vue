@@ -1,18 +1,20 @@
 <template>
-  <section class="gettingmaried container-fluid">
-    <div class="gettingmaried--title">
-      <h2>Vous allez <span>vous marier</span> ?</h2>
-      <h2>La demande tant attendue est arrivée ? </h2>
-      <h2>Con-gra-tu-la-tion !</h2>
-    </div>
-    <div class="gettingmaried--circle">
-      <div class="is__container__img">
-        <logo-circle></logo-circle>
+  <section class="gettingmaried--wrapper">
+    <section class="gettingmaried container-fluid">
+      <div class="gettingmaried--title">
+        <h2>Vous allez <span>vous marier</span> ?</h2>
+        <h2>La demande tant attendue est arrivée ? </h2>
+        <h2>Con-gra-tu-la-tion !</h2>
       </div>
-    </div>
-    <div class="gettingmaried--content">
-      <p class="subtitle">Si vous êtes ici, c'est sûrement que vous vous posez quelques questions à propos de l l'organisation de votre grand jour. <br/><span>Alors vous êtes au bon endroit !</span></p>
-    </div>
+      <div class="gettingmaried--circle">
+        <div class="is__container__img">
+          <logo-circle></logo-circle>
+        </div>
+      </div>
+      <div class="gettingmaried--content">
+        <p class="subtitle">Si vous êtes ici, c'est sûrement que vous vous posez quelques questions à propos de l l'organisation de votre grand jour. <br/><span>Alors vous êtes au bon endroit !</span></p>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -30,25 +32,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gettingmaried {
+.gettingmaried--wrapper {
   background-color: $colorWhite;
+}
+
+.gettingmaried {
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
 
   @media (min-width: 350px) {
-    padding-top: 45vh;
+    padding-top: 13rem;
     height: auto;
+  }
+
+  @media (min-width: 550px) {
+    padding-top: 17rem;
+  }
+
+  @media (min-width: 650px) {
+    padding-top: 20rem;
+  }
+
+  @media (min-width: 800px) {
+    padding-top: 23rem;
   }
 
   @media (min-width: 920px) {
     padding-top: 170px;
-    height: 85vh;
-  }
-
-  @media (min-width: 840px) {
-    padding-top: 200px;
+    height: auto;
   }
 
   &--title {
@@ -80,10 +93,13 @@ export default {
         width: 70vw;
       }
 
+      @media (min-width: 500px) {
+        width: 50vw;
+        max-width: 20rem;
+      }
+
       @media (min-width: 920px) {
-        position: absolute;
-        top: 0;
-        left: 0;
+        margin: 0;
         width: 16vw;
       }
     }
@@ -98,6 +114,10 @@ export default {
     }
 
     p {
+      @media (min-width: 500px) {
+        max-width: 70%;
+      }
+
       @media (min-width: 920px) {
         margin-top: 5vh;
         max-width: 30%;
@@ -107,7 +127,6 @@ export default {
         max-width: 25%;
       }
     }
-
   }
 }
 </style>

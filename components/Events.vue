@@ -1,35 +1,37 @@
 <template>
-  <section class="events container-fluid">
-    <div class="events--loop is__container__img">
-      <loop-event></loop-event>
-    </div>
-    <div class="events--content">
-      <div class="title--tag">évènements</div>
-      <h2>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h2>
-      <p class="subtitle"><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
-      Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
-      <button class="is__btn__secondary">Découvrir</button>
-    </div>
-    <div class="events--slidermobile">
-      <div class="is__container__img events--slidermobile--first">
-        <img src="~/assets/img/Groupe21.jpg"/>
+  <section class="events--wrapper">
+    <section class="events container-fluid">
+      <div class="events--loop is__container__img">
+        <loop-event></loop-event>
       </div>
-      <div class="is__container__img events--slidermobile--second">
-        <div class="events--slidermobile--second--overlay">
-          <img src="~/assets/img/Groupe13.jpg"/>
+      <div class="events--content">
+        <div class="title--tag">évènements</div>
+        <h2>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h2>
+        <p class="subtitle"><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
+        Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
+        <button class="is__btn__secondary">Découvrir</button>
+      </div>
+      <div class="events--slidermobile">
+        <div class="is__container__img events--slidermobile--first">
+          <img src="~/assets/img/Groupe21.jpg"/>
+        </div>
+        <div class="is__container__img events--slidermobile--second">
+          <div class="events--slidermobile--second--overlay">
+            <img src="~/assets/img/Groupe13.jpg"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="events--sliderdesktop">
-      <div class="is__container__img events--sliderdesktop--first">
-        <img src="~/assets/img/Groupe21.jpg"/>
-      </div>
-      <div class="is__container__img events--sliderdesktop--second">
-        <div class="events--sliderdesktop--second--overlay">
-          <img src="~/assets/img/Groupe13.jpg"/>
+      <div class="events--sliderdesktop">
+        <div class="is__container__img events--sliderdesktop--first">
+          <img src="~/assets/img/Groupe21.jpg"/>
+        </div>
+        <div class="is__container__img events--sliderdesktop--second">
+          <div class="events--sliderdesktop--second--overlay">
+            <img src="~/assets/img/Groupe13.jpg"/>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -47,15 +49,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.events {
+.events--wrapper {
   box-sizing: border-box;
+  background-color: $colorWhite;
+}
+
+.events {
   background-color: $colorGreen;
+  box-sizing: border-box;
   position: relative;
   z-index: 4;
 
   @media (min-width: 920px) {
     padding-top: 80px;
-    height: 75vh;
+    height: auto;
   }
 
   @media (min-width: 1000px) {
@@ -67,11 +74,22 @@ export default {
   }
 
   &--loop {
-    height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 0;
+
+    @media (min-width: 350px) {
+      height: 50vh;
+      top: 0;
+      left: 0;
+    }
+
+    @media (min-width: 920px) {
+      height: 100vh;
+      top: -80px;
+      left: 0;
+    }
   }
 
   &--content,
@@ -89,12 +107,20 @@ export default {
       align-items: flex-start;
     }
 
+    @media (min-width: 600px) {
+      margin-right: 13%;
+    }
+
     @media (min-width: 920px) {
       height: inherit;
-      max-width: 45vw;
+      max-width: 35vw;
       margin: 0 auto;
-      margin-top: 10vh;
-      padding-left: 5vw;
+      margin-top: 5rem;
+      padding-left: 5rem;
+    }
+
+    @media (min-width: 1800px) {
+      max-width: 30vw;
     }
 
     div,
@@ -139,19 +165,19 @@ export default {
 
   &--slidermobile {
     max-width: 100%;
-    overflow: scroll;
+    height: auto;
     z-index: 10;
 
     &--second {
       &--overlay {
-        background: $colorGreen; 
+        height: 100%;
         padding-top: 0px; 
         text-align: center; 
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
@@ -159,6 +185,7 @@ export default {
 
     @media (min-width: 350px) {
       display: flex;
+      justify-content: center;
       margin-top: 40px;
       transform: translateY(11%);
 
@@ -169,11 +196,7 @@ export default {
       &--first,
       &--second {
         z-index: 3;
-
-        img {
-          max-width: none;
-          width: 230px;
-        }
+        width: 100%;
       }
     }
 
@@ -181,25 +204,12 @@ export default {
       &--first {
         margin-right: 30px;
       }
-
-      &--first,
-      &--second {
-        img {
-          width: 270px;
-        }
-      }
     }
 
-    @media (min-width: 603px) {
-      justify-content: center;
-    }
-
-    @media (min-width: 650px) {
+    @media (min-width: 700px) {
       &--first,
       &--second {
-        img {
-          width: 255px;
-        }
+        width: 40%;
       }
     }
 
@@ -222,8 +232,8 @@ export default {
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
@@ -261,6 +271,12 @@ export default {
 
       &--second {
         right: 50px;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      &--second {
+        right: 15%;
       }
     }
   }

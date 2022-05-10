@@ -1,17 +1,19 @@
 <template>
-  <section class="formulasinfos container-fluid">
-    <div class="formulasinfos--img">
-      <div class="is__container__img formulasinfos--img--container">
-        <img src="~/assets/img/flower.jpg">
+  <section class="formulasinfos--wrapper">
+    <section class="formulasinfos container-fluid">
+      <div class="formulasinfos--img">
+        <div class="is__container__img formulasinfos--img--container">
+          <img src="~/assets/img/flower.jpg">
+        </div>
+        <div class="formulasinfos--img--content subtitle">
+          Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget.<br/><span>A vous de choisir la formule qui vous correspond le mieux !</span>
+        </div>
       </div>
-      <div class="formulasinfos--img--content subtitle">
-        Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget.<br/><span>A vous de choisir la formule qui vous correspond le mieux !</span>
+      <div class="formulasinfos--content">
+        <p class="title--tag">Mariage</p>
+        <h2>The Perfect Match vous propose <br class="is__return__line"/><span>3 formules</span> pour votre mariage.</h2>
       </div>
-    </div>
-    <div class="formulasinfos--content">
-      <p class="title--tag">Mariage</p>
-      <h2>The Perfect Match vous propose <br class="is__return__line"/><span>3 formules</span> pour votre mariage.</h2>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -30,16 +32,21 @@ export default {
     display: none;
   }
 
-  @media (min-width: 920px) {
+  @media (min-width: 550px) {
     display: block;
   }
 }
 
-.formulasinfos {
+.formulasinfos--wrapper {
   background-color: $colorWhite;
+}
+
+.formulasinfos {
+  box-sizing: border-box;
   display: flex;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  padding-bottom: 10px;
 
   @media (min-width: 350px) {
     flex-direction: column;
@@ -84,12 +91,6 @@ export default {
       h2 {
         margin-right: 0;
       }
-    }
-  }
-
-  @media (min-width: 828px) {
-    &--content {
-      margin-top: 0;
     }
   }
 

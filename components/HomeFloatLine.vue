@@ -1,45 +1,47 @@
 <template>
-  <section class="floatline container-fluid">
-    <div class="floatline--loop is__container__img">
-      <loop></loop>
-    </div>
-    <div class="floatline--content">
-      <div class="floatline--content--title">
-        <h1>Là où <span>votre rêve</span><br/> prend vie</h1>
+  <section class="floatline--wrapper">
+    <section class="floatline container-fluid">
+      <div class="floatline--loop is__container__img">
+        <loop></loop>
       </div>
-      <div class="floatline--content--subtitle">
-        <p class="subtitle">{{ content.subtitle }}</p>
-        <div class="is__span__outside__h2"></div>
-      </div>
-    </div>
-    <div class="floatline--slidermobile">
-      <div class="is__container__img floatline--slidermobile--firstitem">
-        <img
-        :src="content.imgleft.data.attributes.url"
-        :alt="content.imgleft.data.attributes.alternativeText"/>
-      </div>
-      <div class="is__container__img floatline--slidermobile--seconditem">
-        <div class="floatline--slidermobile--seconditem--overlay">
-          <img
-          :src="content.imgright.data.attributes.url"
-          :alt="content.imgright.data.attributes.alternativeText"/>
+      <div class="floatline--content">
+        <div class="floatline--content--title">
+          <h1>Là où <span>votre rêve</span><br/> prend vie</h1>
+        </div>
+        <div class="floatline--content--subtitle">
+          <p class="subtitle">{{ content.subtitle }}</p>
+          <div class="is__span__outside__h2"></div>
         </div>
       </div>
-    </div>
-    <div class="floatline--sliderdesktop">
-      <div class="is__container__img floatline--sliderdesktop--firstitem">
-        <img
-        :src="content.imgleft.data.attributes.url"
-        :alt="content.imgleft.data.attributes.alternativeText"/>
-      </div>
-      <div class="is__container__img floatline--sliderdesktop--seconditem">
-        <div class="floatline--sliderdesktop--seconditem--overlay">
+      <div class="floatline--slidermobile">
+        <div class="is__container__img floatline--slidermobile--firstitem">
           <img
-          :src="content.imgright.data.attributes.url"
-          :alt="content.imgright.data.attributes.alternativeText"/>
+          :src="content.imgleft.data.attributes.url"
+          :alt="content.imgleft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img floatline--slidermobile--seconditem">
+          <div class="floatline--slidermobile--seconditem--overlay">
+            <img
+            :src="content.imgright.data.attributes.url"
+            :alt="content.imgright.data.attributes.alternativeText"/>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="floatline--sliderdesktop">
+        <div class="is__container__img floatline--sliderdesktop--firstitem">
+          <img
+          :src="content.imgleft.data.attributes.url"
+          :alt="content.imgleft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img floatline--sliderdesktop--seconditem">
+          <div class="floatline--sliderdesktop--seconditem--overlay">
+            <img
+            :src="content.imgright.data.attributes.url"
+            :alt="content.imgright.data.attributes.alternativeText"/>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -57,25 +59,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.floatline {
+.floatline--wrapper {
   background-color: $colorBeige;
-  position: relative;
   z-index: 4;
   height: 100vh;
+}
+
+.floatline {
+  height: inherit;
+  position: relative;
 
   &--loop {
     height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 0;
+    overflow: hidden;
 
     @media (min-width: 350px) {
       top: -80px;
+      left: 0;
     }
 
     @media (min-width: 920px) {
-      left: -40vw;
+      top: 0;
+      left: 0;
     }
   }
   
@@ -106,8 +115,7 @@ export default {
         }
 
         @media (min-width: 920px) {
-          margin-top: auto;
-          margin: 0 15%;
+          margin: 0 10%;
         }
       } 
     }
@@ -147,11 +155,12 @@ export default {
 
   &--slidermobile {
     max-width: 100%;
-    overflow: scroll;
+    height: auto;
     z-index: 10;
 
     &--seconditem {
       &--overlay {
+        height: 100%;
         background: $colorBeige; 
         padding-top: 0px; 
         text-align: center; 
@@ -176,11 +185,7 @@ export default {
       &--firstitem,
       &--seconditem {
         z-index: 3;
-
-        img {
-          max-width: none;
-          width: 230px;
-        }
+        width: 230px;
       }
     }
 
@@ -191,9 +196,7 @@ export default {
 
       &--firstitem,
       &--seconditem {
-        img {
-          width: 270px;
-        }
+        width: 270px;
       }
     }
 
@@ -204,9 +207,14 @@ export default {
     @media (min-width: 650px) {
       &--firstitem,
       &--seconditem {
-        img {
-          width: 255px;
-        }
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 700px) {
+      &--firstitem,
+      &--seconditem {
+        width: 40%;
       }
     }
 
@@ -245,25 +253,37 @@ export default {
       }
 
       &--firstitem {
-        height: 45vh;
+        height: 30vh;
         bottom: -98px;
-        width: 19%;
+        width: 25%;
       }
 
       &--seconditem {
         width: 23%;
         bottom: 0;
-        right: 15px;
+        right: 0;
 
         &--overlay {
-          height: 50vh;
+          height: 25vh;
         }
       }
     }
 
     @media (min-width: 1100px) {
       &--seconditem {
-        right: 50px;
+        padding-right: 50px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      &--firstitem {
+        height: 45vh;
+        width: 19%;
+      }
+      &--seconditem {
+        &--overlay {
+          height: 45vh;
+        }
       }
     }
   }

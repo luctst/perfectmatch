@@ -1,21 +1,23 @@
 <template>
-  <section class="offers container-fluid">
-    <div
-    v-for="(offer, index) in offers"
-    :key="index"
-    :class="renderClass(offer.active, index)"
-    :style="`border:1px solid ${offer.colorBorder};background-color:${index === 0 ? offer.theme : 'transparent'};`"
-    @mouseenter="offer.active = true"
-    @mouseleave="index === 0 ? offer.active = true : offer.active = false">
-      <div class="is__container__img">
-        <component :is="offer.icon"></component>
+  <section class="offers--wrapper">
+    <section class="offers container-fluid">
+      <div
+      v-for="(offer, index) in offers"
+      :key="index"
+      :class="renderClass(offer.active, index)"
+      :style="`border:1px solid ${offer.colorBorder};background-color:${index === 0 ? offer.theme : 'transparent'};`"
+      @mouseenter="offer.active = true"
+      @mouseleave="index === 0 ? offer.active = true : offer.active = false">
+        <div class="is__container__img">
+          <component :is="offer.icon"></component>
+        </div>
+        <h3 :style="`color:${offer.colorText};`">{{ offer.content[0] }}</h3>
+        <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
+        <button
+        class="is__btn__secondary"
+        :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">Découvrir</button>
       </div>
-      <h3 :style="`color:${offer.colorText};`">{{ offer.content[0] }}</h3>
-      <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
-      <button
-      class="is__btn__secondary"
-      :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">Découvrir</button>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -100,15 +102,17 @@ export default {
   }
 }
 
-.offers {
+.offers--wrapper {
   background-color: $colorWhite;
+}
+
+.offers {
   display: flex;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 
   @media (min-width: 350px) {
     flex-direction: column;
-    padding-top: 40px;
     padding-bottom: 80px;
   }
 
@@ -116,8 +120,9 @@ export default {
     align-items: center;
   }
 
-  @media (min-width: 805px) {
+  @media (min-width: 920px) {
     flex-direction: row;
+    justify-content: space-between;
     padding-top: 100px;
     padding-bottom: 180px;
   }
@@ -153,37 +158,37 @@ export default {
       @media (min-width: 350px) {
         margin-top: 30px;
       }
-
-      @media (min-width: 920px) {
-        margin-top: 60px;
-      }
-    }
-
-    @media (min-width: 350px) {
-      padding: 16% 50px 50px 50px;
-    }
-
-    @media (min-width: 415px) {
-      width: 335px;
-    }
-
-    @media (min-width: 805px) {
-      width: 30vw;
-    }
-
-    @media (min-width: 1000px) {
-      &:nth-child(2) {
-        margin-left: 3%;
-        margin-right: 3%;
-      }
     }
 
     @media (min-width: 350px) {
       margin-top: 40px;
+      padding: 16% 50px 5% 50px;
+    }
+
+    @media (min-width: 500px) {
+      width: 70%;
+    }
+
+    @media (min-width: 920px) {
+      width: 100%;
+    }
+
+    @media (min-width: 920px) {
+      padding-top: 10%;
+
+      &:nth-child(2) {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
     }
 
     @media (min-width: 1100px) {
       padding-top: 8%;
+
+      &:nth-child(2) {
+        margin-left: 3%;
+        margin-right: 3%;
+      }
     }
   }
 }

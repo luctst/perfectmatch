@@ -7,6 +7,7 @@ body {
   padding: 0;
   position: relative;
   z-index: 2;
+  overflow-x: hidden;
   
   @media (min-width: 920px) {
     padding-bottom: 100vh;
@@ -29,9 +30,36 @@ $mainTypoNeueBold: helvetica-neue-bold, sans-serif;
 $secondTypo: roslindale-light, sans-serif;
 
 /**
-* GLOBAL
+* MIXINS
 */
-h1 {
+@mixin btnCommon($color) {
+  align-items: center;
+  border: none;
+  color: $textColor;
+  display: flex;
+  background-color: $color;
+  border-radius: 80px;
+  font-family: $mainTypo;
+  font-style: normal;
+  padding: 20px 24px 19px;
+  outline: none;
+  justify-content: center;
+  text-transform: uppercase;
+
+  @media (min-width: 350px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 920px) {
+    font-size: .7em;
+  }
+
+  @media (min-width: 1100px) {
+    font-size: 14px;
+  }
+}
+
+@mixin isH1() {
   color: $textColor;
   font-family: $secondTypo;
   font-weight: 100;
@@ -54,18 +82,20 @@ h1 {
   }
 
   @media (min-width: 920px) {
-    font-size: 5em;
-    line-height: 96px;
-  }
-
-  @media (min-width: 1100px) {
-    font-size: 8em;
+    font-size: 7em;
     line-height: 1em;
   }
 
   @media (min-width: 1600px) {
     font-size: 9em;
   }
+}
+
+/**
+* GLOBAL
+*/
+h1 {
+  @include isH1();
 }
 
 h2 {
@@ -83,18 +113,13 @@ h2 {
     line-height: 40px;
   }
 
-  @media (min-width: 920px) {
-    font-size: 2.7em;
-    line-height: 56px;
-  }
-
-  @media (min-width: 840px) {
+  @media (min-width: 500px) {
     font-size: 3em;
+    line-height: 1em;
   }
 
   @media (min-width: 1100px) {
     font-size: 5em;
-    line-height: 1em;
   }
 
   @media (min-width: 1600px) {
@@ -145,36 +170,6 @@ h4 {
   }
 }
 
-/**
-* MIXINS
-*/
-@mixin btnCommon($color) {
-  align-items: center;
-  border: none;
-  color: $textColor;
-  display: flex;
-  background-color: $color;
-  border-radius: 80px;
-  font-family: $mainTypo;
-  font-style: normal;
-  padding: 20px 24px 19px;
-  outline: none;
-  justify-content: center;
-  text-transform: uppercase;
-
-  @media (min-width: 350px) {
-    font-size: 12px;
-  }
-
-  @media (min-width: 920px) {
-    font-size: .7em;
-  }
-
-  @media (min-width: 1100px) {
-    font-size: 14px;
-  }
-}
-
 /*************
 Font
 *************/
@@ -201,6 +196,10 @@ Font
 /**
 * CLASS
 */
+.is__h1 {
+  @include isH1();
+}
+
 .is__chips {
   color: $textColor;
   background-color: $colorGreen;
@@ -229,8 +228,10 @@ Font
     padding: 0 50px;
   }
 
-  @media (min-width: 1720px) {
-    padding: 0 15%;
+  @media (min-width: 1800px) {
+    box-sizing: border-box;
+    max-width: 1800px;
+    width: 100%;
   }
 }
 
@@ -271,11 +272,11 @@ Font
   font-weight: 500;
   line-height: 20px;
   text-align: center;
-
+  
   span {
     font-family: $mainTypoBold;
   }
-
+  
   @media (min-width: 350px) {
     margin-top: 20px;
   }
