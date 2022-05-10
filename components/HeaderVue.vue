@@ -19,9 +19,9 @@
               </div>
               <div v-if="menuList[i].active" class="is__menu__dropdown__open container-fluid">
                 <router-link
-                class="menu--dropdown--item"
                 v-for="(itemDp, index) in item.dropdown"
                 :key="index"
+                class="menu--dropdown--item"
                 :to="itemDp.href">
                   <div
                   :style="`border: 1px solid ${itemDp.borderColor};`"
@@ -46,7 +46,9 @@
             </div>
             <div
             v-else-if="item.isLogo">
-              <logo></logo>
+              <router-link to="/">
+                <logo></logo>
+              </router-link>
             </div>
             <div
             v-else>
