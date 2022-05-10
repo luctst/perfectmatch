@@ -17,6 +17,7 @@
 <script>
 import Loop from '~/assets/img/about-loop.svg?inline';
 import OffersFirst from '~/assets/img/offers-first.svg?inline';
+import Flower2 from '~/assets/img/flower-2.svg?inline';
 
 export default {
   name: 'WeddingFloatLine',
@@ -35,16 +36,30 @@ export default {
       icon: null,
     };
   },
+  watch: {
+    $route() {
+      this.filledData();
+    }
+  },
   created() {
-    const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
+    this.filledData();
+  },
+  methods: {
+    filledData() {
+      const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
 
-    switch (this.$route.path) {
-      case '/wedding/complete':
-        this.theme = themes[0];
-        this.icon = OffersFirst;
-        break;
-      default:
-        break;
+      switch (this.$route.path) {
+        case '/wedding/complete':
+          this.theme = themes[0];
+          this.icon = OffersFirst;
+          break;
+        case '/wedding/partial':
+          this.theme = themes[1];
+          this.icon = Flower2;
+          break;
+        default:
+          break;
+      }
     }
   },
 }

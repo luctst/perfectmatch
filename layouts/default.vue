@@ -53,6 +53,11 @@ export default {
           apiRoutes: 'wedding-complete',
           compoCategory: 'wedding',
         },
+        {
+          path: '/wedding/partial',
+          apiRoutes: 'wedding-partial',
+          compoCategory: 'wedding',
+        },
       ];
       const routesToFetch = d.find((r) => r.path === this.$route.path);
       const populate = (await this.$axios.$get('/content-type-builder/components'))
