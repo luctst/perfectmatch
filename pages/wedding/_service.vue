@@ -2,6 +2,7 @@
   <section class="wedding">
     <header-vue></header-vue>
     <wedding-float-line :content="content.floatline"></wedding-float-line>
+    <wedding-goal-service :content="{}"></wedding-goal-service>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
