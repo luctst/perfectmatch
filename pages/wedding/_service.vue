@@ -4,6 +4,7 @@
     <wedding-float-line :content="content.floatline"></wedding-float-line>
     <wedding-goal-service :content="{}"></wedding-goal-service>
     <wedding-for-who :content="{}"></wedding-for-who>
+    <wedding-third-section :content="{}"></wedding-third-section>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
