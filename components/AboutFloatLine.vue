@@ -1,20 +1,24 @@
 <template>
-  <section class="floatline container-fluid">
-    <div class="floatline--loop">
-      <loop></loop>
-    </div>
-    <div class="floatline--title">
-      <h1>La bienveillance, l'écoute <br class="is__return__line"/>et le <span>sur-mesure</span></h1>
-      <div class="floatline--title--extra">
-        <div class="subtitle">Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</div>
-        <span class="is__span__outside__h2"></span>
-      </div>
-    </div>
-    <div class="floatline--profile">
+  <section class="floatline--wrapper">
+    <div class="floatline--wrapper--loop">
       <div class="is__container__img">
-        <img src="~/assets/img/pic-profile.jpg" alt="Picture profile">
+        <loop></loop>
       </div>
     </div>
+    <section class="floatline container-fluid">
+      <div class="floatline--title">
+        <h1>La bienveillance, l'écoute <br class="is__return__line"/>et le <span>sur-mesure</span></h1>
+        <div class="floatline--title--extra">
+          <div class="subtitle">Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</div>
+          <span class="is__span__outside__h2"></span>
+        </div>
+      </div>
+      <div class="floatline--profile">
+        <div class="is__container__img">
+          <img src="~/assets/img/pic-profile.jpg" alt="Picture profile">
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -42,14 +46,28 @@ export default {
   }
 }
 
-.floatline {
+.floatline--wrapper {
   background-color: $colorBeige;
+
+  &--loop {
+    div {
+      height: 100vh;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -240px;
+      z-index: 1;
+    }
+  }
+}
+
+.floatline {
   position: relative;
   z-index: 4;
 
   @media (min-width: 350px) {
     padding-top: 8em!important;
-    height: calc(100vh);
+    height: calc(100vh - 8em);
   }
 
   @media (min-width: 920px) {
@@ -57,18 +75,8 @@ export default {
     height: calc(100vh - 12em);
   }
 
-  &--loop {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -20px;
-    z-index: 1;
-
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
-    }
+  @media (min-width: 1800px) {
+    height: 100vh;
   }
 
   &--title,
@@ -80,13 +88,21 @@ export default {
   &--title {
     h1 {
       @media (min-width: 350px) {
-        margin-bottom: 50px;
+        font-size: 61px;
+        line-height: 60px;
+        margin-bottom: 1.5rem;
         text-align: center;
       }
 
       @media (min-width: 920px) {
+        font-size: 7em;
         text-align: left;
         margin-bottom: 0;
+        line-height: 1em;
+      }
+
+      @media (min-width: 1600px) {
+        font-size: 9em;
       }
     }
 
@@ -138,62 +154,61 @@ export default {
       }
     }
 
+    @media (min-width: 650px) {
+      margin: 0 auto;
+      max-width: 80%;
+    }
+
     @media (min-width: 920px) {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: calc(100vh - 12em);
+      max-width: 100%;
     }
   }
 
   &--profile {
     @media (min-width: 350px) {
-      margin-top: 60px;
-      transform: translateY(20%);
+      transform: translateY(15%);
 
       div {
         position: relative;
-        z-index: 3;
+        z-index: 5;
       }
     }
 
     @media (min-width: 450px) {
       display: flex;
       justify-content: center;
-
-      div {
-        max-width: 350px;
-      }
     }
 
     @media (min-width: 550px) {
       div {
-        max-width: 400px;
+        max-width: 70%;
       }
     }
 
     @media (min-width: 920px) {
       justify-content: flex-end;
-      transform: translateY(-80%);
+      transform: translateY(-50%);
+
+      div {
+        max-width: 50vw;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      transform: translateY(-60%);
 
       div {
         max-width: 35vw;
       }
     }
 
-    @media (min-width: 1100px) {
-      transform: translateY(-60%);
-    }
-
-    @media (min-width: 1600px) {
+    @media (min-width: 1800px) {
       div {
-        max-width: 40vw;
-      }
-    }
-
-    @media (min-width: 1720px) {
-      div {
-        max-width: 25vw;
+        max-width: 30vw;
       }
     }
   }

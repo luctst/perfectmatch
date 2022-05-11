@@ -35,8 +35,49 @@ export default {
   max-height: 100vh;
 
   @media (min-width: 350px) {
-    height: 60vh;
-    padding-top: 240px;
+    height: auto;
+    padding-top: 13rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 438px) {
+    padding-top: 16rem;
+  }
+
+  @media (min-width: 450px) {
+    padding-top: 20rem;
+  }
+
+  @media (min-width: 476px) {
+    padding-top: 20rem;
+  }
+
+  @media (min-width: 508px) {
+    padding-top: 22rem;
+  }
+
+  @media (min-width: 550px) {
+    padding-top: 8rem;
+  }
+
+  @media (min-width: 600px) {
+    padding-top: 12rem;
+  }
+
+  @media (min-width: 660px) {
+    padding-top: 16rem;
+  }
+
+  @media (min-width: 720px) {
+    padding-top: 20rem;
+  }
+
+  @media (min-width: 780px) {
+    padding-top: 24rem;
+  }
+
+  @media (min-width: 850px) {
+    padding-top: 36rem;
   }
 
   @media (min-width: 920px) {
@@ -146,10 +187,6 @@ export default {
     p {
       @media (min-width: 350px) {
         text-align: center;
-      }
-
-      @media (min-width: 500px) {
-        margin: 0 12%;
       }
 
       @media (min-width: 920px) {
