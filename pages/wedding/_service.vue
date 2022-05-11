@@ -5,6 +5,7 @@
     <wedding-goal-service :content="{}"></wedding-goal-service>
     <wedding-for-who :content="{}"></wedding-for-who>
     <wedding-third-section :content="{}"></wedding-third-section>
+    <wedding-offers :content="{}"></wedding-offers>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>

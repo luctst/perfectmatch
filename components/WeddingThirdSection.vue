@@ -1,14 +1,16 @@
 <template>
-  <section class="third container-fluid">
-    <div class="third--title">
-      <h3>Si vous vous retrouvez dans une de ces catégories,<br class="is__return__line"/> l'organisation complète est faite pour vous.</h3>
-      <div class="subtitle">J'ai conscience que déléguer le jour qui sera un des plus importants de votre vie n'est pas évident, mais il est important de rappeler que c'est <span>votre mariage, votre journée, le plus beau jour de votre vie.</span> Alors vous resterez décisionnaires sur tout. Je serai là pour vous accompagner, vous conseiller, réaliser vos volontés mais jamais pour décider à votre place.</div>
-    </div>
-    <div class="third--picture">
-      <div class="is__container__img third--picture--wrapper">
-        <img src="~/assets/img/flower.jpg"/>
+  <section class="third--wrapper">
+    <section class="third container-fluid">
+      <div class="third--title">
+        <h3>Si vous vous retrouvez dans une de ces catégories,<br class="is__return__line"/> l'organisation complète est faite pour vous.</h3>
+        <div class="subtitle">J'ai conscience que déléguer le jour qui sera un des plus importants de votre vie n'est pas évident, mais il est important de rappeler que c'est <span>votre mariage, votre journée, le plus beau jour de votre vie.</span> Alors vous resterez décisionnaires sur tout. Je serai là pour vous accompagner, vous conseiller, réaliser vos volontés mais jamais pour décider à votre place.</div>
       </div>
-    </div>
+      <div class="third--picture">
+        <div class="is__container__img third--picture--wrapper">
+          <img src="~/assets/img/flower.jpg"/>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -32,12 +34,16 @@ export default {
   }
 }
 
-.third {
+.third--wrapper {
   background-color: $colorWhite;
+  position: relative;
+  z-index: 4;
+}
+
+.third {
   box-sizing: border-box;
   display: flex;
   position: relative;
-  z-index: 3;
 
   @media (min-width: 350px) {
     padding-bottom: 120px;
@@ -48,7 +54,9 @@ export default {
   }
 
   @media (min-width: 920px) {
+    padding-bottom: 0;
     flex-direction: row;
+    transform: translateY(16%);
   }
 
   &--title {
@@ -63,10 +71,8 @@ export default {
     }
 
     @media (min-width: 920px) {
-      flex: 0 0 65%;
       text-align: left;
       margin: 0;
-      margin-left: 8%;
       order: 1;
 
       .subtitle {
@@ -76,6 +82,7 @@ export default {
     }
 
     @media (min-width: 1100px) {
+      margin-left: 8%;
 
       .subtitle {
         max-width: 80%;
@@ -90,6 +97,7 @@ export default {
     }
 
     @media (min-width: 920px) {
+      flex: 0 0 30%;
       order: 2;
     }
 

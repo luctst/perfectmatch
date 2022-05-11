@@ -119,6 +119,10 @@ export default {
       padding-left: 5rem;
     }
 
+    @media (min-width: 1100px) {
+      max-width: 45vw;
+    }
+
     @media (min-width: 1800px) {
       max-width: 30vw;
     }

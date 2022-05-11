@@ -1,5 +1,5 @@
 <template>
-  <header class="header container-fluid">
+  <header v-if="showHeader" class="header container-fluid">
     <section class="header--desktop">
       <nav class="header--desktop--nav">
         <ul class="header--desktop--nav--list">
@@ -91,6 +91,7 @@ export default {
   },
   data() {
     return {
+      showHeader: true,
       menuMobileOpen: false,
       menuList: [
         {
@@ -139,6 +140,25 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    if (process.browser) {
+      let lastScrollTop = 0;
+  
+      window.addEventListener('scroll', () => {
+        const st = window.pageYOffset || document.documentElement.scrollTop;
+  
+        if (st > lastScrollTop) {
+          this.showHeader = false;
+          lastScrollTop = st <= 0 ? 0 : st;
+          return false;
+        }
+  
+        this.showHeader = true;
+        lastScrollTop = st <= 0 ? 0 : st;
+        return true;
+      });
+    }
   },
   methods: {
     renderClassItemList(itemData) {
