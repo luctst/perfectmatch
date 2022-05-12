@@ -57,37 +57,35 @@ export default {
   }
 
   @media (min-width: 550px) {
-    padding-top: 8rem;
-  }
-
-  @media (min-width: 600px) {
     padding-top: 12rem;
   }
 
-  @media (min-width: 660px) {
+  @media (min-width: 600px) {
     padding-top: 16rem;
   }
 
-  @media (min-width: 720px) {
+  @media (min-width: 660px) {
     padding-top: 20rem;
   }
 
+  @media (min-width: 720px) {
+    padding-top: 25rem;
+  }
+
   @media (min-width: 780px) {
-    padding-top: 24rem;
+    padding-top: 30rem;
   }
 
   @media (min-width: 850px) {
-    padding-top: 36rem;
+    padding-top: 10rem;
   }
 
   @media (min-width: 920px) {
-    padding-top: 160px;
     padding-bottom: 180px;
   }
 
   @media (min-width: 1000px) {
     height: auto;
-    padding-top: 180px;
   }
 
   &--title {

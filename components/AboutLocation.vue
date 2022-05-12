@@ -45,9 +45,12 @@ export default {
     padding-top: 80px;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 920px) {
     height: 100vh;
-    padding-top: 15vh;
+  }
+
+  @media (min-width: 1000px) {
+    padding-top: 4rem;
   } 
 
   @media (min-width: 1600px) {
@@ -68,9 +71,9 @@ export default {
       right: 0;
     }
 
-    @media (min-width: 920px) {
+    @media (min-width: 800px) {
       bottom: 0;
-      top: 0;
+      top: -200px;
       left: 0;
     }
   }
