@@ -6,6 +6,7 @@
     <wedding-for-who :content="{}"></wedding-for-who>
     <wedding-third-section :content="{}"></wedding-third-section>
     <wedding-offers :content="{}"></wedding-offers>
+    <wedding-tarifs :content="{}"></wedding-tarifs>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
