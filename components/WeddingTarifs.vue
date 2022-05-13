@@ -228,7 +228,7 @@ export default {
           availabilityForOffers: this.opsAvailableInOffers(true),
         },
         {
-          content: 'Précense rendez-vous prestataires',
+          content: 'Présense rendez-vous prestataires',
           availabilityForOffers: this.opsAvailableInOffers(true),
         },
       ],

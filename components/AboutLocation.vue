@@ -2,7 +2,9 @@
   <section class="location--wrapper">
     <section class="location container-fluid">
       <div class="location--loop">
-        <location-loop></location-loop>
+        <div class="is__container__img">
+          <location-loop></location-loop>
+        </div>
       </div>
       <div class="location--title">
         <div class="title--tag">L'agence est flexbile</div>
@@ -46,7 +48,7 @@ export default {
   z-index: 3;
 
   @media (min-width: 350px) {
-    height: 80vh;
+    height: 100vh;
     padding-top: 80px;
   }
 
@@ -63,24 +65,21 @@ export default {
   }
 
   &--loop {
-    height: 100vh;
-    position: absolute;
-    z-index: 1;
-
-    svg {
-      height: 100%;
-    }
-
-    @media (min-width: 350px) {
-      top: -350px;
-      right: 0;
-    }
-
-    @media (min-width: 800px) {
-      bottom: 0;
-      top: -200px;
+    div {
+      height: 100vh;
+      position: absolute;
+      z-index: 0;
       left: 0;
+
+      @media (min-width: 350px) {
+        top: 0;
+      }
     }
+  }
+
+  &--title,
+  &--subtitle {
+    z-index: 3;
   }
 
   &--title {
