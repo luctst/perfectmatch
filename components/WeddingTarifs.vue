@@ -424,6 +424,10 @@ export default {
       @media (min-width: 1400px) {
         flex: 0 0 33%;
       }
+
+      @media (min-width: 1800px) {
+        flex: 0 0 36%;
+      }
     }
 
     &--availability {
