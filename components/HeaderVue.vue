@@ -6,6 +6,7 @@
           <li
           v-for="(item, i) in menuList"
           :key="i"
+          :style="updateBackgroundBtn(item.isBtn)"
           :class="[renderClassItemList(item)]">
             <div
             v-if="item.dropdown"
@@ -46,9 +47,9 @@
             </div>
             <div
             v-else-if="item.isLogo">
-              <router-link to="/">
+              <nuxt-link to="/">
                 <logo></logo>
-              </router-link>
+              </nuxt-link>
             </div>
             <div
             v-else>
@@ -124,6 +125,7 @@ export default {
         },
         {
           content: 'Evenements',
+          href: 'events',
         },
         {
           isLogo: true,
@@ -161,6 +163,10 @@ export default {
     }
   },
   methods: {
+    updateBackgroundBtn(isBtn) {
+      if (!isBtn) return '';
+      return `background-color:${this.$route.name === 'events' ? '#FDEADD' : '#FFF'};`;
+    },
     renderClassItemList(itemData) {
       if (itemData.dropdown) {
         return 'header--desktop--nav--list--item header--desktop--nav--list--item--dropdown';
