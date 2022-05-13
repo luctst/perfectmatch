@@ -1,16 +1,18 @@
 <template>
-  <section class="accord container-fluid">
-    <div class="accord--picture">
-      <div class="is__container__img">
-        <img src="~/assets/img/Rectangle-54.jpg">
+  <section class="accord--wrapper">
+    <section class="accord container-fluid">
+      <div class="accord--picture">
+        <div class="is__container__img">
+          <img src="~/assets/img/Rectangle-54.jpg">
+        </div>
       </div>
-    </div>
-    <div class="accord--content">
-      <div class="title--tag">Pourquoi The Perfect Match ?</div>
-      <h2>The Perfect Match</h2>
-      <h2>C'est <span>l'accord parfait</span></h2>
-      <p class="subtitle">L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
-    </div>
+      <div class="accord--content">
+        <div class="title--tag">Pourquoi The Perfect Match ?</div>
+        <h2>The Perfect Match</h2>
+        <h2>C'est <span>l'accord parfait</span></h2>
+        <p class="subtitle">L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -24,8 +26,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.accord {
+.accord--wrapper {
   background-color: $colorWhite;
+}
+
+.accord {
   display: flex;
   position: relative;
   z-index: 3;

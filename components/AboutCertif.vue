@@ -1,16 +1,18 @@
 <template>
-  <section class="certif container-fluid">
-    <div class="certif--title">
-      <div class="title--tag">Mon parcours</div>
-      <h2><span>Certifiée</span> organisateur de mariage</h2>
-    </div>
-    <div class="certif--content">
-      <div class="is__container__img">
-        <img src="~/assets/img/certif.png"/>
+  <section class="certif--wrapper">
+    <section class="certif container-fluid">
+      <div class="certif--title">
+        <div class="title--tag">Mon parcours</div>
+        <h2><span>Certifiée</span> organisateur de mariage</h2>
       </div>
-      <p class="subtitle2">Après avoir travaillé en tant qu'agent immobilier pendant près de 4 ans sur la région bordelaise, je voulu me réorienté vers un métier plus en accord avec moi même.</p>
-      <p class="subtitle2">C'est pourquoi j'ai suivi une formation d'organisatrice de mariage au sein de l'école **EFMM** (école de formation aux métiers du mariage).</p>
-    </div>
+      <div class="certif--content">
+        <div class="is__container__img">
+          <img src="~/assets/img/certif.png"/>
+        </div>
+        <p class="subtitle2">Après avoir travaillé en tant qu'agent immobilier pendant près de 4 ans sur la région bordelaise, je voulu me réorienté vers un métier plus en accord avec moi même.</p>
+        <p class="subtitle2">C'est pourquoi j'ai suivi une formation d'organisatrice de mariage au sein de l'école **EFMM** (école de formation aux métiers du mariage).</p>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -24,8 +26,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.certif {
+.certif--wrapper {
   background-color: $colorWhite;
+}
+
+.certif {
   color: $textColor;
   position: relative;
   z-index: 3;

@@ -1,20 +1,22 @@
 <template>
-  <section class="whoiam container-fluid">
-    <div class="whoiam--title">
-      <div class="title--tag">QUI SE CACHE DERRIÈRE ?</div>
-      <h2><span>Je suis Alexandra</span>,</h2>
-      <h2>bordelaise de naissance,</h2>
-      <h2>parisienne d'adoption.</h2>
-    </div>
-    <div class="whoiam--chips">
-      <div class="is__chips">Humaine</div>
-      <div class="is__chips">Pétillante</div>
-      <div class="is__chips">Attentive</div>
-    </div>
-    <div class="whoiam--content">
-      <p class="subtitle2">Amoureuse de l'amour et grande fêtarde dans l'âme, les moments passés auprès de ma famille et de mes amis me sont chers. C'est pourquoi je ne me voyais</p>
-      <p class="subtitle2">pas faire autre chose que célébrer l'amour et les événements qui réuniront vos proches pour des moments uniques et inoubliables.</p>
-    </div>
+  <section class="whoiam--wrapper">
+    <section class="whoiam container-fluid">
+      <div class="whoiam--title">
+        <div class="title--tag">QUI SE CACHE DERRIÈRE ?</div>
+        <h2><span>Je suis Alexandra</span>,</h2>
+        <h2>bordelaise de naissance,</h2>
+        <h2>parisienne d'adoption.</h2>
+      </div>
+      <div class="whoiam--chips">
+        <div class="is__chips">Humaine</div>
+        <div class="is__chips">Pétillante</div>
+        <div class="is__chips">Attentive</div>
+      </div>
+      <div class="whoiam--content">
+        <p class="subtitle2">Amoureuse de l'amour et grande fêtarde dans l'âme, les moments passés auprès de ma famille et de mes amis me sont chers. C'est pourquoi je ne me voyais</p>
+        <p class="subtitle2">pas faire autre chose que célébrer l'amour et les événements qui réuniront vos proches pour des moments uniques et inoubliables.</p>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -28,8 +30,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.whoiam {
+.whoiam--wrapper {
   background-color: $colorWhite;
+}
+
+.whoiam {
   position: relative;
   z-index: 3;
   max-height: 100vh;

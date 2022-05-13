@@ -1,23 +1,25 @@
 <template>
-  <section class="goal container-fluid">
-    <div class="goal--content">
-      <div class="goal--content--title">
-        <h2><span>En quoi consiste</span></h2>
-        <h2>l'organisation compléte ?</h2>
+  <section class="goal--wrapper">
+    <section class="goal container-fluid">
+      <div class="goal--content">
+        <div class="goal--content--title">
+          <h2><span>En quoi consiste</span></h2>
+          <h2>l'organisation compléte ?</h2>
+        </div>
+        <div class="goal--content--subtitle">
+          <p class="subtitle2">Il s'agit de l'organisation de votre mariage de A à Z, jusqu'à la coordination du jour J.</p>
+          <p class="subtitle2">Autrement dit, je m'occupe de tout et il ne vous restera plus qu'à profiter de votre journée le plus sereinement possible.</p>
+        </div>
       </div>
-      <div class="goal--content--subtitle">
-        <p class="subtitle2">Il s'agit de l'organisation de votre mariage de A à Z, jusqu'à la coordination du jour J.</p>
-        <p class="subtitle2">Autrement dit, je m'occupe de tout et il ne vous restera plus qu'à profiter de votre journée le plus sereinement possible.</p>
+      <div class="goal--picture">
+        <div class="is__container__img">
+          <img src="~/assets/img/Rectangle 2.jpg"/>
+        </div>
+        <div class="is__container__img">
+          <logo-circle></logo-circle>
+        </div>
       </div>
-    </div>
-    <div class="goal--picture">
-      <div class="is__container__img">
-        <img src="~/assets/img/Rectangle 2.jpg"/>
-      </div>
-      <div class="is__container__img">
-        <logo-circle></logo-circle>
-      </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -35,8 +37,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.goal {
+.goal--wrapper {
   background-color: $colorWhite;
+}
+
+.goal {
   display: flex;
   position: relative;
   z-index: 3;

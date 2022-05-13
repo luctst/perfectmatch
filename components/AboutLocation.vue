@@ -1,20 +1,22 @@
 <template>
-  <section class="location container-fluid">
-    <div class="location--loop">
-      <location-loop></location-loop>
-    </div>
-    <div class="location--title">
-      <div class="title--tag">L'agence est flexbile</div>
-      <h2>Basée entre <span>Bordeaux et Paris</span></h2>
-    </div>
-    <div class="location--subtitle">
-      <p class="subtitle"><span>L'agence se déplace autour de Bordeaux, en passant par son littoral et ses châteaux mais également au sein même de la capitale et de ses proches banlieues.</span> Notre valeur ajoutée ? Organiser vos événements sur Paris et alentour, grâce à notre réseau, mais aussi vous faire découvrir notre région Bordelaise en vous proposant des mariages insolites au cœur de nos vignes et châteaux ou au bord de nos jolies plages.</p>
-    </div>
-    <div class="location--illu">
-      <div class="is__container__img">
-        <location-svg></location-svg>
+  <section class="location--wrapper">
+    <section class="location container-fluid">
+      <div class="location--loop">
+        <location-loop></location-loop>
       </div>
-    </div>
+      <div class="location--title">
+        <div class="title--tag">L'agence est flexbile</div>
+        <h2>Basée entre <span>Bordeaux et Paris</span></h2>
+      </div>
+      <div class="location--subtitle">
+        <p class="subtitle"><span>L'agence se déplace autour de Bordeaux, en passant par son littoral et ses châteaux mais également au sein même de la capitale et de ses proches banlieues.</span> Notre valeur ajoutée ? Organiser vos événements sur Paris et alentour, grâce à notre réseau, mais aussi vous faire découvrir notre région Bordelaise en vous proposant des mariages insolites au cœur de nos vignes et châteaux ou au bord de nos jolies plages.</p>
+      </div>
+      <div class="location--illu">
+        <div class="is__container__img">
+          <location-svg></location-svg>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -34,9 +36,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.location--wrapper {
+  background-color: $colorGreen;
+}
+
 .location {
   box-sizing: border-box;
-  background-color: $colorGreen;
   position: relative;
   z-index: 3;
 

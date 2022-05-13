@@ -1,21 +1,23 @@
 <template>
-<section class="forwho container-fluid">
-  <div class="forwho--title">
-    <h2><span>À qui s'adresse</span></h2>
-    <h2>L'organisation compléte ?</h2>
-  </div>
-  <div class="forwho--wrapper">
-    <div
-    v-for="(item, i) in items"
-    :key="i"
-    :style="`border-color:${item.borderColor};`"
-    class="forwho--wrapper--item">
-      <div class="subtitle2">{{ item.content }}</div>
-      <div class="is__container__img p">
-        <component :is="item.svg"></component>
+<section class="forwho--wrapper">
+  <section class="forwho container-fluid">
+    <div class="forwho--title">
+      <h2><span>À qui s'adresse</span></h2>
+      <h2>L'organisation compléte ?</h2>
+    </div>
+    <div class="forwho--wrapper">
+      <div
+      v-for="(item, i) in items"
+      :key="i"
+      :style="`border-color:${item.borderColor};`"
+      class="forwho--wrapper--item">
+        <div class="subtitle2">{{ item.content }}</div>
+        <div class="is__container__img p">
+          <component :is="item.svg"></component>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </section>
 </template>
 
@@ -58,8 +60,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.forwho {
+.forwho--wrapper {
   background-color: $colorWhite;
+}
+
+.forwho {
   position: relative;
   z-index: 3;
 
