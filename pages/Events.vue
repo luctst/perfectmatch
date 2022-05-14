@@ -4,6 +4,7 @@
     <event-float-line></event-float-line>
     <event-useless></event-useless>
     <event-speciality></event-speciality>
+    <event-offers></event-offers>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>

@@ -175,6 +175,7 @@ export default {
     }
 
     &--item {
+      border-bottom: 1px solid #EDCDB8;
       display: flex;
       flex-direction: column;
 

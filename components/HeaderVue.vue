@@ -6,7 +6,7 @@
           <li
           v-for="(item, i) in menuList"
           :key="i"
-          :style="updateBackgroundBtn(item.isBtn)"
+          :style="item.isBtn ? updateBackgroundBtn : ''"
           :class="[renderClassItemList(item)]">
             <div
             v-if="item.dropdown"
@@ -143,6 +143,11 @@ export default {
       ],
     };
   },
+  computed: {
+    updateBackgroundBtn() {
+      return `background-color:${this.$route.name === 'Events' ? '#FDEADD' : 'transparent'};`;
+    },
+  },
   created() {
     if (process.browser) {
       let lastScrollTop = 0;
@@ -163,10 +168,6 @@ export default {
     }
   },
   methods: {
-    updateBackgroundBtn(isBtn) {
-      if (!isBtn) return '';
-      return `background-color:${this.$route.name === 'events' ? '#FDEADD' : '#FFF'};`;
-    },
     renderClassItemList(itemData) {
       if (itemData.dropdown) {
         return 'header--desktop--nav--list--item header--desktop--nav--list--item--dropdown';

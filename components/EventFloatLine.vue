@@ -53,7 +53,7 @@ export default {
 
   &--img--left {
     @media (min-width: 920px) {
-      flex: 0 0 30%;
+      flex: 0 0 24%;
     }
 
     div {
@@ -130,7 +130,7 @@ export default {
 
   &--img--right {
     @media (min-width: 920px) {
-      flex: 0 0 auto;
+      flex: 0 0 20%;
     }
 
     div {
