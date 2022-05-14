@@ -32,10 +32,39 @@ export default {
   },
   watch: {
     async $route() {
+      this.shouldAddBodyPadding();
       await this.fetchRouteContent();
     }
   },
+  created() {
+    if (process.browser) {
+      this.shouldAddBodyPadding();
+      window.addEventListener('resize', this.shouldAddBodyPadding);
+    }
+  },
   methods: {
+    shouldAddBodyPadding() {
+      const body = document.querySelector('body');
+
+      if (this.$route.name === 'Contact') {
+        if (!body.classList.contains('is__body__padding')) return true;
+
+        body.classList.remove('is__body__padding');
+        return true;
+      }
+
+      if (window.innerWidth >= 920) {
+        if (body.classList.contains('is__body__padding')) return true;
+
+        body.classList.add('is__body__padding');
+        return true;
+      }
+
+      if (!body.classList.contains('is__body__padding')) return true;
+
+      body.classList.remove('is__body__padding');
+      return true;
+    },
     async fetchRouteContent() {
       const d = [
         {
@@ -61,7 +90,12 @@ export default {
         {
           path: '/events',
           apiRoutes: 'events',
-          compoCategory: 'events',
+          compoCategory: 'event',
+        },
+        {
+          path: '/contact',
+          apiRoutes: 'contact',
+          compoCategory: 'contact',
         },
       ];
       const routesToFetch = d.find((r) => r.path === this.$route.path);

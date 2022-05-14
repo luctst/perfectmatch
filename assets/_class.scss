@@ -1,3 +1,7 @@
+.is__body__padding {
+  padding-bottom: 100vh;
+}
+
 .is__h1 {
   @include isH1();
 }

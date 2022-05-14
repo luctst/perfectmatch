@@ -40,7 +40,7 @@
             <div
             v-else-if="item.isBtn">
               <nuxt-link
-              to="/"
+              :to="`/${item.href}`"
               class="is__menu__link">
                 {{ item.content }}
               </nuxt-link>
@@ -139,6 +139,7 @@ export default {
         {
           isBtn: true,
           content: 'Contactez-nous',
+          href: 'contact',
         },
       ],
     };

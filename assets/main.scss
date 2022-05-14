@@ -15,10 +15,6 @@ body {
   position: relative;
   z-index: 2;
   overflow-x: hidden;
-  
-  @media (min-width: 920px) {
-    padding-bottom: 100vh;
-  }
 }
 
 /**
