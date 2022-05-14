@@ -1,0 +1,67 @@
+<template>
+  <section class="tarif--wrapper">
+    <section class="tarif container-fluid">
+      <h3 class="is__h2">Tarif sur devis</h3>
+      <div class="subtitle">N'hésitez pas à m'indiquer si vous avez besoin d'une organisation complète et d'une coordination le jour j, ou simplement ma présence le jour j afin de mettre en place la décoration et l'accueil de vos prestataires.</div>
+      <div class="subtitle"><span>Les tarifs seront donc adaptables selon mon implication sur votre évènement.</span></div>
+      <button class="is__btn__primary">Demander un devis</button>
+    </section>
+  </section>
+</template>
+
+<script>
+import globalMixin from '~/mixins/global';
+
+export default {
+  name: 'Tarif',
+  mixins: [globalMixin],
+};
+</script>
+
+<style lang="scss" scoped>
+.tarif--wrapper {
+  background-color: $colorWhite;
+}
+
+.tarif {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  padding: 4rem 0 6rem 0;
+
+  div:first-of-type {
+    margin-top: 2rem;
+  }
+
+  div:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 350px) {
+    max-width: 85%;
+  }
+
+  @media (min-width: 620px) {
+    max-width: 70%;
+  }
+
+  @media (min-width: 760px) {
+    max-width: 40%;
+  }
+
+  @media (min-width: 920px) {
+    max-width: 40%;
+  }
+
+  @media (min-width: 1100px) {
+    max-width: 35%;
+  }
+
+  @media (min-width: 1800px) {
+    max-width: 24%;
+  }
+}
+</style>

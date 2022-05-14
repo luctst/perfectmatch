@@ -5,6 +5,7 @@
     <event-useless></event-useless>
     <event-speciality></event-speciality>
     <event-offers></event-offers>
+    <event-tarif></event-tarif>
     <footer-vue :content="{}"></footer-vue>
   </section>
 </template>
