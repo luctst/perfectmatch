@@ -11,15 +11,16 @@
       class="offers--wrap">
         <template v-for="(innerItem, y) in item">
           <div
-          :key="y"
           v-if="typeof innerItem === 'string'"
+          :key="y"
           class="offers--wrap--title">
             <h2 class="is__h3"><span>{{ innerItem }}</span></h2>
           </div>
           <div
-          :key="y"
           v-else
-          class="offers--wrap--item">
+          :key="y"
+          class="offers--wrap--item"
+          @click="switchItemActive(i, y)">
             <div class="offers--wrap--item--header">
               <h3 class="is__h4">{{ innerItem.title }}</h3>
               <div
@@ -90,6 +91,28 @@ export default {
       ],
     };
   },
+  methods: {
+    switchItemActive(index, childIndex) {
+      this.offers = this.offers.map((offer, i) => {
+        let newOffer = [...offer];
+
+        newOffer = newOffer.map((o, y) => {
+          if (typeof o === 'string') return o;
+          const newO = {...o};
+
+          if (y === childIndex && index === i) {
+            newO.active = !newO.active;
+            return newO;
+          }
+
+          newO.active = false;
+          return newO;
+        });
+
+        return newOffer;
+      })
+    }
+  },
 };
 </script>
 
@@ -128,14 +151,18 @@ export default {
     }
   }
 
+  &--wrap:nth-child(2) {
+    margin-bottom: 6rem;
+  }
+
   &--wrap {
+    :last-child {
+      margin-bottom: 0;
+    }
+
     &--title {
       border-bottom: 1px solid #EDCDB8;
       padding-bottom: 2rem;
-    }
-
-    &--item:first-of-type {
-      padding-top: 1.5rem;
     }
 
     &--item {
@@ -144,8 +171,8 @@ export default {
       flex-direction: column;
 
       @media (min-width: 350px) {
+        padding-top: 1.5rem;
         padding-bottom: 1.5rem;
-        margin-bottom: 1.5rem;
       }
 
       &--header {
