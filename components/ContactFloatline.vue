@@ -34,13 +34,15 @@ export default {
   box-sizing: content-box;
 
   @media (min-width: 350px) {
-    height: calc(100vh - 8em);
+    height: auto;
     padding-top: 8em!important;
+    margin-bottom: 6rem!important;
   }
 
   @media (min-width: 920px) {
     height: calc(100vh - 12em);
     padding-top: 12em!important;
+    margin-bottom: 0!important;
   }
 
   &--loop {
@@ -54,6 +56,31 @@ export default {
   }
 
   &--content {
+    section {
+      @media (min-width: 350px) {
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        @media (min-width: 350px) {
+          font-size: 3.9rem;
+        }
+
+        @media (min-width: 500px) {
+          font-size: 76px;
+        }
+
+        @media (min-width: 920px) {
+          font-size: 7em;
+          line-height: 1em;
+        }
+
+        @media (min-width: 1600px) {
+          font-size: 9em;
+        }
+      }
+    }
+
     :nth-child(3) {
       margin-bottom: 3rem;
     }

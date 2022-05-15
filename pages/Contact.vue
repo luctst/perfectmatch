@@ -2,6 +2,8 @@
   <section class="contact">
     <header-vue></header-vue>
     <contact-floatline></contact-floatline>
+    <contact-form></contact-form>
+    <contact-footer></contact-footer>
   </section>
 </template>
 

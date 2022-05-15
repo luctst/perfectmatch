@@ -19,5 +19,6 @@ module.exports = {
   rules: {
     'vue/no-v-html': 0,
     'nuxt/no-globals-in-created': 0,
+    'no-useless-escape': 1,
   }
 }
