@@ -65,8 +65,69 @@
       <div class="header--mobile--wrapperlogo">
         <logo></logo>
       </div>
-      <div class="header--mobile--wrapperburger">
+      <div
+      class="header--mobile--wrapperburger"
+      @click="menuMobileOpen = !menuMobileOpen">
         <menu-burger></menu-burger>
+      </div>
+      <div
+      v-if="menuMobileOpen"
+      class="is__menu__dropdown__mobile container-fluid">
+        <div class="is__menu__dropdown__mobile__header">
+          <div
+          class="is__container__img"
+          @click="menuMobileOpen = !menuMobileOpen">
+            <close></close>
+          </div>
+        </div>
+        <nav class="is__menu__dropdown__mobile__nav">
+          <ul class="is__menu__dropdown__mobile__nav__itemwrapper">
+            <template v-for="(item, y) in menuList">
+              <li
+              v-if="!item.isLogo"
+              :key="y"
+              class="is__menu__dropdown__mobile__nav__itemwrapper__child">
+                <nuxt-link
+                @click.native="menuMobileOpen = false"
+                v-if="!item.dropdown"
+                :to="`/${item.href}`"
+                class="is__menu__dropdown__mobile__nav__itemwrapper__child__link">
+                  {{ item.content }}
+                </nuxt-link>
+                <div
+                v-else
+                class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown"
+                @click="menuList[y].active = !menuList[y].active">
+                  <div class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__header">
+                    <div>{{ item.content }}</div>
+                    <div class="is__container__img">
+                      <accordeon-plus v-if="!item.active"></accordeon-plus>
+                      <accordeon-less v-else></accordeon-less>
+                    </div>
+                  </div>
+                  <div
+                  v-if="menuList[y].active"
+                  class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__body">
+                    <div
+                    v-for="(innerItem, p) in item.dropdown"
+                    :key="p">
+                      <div
+                      class="is__container__img">
+                        <component :is="innerItem.icon"></component>
+                      </div>
+                      <nuxt-link
+                      :to="innerItem.href"
+                      class="is__h3"
+                      @click.native="menuMobileOpen = !menuMobileOpen">
+                        {{ innerItem.content }}
+                      </nuxt-link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+        </nav>
       </div>
     </section>
   </header>
@@ -79,6 +140,9 @@ import DropdownMenu from '~/assets/img/dropdownmenu.svg?inline';
 import OffersFirst from '~/assets/img/offers-first.svg?inline';
 import flower2 from '~/assets/img/flower-2.svg?inline';
 import Flower3 from '~/assets/img/flower-3.svg?inline';
+import Close from '~/assets/img/close.svg?inline';
+import AccordeonPlus from '~/assets/img/accordeon-plus.svg?inline';
+import AccordeonLess from '~/assets/img/accordeon-less.svg?inline';
 
 export default {
   name: 'HeaderVue',
@@ -89,6 +153,9 @@ export default {
     OffersFirst,
     flower2,
     Flower3,
+    Close,
+    AccordeonPlus,
+    AccordeonLess,
   },
   data() {
     return {
@@ -131,10 +198,12 @@ export default {
           isLogo: true,
         },
         {
-          content: 'Articles'
+          content: 'Articles',
+          href: '',
         },
         {
           content: 'Portfolio',
+          href: '',
         },
         {
           isBtn: true,
@@ -148,6 +217,14 @@ export default {
     updateBackgroundBtn() {
       return `background-color:${this.$route.name === 'Events' ? '#FDEADD' : 'transparent'};`;
     },
+  },
+  watch: {
+    menuMobileOpen(newValue) {
+      this.isBodyOverflowHidden(newValue);
+    },
+    $route() {
+      this.isBodyOverflowHidden(false);
+    }
   },
   created() {
     if (process.browser) {
@@ -169,6 +246,24 @@ export default {
     }
   },
   methods: {
+    isBodyOverflowHidden(isTrue) {
+      const body = document.querySelector('body');
+      const isOverflowHidden = 'is__overflow__hidden';
+
+      if (!isTrue) {
+        if (body.classList.contains(isOverflowHidden)) {
+          body.classList.remove(isOverflowHidden);
+          return true;
+        }
+
+        return true;
+      }
+
+      if (body.classList.contains(isOverflowHidden)) return true;
+      body.classList.add(isOverflowHidden);
+
+      return true;
+    },
     renderClassItemList(itemData) {
       if (itemData.dropdown) {
         return 'header--desktop--nav--list--item header--desktop--nav--list--item--dropdown';
@@ -189,11 +284,102 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__menu__dropdown__mobile {
+  background-color: $colorWhite;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5rem;
+  }
+
+  &__nav {
+    margin-top: 1rem;
+
+    &__itemwrapper {
+      padding: 0;
+      list-style-type: none;
+
+      &__child:first-child {
+        padding-top: 0;
+      }
+
+      &__child {
+        border-bottom: 1px solid $colorSubTitle;
+        padding: 1.3rem 0;
+
+        &__link,
+        &__dropdown__header > div:first-child {
+          color: $colorSubTitle;
+          font-family: $mainTypo;
+          font-size: 1.5rem;
+          font-weight: 400;
+          line-height: 35px;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        &__dropdown {
+          &__header {
+            display: flex;
+            justify-content: space-between;
+
+            .is__container__img {
+              border:1px solid #FDEADD;
+              background-color: #FDEADD;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+              border-radius: 50%;
+              height: 26px;
+              width: 26px;
+
+              svg {
+                height: 10px;
+                width: 10px;
+              }
+            }
+          }
+
+          &__body {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1.3rem;
+
+            div {
+              align-items: center;
+              display: flex;
+
+              .is__container__img {
+                margin-right: 1rem;
+                max-width: 2.5rem;
+              }
+
+              a {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .is__menu__dropdown__open {
   background-color: $colorWhite;
   box-sizing: border-box;
   position: absolute;
   width: 100%;
+  height: 100px;
   top: 0;
   left: 0;
   z-index: -1;

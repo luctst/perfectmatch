@@ -2,6 +2,10 @@
   padding-bottom: 100vh;
 }
 
+.is__overflow__hidden {
+  overflow: hidden;
+}
+
 .is__h1 {
   @include isH1();
 }
