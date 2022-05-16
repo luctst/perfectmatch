@@ -299,6 +299,11 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin-top: 5rem;
+
+    .is__container__img {
+      max-width: 5rem;
+      width: 1.5rem;
+    }
   }
 
   &__nav {
