@@ -108,8 +108,8 @@ export default {
       }
 
       @media (min-width: 1100px) {
-        max-width: 26%;
-        top: 24%;
+        max-width: 22%;
+        top: 50%;
         right: 50px;
       }
     }

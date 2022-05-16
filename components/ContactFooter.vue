@@ -17,18 +17,18 @@
       <div class="footer--legales--first">
         <div>© 2022 The Perfect Match</div>
         <p>
-          <nuxt-link to="/">Mentions légales</nuxt-link>
+          <nuxt-link to="/legal">Mentions légales</nuxt-link>
         </p>
         <p>
-          <nuxt-link to="/">Politique de confidentialité</nuxt-link>
+          <nuxt-link to="/cgu">Politique de confidentialité</nuxt-link>
         </p>
       </div>
       <div class="footer--legales--thanks">
         <p>
-          <a href="/">Design by Thomas B.</a>
+          <a href="https://www.thomasboyergibaud.com/" target="_blank">Design by Thomas B.</a>
         </p>
         <p>
-          <a href="/">Dev by Lucas T.</a>
+          <a href="https://lucastostee.com" target="_blank">Dev by Lucas T.</a>
         </p>
       </div>
     </div>
