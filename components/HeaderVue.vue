@@ -199,7 +199,7 @@ export default {
         },
         {
           content: 'Articles',
-          href: '',
+          href: 'articles',
         },
         {
           content: 'Portfolio',
