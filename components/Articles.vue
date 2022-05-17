@@ -3,8 +3,10 @@
     <section class="articles container-fluid">
       <div class="articles--content">
         <div class="title--tag">Articles</div>
-        <h2>En manque d'<span>inspiration</span></h2>
-        <h2>Envie d'un peu de lecture ?</h2>
+        <h2
+        v-for="(title, i) in titles"
+        :key="i"
+        v-html="title"></h2>
       </div>
       <div class="articles--items--wrapper">
         <router-link
@@ -12,22 +14,28 @@
         :id="index"
         :key="index"
         :class="['articles--items--wrapper--item', article.active && 'active']"
-        to="/"
+        :to="`/articles/${article.id}`"
         @mouseenter.native="article.active = true"
         @mouseleave.native="article.active = false">
           <div
           :style="`:hover { cursor: ${cursorUrl};}`"
           class="is__container__img articles--items--wrapper--item--img">
-            <img :src="article.cover"/>
+            <img
+            :src="article.attributes.mainimage.data.attributes.url"
+            :alt="article.attributes.mainimage.data.attributes.url"/>
           </div>
           <div class="articles--items--wrapper--item--content">
-            <h4>{{ article.title }}</h4>
-            <p class="subtitle">{{ article.subTitle }}</p>
+            <h4>{{ article.attributes.title }}</h4>
+            <p
+            v-html="formatSubtitle(article.attributes.subtitle)"
+            class="subtitle"></p>
           </div>
         </router-link>
       </div>
       <div class="articles--actions">
-        <button class="is__btn__primary">Voir plus</button>
+        <button class="is__btn__primary">
+          <nuxt-link to="/articles">Voir plus</nuxt-link>
+        </button>
       </div>
     </section>
   </section>
@@ -39,28 +47,52 @@ import globalMixin from '~/mixins/global';
 export default {
   name: 'Articles',
   mixins: [globalMixin],
+  props: {
+    titles: {
+      type: Array,
+      default() {
+        return [
+          'En manque d\'<span>inspiration</span> ?',
+          'Envie d\'un peu de lecture ?',
+        ];
+      },
+    },
+  },
+  async created() {
+    await this.fetchLastArticles();
+  },
+  watch: {
+    async $route() {
+      await this.fetchLastArticles();
+    }
+  },
+  methods: {
+    formatSubtitle(text) {
+      if (text.length >= 60) {
+        return `${text.slice(0, 80)}...`;
+      }
+
+      return text;
+    },
+    async fetchLastArticles() {
+      try {
+        const result = (await this.$axios.$get('/articles?pagination[pageSize]=3&populate=*')).data;
+
+        this.articles = result.map((article) => {
+          const newArticle = { ...article };
+          newArticle.active = false;
+
+          return newArticle;
+        });
+      } catch (error) {
+        this.errorApi = error.message;
+      }
+    },
+  },
   data() {
     return {
-      articles: [
-        {
-          active: false,
-          cover: require('~/assets/img/Rectangle5.jpg'),
-          title: 'Dream it yourself : la robe de mariée contemporaine à Montréal',
-          subTitle: 'Que fait-on quand on est une future mariée qui rêve d’un mariage qui ne semble qu’exister sur Pinterest? Quand on a envie d’une robe...',
-        },
-        {
-          active: false,
-          cover: require('~/assets/img/Rectangle16.jpg'),
-          title: '20 lieux intimes pour se marier à Montréal et dans les environs.',
-          subTitle: 'On dit que tout vient à point à qui sait attendre. Je pense que l’année 2020 aura été celle de la patience.',
-        },
-        {
-          active: false,
-          cover: require('~/assets/img/i.jpg'),
-          title: '10 questions à poser avant de louer une salle de réception.',
-          subTitle: 'C’est un euphémisme de dire qu’il y a beaucoup de choix à faire quand on organise son mariage.',
-        },
-      ],
+      errorApi: null,
+      articles: [],
       cursorUrl: require('~/assets/img/cursor.png'),
     };
   },

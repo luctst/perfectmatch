@@ -19,6 +19,12 @@
         <span></span>
       </div>
     </main>
+    <articles
+      :titles="[
+      'Découvrez d\'autres',
+      '<span>conseil et articles</span>',
+      ]">
+    </articles>
     <footer-vue></footer-vue>
   </section>
 </template>
@@ -93,7 +99,11 @@ export default {
     }
 
     .is__container__img {
-      max-height: 530px;
+      height: 100%;
+
+      img {
+        max-height: 530px;
+      }
     }
   }
 
@@ -105,10 +115,6 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 4rem;
-
-    @media (min-width: 920px) {
-      padding-bottom: 6rem;
-    }
 
     span {
       background-color: $colorSubTitle;

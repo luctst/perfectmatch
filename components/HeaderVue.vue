@@ -215,7 +215,21 @@ export default {
   },
   computed: {
     updateBackgroundBtn() {
-      return `background-color:${this.$route.name === 'Events' ? '#FDEADD' : 'transparent'};`;
+      let bgColor;
+
+      switch (this.$route.name) {
+        case 'Events':
+          bgColor = '#FDEADD';
+          break;
+        case 'articles-id':
+          bgColor = '#FDEADD';
+          break;
+        default:
+          bgColor = 'transparent';
+          break;
+      }
+
+      return `background-color:${bgColor};`;
     },
   },
   watch: {
