@@ -1,0 +1,39 @@
+.article--body {
+  p,
+  ul > li {
+    text-align: left!important;
+    color: $colorSubTitle;
+    font-family: $mainTypo;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+
+    strong {
+      font-family: $mainTypoBold;
+    }
+
+    @media (min-width: 350px) {
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    img,
+    svg {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+      @media (min-width: 920px) {
+        max-width: 50%;
+        margin: 2rem 25%;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+}

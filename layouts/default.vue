@@ -68,6 +68,10 @@ export default {
     async fetchRouteContent() {
       const d = [
         {
+          path: '/articles/:id',
+          apiRoutes: '/articles/:id',
+        },
+        {
           path: '/',
           apiRoutes: 'accueil',
           compoCategory: 'accueil',
@@ -98,20 +102,44 @@ export default {
           compoCategory: 'contact',
         },
       ];
-      const routesToFetch = d.find((r) => r.path === this.$route.path);
-      const populate = (await this.$axios.$get('/content-type-builder/components'))
-      .data
-      .filter((c) => c.category === routesToFetch.compoCategory)
-      .reduce(
-        (prev, next) => {
-          prev.populate[next.apiId] = { populate: '*' };
-          return prev;
-        },
-        { populate: {}}
-      );
-      const query = qs.stringify(populate, { encodeValuesOnly: true });
-      this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
-      )).data.attributes;
+      const routesToFetch = d.find((r) => {
+        if (Object.keys(this.$route.params).length) {
+          const params = Object.keys(this.$route.params);
+          return this.$route.path.split(this.$route.params[params[0]]).join(`:${params[0]}`) === r.path;
+        }
+
+        return r.path === this.$route.path;
+      });
+
+      if (routesToFetch.path.includes(':')) {
+        this.content = (await this.$axios.$get(
+          this.$route.path,
+          {
+            params: {
+              populate: '*',
+            },
+          },
+        )).data.attributes;
+
+        return true;
+      }
+
+      if (routesToFetch.compoCategory) {
+        const populate = (await this.$axios.$get('/content-type-builder/components'))
+        .data
+        .filter((c) => c.category === routesToFetch.compoCategory)
+        .reduce(
+          (prev, next) => {
+            prev.populate[next.apiId] = { populate: '*' };
+            return prev;
+          },
+          { populate: {}}
+        );
+        const query = qs.stringify(populate, { encodeValuesOnly: true });
+        this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
+        )).data.attributes;
+        return true;
+      }
     },
   },
 };
