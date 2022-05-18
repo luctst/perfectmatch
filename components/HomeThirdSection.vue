@@ -3,15 +3,18 @@
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
         <div class="is__container__img formulasinfos--img--container">
-          <img src="~/assets/img/flower.jpg">
+          <img
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"
+          />
         </div>
-        <div class="formulasinfos--img--content subtitle">
-          Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget.<br/><span>A vous de choisir la formule qui vous correspond le mieux !</span>
-        </div>
+        <div
+        v-html="content.imageSubtitle"
+        class="formulasinfos--img--content subtitle"></div>
       </div>
       <div class="formulasinfos--content">
         <p class="title--tag">Mariage</p>
-        <h2>The Perfect Match vous propose <br class="is__return__line"/><span>3 formules</span> pour votre mariage.</h2>
+        <h2 v-html="content.title"></h2>
       </div>
     </section>
   </section>

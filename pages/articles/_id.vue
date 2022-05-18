@@ -90,6 +90,12 @@ export default {
   }
 
   &--header {
+    h1 {
+      @media (min-width: 920px) {
+        font-size: 5em;
+      }
+    }
+
     .title--tag {
       text-align: center;
     }

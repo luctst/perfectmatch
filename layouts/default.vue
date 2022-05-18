@@ -80,32 +80,32 @@ export default {
         {
           path: '/',
           apiRoutes: 'accueil',
-          compoCategory: 'accueil',
+          compoCategoryToFetch: 'accueil,article,footer',
         },
         {
           path: '/about',
           apiRoutes: 'about',
-          compoCategory: 'about',
+          compoCategoryToFetch: 'about',
         },
         {
           path: '/wedding/complete',
           apiRoutes: 'wedding-complete',
-          compoCategory: 'wedding',
+          compoCategoryToFetch: 'wedding',
         },
         {
           path: '/wedding/partial',
           apiRoutes: 'wedding-partial',
-          compoCategory: 'wedding',
+          compoCategoryToFetch: 'wedding',
         },
         {
           path: '/events',
           apiRoutes: 'events',
-          compoCategory: 'event',
+          compoCategoryToFetch: 'event',
         },
         {
           path: '/contact',
           apiRoutes: 'contact',
-          compoCategory: 'contact',
+          compoCategoryToFetch: 'contact',
         },
       ];
       const routesToFetch = d.find((r) => {
@@ -130,10 +130,17 @@ export default {
         return true;
       }
 
-      if (routesToFetch.compoCategory) {
+      if (routesToFetch.compoCategoryToFetch) {
         const populate = (await this.$axios.$get('/content-type-builder/components'))
         .data
-        .filter((c) => c.category === routesToFetch.compoCategory)
+        .filter((c) => {
+          if (routesToFetch.compoCategoryToFetch.includes(',')) {
+            const strToArray = routesToFetch.compoCategoryToFetch.trim().split(',');
+            return strToArray.includes(c.category);
+          }
+
+          return c.category === routesToFetch.compoCategoryToFetch
+        })
         .reduce(
           (prev, next) => {
             prev.populate[next.apiId] = { populate: '*' };

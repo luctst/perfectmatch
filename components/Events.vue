@@ -6,28 +6,39 @@
       </div>
       <div class="events--content">
         <div class="title--tag">évènements</div>
-        <h2>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h2>
-        <p class="subtitle"><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
-        Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
-        <button class="is__btn__secondary">Découvrir</button>
+        <h2 v-html="content.title"></h2>
+        <p v-html="content.subtitle" class="subtitle"></p>
+        <button class="is__btn__secondary">
+          <nuxt-link to="/events">
+            {{ content.button }}
+          </nuxt-link>
+        </button>
       </div>
       <div class="events--slidermobile">
         <div class="is__container__img events--slidermobile--first">
-          <img src="~/assets/img/Groupe21.jpg"/>
+          <img
+          :src="content.imageLeft.data.attributes.url"
+          :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img events--slidermobile--second">
           <div class="events--slidermobile--second--overlay">
-            <img src="~/assets/img/Groupe13.jpg"/>
+            <img
+              :src="content.imageRight.data.attributes.url"
+              :alt="content.imageRight.data.attributes.alternativeText"/>
           </div>
         </div>
       </div>
       <div class="events--sliderdesktop">
         <div class="is__container__img events--sliderdesktop--first">
-          <img src="~/assets/img/Groupe21.jpg"/>
+          <img
+          :src="content.imageLeft.data.attributes.url"
+          :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img events--sliderdesktop--second">
           <div class="events--sliderdesktop--second--overlay">
-            <img src="~/assets/img/Groupe13.jpg"/>
+            <img
+              :src="content.imageRight.data.attributes.url"
+              :alt="content.imageRight.data.attributes.alternativeText"/>
           </div>
         </div>
       </div>

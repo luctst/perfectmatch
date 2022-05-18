@@ -1,5 +1,5 @@
 <template>
-  <header v-if="showHeader" class="header container-fluid">
+  <header ref="h" class="header container-fluid">
     <section class="header--desktop">
       <nav class="header--desktop--nav">
         <ul class="header--desktop--nav--list">
@@ -159,7 +159,6 @@ export default {
   },
   data() {
     return {
-      showHeader: true,
       menuMobileOpen: false,
       menuList: [
         {
@@ -249,16 +248,27 @@ export default {
       let lastScrollTop = 0;
   
       window.addEventListener('scroll', () => {
+        const header = this.$refs.h;
+        const isDisplayNone = 'is__display__none';
         const st = window.pageYOffset || document.documentElement.scrollTop;
   
         if (st > lastScrollTop) {
-          this.showHeader = false;
           lastScrollTop = st <= 0 ? 0 : st;
-          return false;
+
+          if (header.classList.contains(isDisplayNone)) {
+            return false;
+          };
+
+          header.classList.add(isDisplayNone);
+          return true;
         }
   
-        this.showHeader = true;
         lastScrollTop = st <= 0 ? 0 : st;
+        
+        if (header.classList.contains(isDisplayNone)) {
+          header.classList.remove(isDisplayNone);
+        }
+
         return true;
       });
     }

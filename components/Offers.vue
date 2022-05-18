@@ -2,7 +2,7 @@
   <section class="offers--wrapper">
     <section class="offers container-fluid">
       <div
-      v-for="(offer, index) in offers"
+      v-for="(offer, index) in offersData"
       :key="index"
       :class="renderClass(offer.active, index)"
       :style="`border:1px solid ${offer.colorBorder};background-color:${index === 0 ? offer.theme : 'transparent'};`"
@@ -15,14 +15,17 @@
         <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
         <button
         class="is__btn__secondary"
-        :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">Découvrir</button>
+        :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">
+          <nuxt-link :to="offer.btnHref">
+            Découvrir
+          </nuxt-link>
+        </button>
       </div>
     </section>
   </section>
 </template>
 
 <script>
-import GlobalMixin from '~/mixins/global';
 import OffersFirst from '~/assets/img/offers-first.svg?inline';
 import OffersSecond from '~/assets/img/flower-2.svg?inline';
 import OffersThird from '~/assets/img/flower-3.svg?inline';
@@ -34,18 +37,31 @@ export default {
     OffersSecond,
     OffersThird,
   },
-  mixins: [GlobalMixin],
+  props: {
+    content: {
+      type: [Array, Boolean],
+      required: true,
+    },
+  },
+  created() {
+    this.offersData = this.content.map((c, i) => {
+      const actualOfferData = { ...this.offersData[i] };
+      actualOfferData.content = [];
+      actualOfferData.content.push(c.title, c.description);
+
+      return actualOfferData;
+    });
+  },
   data() {
     return {
-      offers: [
+      dataPopulated: false,
+      offersData: [
         {
-          active: true,
+          btnHref: '/wedding/complete',
           theme: '#FDEADD',
+          colorText: '#3B2321',
           icon: OffersFirst,
-          content: [
-            'Organisation Complète',
-            'On s\'occupe de tout et il ne vous restera plus qu\'à profiter de votre journée le plus sereinement possible.',
-          ],
+          active: true,
         },
         {
           active: false,
@@ -53,10 +69,7 @@ export default {
           theme: '#E0F4EB',
           colorText: '#2E332A',
           icon: OffersSecond,
-          content: [
-            'Organisation Partielle',
-            'On vous aide dans l\'organisation de votre mariage, notamment sur la partie la plus fastidieuse à savoir la recherche de prestataires.',
-          ],
+          btnHref: '/wedding/partial',
         },
         {
           active: false,
@@ -64,10 +77,7 @@ export default {
           theme: '#F8ECFD',
           colorText: '#3C2A44',
           icon: OffersThird,
-          content: [
-            'Coordination Jour J',
-            'Vous êtes pratiquement venu à bout de l\'organisation de votre mariage mais vous voulez profiter de votre journée.',
-          ],
+          btnHref: '/wedding/dday',
         },
       ],
     };

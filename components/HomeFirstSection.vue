@@ -2,9 +2,9 @@
   <section class="gettingmaried--wrapper">
     <section class="gettingmaried container-fluid">
       <div class="gettingmaried--title">
-        <h2>Vous allez <span>vous marier</span> ?</h2>
-        <h2>La demande tant attendue est arrivée ? </h2>
-        <h2>Con-gra-tu-la-tion !</h2>
+        <h2 v-html="content.firstTitle"></h2>
+        <h2>{{ content.secondTitle }}</h2>
+        <h2>{{ content.thirdTitle }}</h2>
       </div>
       <div class="gettingmaried--circle">
         <div class="is__container__img">
@@ -12,13 +12,17 @@
         </div>
       </div>
       <div class="gettingmaried--content">
-        <p class="subtitle">Si vous êtes ici, c'est sûrement que vous vous posez quelques questions à propos de l l'organisation de votre grand jour. <br/><span>Alors vous êtes au bon endroit !</span></p>
+        <p
+        v-html="parseMarkdown(content.mainContent)"
+        class="subtitle">
+        </p>
       </div>
     </section>
   </section>
 </template>
 
 <script>
+import { marked } from 'marked';
 import GlobalMixin from '~/mixins/global';
 import LogoCircle from '~/assets/img/logo-circle.svg?inline';
 
@@ -28,6 +32,16 @@ export default {
     LogoCircle,
   },
   mixins: [GlobalMixin],
+  methods: {
+    parseMarkdown(content) {
+      marked.setOptions({
+        breaks: true,
+        gfm: true,
+      });
+
+      return marked(content);
+    }
+  },
 };
 </script>
 

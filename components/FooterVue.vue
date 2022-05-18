@@ -4,19 +4,19 @@
       <loop-footer></loop-footer>
     </div>
     <div class="footer--title">
-      <h2 class="is__h1">Prêts à rejoindre l'expérience<br/> The Perfect <span>Match</span> ?</h2>
+      <h2 v-html="content.title" class="is__h1"></h2>
       <button class="is__btn__secondary">
         <nuxt-link to="/contact">
-          Contactez-nous
+          {{ content.button }}
         </nuxt-link>
       </button>
     </div>
     <div class="footer--contact">
       <div class="footer--contact--infos">
         <div>Coordonnées</div>
-        <h6>Alexandra Sanchez</h6>
-        <h6>+33 6 51 79 15 08</h6>
-        <h6>contact@theperfectmatch.com</h6>
+        <h6>{{ content.name }}</h6>
+        <h6>+{{ content.phone }}</h6>
+        <h6>{{ content.mail }}</h6>
       </div>
       <div class="footer--contact--social">
         <span>FB</span>
@@ -26,12 +26,12 @@
     </div>
     <div class="footer--legales">
       <div class="footer--legales--first">
-        <div>© 2022 The Perfect Match</div>
+        <div>© {{ new Date().getFullYear() }} {{ content.perfectMatch }}</div>
         <p>
-          <nuxt-link to="/legal">Mentions légales</nuxt-link>
+          <nuxt-link to="/legal">{{ content.legale }}</nuxt-link>
         </p>
         <p>
-          <nuxt-link to="/cgu">Politique de confidentialité</nuxt-link>
+          <nuxt-link to="/cgu">{{ content.confidentialite }}</nuxt-link>
         </p>
       </div>
       <div class="footer--legales--thanks">

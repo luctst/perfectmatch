@@ -34,7 +34,7 @@
       </div>
       <div class="articles--actions">
         <button class="is__btn__primary">
-          <nuxt-link to="/articles">Voir plus</nuxt-link>
+          <nuxt-link to="/articles">{{ btnContent }}</nuxt-link>
         </button>
       </div>
     </section>
@@ -42,20 +42,16 @@
 </template>
 
 <script>
-import globalMixin from '~/mixins/global';
-
 export default {
   name: 'Articles',
-  mixins: [globalMixin],
   props: {
     titles: {
       type: Array,
-      default() {
-        return [
-          'En manque d\'<span>inspiration</span> ?',
-          'Envie d\'un peu de lecture ?',
-        ];
-      },
+      required: true,
+    },
+    btnContent: {
+      type: String,
+      required: true,
     },
   },
   async created() {

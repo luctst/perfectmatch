@@ -6,6 +6,10 @@
   overflow: hidden;
 }
 
+.is__display__none {
+  display: none;
+}
+
 .is__h1 {
   @include isH1();
 }

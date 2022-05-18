@@ -6,7 +6,7 @@
       </div>
       <div class="floatline--content">
         <div class="floatline--content--title">
-          <h1>Là où <span>votre rêve</span><br/> prend vie</h1>
+          <h1 v-html="content.title"></h1>
         </div>
         <div class="floatline--content--subtitle">
           <p class="subtitle">{{ content.subtitle }}</p>
