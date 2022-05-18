@@ -10,6 +10,7 @@
       <nuxt-child
       :content="content"
       :base-api-url="baseApiUrl"
+      :pagination="pagination"
       keep-alive />
     </template>
   </section>
@@ -21,6 +22,7 @@ import qs from 'qs';
 export default {
   data() {
     return {
+      pagination: {},
       content: false,
       baseApiUrl: process.env.NODE_ENV === 'development'
         ? 'http://localhost:1337/api'
@@ -67,6 +69,10 @@ export default {
     },
     async fetchRouteContent() {
       const d = [
+        {
+          path: '/articles',
+          apiRoutes: '/articles',
+        },
         {
           path: '/articles/:id',
           apiRoutes: '/articles/:id',
@@ -140,6 +146,12 @@ export default {
         )).data.attributes;
         return true;
       }
+
+      const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
+
+      this.content = result.data;
+      this.pagination = result.meta.pagination;
+      return true;
     },
   },
 };

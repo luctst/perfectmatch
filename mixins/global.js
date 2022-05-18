@@ -2,7 +2,7 @@ export default {
   inheritAttrs: false,
   props: {
     content: {
-      type: Object,
+      type: [Object, Boolean],
       required: true,
     },
     baseApiUrl: {

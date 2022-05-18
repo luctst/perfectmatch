@@ -9,7 +9,7 @@
         v-html="title"></h2>
       </div>
       <div class="articles--items--wrapper">
-        <router-link
+        <nuxt-link
         v-for="(article, index) in articles"
         :id="index"
         :key="index"
@@ -30,7 +30,7 @@
             v-html="formatSubtitle(article.attributes.subtitle)"
             class="subtitle"></p>
           </div>
-        </router-link>
+        </nuxt-link>
       </div>
       <div class="articles--actions">
         <button class="is__btn__primary">

@@ -215,14 +215,18 @@ export default {
   },
   computed: {
     updateBackgroundBtn() {
+      const color = '#FDEADD';
       let bgColor;
 
       switch (this.$route.name) {
         case 'Events':
-          bgColor = '#FDEADD';
+          bgColor = color;
           break;
         case 'articles-id':
-          bgColor = '#FDEADD';
+          bgColor = color;
+          break;
+        case 'Articles':
+          bgColor = color;
           break;
         default:
           bgColor = 'transparent';

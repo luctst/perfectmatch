@@ -71,7 +71,7 @@ div {
 
   @media (min-width: 350px) {
     height: auto;
-    padding-top: 80px;
+    padding-top: 80px!important;
   }
 
   @media (min-width: 920px) {
