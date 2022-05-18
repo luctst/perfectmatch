@@ -90,7 +90,11 @@
                     {{ Number.isNaN(item.price) ? 'Sur-mesure' : `${item.price} €` }}
                   </span>
                 </p>
-                <button class="is__btn__secondary">Choisir</button>
+                <button class="is__btn__secondary">
+                  <nuxt-link :to="`/contact?offer=${item.title}`">
+                    Choisir
+                  </nuxt-link>
+                </button>
               </div>
             </div>
           </div>

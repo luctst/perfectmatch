@@ -44,22 +44,37 @@
 </template>
 
 <script>
-import globalMixin from '~/mixins/global';
-
 export default {
   name: 'Articles',
-  mixins: [globalMixin],
   props: {
+    content: {
+      type: [Array, Boolean, Object],
+      required: true,
+    },
     pagination: {
       type: Object,
       required: true,
     },
   },
+  watch: {
+    content(newValue) {
+      if (Array.isArray(newValue)) {
+      this.articles = newValue.map((article) => ({
+        ...article,
+        active: false,
+      }));
+    }
+
+    return true;
+    },
+  },
   created() {
-    this.articles = this.content.map((article) => ({
-      ...article,
-      active: false,
-    }));
+    if (Array.isArray(this.content)) {
+      this.articles = this.content.map((article) => ({
+        ...article,
+        active: false,
+      }));
+    }
 
     return true;
   },

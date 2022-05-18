@@ -5,7 +5,11 @@
     </div>
     <div class="footer--title">
       <h2 class="is__h1">Prêts à rejoindre l'expérience<br/> The Perfect <span>Match</span> ?</h2>
-      <button class="is__btn__secondary">Contactez-nous</button>
+      <button class="is__btn__secondary">
+        <nuxt-link to="/contact">
+          Contactez-nous
+        </nuxt-link>
+      </button>
     </div>
     <div class="footer--contact">
       <div class="footer--contact--infos">
