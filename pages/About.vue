@@ -7,7 +7,7 @@
     <about-location :content="{}"></about-location>
     <about-perfect-accord :content="{}"></about-perfect-accord>
     <about-event :content="{}"></about-event>
-    <footer-vue :content="{}"></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 

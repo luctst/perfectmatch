@@ -16,7 +16,7 @@ export default () => ({
     {
       path: '/about',
       apiRoutes: 'about',
-      compoCategoryToFetch: 'about',
+      compoCategoryToFetch: 'about,footer',
     },
     {
       path: '/wedding/complete',
