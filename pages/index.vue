@@ -16,17 +16,10 @@
 </template>
 
 <script>
+import globalMixin from '~/mixins/global';
+
 export default {
   layout: 'default',
-  props: {
-    content: {
-      type: [Boolean, Object],
-      required: true,
-    },
-    baseApiUrl: {
-      type: String,
-      required: true,
-    },
-  },
+  mixins: [globalMixin],
 }
 </script>
