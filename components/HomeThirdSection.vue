@@ -9,7 +9,7 @@
           />
         </div>
         <div
-        v-html="content.imageSubtitle"
+        v-html="parseMarkdown(content.imageSubtitle)"
         class="formulasinfos--img--content subtitle"></div>
       </div>
       <div class="formulasinfos--content">
