@@ -7,7 +7,7 @@
       <div class="events--content">
         <div class="title--tag">évènements</div>
         <h2 v-html="content.title"></h2>
-        <p v-html="content.subtitle" class="subtitle"></p>
+        <p v-html="parseMarkdown(content.subtitle)" class="subtitle"></p>
         <button class="is__btn__secondary">
           <nuxt-link to="/events">
             {{ content.button }}
@@ -66,14 +66,18 @@ export default {
 }
 
 .events {
+  height: auto;
   background-color: $colorGreen;
   box-sizing: border-box;
   position: relative;
   z-index: 4;
 
+  @media (min-width: 800px) {
+    padding-bottom: 4rem;
+  }
+
   @media (min-width: 920px) {
     padding-top: 80px;
-    height: auto;
   }
 
   @media (min-width: 1000px) {
@@ -163,7 +167,7 @@ export default {
 
     p {
       @media (min-width: 920px) {
-        margin-bottom: 75px;
+        margin-bottom: 2rem;
       }
     }
 

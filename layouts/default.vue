@@ -29,8 +29,9 @@ export default {
     await this.fetchRouteContent();
   },
   watch: {
-    $route() {
+    async $route() {
       this.shouldAddBodyPadding();
+      await this.fetchRouteContent();
     }
   },
   created() {
@@ -104,6 +105,11 @@ export default {
           })
           .reduce(
             (prev, next) => {
+              if (next.apiId.includes('-')) {
+                prev.populate[next.apiId.split('-').join('')] = { populate: '*' };
+                return prev;
+              }
+
               prev.populate[next.apiId] = { populate: '*' };
               return prev;
             },

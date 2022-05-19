@@ -7,15 +7,17 @@
     </div>
     <section class="floatline container-fluid">
       <div class="floatline--title">
-        <h1>La bienveillance, l'écoute <br class="is__return__line"/>et le <span>sur-mesure</span></h1>
+        <h1 v-html="content.title"></h1>
         <div class="floatline--title--extra">
-          <div class="subtitle">Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</div>
+          <div v-html="content.subtitle" class="subtitle"></div>
           <span class="is__span__outside__h2"></span>
         </div>
       </div>
       <div class="floatline--profile">
         <div class="is__container__img">
-          <img src="~/assets/img/pic-profile.jpg" alt="Picture profile">
+          <img
+          :src="content.imageProfile.data.attributes.url"
+          :alt="content.imageProfile.data.attributes.alternativeText"/>
         </div>
       </div>
     </section>

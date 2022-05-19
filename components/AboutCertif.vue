@@ -2,15 +2,17 @@
   <section class="certif--wrapper">
     <section class="certif container-fluid">
       <div class="certif--title">
-        <div class="title--tag">Mon parcours</div>
-        <h2><span>Certifiée</span> organisateur de mariage</h2>
+        <div class="title--tag">{{ content.littleTitle }}</div>
+        <h2 v-html="content.mainTitle"></h2>
       </div>
       <div class="certif--content">
         <div class="is__container__img">
-          <img src="~/assets/img/certif.png"/>
+          <img
+          :src="content.image_certification.data.attributes.url"
+          :alt="content.image_certification.data.attributes.alternativeText"/>
         </div>
-        <p class="subtitle2">Après avoir travaillé en tant qu'agent immobilier pendant près de 4 ans sur la région bordelaise, je voulu me réorienté vers un métier plus en accord avec moi même.</p>
-        <p class="subtitle2">C'est pourquoi j'ai suivi une formation d'organisatrice de mariage au sein de l'école **EFMM** (école de formation aux métiers du mariage).</p>
+        <p v-html="parseMarkdown(content.first_subtitle)" class="subtitle2"></p>
+        <p v-html="parseMarkdown(content.second_subtitle)" class="subtitle2"></p>
       </div>
     </section>
   </section>

@@ -2,19 +2,19 @@
   <section class="whoiam--wrapper">
     <section class="whoiam container-fluid">
       <div class="whoiam--title">
-        <div class="title--tag">QUI SE CACHE DERRIÈRE ?</div>
-        <h2><span>Je suis Alexandra</span>,</h2>
-        <h2>bordelaise de naissance,</h2>
-        <h2>parisienne d'adoption.</h2>
+        <div class="title--tag">{{ content.littleTitle }}</div>
+        <h2 v-html="content.firstBigTitle"></h2>
+        <h2 v-html="content.secondBigTitle"></h2>
+        <h2 v-html="content.thirdBigTitle"></h2>
       </div>
       <div class="whoiam--chips">
-        <div class="is__chips">Humaine</div>
-        <div class="is__chips">Pétillante</div>
-        <div class="is__chips">Attentive</div>
+        <div class="is__chips">{{ content.firstGreenContent }}</div>
+        <div class="is__chips">{{ content.secondGreenContent }}</div>
+        <div class="is__chips">{{ content.thirdGreenContent }}</div>
       </div>
       <div class="whoiam--content">
-        <p class="subtitle2">Amoureuse de l'amour et grande fêtarde dans l'âme, les moments passés auprès de ma famille et de mes amis me sont chers. C'est pourquoi je ne me voyais</p>
-        <p class="subtitle2">pas faire autre chose que célébrer l'amour et les événements qui réuniront vos proches pour des moments uniques et inoubliables.</p>
+        <p v-html="parseMarkdown(content.subtitleLeft)" class="subtitle2"></p>
+        <p v-html="parseMarkdown(content.subtitleRight)" class="subtitle2"></p>
       </div>
     </section>
   </section>
