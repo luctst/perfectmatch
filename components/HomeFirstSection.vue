@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import { marked } from 'marked';
 import GlobalMixin from '~/mixins/global';
 import LogoCircle from '~/assets/img/logo-circle.svg?inline';
 
@@ -32,16 +31,6 @@ export default {
     LogoCircle,
   },
   mixins: [GlobalMixin],
-  methods: {
-    parseMarkdown(content) {
-      marked.setOptions({
-        breaks: true,
-        gfm: true,
-      });
-
-      return marked(content);
-    }
-  },
 };
 </script>
 
