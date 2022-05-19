@@ -4,12 +4,11 @@
       Fetch date
     </template>
     <template v-else-if="$fetchState.error">
-      Error...
+      <error></error>
     </template>
     <template v-else>
       <nuxt-child
       :content="content"
-      :base-api-url="baseApiUrl"
       :pagination="pagination"
       keep-alive />
     </template>
@@ -24,18 +23,14 @@ export default {
     return {
       pagination: {},
       content: false,
-      baseApiUrl: process.env.NODE_ENV === 'development'
-        ? 'http://localhost:1337/api'
-        : 'https://the-perfect-match.herokuapp.com'
     };
   },
   async fetch() {
     await this.fetchRouteContent();
   },
   watch: {
-    async $route() {
+    $route() {
       this.shouldAddBodyPadding();
-      await this.fetchRouteContent();
     }
   },
   created() {
@@ -48,7 +43,10 @@ export default {
     shouldAddBodyPadding() {
       const body = document.querySelector('body');
 
-      if (this.$route.name === 'Contact') {
+      if (
+        this.$route.name === 'Contact'
+        || !this.$route.name
+      ) {
         if (!body.classList.contains('is__body__padding')) return true;
 
         body.classList.remove('is__body__padding');
@@ -68,97 +66,63 @@ export default {
       return true;
     },
     async fetchRouteContent() {
-      const d = [
-        {
-          path: '/articles',
-          apiRoutes: '/articles',
-        },
-        {
-          path: '/articles/:id',
-          apiRoutes: '/articles/:id',
-        },
-        {
-          path: '/',
-          apiRoutes: 'accueil',
-          compoCategoryToFetch: 'accueil,article,footer',
-        },
-        {
-          path: '/about',
-          apiRoutes: 'about',
-          compoCategoryToFetch: 'about',
-        },
-        {
-          path: '/wedding/complete',
-          apiRoutes: 'wedding-complete',
-          compoCategoryToFetch: 'wedding',
-        },
-        {
-          path: '/wedding/partial',
-          apiRoutes: 'wedding-partial',
-          compoCategoryToFetch: 'wedding',
-        },
-        {
-          path: '/events',
-          apiRoutes: 'events',
-          compoCategoryToFetch: 'event',
-        },
-        {
-          path: '/contact',
-          apiRoutes: 'contact',
-          compoCategoryToFetch: 'contact',
-        },
-      ];
-      const routesToFetch = d.find((r) => {
-        if (Object.keys(this.$route.params).length) {
-          const params = Object.keys(this.$route.params);
-          return this.$route.path.split(this.$route.params[params[0]]).join(`:${params[0]}`) === r.path;
-        }
-
-        return r.path === this.$route.path;
-      });
-
-      if (routesToFetch.path.includes(':')) {
-        this.content = (await this.$axios.$get(
-          this.$route.path,
-          {
-            params: {
-              populate: '*',
-            },
-          },
-        )).data.attributes;
-
-        return true;
-      }
-
-      if (routesToFetch.compoCategoryToFetch) {
-        const populate = (await this.$axios.$get('/content-type-builder/components'))
-        .data
-        .filter((c) => {
-          if (routesToFetch.compoCategoryToFetch.includes(',')) {
-            const strToArray = routesToFetch.compoCategoryToFetch.trim().split(',');
-            return strToArray.includes(c.category);
+      try {
+        const routesToFetch = this.$store.state.routes.find((r) => {
+          if (Object.keys(this.$route.params).length) {
+            const params = Object.keys(this.$route.params);
+            return this.$route.path.split(this.$route.params[params[0]]).join(`:${params[0]}`) === r.path;
           }
+  
+          return r.path === this.$route.path;
+        });
 
-          return c.category === routesToFetch.compoCategoryToFetch
-        })
-        .reduce(
-          (prev, next) => {
-            prev.populate[next.apiId] = { populate: '*' };
-            return prev;
-          },
-          { populate: {}}
-        );
-        const query = qs.stringify(populate, { encodeValuesOnly: true });
-        this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
-        )).data.attributes;
+        if (!routesToFetch) throw new Error('page do not exist');
+  
+        if (routesToFetch.path.includes(':')) {
+          this.content = (await this.$axios.$get(
+            this.$route.path,
+            {
+              params: {
+                populate: '*',
+              },
+            },
+          )).data.attributes;
+  
+          return true;
+        }
+  
+        if (routesToFetch.compoCategoryToFetch) {
+          const populate = (await this.$axios.$get('/content-type-builder/components'))
+          .data
+          .filter((c) => {
+            if (routesToFetch.compoCategoryToFetch.includes(',')) {
+              const strToArray = routesToFetch.compoCategoryToFetch.trim().split(',');
+              return strToArray.includes(c.category);
+            }
+  
+            return c.category === routesToFetch.compoCategoryToFetch
+          })
+          .reduce(
+            (prev, next) => {
+              prev.populate[next.apiId] = { populate: '*' };
+              return prev;
+            },
+            { populate: {}}
+          );
+          const query = qs.stringify(populate, { encodeValuesOnly: true });
+          this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
+          )).data.attributes;
+          return true;
+        }
+  
+        const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
+  
+        this.content = result.data;
+        this.pagination = result.meta.pagination;
         return true;
+      } catch (error) {
+        throw error;
       }
-
-      const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
-
-      this.content = result.data;
-      this.pagination = result.meta.pagination;
-      return true;
     },
   },
 };
