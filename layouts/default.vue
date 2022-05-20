@@ -140,7 +140,6 @@ export default {
             { populate: {}}
           );
           const query = qs.stringify(populate, { encodeValuesOnly: true });
-          console.log(query);
           this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
           )).data.attributes;
           return true;
