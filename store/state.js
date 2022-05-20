@@ -29,7 +29,7 @@ export default () => ({
     {
       path: '/wedding/complete',
       apiRoutes: 'wedding-complete',
-      compoCategoryToFetch: 'wedding',
+      compoCategoryToFetch: 'wedding,footer',
     },
     {
       path: '/wedding/partial',

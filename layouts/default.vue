@@ -8,7 +8,6 @@
     </template>
     <template v-else>
       <nuxt-child
-      v-if="content"
       :content="content"
       :pagination="pagination"/>
     </template>
@@ -30,9 +29,8 @@ export default {
   },
   watch: {
     async $route() {
-      this.content = false;
       this.shouldAddBodyPadding();
-      await this.fetchRouteContent();
+      await this.$fetch();
     }
   },
   created() {
@@ -67,15 +65,19 @@ export default {
       body.classList.remove('is__body__padding');
       return true;
     },
-    async fetchRouteContent() {
+    async fetchRouteContent(newRoute) {
       try {
+        const routerData = newRoute ? { ...newRoute } : this.$route;
         const routesToFetch = this.$store.state.routes.find((r) => {
-          if (Object.keys(this.$route.params).length) {
-            const params = Object.keys(this.$route.params);
-            return this.$route.path.split(this.$route.params[params[0]]).join(`:${params[0]}`) === r.path;
+          if (
+            Object.keys(routerData.params).length
+            && r.path.includes(':')
+          ) {
+            const params = Object.keys(routerData.params);
+            return routerData.path.split(routerData.params[params[0]]).join(`:${params[0]}`) === r.path;
           }
   
-          return r.path === this.$route.path;
+          return r.path === routerData.path;
         });
 
         if (!routesToFetch) throw new Error('page do not exist');
@@ -99,7 +101,7 @@ export default {
             )
 
           const pageResult = (await this.$axios.$get(
-            this.$route.path,
+            routerData.path,
             {
               params: {
                 populate: '*',
@@ -138,6 +140,7 @@ export default {
             { populate: {}}
           );
           const query = qs.stringify(populate, { encodeValuesOnly: true });
+          console.log(query);
           this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
           )).data.attributes;
           return true;

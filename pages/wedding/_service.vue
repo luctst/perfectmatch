@@ -7,7 +7,7 @@
     <wedding-third-section :content="{}"></wedding-third-section>
     <wedding-offers :content="{}"></wedding-offers>
     <wedding-tarifs :content="{}"></wedding-tarifs>
-    <footer-vue :content="{}"></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
