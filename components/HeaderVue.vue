@@ -202,7 +202,7 @@ export default {
         },
         {
           content: 'Portfolio',
-          href: '',
+          href: 'projects',
         },
         {
           isBtn: true,

@@ -5,12 +5,16 @@ export default () => ({
       apiRoutes: '/articles',
     },
     {
+      path: '/projects',
+      apiRoutes: '/projects',
+    },
+    {
       path: '/articles/:id',
       apiRoutes: '/articles/:id',
     },
     {
       path: '/projects/:id',
-      apiRoutes: '/articles/:id',
+      apiRoutes: '/projects/:id',
     },
     {
       path: '/',
