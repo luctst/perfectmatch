@@ -11,7 +11,6 @@ export default () => ({
     {
       path: '/projects/:id',
       apiRoutes: '/articles/:id',
-      compoCategoryToFetch: 'footer',
     },
     {
       path: '/',

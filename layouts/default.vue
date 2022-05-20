@@ -10,7 +10,7 @@
       <nuxt-child
       :content="content"
       :pagination="pagination"
-      keep-alive />
+      keep-alive/>
     </template>
   </section>
 </template>
@@ -80,7 +80,24 @@ export default {
         if (!routesToFetch) throw new Error('page do not exist');
   
         if (routesToFetch.path.includes(':')) {
-          this.content = (await this.$axios.$get(
+          const components = (await this.$axios.$get('/content-type-builder/components'))
+            .data
+            .filter((component) => {
+              if (
+                component.apiId === 'footer'
+                || component.apiId === 'header'
+              ) return true;
+              return false;
+            })
+            .reduce(
+              (prev, next) => {
+                prev[next.apiId] = next.schema.attributes;
+                return prev;
+              },
+              {}
+            )
+
+          const pageResult = (await this.$axios.$get(
             this.$route.path,
             {
               params: {
@@ -88,7 +105,11 @@ export default {
               },
             },
           )).data.attributes;
-  
+
+          this.content = {
+            ...pageResult,
+            ...components,
+          };
           return true;
         }
   
