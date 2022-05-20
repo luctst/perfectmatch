@@ -34,7 +34,7 @@ export default () => ({
     {
       path: '/wedding/partial',
       apiRoutes: 'wedding-partial',
-      compoCategoryToFetch: 'wedding',
+      compoCategoryToFetch: 'wedding,footer',
     },
     {
       path: '/events',

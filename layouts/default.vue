@@ -9,7 +9,8 @@
     <template v-else>
       <nuxt-child
       :content="content"
-      :pagination="pagination"/>
+      :pagination="pagination"
+      keep-alive/>
     </template>
   </section>
 </template>
