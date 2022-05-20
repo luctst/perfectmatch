@@ -18,7 +18,6 @@
         @mouseenter.native="article.active = true"
         @mouseleave.native="article.active = false">
           <div
-          :style="`:hover { cursor: ${cursorUrl};}`"
           class="is__container__img articles--items--wrapper--item--img">
             <img
             :src="article.attributes.mainimage.data.attributes.url"
@@ -34,7 +33,7 @@
       </div>
       <div class="articles--actions">
         <button class="is__btn__primary">
-          <nuxt-link to="/articles">{{ btnContent }}</nuxt-link>
+          <nuxt-link to="/articles">Voir plus</nuxt-link>
         </button>
       </div>
     </section>
@@ -47,10 +46,6 @@ export default {
   props: {
     titles: {
       type: Array,
-      required: true,
-    },
-    btnContent: {
-      type: String,
       required: true,
     },
   },
@@ -89,7 +84,6 @@ export default {
     return {
       errorApi: null,
       articles: [],
-      cursorUrl: require('~/assets/img/cursor.png'),
     };
   },
 };

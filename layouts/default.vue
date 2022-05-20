@@ -8,9 +8,9 @@
     </template>
     <template v-else>
       <nuxt-child
+      v-if="content"
       :content="content"
-      :pagination="pagination"
-      keep-alive/>
+      :pagination="pagination"/>
     </template>
   </section>
 </template>
@@ -30,6 +30,7 @@ export default {
   },
   watch: {
     async $route() {
+      this.content = false;
       this.shouldAddBodyPadding();
       await this.fetchRouteContent();
     }
@@ -141,10 +142,29 @@ export default {
           )).data.attributes;
           return true;
         }
-  
+
+        const components = (await this.$axios.$get('/content-type-builder/components'))
+          .data
+          .filter((component) => {
+            if (
+              component.apiId === 'footer'
+              || component.apiId === 'header'
+            ) return true;
+            return false;
+          })
+          .reduce(
+            (prev, next) => {
+              prev[next.apiId] = next.schema.attributes;
+              return prev;
+            },
+            {}
+          )
         const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
   
-        this.content = result.data;
+        this.content = {
+          items: [...result.data],
+          ...components,
+        };
         this.pagination = result.meta.pagination;
         return true;
       } catch (error) {

@@ -1,4 +1,8 @@
 @mixin btnCommon($color) {
+  &:hover {
+    cursor: pointer;
+  }
+
   align-items: center;
   border: none;
   color: $textColor;

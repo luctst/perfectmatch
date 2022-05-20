@@ -248,6 +248,8 @@ export default {
       let lastScrollTop = 0;
   
       window.addEventListener('scroll', () => {
+        if (!this.$refs.h) return false;
+
         const header = this.$refs.h;
         const isDisplayNone = 'is__display__none';
         const st = window.pageYOffset || document.documentElement.scrollTop;

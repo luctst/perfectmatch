@@ -21,7 +21,6 @@
             @mouseenter.native="article.active = true"
             @mouseleave.native="article.active = false">
               <div
-              :style="`:hover { cursor: ${cursorUrl};}`"
               :class="`is__container__img articles--body--mosaic${mosaicData.mid}--wrapper--item--img`">
                 <img
                 :src="article.attributes.mainimage.data.attributes.url"
@@ -38,8 +37,14 @@
           </div>
         </section>
       </main>
+      <footer class="articles--footer">
+        <button 
+        v-if="paginationData.page !== paginationData.pageCount"
+        class="is__btn__primary"
+        @click="fetchNewArticles">Voir plus</button>
+      </footer>
     </section>
-    <footer-vue></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
@@ -58,8 +63,8 @@ export default {
   },
   watch: {
     content(newValue) {
-      if (Array.isArray(newValue)) {
-      this.articles = newValue.map((article) => ({
+      if (Array.isArray(newValue.items)) {
+      this.articles = newValue.items.map((article) => ({
         ...article,
         active: false,
       }));
@@ -69,8 +74,8 @@ export default {
     },
   },
   created() {
-    if (Array.isArray(this.content)) {
-      this.articles = this.content.map((article) => ({
+    if (Array.isArray(this.content.items)) {
+      this.articles = this.content.items.map((article) => ({
         ...article,
         active: false,
       }));
@@ -81,7 +86,7 @@ export default {
   computed: {
     mosaicFormated() {
       let actualMosaicId = 1;
-      const mosaicLength = Math.ceil(this.content.length / 3);
+      const mosaicLength = Math.ceil(this.articles.length / 3);
       const result = [];
 
       for (let index = 0; index < mosaicLength; index++) {
@@ -111,6 +116,21 @@ export default {
     };
   },
   methods: {
+    async fetchNewArticles() {
+      try {
+        const resultApi = await this.$axios.$get(`/articles?pagination[pageSize]=12&pagination[page]=${this.paginationData.page + 1}&populate=*&sort=createdAt:desc`);
+
+        const resultArrayFormated = resultApi.data.map((article) => ({
+          ...article,
+          active: false,
+        }));
+
+        this.articles = this.articles.concat(resultArrayFormated);
+        this.paginationData = resultApi.meta.pagination;
+      } catch (error) {
+        this.errorApi = true;
+      }
+    },
     formatSubtitle(text) {
       if (text.length >= 60) {
         return `${text.slice(0, 80)}...`;
@@ -152,6 +172,10 @@ export default {
   }
 
   &--body {
+    :last-child {
+      margin-bottom: 0;
+    }
+
     @media (min-width: 350px) {
       margin-top: 4rem;
       margin-bottom: 6rem;
@@ -160,7 +184,6 @@ export default {
     @media (min-width: 920px) {
       margin-top: 0;
       margin-bottom: 0;
-      padding-bottom: 8rem;
     }
 
     &--mosaic1 {
@@ -310,6 +333,16 @@ export default {
           }
         }
       }
+    }
+  }
+
+  &--footer {
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: 920px) {
+      margin-top: 4rem;
+      padding-bottom: 6rem;
     }
   }
 }
