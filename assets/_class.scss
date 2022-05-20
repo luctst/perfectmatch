@@ -123,3 +123,50 @@
   font-size: 1.2rem;
   line-height: 29px;
 }
+
+.slick-slide {
+  @media (min-width: 920px) {
+    margin: 0 2rem;
+    max-height: 800px;
+    height: 500px!important;
+    width: 3%!important;
+  }
+
+  div {
+    height: inherit;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.slick-dots {
+  display: flex!important;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin-top: 3rem!important;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  li {
+    border-radius: 50%;
+    background-color: #FDEADD;
+    margin-right: .4rem;
+    height: 8px;
+    width: 8px;
+
+    div {
+      display: none;
+    }
+  }
+}
+
+.slick-active {
+  background-color: #3B2321!important;
+}

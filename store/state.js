@@ -9,6 +9,11 @@ export default () => ({
       apiRoutes: '/articles/:id',
     },
     {
+      path: '/projects/:id',
+      apiRoutes: '/articles/:id',
+      compoCategoryToFetch: 'footer',
+    },
+    {
       path: '/',
       apiRoutes: 'accueil',
       compoCategoryToFetch: 'accueil,article,footer',
@@ -31,7 +36,7 @@ export default () => ({
     {
       path: '/events',
       apiRoutes: 'events',
-      compoCategoryToFetch: 'event',
+      compoCategoryToFetch: 'event,footer',
     },
     {
       path: '/contact',

@@ -67,8 +67,17 @@
   font-family: $secondTypo;
   margin: 0;
 
-  span {
+  span,
+  strong {
     font-family: $mainTypoNeueBold;
+  }
+
+  blockquote {
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
   }
 
   @media (min-width: 350px) {

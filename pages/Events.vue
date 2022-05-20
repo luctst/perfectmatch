@@ -6,7 +6,7 @@
     <event-speciality :content="{}"></event-speciality>
     <event-offers :content="{}"></event-offers>
     <event-tarif :content="{}"></event-tarif>
-    <footer-vue :content="{}"></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
