@@ -19,11 +19,25 @@ export default {
   css: [
     '@/assets/main.scss'
   ],
+  plugins: [
+    {
+      src: "~/plugins/split.js",
+      ssr: false
+    },
+    { 
+      src: '~/plugins/observer.js', 
+      ssr: false 
+    },
+    { 
+      src: '~/plugins/rellax.js', 
+      ssr: false 
+    }
+
+  ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
-    '@nuxtjs/google-fonts',
   ],
   modules: [
     '@nuxtjs/axios',
@@ -33,9 +47,12 @@ export default {
     scss: ['@/assets/main.scss']
   },
   axios: {
-    credentials: true,
+    // credentials: true,
     baseUrl: process.env.NODE_ENV === 'development'
       ? 'http://localhost:1337/api'
       : process.env.APIURL,
   },
+  server: {
+    host: "0.0.0.0"
+  }
 }

@@ -1,0 +1,164 @@
+<template>
+  <section class="floatline--wrapper">
+    <section class="floatline container-fluid">
+      <div class="floatline--img--left">
+        <div class="is__container__img">
+          <img src="~/assets/img/Groupe21.jpg">
+        </div>
+      </div>
+      <div class="floatline--title">
+        <h1 data-line>Événements</h1>
+        <div class="subtitle">Chaque étape de votre vie devrait être célébré comme il se doit, c'est pourquoi l'agence The Perfect Match vous propose de donner vie à vos rêves pour organiser les moments qui vous sont chers.</div>
+        <span></span>
+      </div>
+      <div class="floatline--img--right">
+        <div class="is__container__img">
+          <logo-circle></logo-circle>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
+<script>
+import LogoCircle from '~/assets/img/logo-circle.svg?inline';
+
+export default {
+  name: 'Floatline',
+  components: {
+    LogoCircle,
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.floatline--wrapper {
+  background-color: $colorWhite;
+}
+
+.floatline {
+  display: flex;
+  position: relative;
+  z-index: 3;
+
+  @media (min-width: 350px) {
+    padding-top: 8rem;
+    flex-direction: column;
+  }
+
+  @media (min-width: 920px) {
+    flex-direction: row;
+    padding-top: 10rem;
+  }
+
+  &--img--left {
+    @media (min-width: 920px) {
+      flex: 0 0 24%;
+    }
+
+    div {
+      @media (min-width: 350px) {
+        margin: 0 auto;
+        max-width: 80%;
+      }
+
+      @media (min-width: 470px) {
+        max-width: 70%;
+      }
+
+      @media (min-width: 540px) {
+        max-width: 60%;
+      }
+
+      @media (min-width: 680px) {
+        max-width: 50%;
+      }
+
+      @media (min-width: 770px) {
+        max-width: 40%;
+      }
+
+      @media (min-width: 920px) {
+        max-width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &--title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 350px) {
+      padding-top: 2rem;
+      padding-bottom: 6rem;
+    }
+
+    @media (min-width: 920px) {
+      margin-top: auto;
+      padding: 0;
+    }
+
+    div {
+      margin-bottom: 1rem;
+
+      @media (min-width: 700px) {
+        margin-left: 10rem;
+        margin-right: 10rem;
+      }
+
+      @media (min-width: 920px) {
+        margin-top: 3rem;
+        margin-left: 3rem;
+        margin-right: 3rem;
+      }
+
+      @media (min-width: 1400px) {
+        margin-left: 5rem;
+        margin-right: 5rem;
+      }
+    }
+
+    span {
+      display: block;
+      background-color: #EDCDB8;
+      height: 27px;
+      width: 1px;
+    }
+  }
+
+  &--img--right {
+    @media (min-width: 920px) {
+      flex: 0 0 20%;
+    }
+
+    div {
+      @media (min-width: 350px) {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      @media (min-width: 470px) {
+        max-width: 70%;
+      }
+
+      @media (min-width: 540px) {
+        max-width: 50%;
+      }
+
+      @media (min-width: 680px) {
+        max-width: 40%;
+      }
+
+      @media (min-width: 770px) {
+        max-width: 30%;
+      }
+
+      @media (min-width: 920px) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+</style>

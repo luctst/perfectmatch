@@ -1,65 +1,89 @@
 <template>
-  <section class="articles container-fluid">
-    <div class="articles--content">
-      <div>Articles</div>
-      <h4>En manque d'<span>inspiration</span></h4>
-      <h4>Envie d'un peu de lecture ?</h4>
-    </div>
-    <div class="articles--items--wrapper">
-      <router-link
-       v-for="(article, index) in articles"
-      :id="index"
-      :key="index"
-      :class="['articles--items--wrapper--item', article.active && 'active']"
-      to="/"
-      @mouseenter.native="article.active = true"
-      @mouseleave.native="article.active = false">
-        <div
-        :style="`:hover { cursor: ${cursorUrl};}`"
-        class="is__container__img articles--items--wrapper--item--img">
-          <img :src="article.cover"/>
-        </div>
-        <div class="articles--items--wrapper--item--content">
-          <h5>{{ article.title }}</h5>
-          <p>{{ article.subTitle }}</p>
-        </div>
-      </router-link>
-    </div>
-    <div class="articles--actions">
-      <button class="is__btn__primary">Voir plus</button>
-    </div>
+  <section class="articles--wrapper">
+    <section class="articles container-fluid">
+      <div class="articles--content" data-line>
+        <div class="title--tag">Articles</div>
+        <h2
+        v-for="(title, i) in titles"
+        :key="i"
+        v-html="title"></h2>
+      </div>
+      <div class="articles--items--wrapper" data-rellax data-rellax-speed="0.2">
+        <nuxt-link
+        v-for="(article, index) in articles"
+        :id="index"
+        :key="index"
+        :class="['articles--items--wrapper--item', article.active && 'active']"
+        :to="`/articles/${article.id}`"
+        @mouseenter.native="article.active = true"
+        @mouseleave.native="article.active = false">
+          <div
+          class="is__container__img articles--items--wrapper--item--img">
+            <img
+            :src="article.attributes.mainimage.data.attributes.url"
+            :alt="article.attributes.mainimage.data.attributes.url"/>
+          </div>
+          <div class="articles--items--wrapper--item--content">
+            <h4>{{ article.attributes.title }}</h4>
+            <p
+            v-html="formatSubtitle(article.attributes.subtitle)"
+            class="subtitle"></p>
+          </div>
+        </nuxt-link>
+      </div>
+      <div class="articles--actions">
+        <button class="is__btn__primary">
+          <nuxt-link to="/articles">Voir plus</nuxt-link>
+        </button>
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
-import globalMixin from '~/mixins/global';
-
 export default {
   name: 'Articles',
-  mixins: [globalMixin],
+  props: {
+    titles: {
+      type: Array,
+      required: true,
+    },
+  },
+  async created() {
+    await this.fetchLastArticles();
+  },
+  watch: {
+    async $route() {
+      await this.fetchLastArticles();
+    }
+  },
+  methods: {
+    formatSubtitle(text) {
+      if (text.length >= 60) {
+        return `${text.slice(0, 80)}...`;
+      }
+
+      return text;
+    },
+    async fetchLastArticles() {
+      try {
+        const result = (await this.$axios.$get('/articles?pagination[pageSize]=3&populate=*')).data;
+
+        this.articles = result.map((article) => {
+          const newArticle = { ...article };
+          newArticle.active = false;
+
+          return newArticle;
+        });
+      } catch (error) {
+        this.errorApi = error.message;
+      }
+    },
+  },
   data() {
     return {
-      articles: [
-        {
-          active: false,
-          cover: require('~/assets/img/Rectangle5.jpg'),
-          title: 'Dream it yourself : la robe de mariée contemporaine à Montréal',
-          subTitle: 'Que fait-on quand on est une future mariée qui rêve d’un mariage qui ne semble qu’exister sur Pinterest? Quand on a envie d’une robe...',
-        },
-        {
-          active: false,
-          cover: require('~/assets/img/Rectangle16.jpg'),
-          title: '20 lieux intimes pour se marier à Montréal et dans les environs.',
-          subTitle: 'On dit que tout vient à point à qui sait attendre. Je pense que l’année 2020 aura été celle de la patience.',
-        },
-        {
-          active: false,
-          cover: require('~/assets/img/i.jpg'),
-          title: '10 questions à poser avant de louer une salle de réception.',
-          subTitle: 'C’est un euphémisme de dire qu’il y a beaucoup de choix à faire quand on organise son mariage.',
-        },
-      ],
-      cursorUrl: require('~/assets/img/cursor.png'),
+      errorApi: null,
+      articles: [],
     };
   },
 };
@@ -67,59 +91,34 @@ export default {
 
 <style lang="scss" scoped>
 .active {
-  h5 {
+  h4 {
     text-decoration: underline;
     text-decoration-color: #EDCDB8;
   }
 }
 
-.articles {
+.articles--wrapper {
   background-color: $colorWhite;
+}
+
+.articles {
   position: relative;
   z-index: 2;
 
   @media (min-width: 350px) {
-    padding-top: 80px;
-  }
-
-  @media (min-width: 800px) {
-    padding-top: 160px;
+    padding-top: 110px;
     padding-bottom: 80px;
   }
 
+  @media (min-width: 920px) {
+    padding-top: 160px;
+    padding-bottom: 130px;
+  }
+
   &--content {
-    div,
-    h4 {
-      color: $textColor;
-      margin: 0;
-    }
-
-    div {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 12px;
-      line-height: 13.8px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    h4 {
-      font-family: $secondTypo;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-      }
-
-      @media (min-width: 500px) {
-        font-size: 2.5em;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 3em;
+    h2:last-of-type {
+      @media (min-width: 920px) {
+        margin-bottom: 100px;
       }
     }
   }
@@ -131,25 +130,6 @@ export default {
       display: inline-block;
       text-decoration: none;
 
-      &--content {
-        h5 {
-          color: $textColor;
-          font-family: $secondTypo;
-          line-height: 30px;
-          font-size: 1.5em;
-          font-weight: 100;
-          margin-top: 24px;
-          margin-bottom: 15px;
-        }
-
-        p {
-          color: $textColor;
-          font-family: $mainTypo;
-          line-height: 20px;
-          font-size: 14px;
-        }
-      }
-
       @media (min-width: 415px) {
         max-width: 335px;
       }
@@ -158,7 +138,7 @@ export default {
         max-width: 400px;
       }
 
-      @media (min-width: 800px) {
+      @media (min-width: 920px) {
         max-width: 240px;
       }
 
@@ -171,7 +151,18 @@ export default {
       }
 
       @media (min-width: 1100px) {
-        max-width: 335px;
+        max-width: 30vw;
+      }
+
+      &--content {
+        h4 {
+          margin-top: 20px;
+        }
+
+        p {
+          text-align: left;
+          margin-top: 15px;
+        }
       }
     }
 
@@ -181,11 +172,11 @@ export default {
       margin-top: 50px;
 
       &--item:not(:first-child) {
-        margin-top: 36px;
+        margin-top: 50px;
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       align-items: flex-start;
       flex-direction: row;
       justify-content: space-between;
@@ -199,6 +190,18 @@ export default {
           transform: translateY(-20%);
         }
       }
+
+      &--item:nth-child(2) {
+        margin-left: 10vw;
+        margin-right: 6vw;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      &--item:nth-child(2) {
+        margin-left: 10vw;
+        margin-right: 6vw;
+      }
     }
   }
 
@@ -209,7 +212,7 @@ export default {
       display: none;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
       justify-content: center;
     }

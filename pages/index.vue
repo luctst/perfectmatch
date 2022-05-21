@@ -3,48 +3,23 @@
   <header-vue></header-vue>
   <home-float-line :content="content.floatline"></home-float-line>
   <home-first-section :content="content.section1"></home-first-section>
-  <home-second-section :content="{}"></home-second-section>
-  <home-third-section :content="{}"></home-third-section>
-  <offers :content="{}"></offers>
-  <events :content="{}"></events>
-  <articles :content="{}"></articles>
-  <footer-vue :content="{}"></footer-vue>
+  <home-second-section :content="content.section2"></home-second-section>
+  <home-third-section :content="content.section3"></home-third-section>
+  <offers :content="content.offers"></offers>
+  <events :content="content.events"></events>
+  <articles
+  :titles="[content.articles.firstTitle, content.articles.secondTitle]"
+  :btnContent="content.articles.button">
+  </articles>
+  <footer-vue :content="content.footer"></footer-vue>
 </section>
 </template>
 
 <script>
-import Header from '~/components/Header.vue';
-import HomeFloatline from '~/components/HomeFloatLine.vue';
-import HomeFirstSection from '~/components/HomeFirstSection.vue';
-import HomeSecondSection from '~/components/HomeSecondSection.vue';
-import HomeThirdSection from '~/components/HomeThirdSection.vue';
-import Offers from '~/components/Offers.vue';
-import Events from '~/components/Events.vue';
-import Articles from '~/components/Articles.vue';
-import FooterVue from '~/components/Footer.vue';
+import globalMixin from '~/mixins/global';
 
 export default {
-  components: {
-    'header-vue': Header,
-    'home-float-line': HomeFloatline,
-    'home-first-section': HomeFirstSection,
-    'home-second-section': HomeSecondSection,
-    'home-third-section': HomeThirdSection,
-    Offers,
-    Events,
-    Articles,
-    'footer-vue': FooterVue,
-  },
   layout: 'default',
-  props: {
-    content: {
-      type: [Boolean, Object],
-      required: true,
-    },
-    baseApiUrl: {
-      type: String,
-      required: true,
-    },
-  },
+  mixins: [globalMixin],
 }
 </script>

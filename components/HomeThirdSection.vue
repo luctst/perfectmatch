@@ -1,17 +1,22 @@
 <template>
-  <section class="formulasinfos container-fluid">
-    <div class="formulasinfos--img">
-      <div class="is__container__img formulasinfos--img--container">
-        <img src="~/assets/img/flower.jpg">
+  <section class="formulasinfos--wrapper">
+    <section class="formulasinfos container-fluid">
+      <div class="formulasinfos--img">
+        <div class="is__container__img formulasinfos--img--container" data-rellax data-rellax-speed="2">
+          <img
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"
+          />
+        </div>
+        <div
+        v-html="parseMarkdown(content.imageSubtitle)"
+        class="formulasinfos--img--content subtitle"></div>
       </div>
-      <div class="formulasinfos--img--content">
-        Pour contenter chaque futur marié, nous nous adapterons à tout type de demande et de budget. <span>A vous de choisir la formule qui vous correspond le mieux !</span>
+      <div class="formulasinfos--content" data-line>
+        <p class="title--tag">Mariage</p>
+        <h2 v-html="content.title"></h2>
       </div>
-    </div>
-    <div class="formulasinfos--content">
-      <p>Mariage</p>
-      <h3>The Perfect Match vous propose <span>3 formules</span> pour votre mariage.</h3>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -25,14 +30,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.formulasinfos {
+.is__return__line {
+  @media (min-width: 350px) {
+    display: none;
+  }
+
+  @media (min-width: 550px) {
+    display: block;
+  }
+}
+
+.formulasinfos--wrapper {
   background-color: $colorWhite;
+}
+
+.formulasinfos {
+  box-sizing: border-box;
   display: flex;
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  padding-bottom: 10px;
 
   @media (min-width: 350px) {
     flex-direction: column;
+    justify-content: space-between;
     padding-top: 80px;
 
     &--img {
@@ -42,27 +63,22 @@ export default {
 
     &--content {
       margin-top: 80px;
-      text-align: center;
-
-      h3 {
-        font-size: 1.9em;
-      }
     }
   }
 
   @media (min-width: 662px) {
     &--content {
-      h3 {
-        margin-left: 13%;
+      h2 {
         margin-right: 13%;
       }
     }
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 920px) {
     margin-top: 0;
     align-items: flex-end;
     flex-direction: row-reverse;
+    padding-top: 0;
 
     &--img {
       max-width: 324px;
@@ -75,30 +91,8 @@ export default {
         margin-top: 0;
       }
 
-      h3 {
-        font-size: 2em;
-        margin-bottom: 0;
-        margin-left: 0;
+      h2 {
         margin-right: 0;
-        text-align: left;
-      }
-    }
-  }
-
-  @media (min-width: 828px) {
-    &--content {
-      margin-top: 0;
-
-      h3 {
-        margin-right: 3%;
-      }
-    }
-  }
-
-  @media (min-width: 950px) {
-    &--content {
-      h3 {
-        font-size: 3em;
       }
     }
   }
@@ -116,10 +110,6 @@ export default {
   @media (min-width: 1100px) {
     &--content {
       margin-bottom: 3.2%;
-
-      h3 {
-        font-size: 3.5em;
-      }
     }
   }
 
@@ -129,40 +119,13 @@ export default {
     }
 
     &--content {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 14px;
-      line-height: 20px;
-      margin: 0;
-      margin-top: 25px;
-
-      span {
-        display: inline-block;
-        font-family: $mainTypoBold;
-      }
+      text-align: left;
     }
   }
 
   &--content {
-    p,
-    h3 {
-      color: $textColor;
-    }
-
-    p {
-      font-family: $mainTypo;
-      font-size: 12px;
-      text-transform: uppercase;
-      line-height: 13.8px;
-    }
-
-    h3 {
-      font-family: $secondTypo;
-      margin-top: 15px;
-
-      span {
-        font-family: $mainTypoNeueBold;
-      }
+    h2 {
+      text-align: left;
     }
   }
 }

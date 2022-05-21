@@ -1,114 +1,38 @@
+@import '_variables.scss';
+@import '_font.scss';
+@import '_mixins.scss';
+@import '_class.scss';
+@import '_keyframes.scss';
+@import '_article.scss';
+
+html {
+  font-size: 100%;
+  background-color: #FDEADB;
+}
 body {
   background-color: #fff;
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 2;
+  overflow-x: hidden;
 }
 
 /**
-* VARIABLES
+* GLOBAL
 */
-$bodyBackground: #F2F2F2;
-$colorWhite: #FFFF;
-$colorBeige: #FDEADD;
-$colorGreen: #E0F4EB;
-$colorPurple: #E8D7EE;
-$textColor: #3B2321;
-$mainTypo: helvetica, sans-serif;
-$mainTypoBold: helvetica-bold, sans-serif;
-$mainTypoNeueBold: helvetica-neue-bold, sans-serif;
-$secondTypo: roslindale-light, sans-serif;
-
-/**
-* MIXINS
-*/
-@mixin btnCommon($color) {
-  align-items: center;
-  border: none;
-  color: $textColor;
-  display: flex;
-  background-color: $color;
-  border-radius: 80px;
-  font-family: $mainTypo;
-  font-style: normal;
-  padding: 20px 24px 19px;
-  outline: none;
-  justify-content: center;
-  text-transform: uppercase;
-
-  @media (min-width: 350px) {
-    font-size: 12px;
-  }
+h1 {
+  @include isH1();
 }
 
-/*************
-Font
-*************/
-@font-face {
-  font-family: 'helvetica-neue-bold';
-  src: url('~assets/fonts/Helvetica-Neue-Condensed-Bold_22501.woff') format('woff');
+h2 {
+  @include isH2();
 }
 
-@font-face {
-  font-family: 'roslindale-light';
-  src: url('~assets/fonts/RoslindaleDisplayCondensed-Light.woff') format('woff');
+h3 {
+  @include isH3();
 }
 
-@font-face {
-  font-family: 'helvetica-bold';
-  src: url('~assets/fonts/Helvetica-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'helvetica';
-  src: url('~assets/fonts/Helvetica.woff') format('woff');
-}
-
-/**
-* CLASS
-*/
-.is__btn__primary {
-  @include btnCommon($colorBeige);
-}
-
-.is__btn__secondary {
-  @include btnCommon(#FFF);
-}
-
-.container-fluid {
-  padding: 0 15px;
-  margin: 0 auto;
-
-  @media (min-width: 1100px) {
-    padding: 0 50px;
-  }
-}
-
-.container {
-  padding: 0 15px;
-  margin: 0 auto;
-
-  @media (min-width: 576px) {
-    max-width: 540px;
-  }
-  
-  @media (min-width: 768px) {
-    max-width: 720px;
-  }
-  
-  @media (min-width: 992px) {
-    max-width: 960px;
-  }
-  
-  @media (min-width: 1200px) {
-    max-width: 1140px;
-  }
-}
-
-.is__container__img {
-  img,
-  svg {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-  }
+h4 {
+  @include isH4();
 }

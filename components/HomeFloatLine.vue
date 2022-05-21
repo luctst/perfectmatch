@@ -1,40 +1,47 @@
 <template>
-  <section ref="inner" class="floatline container-fluid">
-    <div class="floatline--loop">
-      <loop></loop>
-    </div>
-    <div class="floatline--content">
-      <h1 v-html="content.title"></h1>
-      <h2>{{ content.subtitle }}</h2>
-    </div>
-    <div class="floatline--slidermobile">
-      <div class="is__container__img floatline--slidermobile--firstitem">
-        <img
-        :src="content.imgleft.data.attributes.url"
-        :alt="content.imgleft.data.attributes.alternativeText"/>
+  <section class="floatline--wrapper">
+    <section class="floatline container-fluid">
+      <div class="floatline--loop is__container__img">
+        <loop></loop>
       </div>
-      <div class="is__container__img floatline--slidermobile--seconditem">
-        <div class="floatline--slidermobile--seconditem--overlay">
-          <img
-          :src="content.imgright.data.attributes.url"
-          :alt="content.imgright.data.attributes.alternativeText"/>
+      <div class="floatline--content">
+        <div class="floatline--content--title" data-line>
+          <h1 v-html="content.title"></h1>
+        </div>
+        <div class="floatline--content--subtitle">
+          <p class="subtitle">{{ content.subtitle }}</p>
+          <div class="is__span__outside__h2"></div>
         </div>
       </div>
-    </div>
-    <div class="floatline--sliderdesktop">
-      <div class="is__container__img floatline--sliderdesktop--firstitem">
-        <img
-        :src="content.imgleft.data.attributes.url"
-        :alt="content.imgleft.data.attributes.alternativeText"/>
-      </div>
-      <div class="is__container__img floatline--sliderdesktop--seconditem">
-        <div class="floatline--sliderdesktop--seconditem--overlay">
-          <img
-          :src="content.imgright.data.attributes.url"
-          :alt="content.imgright.data.attributes.alternativeText"/>
+      <div class="floatline--slidermobile">
+        <div class="is__container__img floatline--slidermobile--firstitem">
+          <img 
+          :src="content.imgleft.data.attributes.url"
+          :alt="content.imgleft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img floatline--slidermobile--seconditem">
+          <div class="floatline--slidermobile--seconditem--overlay">
+            <img
+            :src="content.imgright.data.attributes.url"
+            :alt="content.imgright.data.attributes.alternativeText"/>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="floatline--sliderdesktop">
+        <div class="is__container__img floatline--sliderdesktop--firstitem " data-rellax data-rellax-speed="2">
+          <img  
+          :src="content.imgleft.data.attributes.url"
+          :alt="content.imgleft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img floatline--sliderdesktop--seconditem">
+          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="-2">
+            <img 
+            :src="content.imgright.data.attributes.url"
+            :alt="content.imgright.data.attributes.alternativeText"/>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
 </template>
 
@@ -48,62 +55,36 @@ export default {
     Loop,
   },
   mixins: [GlobalMixin],
-  mounted() {
-    // this.applyStyleToInner();
-    // window.addEventListener('resize', this.applyStyleToInner);
-  },
-  methods: {
-    applyStyleToInner() {
-      if (window.innerWidth > 800) {
-        if (this.$refs.inner.classList.contains('container-fluid')) return false;
-        if (this.$refs.inner.classList.contains('container')) {
-          this.$refs.inner.classList.remove('container');
-        }
-
-        this.$refs.inner.classList.add('container-fluid');
-        return true;
-      }
-
-      if (this.$refs.inner.classList.contains('container')) return false;
-        if (this.$refs.inner.classList.contains('container-fluid')) {
-          this.$refs.inner.classList.remove('container-fluid');
-        }
-
-      this.$refs.inner.classList.add('container');
-      return true;
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-.floatline {
+.floatline--wrapper {
   background-color: $colorBeige;
-  position: relative;
   z-index: 4;
-  @media (min-width: 350px) {
-    padding-top: 8em!important;
-  }
+  height: 100vh;
+}
 
-  @media (min-width: 800px) {
-    padding-top: 12em!important;
-    height: calc(100vh - 12em);
-  }
+.floatline {
+  height: inherit;
+  position: relative;
 
   &--loop {
+    height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
-
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
-    }
+    z-index: 0;
+    overflow: hidden;
 
     @media (min-width: 350px) {
       top: -80px;
+      left: 0;
+    }
+
+    @media (min-width: 920px) {
+      top: 0;
+      left: 0;
     }
   }
   
@@ -117,79 +98,69 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
+    height: inherit;
 
-    @media (min-width: 800px) {
+    @media (min-width: 350px) {
+      justify-content: center;
+    }
+
+    &--title {
+      @media (min-width: 920px) {
+        margin-top: auto;
+      }
+
+      h1 {
+        @media (min-width: 350px) {
+          margin-bottom: 50px;
+        }
+
+        @media (min-width: 920px) {
+          margin: 0 10%;
+        }
+      } 
+    }
+
+    &--subtitle {
       align-items: center;
-      justify-content: space-between;
-      height: inherit;
-    }
+      display: flex;
+      flex-direction: column;
 
-    h1 {
-      color: $textColor;
-      font-family: $secondTypo;
-      font-weight: 100;
-      font-style: normal;
-      text-align: center;
-      margin: 0;
-
-      span {
-        font-family: $mainTypoNeueBold;
-        display: inline-block;
+      @media (min-width: 920px) {
+        margin-top: auto;
       }
 
-      @media (min-width: 350px) {
-        font-size: 68px;
-        margin-bottom: 50px;
-        line-height: 70px;
+      p {
+        @media (min-width: 500px) {
+          margin: 0 50px;
+        }
+        @media (min-width: 920px) {
+          margin: 0 30% 2%;
+          margin-top: auto;
+        }
+  
+        @media (min-width: 1100px) {
+          margin-left: 38%;
+          margin-right: 38%;
+        }
       }
 
-      @media (min-width: 500px) {
-        font-size: 76px;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 5em;
-        margin: 0 15%;
-        line-height: 96px;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 115px;
-        line-height: 115px;
-      }
-    }
-
-    h2 {
-      color: $textColor;
-      font-family: $mainTypo;
-      line-height: 20px;
-      margin: 0;
-      text-align: center;
-
-      @media (min-width: 350px) {
-        font-size: 14px;
-      }
-      @media (min-width: 500px) {
-        margin: 0 50px;
-      }
-      @media (min-width: 800px) {
-        margin: 0 30% 2%;
-      }
-
-      @media (min-width: 1100px) {
-        margin-left: 38%;
-        margin-right: 38%;
+      div {
+        background-color: #EDCDB8;
+        height: 27px;
+        margin-bottom: 2%;
+        width: 1px;
       }
     }
   }
 
   &--slidermobile {
     max-width: 100%;
-    overflow: scroll;
+    height: auto;
     z-index: 10;
 
     &--seconditem {
       &--overlay {
+        height: 100%;
         background: $colorBeige; 
         padding-top: 0px; 
         text-align: center; 
@@ -205,8 +176,7 @@ export default {
 
     @media (min-width: 350px) {
       display: flex;
-      margin-top: 60px;
-      transform: translateY(11%);
+      transform: translateY(-15vh);
 
       &--firstitem {
         margin-right: 20px;
@@ -215,11 +185,7 @@ export default {
       &--firstitem,
       &--seconditem {
         z-index: 3;
-
-        img {
-          max-width: none;
-          width: 230px;
-        }
+        width: 230px;
       }
     }
 
@@ -230,9 +196,7 @@ export default {
 
       &--firstitem,
       &--seconditem {
-        img {
-          width: 270px;
-        }
+        width: 270px;
       }
     }
 
@@ -243,13 +207,18 @@ export default {
     @media (min-width: 650px) {
       &--firstitem,
       &--seconditem {
-        img {
-          width: 255px;
-        }
+        width: 100%;
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 700px) {
+      &--firstitem,
+      &--seconditem {
+        width: 40%;
+      }
+    }
+
+    @media (min-width: 920px) {
       display: none;
     }
   }
@@ -267,37 +236,54 @@ export default {
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: block;
 
       &--firstitem,
       &--seconditem {
         position: absolute;
-        width: 26%;
-      }
-
-      &--firstitem {
-        bottom: -98px;
         z-index: 3;
       }
 
+      &--firstitem {
+        height: 30vh;
+        bottom: -98px;
+        width: 25%;
+      }
+
       &--seconditem {
+        width: 23%;
         bottom: 0;
-        right: 14px;
+        right: 0;
+
+        &--overlay {
+          height: 25vh;
+        }
       }
     }
 
     @media (min-width: 1100px) {
-      &--firstitem,
       &--seconditem {
-        width: 20%;
+        padding-right: 50px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      &--firstitem {
+        height: 45vh;
+        width: 19%;
+      }
+      &--seconditem {
+        &--overlay {
+          height: 45vh;
+        }
       }
     }
   }

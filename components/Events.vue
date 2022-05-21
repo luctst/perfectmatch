@@ -1,35 +1,48 @@
 <template>
-  <section class="events container-fluid">
-    <div class="events--loop">
-      <loop-event></loop-event>
-    </div>
-    <div class="events--content">
-      <div>évènements</div>
-      <h4>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h4>
-      <p><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
-      Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
-      <button class="is__btn__secondary">Découvrir</button>
-    </div>
-    <div class="events--slidermobile">
-      <div class="is__container__img events--slidermobile--first">
-        <img src="~/assets/img/Groupe21.jpg"/>
+  <section class="events--wrapper">
+    <section class="events container-fluid">
+      <div class="events--loop is__container__img">
+        <loop-event></loop-event>
       </div>
-      <div class="is__container__img events--slidermobile--second">
-        <div class="events--slidermobile--second--overlay">
-          <img src="~/assets/img/Groupe13.jpg"/>
+      <div class="events--content" data-line>
+        <div class="title--tag">évènements</div>
+        <h2 v-html="content.title"></h2>
+        <p v-html="parseMarkdown(content.subtitle)" class="subtitle"></p>
+        <button class="is__btn__secondary">
+          <nuxt-link to="/events">
+            {{ content.button }}
+          </nuxt-link>
+        </button>
+      </div>
+      <div class="events--slidermobile">
+        <div class="is__container__img events--slidermobile--first">
+          <img
+          :src="content.imageLeft.data.attributes.url"
+          :alt="content.imageLeft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img events--slidermobile--second">
+          <div class="events--slidermobile--second--overlay">
+            <img
+              :src="content.imageRight.data.attributes.url"
+              :alt="content.imageRight.data.attributes.alternativeText"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="events--sliderdesktop">
-      <div class="is__container__img events--sliderdesktop--first">
-        <img src="~/assets/img/Groupe21.jpg"/>
-      </div>
-      <div class="is__container__img events--sliderdesktop--second">
-        <div class="events--sliderdesktop--second--overlay">
-          <img src="~/assets/img/Groupe13.jpg"/>
+      <div class="events--sliderdesktop">
+        <div class="is__container__img events--sliderdesktop--first" data-rellax data-rellax-speed="-0.5">
+          <img
+          :src="content.imageLeft.data.attributes.url"
+          :alt="content.imageLeft.data.attributes.alternativeText"/>
+        </div>
+        <div class="is__container__img events--sliderdesktop--second"  data-rellax data-rellax-speed="0.5">
+          <div class="events--sliderdesktop--second--overlay">
+            <img
+              :src="content.imageRight.data.attributes.url"
+              :alt="content.imageRight.data.attributes.alternativeText"/>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -47,17 +60,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.events--wrapper {
+  box-sizing: border-box;
+  background-color: $colorWhite;
+}
+
 .events {
+  height: auto;
   background-color: $colorGreen;
+  box-sizing: border-box;
   position: relative;
   z-index: 4;
 
-  @media (min-width: 350px) {
-    padding-top: 80px;
+  @media (min-width: 800px) {
+    padding-bottom: 4rem;
   }
 
-  @media (min-width: 800px) {
-    height: 75vh;
+  @media (min-width: 920px) {
+    padding-top: 80px;
   }
 
   @media (min-width: 1000px) {
@@ -72,12 +92,18 @@ export default {
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 0;
 
-    svg {
-      object-fit: cover;
-      max-height: 100%;
-      max-width: 100%;
+    @media (min-width: 350px) {
+      height: 50vh;
+      top: 0;
+      left: 0;
+    }
+
+    @media (min-width: 920px) {
+      height: 100vh;
+      top: -80px;
+      left: 0;
     }
   }
 
@@ -96,117 +122,85 @@ export default {
       align-items: flex-start;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 600px) {
+      margin-right: 13%;
+    }
+
+    @media (min-width: 920px) {
       height: inherit;
-      max-width: 300px;
+      max-width: 35vw;
       margin: 0 auto;
-    }
-
-    @media (min-width: 950px) {
-      max-width: 350px;
-    }
-
-    @media (min-width: 1000px) {
-      max-width: 400px;
+      margin-top: 5rem;
+      padding-left: 5rem;
     }
 
     @media (min-width: 1100px) {
-      max-width: 500px;
+      max-width: 45vw;
+    }
+
+    @media (min-width: 1800px) {
+      max-width: 30vw;
     }
 
     div,
-    h4,
+    h2,
     p {
-      margin: 0;
+      color: #2E332A;
+      text-align: left;
     }
 
     div {
-      color: $textColor;
-      font-family: $mainTypo;
-      font-size: 12px;
-      line-height: 13.8px;
-      text-transform: uppercase;
-
       @media (min-width: 350px) {
         margin-top: 80px;
       }
+
+      @media (min-width: 920px) {
+        margin-top: 0;
+      }
     }
 
-    h4 {
-      color: $textColor;
-      font-family: $secondTypo;
-      line-height: 40px;
-
-      span {
-        font-family: $mainTypoNeueBold;
-        font-weight: 700;
-      }
-
-      @media (min-width: 350px) {
-        font-size: 2em;
-        margin-top: 15px;
-        margin-bottom: 25px;
-      }
-
-      @media (min-width: 500px) {
-        font-size: 2.5em;
-      }
-
-      @media (min-width: 800px) {
-        font-size: 2em;
-      }
-
-      @media (min-width: 950px) {
-        font-size: 2.5em;
-        margin-bottom: 40px;
-      }
-
-      @media (min-width: 1000px) {
-        font-size: 3em;
-        line-height: 60px;
-      }
-
-      @media (min-width: 1100px) {
-        font-size: 3.5em;
-        line-height: 70px;
+    h2 {
+      @media (min-width: 920px) {
+        margin-bottom: 2vh;
       }
     }
 
     p {
-      color: $textColor;
-      font-family: $mainTypo;
-      line-height: 20px;
+      @media (min-width: 920px) {
+        margin-bottom: 2rem;
+      }
+    }
 
-      span {
-        font-family: $mainTypoBold;
+    button {
+      &:hover {
+        background-color: $colorHoverGreen;
       }
 
       @media (min-width: 350px) {
-        font-size: 14px;
-        margin-bottom: 40px;
+        margin-top: 40px;
       }
 
-      @media (min-width: 1000px) {
-        margin-bottom: 60px;
+      @media (min-width: 920px) {
+        margin-top: 0;
       }
     }
   }
 
   &--slidermobile {
     max-width: 100%;
-    overflow: scroll;
+    height: auto;
     z-index: 10;
 
     &--second {
       &--overlay {
-        background: $colorGreen; 
+        height: 100%;
         padding-top: 0px; 
         text-align: center; 
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
@@ -214,7 +208,8 @@ export default {
 
     @media (min-width: 350px) {
       display: flex;
-      margin-top: 60px;
+      justify-content: center;
+      margin-top: 40px;
       transform: translateY(11%);
 
       &--first {
@@ -224,11 +219,7 @@ export default {
       &--first,
       &--second {
         z-index: 3;
-
-        img {
-          max-width: none;
-          width: 230px;
-        }
+        width: 100%;
       }
     }
 
@@ -236,34 +227,26 @@ export default {
       &--first {
         margin-right: 30px;
       }
+    }
 
+    @media (min-width: 700px) {
       &--first,
       &--second {
-        img {
-          width: 270px;
-        }
+        width: 40%;
       }
     }
 
-    @media (min-width: 603px) {
-      justify-content: center;
-    }
-
-    @media (min-width: 650px) {
-      &--first,
-      &--second {
-        img {
-          width: 255px;
-        }
-      }
-    }
-
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: none;
     }
   }
 
   &--sliderdesktop {
+    &--first,
+    &--second {
+      z-index: 3;
+    }
+
     &--second {
       &--overlay {
         background: transparent; 
@@ -272,8 +255,8 @@ export default {
         overflow: hidden;
 
         img {
-          border-top-left-radius: 200px 200px;
-          border-top-right-radius: 200px 200px;
+          border-top-left-radius: 300px 300px;
+          border-top-right-radius: 300px 300px;
           display: block;
         }
       }
@@ -283,7 +266,7 @@ export default {
       display: none;
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 920px) {
       display: flex;
 
       &--first,
@@ -299,7 +282,7 @@ export default {
 
       &--second {
         bottom: -98px;
-        right: 26px;
+        right: 15px;
       }
     }
 
@@ -307,6 +290,16 @@ export default {
       &--first,
       &--second {
         width: 20%;
+      }
+
+      &--second {
+        right: 50px;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      &--second {
+        right: 15%;
       }
     }
   }
