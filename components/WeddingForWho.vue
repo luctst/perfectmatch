@@ -1,8 +1,8 @@
 <template>
 <section class="forwho--wrapper">
   <section class="forwho container-fluid">
-    <div class="forwho--title">
-      <h2><span>À qui s'adresse</span></h2>
+    <div class="forwho--title" data-line>
+      <h2><div>À qui s'adresse</div></h2>
       <h2>L'organisation compléte ?</h2>
     </div>
     <div class="forwho--wrapper">

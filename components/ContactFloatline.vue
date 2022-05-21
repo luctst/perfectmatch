@@ -5,8 +5,8 @@
         <loop-contact></loop-contact>
       </div>
     </div>
-    <div class="floatline--content">
-      <section><h1>Vous avez <span>besoin d'aide</span></h1></section>
+    <div class="floatline--content" data-line>
+      <section><h1>Vous avez <div>besoin d'aide</div></h1></section>
       <section><h1>dans l'organisation de</h1></section>
       <section><h1>votre évènement ?</h1></section>
       <div class="subtitle">Vous souhaitez des informations complémentaires ?</div>

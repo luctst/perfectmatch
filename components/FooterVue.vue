@@ -1,22 +1,22 @@
 <template>
-  <footer class="footer container-fluid">
+  <footer class="footer container-fluid" >
     <div class="is__container__img footer--loop">
       <loop-footer></loop-footer>
     </div>
-    <div class="footer--title">
-      <h2 v-html="content.title" class="is__h1"></h2>
+    <div class="footer--title" data-line>
+      <h2 v-html="renderProps(content.title)" class="is__h1"></h2>
       <button class="is__btn__secondary">
         <nuxt-link to="/contact">
-          {{ content.button }}
+          {{ renderProps(content.button) }}
         </nuxt-link>
       </button>
     </div>
     <div class="footer--contact">
       <div class="footer--contact--infos">
         <div>Coordonnées</div>
-        <h6>{{ content.name }}</h6>
-        <h6>+{{ content.phone }}</h6>
-        <h6>{{ content.mail }}</h6>
+        <h6>{{ renderProps(content.nom) }}</h6>
+        <h6>+{{ renderProps(content.phone) }}</h6>
+        <h6>{{ renderProps(content.mail) }}</h6>
       </div>
       <div class="footer--contact--social">
         <span>FB</span>
@@ -26,12 +26,12 @@
     </div>
     <div class="footer--legales">
       <div class="footer--legales--first">
-        <div>© {{ new Date().getFullYear() }} {{ content.perfectMatch }}</div>
+        <div>© {{ new Date().getFullYear() }} {{ renderProps(content.perfectMatch) }}</div>
         <p>
-          <nuxt-link to="/legal">{{ content.legale }}</nuxt-link>
+          <nuxt-link to="/legal">{{ renderProps(content.legale) }}</nuxt-link>
         </p>
         <p>
-          <nuxt-link to="/cgu">{{ content.confidentialite }}</nuxt-link>
+          <nuxt-link to="/cgu">{{ renderProps(content.confidentialite) }}</nuxt-link>
         </p>
       </div>
       <div class="footer--legales--thanks">
@@ -56,6 +56,15 @@ export default {
     LoopFooter,
   },
   mixins: [globalMixin],
+  methods: {
+    renderProps(propsContent) {
+      if (typeof propsContent !== 'string') {
+        return propsContent.default;
+      }
+  
+      return propsContent;
+    }
+  },
 };
 </script>
 
@@ -82,7 +91,7 @@ div {
     min-height: 100vh;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
     z-index: -1;
     padding-bottom: 45px!important;
@@ -111,6 +120,10 @@ div {
     flex-direction: column;
 
     button {
+      &:hover {
+        background-color: $colorHoverPurple;
+      }
+
       @media (min-width: 350px) {
         margin-top: 40px;
       }

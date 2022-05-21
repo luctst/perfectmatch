@@ -1,4 +1,8 @@
 @mixin btnCommon($color) {
+  &:hover {
+    cursor: pointer;
+  }
+
   align-items: center;
   border: none;
   color: $textColor;
@@ -38,9 +42,9 @@
   text-align: center;
   margin: 0;
 
-  span {
+  div {
     font-family: $mainTypoNeueBold;
-    display: inline-block;
+    display: inline;
   }
 
   @media (min-width: 350px) {
@@ -68,10 +72,12 @@
   margin: 0;
 
   span,
-  strong {
+  strong,
+  div {
+    display: inline;
     font-family: $mainTypoNeueBold;
   }
-
+  
   blockquote {
     margin: 0;
 

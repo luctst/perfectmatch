@@ -1,12 +1,13 @@
 <template>
   <section class="project--wrapper">
     <header-vue></header-vue>
-    <section class="project container-fluid">
-      <div class="project--name">
+    <section class="project">
+      <div class="project--name container-fluid">
         <h1 v-html="content.project_name"></h1>
       </div>
       <div class="project--slider">
         <vue-slick-carousel
+        :draggable="true"
         :autoplay="true"
         :autoplay-speed="5000"
         :arrows="false"
@@ -28,13 +29,13 @@
           </template>
         </vue-slick-carousel>
       </div>
-      <div class="project--testimony">
+      <div class="project--testimony container-fluid">
         <div class="title--tag">{{ content.little_title }}</div>
         <h2 v-html="parseMarkdown(content.temoignages)"></h2>
         <div v-html="content.subtitle" class="subtitle"></div>
       </div>
     </section>
-    <footer-vue></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
@@ -61,6 +62,10 @@ export default {
   position: relative;
   z-index: 3;
 
+  @media (min-width: 350px) {
+    padding-top: 8rem;
+  }
+
   @media (min-width: 920px) {
     padding-top: 8rem;
   }
@@ -74,6 +79,11 @@ export default {
   }
 
   &--slider {
+    @media (min-width: 350px) {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    } 
+
     @media (min-width: 920px) {
       margin-top: 4rem;
       margin-bottom: 6rem;
@@ -85,12 +95,20 @@ export default {
     display: flex;
     flex-direction: column;
 
+    @media (min-width: 350px) {
+      padding-bottom: 4rem;
+    }
+
     @media (min-width: 920px) {
       padding-bottom: 8rem;
     }
 
     h2,
     .subtitle {
+      @media (min-width: 700px) {
+        max-width: 80%;
+      }
+
       @media (min-width: 920px) {
         max-width: 70%;
       }
@@ -102,6 +120,10 @@ export default {
 
     h2 {
       text-align: center;
+
+      @media (min-width: 1100px) {
+        max-width: 70%;
+      }
     }
 
     .subtitle {
