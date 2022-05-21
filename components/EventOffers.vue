@@ -1,8 +1,8 @@
 <template>
   <section class="offers--wrapper">
     <section class="offers container-fluid">
-      <div class="offers--title">
-        <h2><span>Qu'est-ce que comprend</span></h2>
+      <div class="offers--title" data-line>
+        <h2><div>Qu'est-ce que comprend</div></h2>
         <h2>l'organisation compléte ?</h2>
       </div>
       <div
@@ -14,7 +14,7 @@
           v-if="typeof innerItem === 'string'"
           :key="y"
           class="offers--wrap--title">
-            <h2 class="is__h3"><span>{{ innerItem }}</span></h2>
+            <h2 data-line class="is__h3"><span>{{ innerItem }}</span></h2>
           </div>
           <div
           v-else

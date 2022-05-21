@@ -6,7 +6,7 @@
           <location-loop></location-loop>
         </div>
       </div>
-      <div class="location--title">
+      <div class="location--title" data-line>
         <div class="title--tag">{{ content.little_title }}</div>
         <h2 v-html="content.main_title"></h2>
       </div>

@@ -8,7 +8,7 @@
           :alt="content.image.data.attributes.alternativeText"/>
         </div>
       </div>
-      <div class="accord--content">
+      <div class="accord--content" data-line>
         <div class="title--tag">{{ content.little_title }}</div>
         <h2 v-html="content.first_big_title"></h2>
         <h2 v-html="content.second_big_title"></h2>

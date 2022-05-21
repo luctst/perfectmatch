@@ -1,14 +1,14 @@
 <template>
   <section class="articles--wrapper">
     <section class="articles container-fluid">
-      <div class="articles--content">
+      <div class="articles--content" data-line>
         <div class="title--tag">Articles</div>
         <h2
         v-for="(title, i) in titles"
         :key="i"
         v-html="title"></h2>
       </div>
-      <div class="articles--items--wrapper">
+      <div class="articles--items--wrapper" data-rellax data-rellax-speed="0.2">
         <nuxt-link
         v-for="(article, index) in articles"
         :id="index"

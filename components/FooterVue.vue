@@ -1,9 +1,9 @@
 <template>
-  <footer class="footer container-fluid">
+  <footer class="footer container-fluid" >
     <div class="is__container__img footer--loop">
       <loop-footer></loop-footer>
     </div>
-    <div class="footer--title">
+    <div class="footer--title" data-line>
       <h2 v-html="renderProps(content.title)" class="is__h1"></h2>
       <button class="is__btn__secondary">
         <nuxt-link to="/contact">
@@ -91,7 +91,7 @@ div {
     min-height: 100vh;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     max-width: 100%;
     z-index: -1;
     padding-bottom: 45px!important;
@@ -120,6 +120,10 @@ div {
     flex-direction: column;
 
     button {
+      &:hover {
+        background-color: $colorHoverPurple;
+      }
+
       @media (min-width: 350px) {
         margin-top: 40px;
       }

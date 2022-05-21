@@ -23,8 +23,10 @@ export default {
     return {
       pagination: {},
       content: false,
+      allsTitle:null,
     };
   },
+
   async fetch() {
     await this.fetchRouteContent();
   },
@@ -32,6 +34,7 @@ export default {
     async $route() {
       this.shouldAddBodyPadding();
       await this.$fetch();
+      this.findAllTitleofThePage();
     }
   },
   created() {
@@ -39,6 +42,9 @@ export default {
       this.shouldAddBodyPadding();
       window.addEventListener('resize', this.shouldAddBodyPadding);
     }
+  },
+  mounted(){
+    this.findAllTitleofThePage()
   },
   methods: {
     shouldAddBodyPadding() {
@@ -174,6 +180,11 @@ export default {
         throw error;
       }
     },
+    findAllTitleofThePage(){
+      this.allsTitle = document.querySelectorAll("h1[data-line],h2[data-line],[data-line] h2,[data-line] h1")
+      this.splitLine(this.allsTitle,'line')
+      this.observeTitle(this.allsTitle)
+    }
   },
 };
 </script>

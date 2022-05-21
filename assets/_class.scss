@@ -38,10 +38,17 @@
 }
 
 .is__btn__primary {
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #EDCDB8;
+  }
+
   @include btnCommon($colorBeige);
 }
 
 .is__btn__secondary {
+  transition: background-color 1s;
   @include btnCommon(#FFF);
   color: #2E332A;
 }

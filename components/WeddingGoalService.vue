@@ -2,8 +2,8 @@
   <section class="goal--wrapper">
     <section class="goal container-fluid">
       <div class="goal--content">
-        <div class="goal--content--title">
-          <h2><span>En quoi consiste</span></h2>
+        <div class="goal--content--title" data-line>
+          <h2><div>En quoi consiste</div></h2>
           <h2>l'organisation compléte ?</h2>
         </div>
         <div class="goal--content--subtitle">

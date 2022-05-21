@@ -6,7 +6,7 @@
       </div>
     </div>
     <section class="floatline container-fluid">
-      <div class="floatline--title">
+      <div class="floatline--title" data-line>
         <h1 v-html="content.title"></h1>
         <div class="floatline--title--extra">
           <div v-html="content.subtitle" class="subtitle"></div>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="floatline--profile">
-        <div class="is__container__img">
+        <div class="is__container__img" data-rellax data-rellax-speed="-3">
           <img
           :src="content.imageProfile.data.attributes.url"
           :alt="content.imageProfile.data.attributes.alternativeText"/>
