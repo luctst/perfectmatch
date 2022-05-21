@@ -38,10 +38,17 @@
 }
 
 .is__btn__primary {
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #EDCDB8;
+  }
+
   @include btnCommon($colorBeige);
 }
 
 .is__btn__secondary {
+  transition: background-color 1s;
   @include btnCommon(#FFF);
   color: #2E332A;
 }
@@ -122,4 +129,74 @@
   font-family: $mainTypo;
   font-size: 1.2rem;
   line-height: 29px;
+}
+
+.slick-slide {
+  :hover {
+    cursor: grab;
+  }
+  :focus,
+  :active {
+    cursor: grabbing;
+  }
+
+  @media (min-width: 350px) {
+    margin: 0 1rem;
+    height: 300px!important;
+    width: 4.9%!important;
+  }
+
+  @media (min-width: 550px) {
+    height: 350px!important;
+    width: 3.9%!important;
+  }
+
+  @media (min-width: 650px) {
+    width: 3.4%!important;
+  }
+
+  @media (min-width: 920px) {
+    max-height: 800px;
+    height: 500px!important;
+    width: 3%!important;
+  }
+
+  div {
+    height: inherit;
+
+    img {
+      pointer-events: none;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+}
+
+.slick-dots {
+  display: flex!important;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin-top: 3rem!important;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  li {
+    border-radius: 50%;
+    background-color: #FDEADD;
+    margin-right: .4rem;
+    height: 8px;
+    width: 8px;
+
+    div {
+      display: none;
+    }
+  }
+}
+
+.slick-active {
+  background-color: #3B2321!important;
 }

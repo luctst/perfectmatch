@@ -19,6 +19,21 @@ export default {
   css: [
     '@/assets/main.scss'
   ],
+  plugins: [
+    {
+      src: "~/plugins/split.js",
+      ssr: false
+    },
+    { 
+      src: '~/plugins/observer.js', 
+      ssr: false 
+    },
+    { 
+      src: '~/plugins/rellax.js', 
+      ssr: false 
+    }
+
+  ],
   components: true,
   buildModules: [
     '@nuxtjs/eslint-module',

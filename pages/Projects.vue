@@ -1,48 +1,42 @@
 <template>
-  <section class="articles--wrapper">
+  <section class="projects--wrapper">
     <header-vue></header-vue>
-    <section class="articles container-fluid">
-      <header class="articles--header">
-        <section><h1>Tous nos conseils</h1></section>
-        <section><h1>Et <span>actualités</span></h1></section>
+    <section class="projects container-fluid">
+      <header class="projects--header">
+        <section><h1>Découvrez</h1></section>
+        <section><h1>Notre <span>portfolio</span></h1></section>
       </header>
-      <main class="articles--body">
+      <main class="projects--body">
         <section
         v-for="(mosaicData, i) in mosaicFormated"
         :key="i"
-        :class="`articles--body--mosaic${mosaicData.mid}`">
+        :class="`projects--body--mosaic${mosaicData.mid}`">
           <div
-          v-for="(article, y) in mosaicData.articles"
+          v-for="(project, y) in mosaicData.projects"
           :key="y"
-          :class="`articles--body--mosaic${mosaicData.mid}--wrapper`">
+          :class="`projects--body--mosaic${mosaicData.mid}--wrapper`">
             <nuxt-link
-            :class="[`articles--body--mosaic${mosaicData.mid}--wrapper--item`, article.active && 'active']"
-            :to="`/articles/${article.id}`"
-            @mouseenter.native="article.active = true"
-            @mouseleave.native="article.active = false">
+            :class="[`projects--body--mosaic${mosaicData.mid}--wrapper--item`, project.active && 'active']"
+            :to="`/projects/${project.id}`"
+            @mouseenter.native="project.active = true"
+            @mouseleave.native="project.active = false">
               <div
-              :class="`is__container__img articles--body--mosaic${mosaicData.mid}--wrapper--item--img`">
+              :class="`is__container__img projects--body--mosaic${mosaicData.mid}--wrapper--item--img`">
                 <img
-                :src="article.attributes.mainimage.data.attributes.url"
-                :alt="article.attributes.mainimage.data.attributes.alternativeText"/>
+                :src="project.attributes.images.data[0].attributes.url"
+                :alt="project.attributes.images.data[0].attributes.alternativeText"/>
               </div>
               <div
-              :class="`articles--body--mosaic${mosaicData.mid}--wrapper--item--content`">
-                <h4>{{ article.attributes.title }}</h4>
+              :class="`projects--body--mosaic${mosaicData.mid}--wrapper--item--content`">
+                <h4>{{ project.attributes.title }}</h4>
                 <p
-                v-html="formatSubtitle(article.attributes.subtitle)"
+                v-html="formatSubtitle(project.attributes.subtitle)"
                 class="subtitle"></p>
               </div>
             </nuxt-link>
           </div>
         </section>
       </main>
-      <footer class="articles--footer">
-        <button 
-        v-if="paginationData.page !== paginationData.pageCount"
-        class="is__btn__primary"
-        @click="fetchNewArticles">Voir plus</button>
-      </footer>
     </section>
     <footer-vue :content="content.footer"></footer-vue>
   </section>
@@ -50,7 +44,7 @@
 
 <script>
 export default {
-  name: 'Articles',
+  name: 'Projects',
   props: {
     content: {
       type: [Array, Boolean, Object],
@@ -64,7 +58,7 @@ export default {
   watch: {
     content(newValue) {
       if (Array.isArray(newValue.items)) {
-      this.articles = newValue.items.map((article) => ({
+      this.projects = newValue.items.map((article) => ({
         ...article,
         active: false,
       }));
@@ -73,20 +67,10 @@ export default {
     return true;
     },
   },
-  created() {
-    if (Array.isArray(this.content.items)) {
-      this.articles = this.content.items.map((article) => ({
-        ...article,
-        active: false,
-      }));
-    }
-
-    return true;
-  },
   computed: {
     mosaicFormated() {
       let actualMosaicId = 1;
-      const mosaicLength = Math.ceil(this.articles.length / 3);
+      const mosaicLength = Math.ceil(this.projects.length / 3);
       const result = [];
 
       for (let index = 0; index < mosaicLength; index++) {
@@ -96,7 +80,7 @@ export default {
 
         result.push({
           mid: actualMosaicId,
-          articles: [...this.articles].slice(
+          projects: [...this.projects].slice(
             index === 0 ? 0 : index * 3,
             index === 0 ? 3 : (index + 1) * 3,
           ),
@@ -108,29 +92,24 @@ export default {
       return result;
     },
   },
+  created() {
+    if (Array.isArray(this.content.items)) {
+      this.projects = this.content.items.map((article) => ({
+        ...article,
+        active: false,
+      }));
+    }
+
+    return true;
+  },
   data() {
     return {
       errorApi: null,
-      articles: [],
+      projects: [],
       paginationData: this.pagination,
     };
   },
   methods: {
-    async fetchNewArticles() {
-      try {
-        const resultApi = await this.$axios.$get(`/articles?pagination[pageSize]=12&pagination[page]=${this.paginationData.page + 1}&populate=*&sort=createdAt:desc`);
-
-        const resultArrayFormated = resultApi.data.map((article) => ({
-          ...article,
-          active: false,
-        }));
-
-        this.articles = this.articles.concat(resultArrayFormated);
-        this.paginationData = resultApi.meta.pagination;
-      } catch (error) {
-        this.errorApi = true;
-      }
-    },
     formatSubtitle(text) {
       if (text.length >= 60) {
         return `${text.slice(0, 80)}...`;
@@ -143,11 +122,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.articles--wrapper {
+.projects--wrapper {
   background-color: $colorWhite;
 }
 
-.articles {
+.projects {
   position: relative;
   z-index: 3;
 
@@ -333,16 +312,6 @@ export default {
           }
         }
       }
-    }
-  }
-
-  &--footer {
-    display: flex;
-    justify-content: center;
-
-    @media (min-width: 920px) {
-      margin-top: 4rem;
-      padding-bottom: 6rem;
     }
   }
 }

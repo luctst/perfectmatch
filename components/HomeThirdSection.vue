@@ -2,17 +2,17 @@
   <section class="formulasinfos--wrapper">
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
-        <div class="is__container__img formulasinfos--img--container">
+        <div class="is__container__img formulasinfos--img--container" data-rellax data-rellax-speed="2">
           <img
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"
           />
         </div>
         <div
-        v-html="content.imageSubtitle"
+        v-html="parseMarkdown(content.imageSubtitle)"
         class="formulasinfos--img--content subtitle"></div>
       </div>
-      <div class="formulasinfos--content">
+      <div class="formulasinfos--content" data-line>
         <p class="title--tag">Mariage</p>
         <h2 v-html="content.title"></h2>
       </div>

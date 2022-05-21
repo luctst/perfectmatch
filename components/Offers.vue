@@ -15,11 +15,7 @@
         <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
         <button
         class="is__btn__secondary"
-        :style="`background-color:${offer.active ? offer.colorBorder : offer.theme };color:${offer.colorText};`">
-          <nuxt-link :to="offer.btnHref">
-            Découvrir
-          </nuxt-link>
-        </button>
+        :style="`color:${offer.colorText};`">Découvrir</button>
       </div>
     </section>
   </section>
@@ -137,12 +133,42 @@ export default {
     padding-bottom: 180px;
   }
 
+  &--item:first-child {
+    button {
+      &:hover {
+        background-color: #EDCDB8;
+      }
+    }
+  }
+
+  &--item:nth-child(2) {
+    
+    button {
+      background-color: $colorGreen;
+      
+      &:hover {
+        background-color: #AED7C5;
+      }
+    }
+  }
+
+  &--item:last-child {
+    button {
+      background-color: $colorPurple;
+
+      &:hover {
+        background-color: #DDC5E7;
+      }
+    }
+  }
+
   &--item {
     align-items: center;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: border-bottom-left-radius .7s, border-bottom-right-radius .7s;
 
     div {
       margin: 0 auto;
@@ -165,6 +191,8 @@ export default {
     }
 
     button {
+      transition: background-color, 1s;
+
       @media (min-width: 350px) {
         margin-top: 30px;
       }

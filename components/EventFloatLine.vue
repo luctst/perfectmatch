@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="floatline--title">
-        <h1>Événements</h1>
+        <h1 data-line>Événements</h1>
         <div class="subtitle">Chaque étape de votre vie devrait être célébré comme il se doit, c'est pourquoi l'agence The Perfect Match vous propose de donner vie à vos rêves pour organiser les moments qui vous sont chers.</div>
         <span></span>
       </div>

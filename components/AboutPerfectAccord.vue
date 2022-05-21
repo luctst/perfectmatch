@@ -3,14 +3,16 @@
     <section class="accord container-fluid">
       <div class="accord--picture">
         <div class="is__container__img">
-          <img src="~/assets/img/Rectangle-54.jpg">
+          <img
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"/>
         </div>
       </div>
-      <div class="accord--content">
-        <div class="title--tag">Pourquoi The Perfect Match ?</div>
-        <h2>The Perfect Match</h2>
-        <h2>C'est <span>l'accord parfait</span></h2>
-        <p class="subtitle">L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
+      <div class="accord--content" data-line>
+        <div class="title--tag">{{ content.little_title }}</div>
+        <h2 v-html="content.first_big_title"></h2>
+        <h2 v-html="content.second_big_title"></h2>
+        <p class="subtitle">{{ content.subtitle }}</p>
       </div>
     </section>
   </section>

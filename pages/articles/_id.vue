@@ -25,7 +25,7 @@
       '<span>conseil et articles</span>',
       ]">
     </articles>
-    <footer-vue></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 

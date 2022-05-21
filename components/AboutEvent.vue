@@ -1,12 +1,12 @@
 <template>
   <section class="event--wrapper">
     <section class="event container-fluid">
-        <div class="event--title">
-          <div class="title--tag">Politique de l’agence </div>
-          <h2>Faire de votre évènement un des plus <span>beaux jour de votre vie.</span></h2>
+        <div class="event--title" data-line>
+          <div class="title--tag">{{ content.little_title }}</div>
+          <h2 v-html="content.big_title"></h2>
           <div class="event--title--subtitle">
-            <p class="subtitle2">A noter aussi que dans cette belle aventure qui vous attend, nous formerons une équipe. En effet, vous êtes les principaux acteurs de cet évènement</p>
-            <p class="subtitle2">j'aurais donc besoin de vous et de votre implication afin de mettre tout en oeuvre pour parvenir au résultat tant attendu.</p>
+            <p v-html="parseMarkdown(content.subtitle_first)" class="subtitle2"></p>
+            <p v-html="parseMarkdown(content.subtitle_second)" class="subtitle2"></p>
           </div>
         </div>
         <div class="event--circle">

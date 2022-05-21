@@ -4,7 +4,7 @@
       <section class="tarifs--view--mobile">
         <div class="tarifs--title">
           <div class="title--tag">Nos</div>
-          <h2><span>Tarifs</span></h2>
+          <h2 data-line><div>Tarifs</div></h2>
         </div>
         <div class="tarifs--view--mobile--items">
           <div
@@ -481,6 +481,41 @@ export default {
   @media (min-width: 1100px) {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  &--view--mobile,
+  &--view--desktop--header {
+    &--items {
+        .offers--item:first-child {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverBeige;
+              }
+            }
+          }
+        }
+    
+        .offers--item:nth-child(2) {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverGreen;
+              }
+            }
+          }
+        }
+    
+        .offers--item:last-child {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverPurple;
+              }
+            }
+          }
+        }
+    }
   }
 
   &--view--mobile {

@@ -4,10 +4,10 @@
       <div class="events--loop is__container__img">
         <loop-event></loop-event>
       </div>
-      <div class="events--content">
+      <div class="events--content" data-line>
         <div class="title--tag">évènements</div>
         <h2 v-html="content.title"></h2>
-        <p v-html="content.subtitle" class="subtitle"></p>
+        <p v-html="parseMarkdown(content.subtitle)" class="subtitle"></p>
         <button class="is__btn__secondary">
           <nuxt-link to="/events">
             {{ content.button }}
@@ -29,12 +29,12 @@
         </div>
       </div>
       <div class="events--sliderdesktop">
-        <div class="is__container__img events--sliderdesktop--first">
+        <div class="is__container__img events--sliderdesktop--first" data-rellax data-rellax-speed="-0.5">
           <img
           :src="content.imageLeft.data.attributes.url"
           :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
-        <div class="is__container__img events--sliderdesktop--second">
+        <div class="is__container__img events--sliderdesktop--second"  data-rellax data-rellax-speed="0.5">
           <div class="events--sliderdesktop--second--overlay">
             <img
               :src="content.imageRight.data.attributes.url"
@@ -66,14 +66,18 @@ export default {
 }
 
 .events {
+  height: auto;
   background-color: $colorGreen;
   box-sizing: border-box;
   position: relative;
   z-index: 4;
 
+  @media (min-width: 800px) {
+    padding-bottom: 4rem;
+  }
+
   @media (min-width: 920px) {
     padding-top: 80px;
-    height: auto;
   }
 
   @media (min-width: 1000px) {
@@ -163,11 +167,15 @@ export default {
 
     p {
       @media (min-width: 920px) {
-        margin-bottom: 75px;
+        margin-bottom: 2rem;
       }
     }
 
     button {
+      &:hover {
+        background-color: $colorHoverGreen;
+      }
+
       @media (min-width: 350px) {
         margin-top: 40px;
       }

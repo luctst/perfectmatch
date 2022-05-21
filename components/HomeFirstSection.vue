@@ -1,7 +1,7 @@
 <template>
   <section class="gettingmaried--wrapper">
     <section class="gettingmaried container-fluid">
-      <div class="gettingmaried--title">
+      <div class="gettingmaried--title" data-line>
         <h2 v-html="content.firstTitle"></h2>
         <h2>{{ content.secondTitle }}</h2>
         <h2>{{ content.thirdTitle }}</h2>
@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import { marked } from 'marked';
 import GlobalMixin from '~/mixins/global';
 import LogoCircle from '~/assets/img/logo-circle.svg?inline';
 
@@ -32,16 +31,6 @@ export default {
     LogoCircle,
   },
   mixins: [GlobalMixin],
-  methods: {
-    parseMarkdown(content) {
-      marked.setOptions({
-        breaks: true,
-        gfm: true,
-      });
-
-      return marked(content);
-    }
-  },
 };
 </script>
 
