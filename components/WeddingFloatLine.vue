@@ -9,7 +9,7 @@
       <div class="is__container__img">
         <component :is="icon"></component>
       </div>
-      <h1>{{ content.title }}</h1>
+      <h1 data-line>{{ content.title }}</h1>
     </div>
   </section>
 </template>

@@ -10,7 +10,7 @@
       <nuxt-child
       :content="content"
       :pagination="pagination"
-      keep-alive />
+      keep-alive/>
     </template>
   </section>
 </template>
@@ -23,15 +23,18 @@ export default {
     return {
       pagination: {},
       content: false,
+      allsTitle:null,
     };
   },
+
   async fetch() {
     await this.fetchRouteContent();
   },
   watch: {
     async $route() {
       this.shouldAddBodyPadding();
-      await this.fetchRouteContent();
+      await this.$fetch();
+      this.findAllTitleofThePage();
     }
   },
   created() {
@@ -39,6 +42,9 @@ export default {
       this.shouldAddBodyPadding();
       window.addEventListener('resize', this.shouldAddBodyPadding);
     }
+  },
+  mounted(){
+    this.findAllTitleofThePage()
   },
   methods: {
     shouldAddBodyPadding() {
@@ -66,29 +72,54 @@ export default {
       body.classList.remove('is__body__padding');
       return true;
     },
-    async fetchRouteContent() {
+    async fetchRouteContent(newRoute) {
       try {
+        const routerData = newRoute ? { ...newRoute } : this.$route;
         const routesToFetch = this.$store.state.routes.find((r) => {
-          if (Object.keys(this.$route.params).length) {
-            const params = Object.keys(this.$route.params);
-            return this.$route.path.split(this.$route.params[params[0]]).join(`:${params[0]}`) === r.path;
+          if (
+            Object.keys(routerData.params).length
+            && r.path.includes(':')
+          ) {
+            const params = Object.keys(routerData.params);
+            return routerData.path.split(routerData.params[params[0]]).join(`:${params[0]}`) === r.path;
           }
   
-          return r.path === this.$route.path;
+          return r.path === routerData.path;
         });
 
         if (!routesToFetch) throw new Error('page do not exist');
   
         if (routesToFetch.path.includes(':')) {
-          this.content = (await this.$axios.$get(
-            this.$route.path,
+          const components = (await this.$axios.$get('/content-type-builder/components'))
+            .data
+            .filter((component) => {
+              if (
+                component.apiId === 'footer'
+                || component.apiId === 'header'
+              ) return true;
+              return false;
+            })
+            .reduce(
+              (prev, next) => {
+                prev[next.apiId] = next.schema.attributes;
+                return prev;
+              },
+              {}
+            )
+
+          const pageResult = (await this.$axios.$get(
+            routerData.path,
             {
               params: {
                 populate: '*',
               },
             },
           )).data.attributes;
-  
+
+          this.content = {
+            ...pageResult,
+            ...components,
+          };
           return true;
         }
   
@@ -120,16 +151,40 @@ export default {
           )).data.attributes;
           return true;
         }
-  
+
+        const components = (await this.$axios.$get('/content-type-builder/components'))
+          .data
+          .filter((component) => {
+            if (
+              component.apiId === 'footer'
+              || component.apiId === 'header'
+            ) return true;
+            return false;
+          })
+          .reduce(
+            (prev, next) => {
+              prev[next.apiId] = next.schema.attributes;
+              return prev;
+            },
+            {}
+          )
         const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
   
-        this.content = result.data;
+        this.content = {
+          items: [...result.data],
+          ...components,
+        };
         this.pagination = result.meta.pagination;
         return true;
       } catch (error) {
         throw error;
       }
     },
+    findAllTitleofThePage(){
+      this.allsTitle = document.querySelectorAll("h1[data-line],h2[data-line],[data-line] h2,[data-line] h1")
+      this.splitLine(this.allsTitle,'line')
+      this.observeTitle(this.allsTitle)
+    }
   },
 };
 </script>

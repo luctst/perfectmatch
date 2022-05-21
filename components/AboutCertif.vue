@@ -1,7 +1,7 @@
 <template>
   <section class="certif--wrapper">
     <section class="certif container-fluid">
-      <div class="certif--title">
+      <div class="certif--title" data-line>
         <div class="title--tag">{{ content.littleTitle }}</div>
         <h2 v-html="content.mainTitle"></h2>
       </div>

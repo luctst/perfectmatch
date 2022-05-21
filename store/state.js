@@ -5,13 +5,16 @@ export default () => ({
       apiRoutes: '/articles',
     },
     {
+      path: '/projects',
+      apiRoutes: '/projects',
+    },
+    {
       path: '/articles/:id',
       apiRoutes: '/articles/:id',
     },
     {
       path: '/projects/:id',
-      apiRoutes: '/articles/:id',
-      compoCategoryToFetch: 'footer',
+      apiRoutes: '/projects/:id',
     },
     {
       path: '/',
@@ -26,12 +29,12 @@ export default () => ({
     {
       path: '/wedding/complete',
       apiRoutes: 'wedding-complete',
-      compoCategoryToFetch: 'wedding',
+      compoCategoryToFetch: 'wedding,footer',
     },
     {
       path: '/wedding/partial',
       apiRoutes: 'wedding-partial',
-      compoCategoryToFetch: 'wedding',
+      compoCategoryToFetch: 'wedding,footer',
     },
     {
       path: '/events',
