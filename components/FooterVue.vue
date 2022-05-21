@@ -107,6 +107,10 @@ div {
     flex-direction: column;
 
     button {
+      &:hover {
+        background-color: $colorHoverPurple;
+      }
+
       @media (min-width: 350px) {
         margin-top: 40px;
       }

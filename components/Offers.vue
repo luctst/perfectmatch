@@ -127,6 +127,14 @@ export default {
     padding-bottom: 180px;
   }
 
+  &--item:first-child {
+    button {
+      &:hover {
+        background-color: #EDCDB8;
+      }
+    }
+  }
+
   &--item:nth-child(2) {
     
     button {

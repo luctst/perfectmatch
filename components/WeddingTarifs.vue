@@ -479,6 +479,41 @@ export default {
     padding-bottom: 8rem;
   }
 
+  &--view--mobile,
+  &--view--desktop--header {
+    &--items {
+        .offers--item:first-child {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverBeige;
+              }
+            }
+          }
+        }
+    
+        .offers--item:nth-child(2) {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverGreen;
+              }
+            }
+          }
+        }
+    
+        .offers--item:last-child {
+          .offers--item--bottom {
+            button {
+              &:hover {
+                background-color: $colorHoverPurple;
+              }
+            }
+          }
+        }
+    }
+  }
+
   &--view--mobile {
     max-width: 100%;
 

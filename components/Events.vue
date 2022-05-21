@@ -157,6 +157,10 @@ export default {
     }
 
     button {
+      &:hover {
+        background-color: $colorHoverGreen;
+      }
+
       @media (min-width: 350px) {
         margin-top: 40px;
       }

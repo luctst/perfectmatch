@@ -1,12 +1,12 @@
 <template>
   <section>
-    <template  v-if="$fetchState.pending">
+    <template v-if="$fetchState.pending">
       Fetch date
     </template>
     <template  v-else-if="$fetchState.error">
       Error...
     </template>
-    <template  v-else >
+    <template v-else>
       <nuxt-child
       :content="content"
       :base-api-url="baseApiUrl"
