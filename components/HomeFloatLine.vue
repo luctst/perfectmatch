@@ -34,7 +34,7 @@
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img floatline--sliderdesktop--seconditem">
-          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="2">
+          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="-2">
             <img 
             :src="content.imgright.data.attributes.url"
             :alt="content.imgright.data.attributes.alternativeText"/>

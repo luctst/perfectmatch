@@ -4,16 +4,16 @@ import Vue from "vue";
   
 
 function observeTitle(els){
-  //reset(els) 
+  reset(els) 
   this.observer = new IntersectionObserver((entries,observe) => {
     entries.forEach((entry,) => {
       if (entry.isIntersecting) {
         const el = [...entry.target.querySelectorAll('.t-line .t-line')]
         el.forEach((line, lineIndex) => {
-          let time = lineIndex * 0.5;
+          let time = lineIndex * 0.3;
           time = Math.round(time * 100) / 100;
           line.style.transform = "translateY(0)";
-          line.style.transitionDuration = '1.5s'
+          line.style.transitionDuration = '1s'
           line.style["-webkit-transition-delay"]= `${time}s`;
           observe.unobserve(entry.target)
         })
