@@ -6,7 +6,7 @@
       </div>
       <div class="floatline--content">
         <div class="floatline--content--title">
-          <h1>Là où <span>votre rêve</span><br/> prend vie</h1>
+          <h1 data-line>Là où <div>votre rêve</div><br>prend vie</h1>
         </div>
         <div class="floatline--content--subtitle">
           <p class="subtitle">{{ content.subtitle }}</p>
@@ -15,7 +15,7 @@
       </div>
       <div class="floatline--slidermobile">
         <div class="is__container__img floatline--slidermobile--firstitem">
-          <img
+          <img 
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
@@ -28,14 +28,14 @@
         </div>
       </div>
       <div class="floatline--sliderdesktop">
-        <div class="is__container__img floatline--sliderdesktop--firstitem">
-          <img
+        <div class="is__container__img floatline--sliderdesktop--firstitem " data-rellax data-rellax-speed="2">
+          <img  
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img floatline--sliderdesktop--seconditem">
-          <div class="floatline--sliderdesktop--seconditem--overlay">
-            <img
+          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="2">
+            <img 
             :src="content.imgright.data.attributes.url"
             :alt="content.imgright.data.attributes.alternativeText"/>
           </div>

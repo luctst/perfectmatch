@@ -6,7 +6,7 @@
       </div>
       <div class="events--content">
         <div class="title--tag">évènements</div>
-        <h2>Vous souhaitez fêter un évènement qui vous <span>tient à coeur ?</span></h2>
+        <h2 data-line>Vous souhaitez fêter un<br>évènement qui vous<br><div>tient à coeur ?</div></h2>
         <p class="subtitle"><span>The Perfect Match s’engage à ne faire que du sur-mesure !</span>
         Parce-que chaque client est unique et chaque évènement aussi, en passant par la demande en mariage, l’organisation de vos fiançailles, une baby shower, une fête religieuse, ou encore votre anniversaire, on s’occupe de tout.</p>
         <button class="is__btn__secondary">Découvrir</button>
@@ -22,10 +22,10 @@
         </div>
       </div>
       <div class="events--sliderdesktop">
-        <div class="is__container__img events--sliderdesktop--first">
+        <div class="is__container__img events--sliderdesktop--first"  data-rellax data-rellax-speed="-0.5">
           <img src="~/assets/img/Groupe21.jpg"/>
         </div>
-        <div class="is__container__img events--sliderdesktop--second">
+        <div class="is__container__img events--sliderdesktop--second"  data-rellax data-rellax-speed="0.5">
           <div class="events--sliderdesktop--second--overlay">
             <img src="~/assets/img/Groupe13.jpg"/>
           </div>

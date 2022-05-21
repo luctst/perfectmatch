@@ -33,9 +33,9 @@
   text-align: center;
   margin: 0;
 
-  span {
+  div {
     font-family: $mainTypoNeueBold;
-    display: inline-block;
+    display: inline;
   }
 
   @media (min-width: 350px) {
@@ -62,7 +62,8 @@
   font-family: $secondTypo;
   margin: 0;
 
-  span {
+  div {
+    display: inline;
     font-family: $mainTypoNeueBold;
   }
 

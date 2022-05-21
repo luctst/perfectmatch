@@ -1,12 +1,12 @@
 <template>
   <section>
-    <template v-if="$fetchState.pending">
+    <template  v-if="$fetchState.pending">
       Fetch date
     </template>
-    <template v-else-if="$fetchState.error">
+    <template  v-else-if="$fetchState.error">
       Error...
     </template>
-    <template v-else>
+    <template  v-else >
       <nuxt-child
       :content="content"
       :base-api-url="baseApiUrl"
@@ -24,9 +24,11 @@ export default {
       content: false,
       baseApiUrl: process.env.NODE_ENV === 'development'
         ? 'http://localhost:1337/api'
-        : 'https://the-perfect-match.herokuapp.com'
+        : 'https://the-perfect-match.herokuapp.com',
+      allsTitle:null,
     };
   },
+
   async fetch() {
     await this.fetchRouteContent();
   },
@@ -34,6 +36,7 @@ export default {
     async $route() {
       this.shouldAddBodyPadding();
       await this.fetchRouteContent();
+      this.findAllTitleofThePage()
     }
   },
   created() {
@@ -41,6 +44,9 @@ export default {
       this.shouldAddBodyPadding();
       window.addEventListener('resize', this.shouldAddBodyPadding);
     }
+  },
+  mounted(){
+    this.findAllTitleofThePage()
   },
   methods: {
     shouldAddBodyPadding() {
@@ -141,6 +147,11 @@ export default {
         return true;
       }
     },
+    findAllTitleofThePage(){
+      this.allsTitle = document.querySelectorAll("h1[data-line],h2[data-line],[data-line] h2,[data-line] h1")
+      this.splitLine(this.allsTitle,'line')
+      this.observeTitle(this.allsTitle)
+    }
   },
 };
 </script>

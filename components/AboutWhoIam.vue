@@ -3,7 +3,7 @@
     <section class="whoiam container-fluid">
       <div class="whoiam--title">
         <div class="title--tag">QUI SE CACHE DERRIÈRE ?</div>
-        <h2><span>Je suis Alexandra</span>,</h2>
+        <h2><div>Je suis Alexandra</div>,</h2>
         <h2>bordelaise de naissance,</h2>
         <h2>parisienne d'adoption.</h2>
       </div>

@@ -3,10 +3,10 @@
     <section class="articles container-fluid">
       <div class="articles--content">
         <div class="title--tag">Articles</div>
-        <h2>En manque d'<span>inspiration</span></h2>
-        <h2>Envie d'un peu de lecture ?</h2>
+        <h2 data-line>En manque d'<div>inspiration</div><br>
+        Envie d'un peu de lecture ?</h2>
       </div>
-      <div class="articles--items--wrapper">
+      <div class="articles--items--wrapper" data-rellax data-rellax-speed="0.2">
         <router-link
         v-for="(article, index) in articles"
         :id="index"
@@ -17,7 +17,7 @@
         @mouseleave.native="article.active = false">
           <div
           :style="`:hover { cursor: ${cursorUrl};}`"
-          class="is__container__img articles--items--wrapper--item--img">
+          class="is__container__img articles--items--wrapper--item--img" >
             <img :src="article.cover"/>
           </div>
           <div class="articles--items--wrapper--item--content">

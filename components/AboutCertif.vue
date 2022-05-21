@@ -3,7 +3,7 @@
     <section class="certif container-fluid">
       <div class="certif--title">
         <div class="title--tag">Mon parcours</div>
-        <h2><span>Certifiée</span> organisateur de mariage</h2>
+        <h2 data-line><div>Certifiée</div> organisateur de mariage</h2>
       </div>
       <div class="certif--content">
         <div class="is__container__img">

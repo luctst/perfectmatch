@@ -2,7 +2,7 @@
   <section class="agency--wrapper">
     <section class="agency container-fluid">
       <div class="agency--wrapper--content">
-        <h2>Une agence d'organisation d'<span>évènements</span> privés.</h2>
+        <h2 data-line>Une agence d'organisation<br>d'<div>évènements</div> privés.</h2>
         <div class="subtitle">Basée entre Paris et Bordeaux, nous vous proposons de choisir l’évènement et le lieu de votre choix, afin de satisfaire tous vos désirs.</div>
         <button class="is__btn__primary">En savoir plus</button>
       </div>

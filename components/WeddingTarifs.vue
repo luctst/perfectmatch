@@ -4,7 +4,7 @@
       <section class="tarifs--view--mobile">
         <div class="tarifs--title">
           <div class="title--tag">Nos</div>
-          <h2><span>Tarifs</span></h2>
+          <h2 data-line><div>Tarifs</div></h2>
         </div>
         <div class="tarifs--view--mobile--items">
           <div

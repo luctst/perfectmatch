@@ -7,14 +7,14 @@
     </div>
     <section class="floatline container-fluid">
       <div class="floatline--title">
-        <h1>La bienveillance, l'écoute <br class="is__return__line"/>et le <span>sur-mesure</span></h1>
+        <h1 data-line>La bienveillance, l'écoute <br>et le <div>sur-mesure</div></h1>
         <div class="floatline--title--extra">
           <div class="subtitle">Autant de valeurs que <span>The Perfect Match</span> mettra à votre profit pour créer vos plus beaux souvenirs.</div>
           <span class="is__span__outside__h2"></span>
         </div>
       </div>
       <div class="floatline--profile">
-        <div class="is__container__img">
+        <div class="is__container__img" data-rellax data-rellax-speed="-3">
           <img src="~/assets/img/pic-profile.jpg" alt="Picture profile">
         </div>
       </div>

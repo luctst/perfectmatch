@@ -8,8 +8,8 @@
       </div>
       <div class="accord--content">
         <div class="title--tag">Pourquoi The Perfect Match ?</div>
-        <h2>The Perfect Match</h2>
-        <h2>C'est <span>l'accord parfait</span></h2>
+        <h2 data-line>The Perfect Match<br>
+        C'est <div>l'accord parfait</div></h2>
         <p class="subtitle">L'accord parfait entre un couple qui s'est bien trouvé et qui souhaite s'unir pour la vie. Mais c'est aussi l'accord parfait entre vous et moi, le début d'une jolie collaboration pour réaliser vos plus beaux souvenirs. Le match parfait quoi !</p>
       </div>
     </section>

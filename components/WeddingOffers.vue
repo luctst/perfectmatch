@@ -3,8 +3,8 @@
     <div
     :style="`background-color:${theme};`"
     class="offers--wrapper container-fluid">
-      <div class="offers--wrapper--title">
-        <h2><span>Qu'est-ce que comprend</span></h2>
+      <div class="offers--wrapper--title" data-line>
+        <h2><div>Qu'est-ce que comprend</div></h2>
         <h2>l'organisation compléte ?</h2>
       </div>
       <div class="offers--wrapper--items">

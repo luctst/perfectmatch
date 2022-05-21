@@ -2,9 +2,9 @@
   <section class="gettingmaried--wrapper">
     <section class="gettingmaried container-fluid">
       <div class="gettingmaried--title">
-        <h2>Vous allez <span>vous marier</span> ?</h2>
-        <h2>La demande tant attendue est arrivée ? </h2>
-        <h2>Con-gra-tu-la-tion !</h2>
+        <h2 data-line>Vous allez <div>vous marier</div> ?<br>
+        La demande tant attendue est arrivée ?<br> 
+        Con-gra-tu-la-tion !</h2>
       </div>
       <div class="gettingmaried--circle">
         <div class="is__container__img">
