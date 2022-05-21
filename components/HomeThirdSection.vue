@@ -2,7 +2,7 @@
   <section class="formulasinfos--wrapper">
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
-        <div class="is__container__img formulasinfos--img--container">
+        <div class="is__container__img formulasinfos--img--container" data-rellax data-rellax-speed="2">
           <img src="~/assets/img/flower.jpg">
         </div>
         <div class="formulasinfos--img--content subtitle">
@@ -11,7 +11,7 @@
       </div>
       <div class="formulasinfos--content">
         <p class="title--tag">Mariage</p>
-        <h2>The Perfect Match vous propose <br class="is__return__line"/><span>3 formules</span> pour votre mariage.</h2>
+        <h2 data-line>The Perfect Match vous propose <br class="is__return__line"/><div>3 formules</div> pour votre mariage.</h2>
       </div>
     </section>
   </section>
