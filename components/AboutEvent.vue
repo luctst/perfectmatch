@@ -1,7 +1,7 @@
 <template>
   <section class="event--wrapper">
     <section class="event container-fluid">
-        <div class="event--title">
+        <div class="event--title" data-line>
           <div class="title--tag">{{ content.little_title }}</div>
           <h2 v-html="content.big_title"></h2>
           <div class="event--title--subtitle">

@@ -7,3 +7,28 @@
     transform: translateY(0);
   }
 }
+@keyframes rotate {
+  0% {
+    transform:rotate(-360deg)
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.rotate{
+  animation: rotate 10s infinite linear;
+}
+.t-line{
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+.t-line .t-line {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(100%);
+}
+[data-line]{
+  opacity: 0;
+}

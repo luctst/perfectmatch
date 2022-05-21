@@ -1,7 +1,7 @@
 <template>
   <section class="agency--wrapper">
     <section class="agency container-fluid">
-      <div class="agency--wrapper--content">
+      <div class="agency--wrapper--content" data-line>
         <h2 v-html="content.title"></h2>
         <div class="subtitle">{{ content.subtitle }}</div>
         <button class="is__btn__primary">
