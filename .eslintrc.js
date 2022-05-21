@@ -21,5 +21,7 @@ module.exports = {
     'nuxt/no-globals-in-created': 0,
     'no-useless-escape': 1,
     'no-useless-catch': 1,
+    'vue/multi-word-component-names': 1,
+    'no-new': 1,
   }
 }

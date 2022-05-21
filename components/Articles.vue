@@ -8,7 +8,7 @@
         :key="i"
         v-html="title"></h2>
       </div>
-      <div class="articles--items--wrapper" data-rellax data-rellax-speed="0.2">
+      <div class="articles--items--wrapper">
         <nuxt-link
         v-for="(article, index) in articles"
         :id="index"
@@ -125,6 +125,16 @@ export default {
 
   &--items--wrapper {
     display: flex;
+
+    &--item:nth-child(2) {
+      @media (min-width: 1400px) {
+        max-width: 25rem;
+      }
+
+      @media (min-width: 1800px) {
+        max-width: 30rem;
+      }
+    }
 
     &--item {
       display: inline-block;

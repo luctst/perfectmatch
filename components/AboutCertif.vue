@@ -38,6 +38,14 @@ export default {
   z-index: 3;
 
   &--title {
+    @media (min-width: 350px) {
+      text-align: center;
+    }
+
+    @media (min-width: 920px) {
+      text-align: left;
+    }
+
     div {
       margin-bottom: 15px;
     }
@@ -54,6 +62,10 @@ export default {
         img {
           object-fit: fill;
         }
+      }
+
+      p {
+        margin: 0;
       }
     }
 

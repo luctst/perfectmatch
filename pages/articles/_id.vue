@@ -34,7 +34,7 @@ import { marked } from 'marked';
 import globalMixin from '~/mixins/global';
 
 export default {
-  name: 'Article',
+  name: 'ArticleVue',
   mixins: [globalMixin],
   computed: {
     dateFormated() {

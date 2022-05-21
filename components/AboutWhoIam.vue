@@ -1,7 +1,7 @@
 <template>
   <section class="whoiam--wrapper">
     <section class="whoiam container-fluid">
-      <div class="whoiam--title">
+      <div class="whoiam--title" data-line>
         <div class="title--tag">{{ content.littleTitle }}</div>
         <h2 v-html="content.firstBigTitle"></h2>
         <h2 v-html="content.secondBigTitle"></h2>
@@ -41,51 +41,20 @@ export default {
 
   @media (min-width: 350px) {
     height: auto;
-    padding-top: 13rem;
+    padding-top: 35rem;
     padding-bottom: 3rem;
   }
 
-  @media (min-width: 438px) {
-    padding-top: 16rem;
+  @media (min-width: 810px) {
+    padding-top: 40rem;
   }
 
-  @media (min-width: 450px) {
-    padding-top: 20rem;
-  }
-
-  @media (min-width: 476px) {
-    padding-top: 20rem;
-  }
-
-  @media (min-width: 508px) {
-    padding-top: 22rem;
-  }
-
-  @media (min-width: 550px) {
-    padding-top: 12rem;
-  }
-
-  @media (min-width: 600px) {
-    padding-top: 16rem;
-  }
-
-  @media (min-width: 660px) {
-    padding-top: 20rem;
-  }
-
-  @media (min-width: 720px) {
-    padding-top: 25rem;
-  }
-
-  @media (min-width: 780px) {
-    padding-top: 30rem;
-  }
-
-  @media (min-width: 850px) {
-    padding-top: 10rem;
+  @media (min-width: 900px) {
+    padding-top: 50rem;
   }
 
   @media (min-width: 920px) {
+    padding-top: 12rem;
     padding-bottom: 180px;
   }
 
@@ -201,6 +170,7 @@ export default {
 
     @media (min-width: 920px) {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       max-width: 450px;
       margin-top: 60px;
@@ -208,6 +178,10 @@ export default {
       p:first-of-type {
         margin-right: 40px;
       }
+    }
+
+    @media (min-width: 1100px) {
+      flex-direction: row;
     }
   }
 }

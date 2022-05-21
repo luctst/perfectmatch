@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="floatline--profile">
-        <div class="is__container__img" data-rellax data-rellax-speed="-3">
+        <div ref="containerImg" class="is__container__img" data-rellax data-rellax-speed="-3">
           <img
           :src="content.imageProfile.data.attributes.url"
           :alt="content.imageProfile.data.attributes.alternativeText"/>
@@ -196,7 +196,7 @@ export default {
       transform: translateY(-50%);
 
       div {
-        max-width: 50vw;
+        max-width: 40vw;
       }
     }
 
@@ -204,7 +204,7 @@ export default {
       transform: translateY(-60%);
 
       div {
-        max-width: 35vw;
+        max-width: 30vw;
       }
     }
 

@@ -61,6 +61,7 @@ export default {
   }
 
   @media (min-width: 1400px) {
+    padding-top: 120px;
     padding-bottom: 140px;
   }
 
@@ -82,7 +83,8 @@ export default {
 
     &--subtitle {
       @media (min-width: 920px) {
-        max-width: 85%;
+        padding-top: 40px;
+        max-width: 60%;
       }
     }
   }
@@ -130,8 +132,8 @@ export default {
 
       div:last-child {
         display: block;
-        left: -76px;
-        top: 45%;
+        left: -5rem;
+        top: 12rem;
         position: absolute;
         max-width: 16vw;
       }
@@ -151,7 +153,13 @@ export default {
 
     @media (min-width: 1400px) {
       div:last-child {
-        top: 63%;
+        top: 16rem;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      div:last-child {
+        top: 22rem;
       }
     }
   }

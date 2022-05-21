@@ -18,7 +18,7 @@
                 <div class="is__container__img">
                   <component :is="item.svg"></component>
                 </div>
-                <h3>{{ item.title }}</h3>
+                <h3 v-html="item.title"></h3>
               </div>
               <div class="offers--item--bottom">
                 <div class="title--tag">
@@ -142,8 +142,8 @@
 <script>
 import globalMixin from '~/mixins/global';
 import OffersFirst from '~/assets/img/offers-first.svg?inline';
-import OffersSecond from '~/assets/img/flower-2.svg?inline';
-import OffersThird from '~/assets/img/flower-3.svg?inline';
+import OffersSecond from '~/assets/img/flower-2-service.svg?inline';
+import OffersThird from '~/assets/img/flower-3-service.svg?inline';
 import Check from '~/assets/img/check.svg?inline';
 import TarifFalse from '~/assets/img/tarif-false.svg?inline';
 
@@ -336,22 +336,30 @@ export default {
   }
 
   &--top {
-    margin-bottom: 1.6rem;
     width: 100%;
 
     div {
       margin: 0 auto;
-      max-width: 6rem;
+      max-width: 9rem;
     }
 
     h3 {
       text-align: center;
       margin-top: 1rem;
       margin-bottom: 2rem;
+      padding: 0 10%;
+    }
+    
+    @media (min-width: 350px) {
+      padding-bottom: 2.5rem;
     }
 
     @media (min-width: 920px) {
       height: 15rem;
+    }
+
+    @media (min-width: 1400px) {
+      padding-bottom: 5.5rem;
     }
   }
 
@@ -359,6 +367,7 @@ export default {
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-top: 3.5rem;
 
     div {
       margin-bottom: 0;
@@ -371,6 +380,10 @@ export default {
 
     p {
       margin: .4rem 0 2rem 0 ;
+
+      span {
+        font-family: $mainTypoNeueBold;
+      }
     }
   }
 }
@@ -389,7 +402,7 @@ export default {
   }
 
   &--item {
-    border-bottom: 1px solid #3B2321;
+    border-bottom: 1px solid rgba(59, 35, 33, .1);
     align-items: center;
     display: flex;
 
@@ -400,7 +413,7 @@ export default {
     }
 
     @media (min-width: 920px) {
-      padding: 1rem 0;
+      padding: 1.7rem 0;
       justify-content: flex-start;
     }
 
@@ -479,8 +492,8 @@ export default {
   }
 
   @media (min-width: 1100px) {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
 
   &--view--mobile,
@@ -581,13 +594,11 @@ export default {
         margin-left: auto;
 
         .offers--item:nth-child(1) {
-          border: 1px solid $colorBeige;
           background-color: $colorBeige;
         }
     
         .offers--item:nth-child(2) {
           background-color: $colorGreen;
-          border: 1px solid $colorGreen;
 
           @media (min-width: 920px) {
             margin: 0 1rem;
@@ -595,8 +606,7 @@ export default {
         }
     
         .offers--item:nth-child(3) {
-          background-color: $colorPurple;
-          border: 1px solid $colorPurple;
+          background-color: #F8ECFD;
         }
       }
     }

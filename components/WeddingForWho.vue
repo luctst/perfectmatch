@@ -72,6 +72,10 @@ export default {
     padding-bottom: 120px;
   }
 
+  @media (min-width: 920px) {
+    padding-top: 140px;
+  }
+
   @media (min-width: 1200px) {
     padding-bottom: 180px;
   }
@@ -102,7 +106,6 @@ export default {
   }
 
     @media (min-width: 350px) {
-      align-items: center;
       flex-direction: column;
       justify-content: center;
     }
@@ -113,32 +116,20 @@ export default {
 
     &--item {
       border: 1px solid;
-      padding: 30px;
       position: relative;
 
       @media (min-width: 350px) {
         padding-right: 60px;
-      }
-
-      @media (min-width: 550px) {
-        padding-right: 70px;
-      }
-
-      @media (min-width: 800px) {
-        padding-right: 140px;
+        align-items: flex-start;
+        padding: 30px 60px 30px 30px;
       }
 
       @media (min-width: 920px) {
-        padding-right: 80px;
-        max-height: 200px;
-        height: 200px;
+        width: 30%;
       }
 
       @media (min-width: 1200px) {
-        align-items: center;
         display: flex;
-        padding-right: 55px;
-        padding-top: 0;
       }
 
       .subtitle2 {

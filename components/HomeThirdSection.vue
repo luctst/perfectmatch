@@ -2,7 +2,7 @@
   <section class="formulasinfos--wrapper">
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
-        <div class="is__container__img formulasinfos--img--container" data-rellax data-rellax-speed="2">
+        <div class="is__container__img formulasinfos--img--container">
           <img
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"

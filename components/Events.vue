@@ -29,12 +29,12 @@
         </div>
       </div>
       <div class="events--sliderdesktop">
-        <div class="is__container__img events--sliderdesktop--first" data-rellax data-rellax-speed="-0.5">
+        <div class="is__container__img events--sliderdesktop--first">
           <img
           :src="content.imageLeft.data.attributes.url"
           :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
-        <div class="is__container__img events--sliderdesktop--second"  data-rellax data-rellax-speed="0.5">
+        <div class="is__container__img events--sliderdesktop--second">
           <div class="events--sliderdesktop--second--overlay">
             <img
               :src="content.imageRight.data.attributes.url"
@@ -139,7 +139,8 @@ export default {
     }
 
     @media (min-width: 1800px) {
-      max-width: 30vw;
+      max-width: 40vw;
+      padding-left: 15rem;
     }
 
     div,

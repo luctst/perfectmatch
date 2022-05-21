@@ -191,8 +191,6 @@ export default {
     }
 
     button {
-      transition: background-color, 1s;
-
       @media (min-width: 350px) {
         margin-top: 30px;
       }

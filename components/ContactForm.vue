@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'Form',
+  name: 'FormVue',
   data() {
     return {
       errorApi: null,

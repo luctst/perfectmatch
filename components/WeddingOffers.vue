@@ -165,7 +165,7 @@ export default {
   &--title {
     @media (min-width: 350px) {
       text-align: left;
-      margin-bottom: 3rem;
+      margin-bottom: 5rem;
     }
   }
 

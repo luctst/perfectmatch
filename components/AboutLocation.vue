@@ -83,6 +83,10 @@ export default {
   }
 
   &--title {
+    @media (min-width: 350px) {
+      text-align: center;
+    }
+
     div {
       color: #2E332A;
       margin-bottom: 15px;
@@ -96,6 +100,7 @@ export default {
       align-items: center;
       display: flex;
       flex-direction: column;
+      text-align: left;
     }
   }
 
