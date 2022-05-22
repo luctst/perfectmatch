@@ -1,13 +1,14 @@
 <template>
   <section>
     <template v-if="$fetchState.pending">
-      Fetch date
+      <loader></loader>
     </template>
     <template v-else-if="$fetchState.error">
       <error></error>
     </template>
     <template v-else>
       <nuxt-child
+      v-if="showContent"
       :content="content"
       :pagination="pagination"
       keep-alive/>
@@ -24,11 +25,12 @@ export default {
       pagination: {},
       content: false,
       allsTitle:null,
+      showContent: false,
     };
   },
-
   async fetch() {
     await this.fetchRouteContent();
+    this.isLoaderDisplay();
   },
   watch: {
     async $route() {
@@ -39,14 +41,24 @@ export default {
   },
   created() {
     if (process.browser) {
-      this.shouldAddBodyPadding();
+      this.isLoaderDisplay();
       window.addEventListener('resize', this.shouldAddBodyPadding);
     }
   },
-  mounted(){
-    this.findAllTitleofThePage()
+  mounted() {
+    this.findAllTitleofThePage();
   },
   methods: {
+    isLoaderDisplay() {
+      this.$nextTick(() => {
+        if (!this.content) {
+          return this.$nuxt.$loading.start();
+        }
+
+        this.showContent = true;
+        this.shouldAddBodyPadding();
+      })
+    },
     shouldAddBodyPadding() {
       const body = document.querySelector('body');
 
