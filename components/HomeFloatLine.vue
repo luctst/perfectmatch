@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="floatline--sliderdesktop">
-        <div class="is__container__img floatline--sliderdesktop--firstitem " data-rellax data-rellax-speed="2">
+        <div class="is__container__img floatline--sliderdesktop--firstitem" data-rellax data-rellax-speed="2">
           <img  
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>

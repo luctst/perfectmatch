@@ -2,17 +2,17 @@
   <section class="floatline--wrapper">
     <section class="floatline container-fluid">
       <div class="floatline--img--left">
-        <div class="is__container__img">
+        <div class="is__container__img" data-rellax data-rellax-speed="2">
           <img src="~/assets/img/Groupe21.jpg">
         </div>
       </div>
       <div class="floatline--title">
         <h1 data-line>Événements</h1>
-        <div class="subtitle">Chaque étape de votre vie devrait être célébré comme il se doit, c'est pourquoi l'agence The Perfect Match vous propose de donner vie à vos rêves pour organiser les moments qui vous sont chers.</div>
+        <div class="subtitle" data-line>Chaque étape de votre vie devrait être célébré comme il se doit, c'est pourquoi l'agence The Perfect Match vous propose de donner vie à vos rêves pour organiser les moments qui vous sont chers.</div>
         <span></span>
       </div>
       <div class="floatline--img--right">
-        <div class="is__container__img">
+        <div class="is__container__img" data-rellax data-rellax-speed="2">
           <logo-circle></logo-circle>
         </div>
       </div>

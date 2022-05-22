@@ -251,7 +251,9 @@ export default {
         if (!this.$refs.h) return false;
 
         const header = this.$refs.h;
-        const isDisplayNone = 'is__display__none';
+        const isDisplayNone = 'is__header_hidden';
+        const isHeaderVisible = 'is__header__visible';
+        const hasHeaderBackground = 'header__has__background';
         const st = window.pageYOffset || document.documentElement.scrollTop;
   
         if (st > lastScrollTop) {
@@ -262,6 +264,9 @@ export default {
           };
 
           header.classList.add(isDisplayNone);
+          header.classList.remove(isHeaderVisible);
+          header.classList.remove(hasHeaderBackground);
+
           return true;
         }
   
@@ -269,6 +274,8 @@ export default {
         
         if (header.classList.contains(isDisplayNone)) {
           header.classList.remove(isDisplayNone);
+          header.classList.add(isHeaderVisible);
+          header.classList.add(hasHeaderBackground);
         }
 
         return true;
@@ -472,11 +479,12 @@ export default {
 
 .header {
   box-sizing: border-box;
-  height: 100px;
+  height: 85px;
   position: fixed;
   width: 100%;
   max-width: 100%;
   z-index: 10;
+  transition: top .5s;
 
   &--desktop {
     align-items: center;

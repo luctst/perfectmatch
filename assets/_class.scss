@@ -10,6 +10,18 @@
   display: none;
 }
 
+.header__has__background {
+  background-color: $colorWhite;
+}
+
+.is__header__visible {
+  top: 0;
+}
+
+.is__header_hidden {
+  top: -85px;
+}
+
 .is__h1 {
   @include isH1();
 }
