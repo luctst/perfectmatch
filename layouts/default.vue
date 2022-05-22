@@ -7,8 +7,8 @@
       <error></error>
     </template>
     <template v-else>
-      <nuxt-child
-      v-if="showContent"
+      <router-view
+      v-if="content"
       :content="content"
       :pagination="pagination"
       keep-alive/>

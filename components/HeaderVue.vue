@@ -198,11 +198,11 @@ export default {
         },
         {
           content: 'Articles',
-          href: 'articles',
+          href: 'a',
         },
         {
           content: 'Portfolio',
-          href: 'projects',
+          href: 'p',
         },
         {
           isBtn: true,

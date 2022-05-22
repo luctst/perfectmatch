@@ -1,11 +1,11 @@
 export default () => ({
   routes: [
     {
-      path: '/articles',
+      path: '/a',
       apiRoutes: '/articles',
     },
     {
-      path: '/projects',
+      path: '/p',
       apiRoutes: '/projects',
     },
     {
