@@ -42,8 +42,11 @@ export default {
   @media (min-width: 920px) {
     height: calc(100vh - 12em);
     padding-top: 12em!important;
-    margin-bottom: 0!important;
   }
+
+  @media (min-width: 1100px) {
+    margin-bottom: 4rem!important;
+  } 
 
   &--loop {
     position: absolute;

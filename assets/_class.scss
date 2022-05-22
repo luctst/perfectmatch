@@ -197,3 +197,16 @@
 .slick-active {
   background-color: #3B2321!important;
 }
+
+.toasted {
+  font-family: $mainTypo;
+  font-size: 1rem;
+}
+
+.is__toasted__error {
+  color: #E55860!important;
+}
+
+.is__toasted__success {
+  color: #73B195!important;
+}

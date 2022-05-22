@@ -14,14 +14,15 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/svg": "^0.4.0",
+    "@nuxtjs/toast": "^3.3.1",
     "circletype": "^2.3.0",
     "core-js": "^3.22.5",
     "lodash": "^4.17.21",
     "marked": "^4.0.16",
     "nuxt": "^2.15.7",
     "qs": "^6.10.3",
-    "vue-slick-carousel": "^1.0.6",
-    "rellax": "^1.12.1"
+    "rellax": "^1.12.1",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

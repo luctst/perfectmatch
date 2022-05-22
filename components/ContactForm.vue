@@ -20,16 +20,14 @@
       <div class="form--wrapper--actions">
         <div class="form--wrapper--actions--text">
           <div class="subtitle">* Champs Obligatoires</div>
-          <div
-          v-if="errorApi"
-          class="subtitle">
-            {{ errorApi }}
-          </div>
         </div>
         <button
         type="submit"
         class="is__btn__secondary">
-          Envoyer
+          <send v-if="sending"></send>
+          <template v-else>
+            Envoyer
+          </template>
         </button>
       </div>
     </form>
@@ -37,15 +35,20 @@
 </template>
 
 <script>
+import Send from '~/assets/img/send.svg?inline';
+
 export default {
   name: 'FormVue',
+  components: {
+    Send,
+  },
   data() {
     return {
-      errorApi: null,
       errorDefault: {
         active: false,
         message: null,
       },
+      sending: false,
       dataToPost: {},
       errors: null,
       inputs: [
@@ -150,8 +153,22 @@ export default {
           }
         });
 
+        this.sending = true;
+        this.$toast.show(
+          'Votre message a bien été envoyé',
+          {
+            className: ['toasted', 'is__toasted__success']
+          },
+        );
+        this.sending = false;
       } catch (error) {
-        this.errorApi = error.message;
+        this.sending = false;
+        this.$toast.show(
+          error.message,
+          {
+            className: ['toasted', 'is__toasted__error'],
+          },
+        );
       }
     },
   },
@@ -225,6 +242,11 @@ export default {
       }
 
       button {
+        svg {
+          height: 10px;
+          width: 100%;
+        }
+
         @media (min-width: 350px) {
           margin-top: 2rem;
         }

@@ -42,15 +42,21 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/toast',
   ],
   styleResources: {
     scss: ['@/assets/main.scss']
   },
   axios: {
-    // credentials: true,
     baseUrl: process.env.NODE_ENV === 'development'
       ? 'http://localhost:1337/api'
       : process.env.APIURL,
+  },
+  toast: {
+    position: 'top-right',
+    duration: 5000,
+    theme: 'outline',
+    keepOnHover: true,
   },
   server: {
     host: "0.0.0.0"
