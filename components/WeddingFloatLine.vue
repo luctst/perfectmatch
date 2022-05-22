@@ -2,7 +2,9 @@
   <section class="floatline" :style="`background-color:${theme};`">
     <div class="floatline--loop">
       <div class="is__container__img">
-        <loop></loop>
+        <loop v-if="$route.params.service === 'complete'"></loop>
+        <loop-partial v-if="$route.params.service === 'partial'"></loop-partial>
+        <loop-ddat v-if="$route.params.service === 'dday'"></loop-ddat>
       </div>
     </div>
     <div class="floatline--content">
@@ -16,13 +18,18 @@
 
 <script>
 import Loop from '~/assets/img/about-loop.svg?inline';
+import LoopDdat from '~/assets/img/loop-dday.svg?inline';
+import LoopPartial from '~/assets/img/loop-partial.svg?inline';
 import OffersFirst from '~/assets/img/offers-first.svg?inline';
 import Flower2 from '~/assets/img/flower-2.svg?inline';
+import Flower3 from '~/assets/img/flower-3.svg?inline';
 
 export default {
   name: 'WeddingFloatLine',
   components: {
     Loop,
+    LoopDdat,
+    LoopPartial,
   },
   props: {
     content: {
@@ -58,6 +65,8 @@ export default {
           this.icon = Flower2;
           break;
         default:
+          this.theme = themes[2];
+          this.icon = Flower3;
           break;
       }
     }

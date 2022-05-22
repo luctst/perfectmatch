@@ -37,6 +37,11 @@ export default () => ({
       compoCategoryToFetch: 'wedding,footer',
     },
     {
+      path: '/wedding/dday',
+      apiRoutes: 'wedding-dday',
+      compoCategoryToFetch: 'wedding,footer',
+    },
+    {
       path: '/events',
       apiRoutes: 'events',
       compoCategoryToFetch: 'event,footer',

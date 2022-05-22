@@ -3,17 +3,21 @@
     <section class="goal container-fluid">
       <div class="goal--content">
         <div class="goal--content--title" data-line>
-          <h2><div>En quoi consiste</div></h2>
-          <h2>l'organisation compléte ?</h2>
+          <h2 v-html="content.first_title"></h2>
+          <h2 v-html="content.second_title"></h2>
         </div>
         <div class="goal--content--subtitle">
-          <p class="subtitle2">Il s'agit de l'organisation de votre mariage de A à Z, jusqu'à la coordination du jour J.</p>
-          <p class="subtitle2">Autrement dit, je m'occupe de tout et il ne vous restera plus qu'à profiter de votre journée le plus sereinement possible.</p>
+          <p v-html="parseMarkdown(content.first_subtitle)" class="subtitle2"></p>
+          <p
+          v-html="parseMarkdown(content.second_subtitle)"
+          :class="[$route.params.service === 'dday' ? 'subtitle' : 'subtitle2']"></p>
         </div>
       </div>
       <div class="goal--picture">
         <div class="is__container__img">
-          <img src="~/assets/img/Rectangle 2.jpg"/>
+          <img 
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img">
           <logo-circle></logo-circle>
@@ -82,6 +86,10 @@ export default {
     }
 
     &--subtitle {
+      .subtitle {
+        text-align: left;
+      }
+
       @media (min-width: 920px) {
         padding-top: 40px;
         max-width: 60%;

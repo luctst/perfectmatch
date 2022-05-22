@@ -4,8 +4,8 @@
     :style="`background-color:${theme};`"
     class="offers--wrapper container-fluid">
       <div class="offers--wrapper--title" data-line>
-        <h2><div>Qu'est-ce que comprend</div></h2>
-        <h2>l'organisation compléte ?</h2>
+        <h2 v-html="content.first_title"></h2>
+        <h2 v-html="content.second_title"></h2>
       </div>
       <div class="offers--wrapper--items">
         <div
@@ -50,54 +50,26 @@ export default {
     return {
       theme: '',
       borderColor: '',
-      items: [
-        {
-          active: true,
-          title: 'Un rendez-vous découverte',
-          subtitle: 'L\'idée de ce premier rendez-vous est <span>d\'échanger sur vos souhaits, volontés, exigences de votre mariage, mais aussi de faire un peu plus connaissance</span> et d\'établir une relation de confiance qui sera primordiale pour la suite de notre collaboration. Suite à cette rencontre mutuelle, je souhaiterai connaitre en détail TOUTES vos envies afin de bien cerner le mariage dont vous rêvez et ainsi établir un devis adapté. Chez nous, pas de devis tout prêt, chaque client et évènement est unique.',
-        },
-        {
-          active: false,
-          title: 'Réalisation du moodboard',
-          subtitle: 'J\'aime les bisous au bout du pinche',
-        },
-        {
-          active: false,
-          title: 'L\'organisation précise point par point',
-          subtitle: 'sjgdflkjgdlkjgdlfkgjd',
-        },
-        {
-          active: false,
-          title: 'Les prestataires',
-          subtitle: 'xkjvlkjdkflgjdlkgjdf',
-        },
-        {
-          active: false,
-          title: 'Mon temps',
-          subtitle: 'slkjdljgdlkjgd',
-        },
-        {
-          active: false,
-          title: 'Préparation du déroulé du jour j',
-          subtitle: 'lkdfjdlfkghldfhkg',
-        },
-        {
-          active: false,
-          title: 'La coordination du jour j',
-          subtitle: 'xldkjldkgjdlfkgjdfgd',
-        },
-      ],
+      items: [],
     };
   },
   watch: {
     $route() {
       this.filledData();
+      this.items = this.populateItems(this.content.offersitem);
     },
   },
   created() {
     this.filledData();
+    this.items = this.populateItems(this.content.offersitem);
   },
   methods: {
+    populateItems(arrayItems) {
+      return arrayItems.map((offer, i) => ({
+        ...offer,
+        active: i === 0,
+      }));
+    },
     filledData() {
       const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
 
@@ -112,7 +84,7 @@ export default {
           break;
         case '/wedding/dday':
           this.theme = themes[2];
-          this.borderColor = '#AED7C5';
+          this.borderColor = '#DDC5E7';
           break;
         default:
           break;

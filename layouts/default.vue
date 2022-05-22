@@ -86,6 +86,7 @@ export default {
     },
     async fetchRouteContent(newRoute) {
       try {
+        this.content = false;
         const routerData = newRoute ? { ...newRoute } : this.$route;
         const routesToFetch = this.$store.state.routes.find((r) => {
           if (

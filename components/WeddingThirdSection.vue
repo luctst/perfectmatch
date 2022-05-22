@@ -2,12 +2,14 @@
   <section class="third--wrapper">
     <section class="third container-fluid">
       <div class="third--title">
-        <h3>Si vous vous retrouvez dans une de ces catégories,<br class="is__return__line"/> l'organisation complète est faite pour vous.</h3>
-        <div class="subtitle">J'ai conscience que déléguer le jour qui sera un des plus importants de votre vie n'est pas évident, mais il est important de rappeler que c'est <span>votre mariage, votre journée, le plus beau jour de votre vie.</span> Alors vous resterez décisionnaires sur tout. Je serai là pour vous accompagner, vous conseiller, réaliser vos volontés mais jamais pour décider à votre place.</div>
+        <h3 v-html="content.title"></h3>
+        <div v-html="parseMarkdown(content.subtitle)" class="subtitle"></div>
       </div>
       <div class="third--picture">
         <div class="is__container__img third--picture--wrapper">
-          <img src="~/assets/img/flower.jpg"/>
+          <img 
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"/>
         </div>
       </div>
     </section>

@@ -3,12 +3,12 @@
     <section class="tarifs container-fluid">
       <section class="tarifs--view--mobile">
         <div class="tarifs--title">
-          <div class="title--tag">Nos</div>
-          <h2 data-line><div>Tarifs</div></h2>
+          <div class="title--tag">{{ content.little_title }}</div>
+          <h2 data-line v-html="content.big_title"></h2>
         </div>
         <div class="tarifs--view--mobile--items">
           <div
-          v-for="(item, index) in offers"
+          v-for="(item, index) in populateOffers"
           :key="index"
           class="tarifs--view--mobile--items--wrapper">
             <div class="offers--item">
@@ -33,9 +33,9 @@
               </div>
             </div>
             <div class="offers--options">
-              <template v-for="(ops, i) in offersOptions">
+              <template v-for="(ops, i) in populateOffersOps">
                 <div
-                v-if="ops.availabilityForOffers[index]"
+                v-if="ops.availabilityForOffers[index] !== 'false'"
                 :key="i"
                 class="offers--options--item">
                   <div class="offers--options--item--title">
@@ -44,13 +44,13 @@
                   <div class="offers--options--item--availability">
                     <div class="offers--options--item--availability--item">
                       <div
-                      v-if="typeof ops.availabilityForOffers[index] === 'boolean'"
-                      :style="`border: 1px solid ${offers[index].checkColor};background-color:${offers[index].checkColor};`"
+                      v-if="ops.availabilityForOffers[index] === 'true'"
+                      :style="`border: 1px solid ${populateOffers[index].checkColor};background-color:${populateOffers[index].checkColor};`"
                       class="is__container__img">
                         <check></check>
                       </div>
                       <div
-                      v-else
+                      v-else-if="ops.availabilityForOffers[index] !== 'false'"
                       class="subtitle">
                         {{ ops.availabilityForOffers[index] }}
                       </div>
@@ -64,13 +64,13 @@
       </section>
       <section class="tarifs--view--desktop">
         <div class="tarifs--view--desktop--header">
-          <div class="tarifs--title">
-            <div class="title--tag">Nos</div>
-            <h2><span>Tarifs</span></h2>
+          <div class="tarifs--title" data-line>
+            <div class="title--tag">{{ content.little_title }}</div>
+            <h2 v-html="content.big_title"></h2>
           </div>
           <div class="tarifs--view--desktop--header--items">
             <div
-            v-for="(item, y) in offers"
+            v-for="(item, y) in populateOffers"
             :key="y"
             class="offers--item">
               <div
@@ -101,7 +101,7 @@
         </div>
         <div class="tarifs--view--desktop--body">
           <div
-          v-for="(ops, y) in offersOptions"
+          v-for="(ops, y) in populateOffersOps"
           :key="y"
           class="offers--options">
             <div class="offers--options--item">
@@ -114,13 +114,13 @@
                 :key="w"
                 class="offers--options--item--availability--item">
                   <div
-                  v-if="inner === true"
-                  :style="`border: 1px solid ${offers[w].checkColor};background-color:${offers[w].checkColor};`"
+                  v-if="inner === 'true'"
+                  :style="`border: 1px solid ${populateOffers[w].checkColor};background-color:${populateOffers[w].checkColor};`"
                   class="is__container__img">
                     <check></check>
                   </div>
                   <div
-                  v-else-if="typeof inner === 'string'"
+                  v-else-if="inner !== 'false'"
                   class="subtitle">
                     {{ inner }}
                   </div>
@@ -157,106 +157,49 @@ export default {
     TarifFalse,
   },
   mixins: [globalMixin],
-  data() {
-    return {
-      offers: [
+  computed: {
+    populateOffers() {
+      return this.filledOffers(this.content.prestaitems);
+    },
+    populateOffersOps() {
+      return this.filledAvailabilityForOffers(this.content.prestaoptions);
+    },
+  },
+  methods: {
+    filledOffers(offersArray) {
+      const o = [
         {
-          title: 'Organisation compléte',
-          price: 3500,
           svg: OffersFirst,
           borderColor: '#EDCDB8',
           checkColor: '#FDEADD',
         },
         {
-          title: 'Organisation partielle',
-          price: 'Sur-mesure',
           svg: OffersSecond,
           borderColor: '#AED7C5',
           checkColor: '#E0F4EB',
         },
         {
-          title: 'Coordination Jour J',
-          price: 1500,
           svg: OffersThird,
           borderColor: '#DDC5E7',
           checkColor: '#F8ECFD',
         },
-      ],
-      offersOptions: [
-        {
-          content: 'Rendez-vous découverte',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Rédaction du devis',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Contact avec vos prestataires et vos proches',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Rédaction du déroulé du jour j',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Remise paiements des divers prestataires',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Présence physique et coordination le jour j',
-          availabilityForOffers: this.opsAvailableInOffers('all'),
-        },
-        {
-          content: 'Conseils et coaching',
-          availabilityForOffers: this.opsAvailableInOffers(true, '500 €'),
-        },
-        {
-          content: 'Recherche des prestataires',
-          availabilityForOffers: this.opsAvailableInOffers(true, '500 € / Prestataire'),
-        },
-        {
-          content: 'Rédaction d’un rétro-planning',
-          availabilityForOffers: this.opsAvailableInOffers(true, '125 €'),
-        },
-        {
-          content: 'Création d’un moodboard',
-          availabilityForOffers: this.opsAvailableInOffers(true, '250 €')
-        },
-        {
-          content: 'Rédaction de la liste d’invitées',
-          availabilityForOffers: this.opsAvailableInOffers(true),
-        },
-        {
-          content: 'Suivi budgétaire  + tableau excel',
-          availabilityForOffers: this.opsAvailableInOffers(true),
-        },
-        {
-          content: 'Présense rendez-vous prestataires',
-          availabilityForOffers: this.opsAvailableInOffers(true),
-        },
-      ],
-    };
-  },
-  methods: {
-    opsAvailableInOffers(...args) {
-      const params = [...args];
-
-      if (params.length === 1) {
-        const firstItem = params[0];
-
-        if (typeof firstItem === 'string') {
-          if (firstItem === 'all') return [true, true, true];
-          return [firstItem];
-        }
-      }
-
-      return [0, 1, 2].map((arg, index) => {
-        if (params[index]) {
-          return typeof params[index] === 'string' ? params[index] : true
-        };
-        return false;
-      });
+      ];
+      
+      return o.map((defaultOffer, i) => ({
+        ...defaultOffer,
+        price: offersArray[i].price,
+        title: offersArray[i].title,
+      }));
+    },
+    filledAvailabilityForOffers(arrayOps) {
+      return arrayOps.map((ops) => ({
+        content: ops.title,
+        availabilityForOffers: [
+          ops.contentForPresta1,
+          ops.contentForPresta2,
+          ops.contentForPresta3
+        ],
+      }));
     },
   },
 };

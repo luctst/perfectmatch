@@ -2,16 +2,17 @@
 <section class="forwho--wrapper">
   <section class="forwho container-fluid">
     <div class="forwho--title" data-line>
-      <h2><div>À qui s'adresse</div></h2>
-      <h2>L'organisation compléte ?</h2>
+      <h2 v-html="content.first_title"></h2>
+      <h2 v-html="content.second_title"></h2>
     </div>
-    <div class="forwho--wrapper">
+    <div
+    :class="['forwho--wrapper', items.length > 3 && 'is__wrapper__flex__wrap']">
       <div
       v-for="(item, i) in items"
       :key="i"
       :style="`border-color:${item.borderColor};`"
       class="forwho--wrapper--item">
-        <div class="subtitle2">{{ item.content }}</div>
+        <div v-html="parseMarkdown(item.content)" class="subtitle2"></div>
         <div class="is__container__img p">
           <component :is="item.svg"></component>
         </div>
@@ -35,31 +36,75 @@ export default {
     ForWho3,
   },
   mixins: [globalMixin],
-  data() {
-    return {
-      items: [
+  computed: {
+    items() {
+      let indexToUse = 0;
+      const itemDefaultData = [
         {
-          content: 'À tous les couples qui veulent que les préparatifs de leur mariage soient un plaisir et ne deviennent pas une corvée.',
           svg: ForWho1,
           borderColor: '#FDEADD',
         },
         {
-          content: 'À tous les couples qui n\'ont pas le temps et qui souhaitent déléguer.',
           svg: ForWho2,
           borderColor: '#AED7C5',
         },
         {
-          content: 'À tous les couples qui ne savent pas par où commencer, ni où donner de la tête.',
           svg: ForWho3,
           borderColor: '#DDC5E7',
         },
-      ],
-    };
+      ];
+
+      return this.content.items.map((it) => {
+        const objToReturn = {
+          ...it,
+          ...itemDefaultData[indexToUse]
+        }
+
+        indexToUse += 1;
+
+        if (indexToUse > 2) {
+          indexToUse = 0;
+        }
+
+        return objToReturn;
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.is__wrapper__flex__wrap {
+  flex-wrap: wrap;
+  justify-content: space-between!important;
+
+  @media (min-width: 350px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 920px) {
+    flex-direction: row;
+  }
+
+  .forwho--wrapper--item:nth-child(2) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .forwho--wrapper--item {
+    @media (min-width: 350px) {
+      margin: 2rem 0;
+    }
+    
+    @media (min-width: 930px) {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      flex: 0 0 40%;
+    }
+  }
+}
+
 .forwho--wrapper {
   background-color: $colorWhite;
 }

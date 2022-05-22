@@ -3,8 +3,8 @@
     <div class="is__container__img footer--loop">
       <loop-footer></loop-footer>
     </div>
-    <div class="footer--title" data-line>
-      <h2 v-html="renderProps(content.title)" class="is__h1"></h2>
+    <div class="footer--title">
+      <h2 v-html="renderProps(content.title)" class="is__h1" data-line></h2>
       <button class="is__btn__secondary">
         <nuxt-link to="/contact">
           {{ renderProps(content.button) }}
