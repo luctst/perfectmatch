@@ -2,8 +2,8 @@
   <section class="offers--wrapper">
     <section class="offers container-fluid">
       <div class="offers--title" data-line>
-        <h2><div>Qu'est-ce que comprend</div></h2>
-        <h2>l'organisation compléte ?</h2>
+        <h2 v-html="content.first_title"></h2>
+        <h2 v-html="content.second_title"></h2>
       </div>
       <div
       v-for="(item, i) in offers"
@@ -54,44 +54,30 @@ export default {
     AccordeonLess,
   },
   mixins: [globalMixin],
+  created() {
+    this.offers = this.filledOffers(this.content.itemtitle);
+  },
   data() {
     return {
-      offers: [
-        [
-          'Avant votre événement',
-          {
-            active: true,
-            title: 'Un rendez-vous découverte',
-            subtitle: 'L\'idée de ce premier rendez-vous est d\'échanger sur vos souhaits, volontés, exigences de votre mariage, mais aussi de faire un peu plus connaissance et d\'établir une relation de confiance qui sera primordiale pour la suite de notre collaboration.  Suite à cette rencontre mutuelle, je souhaiterai connaitre en détail TOUTES vos envies afin de bien cerner le mariage dont vous rêvez et ainsi établir un devis adapté. Chez nous, pas de devis tout prêt, chaque client et évènement est unique.',
-          },
-          {
-            active: false,
-            title: 'Réalisation du moodboard',
-            subtitle: 'Okayyy gooo!',
-          },
-        ],
-        [
-          'Pendant votre évènement',
-          {
-            active: false,
-            title: 'Installation de la décoration',
-            subtitle: 'kgjdflkgjdflj',
-          },
-          {
-            active: false,
-            title: 'Acceuil et coordination des prestataires',
-            subtitle: 'skdjlsjg',
-          },
-          {
-            active: false,
-            title: 'Désinstallation',
-            subtitle: 'lxkfjgldfkjg',
-          },
-        ],
-      ],
-    };
+      offers: [], 
+    }
   },
   methods: {
+    filledOffers(array) {
+      return array.map((item, i) => {
+        if (i === 0) {
+          return [
+            item.title,
+            ...this.content.itemsoptionsfirst,
+          ];
+        }
+
+        return [
+          item.title,
+          ...this.content.itemsoptionssecond,
+        ];
+      });
+    },
     switchItemActive(index, childIndex) {
       this.offers = this.offers.map((offer, i) => {
         let newOffer = [...offer];

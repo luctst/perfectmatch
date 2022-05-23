@@ -3,12 +3,14 @@
     <section class="floatline container-fluid">
       <div class="floatline--img--left">
         <div class="is__container__img" data-rellax data-rellax-speed="2">
-          <img src="~/assets/img/Groupe21.jpg">
+          <img
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"/>
         </div>
       </div>
       <div class="floatline--title">
-        <h1 data-line>Événements</h1>
-        <div class="subtitle" data-line>Chaque étape de votre vie devrait être célébré comme il se doit, c'est pourquoi l'agence The Perfect Match vous propose de donner vie à vos rêves pour organiser les moments qui vous sont chers.</div>
+        <h1 data-line>{{ content.title }}</h1>
+        <div class="subtitle" data-line v-html="parseMarkdown(content.subtitle)"></div>
         <span></span>
       </div>
       <div class="floatline--img--right">
@@ -22,12 +24,14 @@
 
 <script>
 import LogoCircle from '~/assets/img/logo-circle.svg?inline';
+import globalMixin from '~/mixins/global';
 
 export default {
   name: 'Floatline',
   components: {
     LogoCircle,
   },
+  mixins: [globalMixin],
 }
 </script>
 

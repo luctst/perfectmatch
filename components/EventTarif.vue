@@ -1,10 +1,9 @@
 <template>
   <section class="tarif--wrapper">
-    <section class="tarif container-fluid">
-      <h3 class="is__h2">Tarif sur devis</h3>
-      <div class="subtitle">N'hésitez pas à m'indiquer si vous avez besoin d'une organisation complète et d'une coordination le jour j, ou simplement ma présence le jour j afin de mettre en place la décoration et l'accueil de vos prestataires.</div>
-      <div class="subtitle"><span>Les tarifs seront donc adaptables selon mon implication sur votre évènement.</span></div>
-      <button class="is__btn__primary">Demander un devis</button>
+    <section class="tarif container-fluid" data-line>
+      <h3 class="is__h2" v-html="content.title"></h3>
+      <div class="subtitle" v-html="parseMarkdown(content.subtitle)"></div>
+      <button class="is__btn__primary">{{ content.button }}</button>
     </section>
   </section>
 </template>
