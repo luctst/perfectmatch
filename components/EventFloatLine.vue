@@ -108,19 +108,14 @@ export default {
       margin-bottom: 1rem;
 
       @media (min-width: 700px) {
-        margin-left: 10rem;
-        margin-right: 10rem;
+        margin-left: 8rem;
+        margin-right: 8rem;
       }
 
       @media (min-width: 920px) {
-        margin-top: 3rem;
-        margin-left: 3rem;
-        margin-right: 3rem;
-      }
-
-      @media (min-width: 1400px) {
-        margin-left: 5rem;
-        margin-right: 5rem;
+        margin-top: 1rem;
+        margin-left: 12rem;
+        margin-right: 12rem;
       }
     }
 

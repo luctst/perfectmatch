@@ -29,10 +29,10 @@ export default {
   justify-content: center;
   position: relative;
   z-index: 3;
-  padding: 4rem 0 6rem 0;
+  padding: 6rem 0 8rem 0;
 
   div:first-of-type {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   div:last-of-type {
@@ -60,7 +60,7 @@ export default {
   }
 
   @media (min-width: 1800px) {
-    max-width: 24%;
+    max-width: 25%;
   }
 }
 </style>

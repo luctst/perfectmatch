@@ -67,6 +67,10 @@ export default {
       p {
         margin: 0;
       }
+
+      p:last-child {
+        margin-top: 2rem;
+      }
     }
 
     @media (min-width: 450px) {
@@ -106,6 +110,10 @@ export default {
 
       p:first-of-type {
         margin: 0 40px;
+      }
+
+      p:last-child {
+        margin-top: 0;
       }
     }
 

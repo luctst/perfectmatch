@@ -122,6 +122,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__container__img {
+  max-width: 350px;
+}
+
 .projects--wrapper {
   background-color: $colorWhite;
 }
@@ -163,6 +167,7 @@ export default {
     @media (min-width: 920px) {
       margin-top: 0;
       margin-bottom: 0;
+      padding-bottom: 4rem;
     }
 
     &--mosaic1 {
@@ -173,7 +178,7 @@ export default {
           margin-top: 6rem;
         }
 
-        &--wrapper:last-child {
+        &--wrapper:nth-child(3) {
           margin-top: -5rem;
         }
       }
@@ -185,7 +190,7 @@ export default {
           margin-top: 12rem;
         }
 
-        &--wrapper:last-child {
+        &--wrapper:nth-child(3) {
           margin-top: -12rem;
         }
       }
@@ -261,6 +266,8 @@ export default {
       }
 
       &--wrapper {
+        width: fit-content;
+
         @media (min-width: 350px) {
           align-items: center;
           flex-direction: column;
@@ -293,7 +300,7 @@ export default {
           }
 
           @media (min-width: 1100px) {
-            max-width: 30vw;
+            max-width: 350px;
           }
 
           &--content {

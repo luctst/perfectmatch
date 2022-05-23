@@ -92,15 +92,21 @@ export default {
   &--loop {
     height: 100%;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     left: 0;
+    top: -80px;
 
     @media (min-width: 350px) {
-      top: 50%;
+      top: 0;
     }
 
-    @media (min-width: 800px) {
-      top: 0;
+    @media (min-width: 920px) {
+      top: -80px;
+    }
+
+    svg {
+      height: 100%;
+      width: 100vw;
     }
   }
 

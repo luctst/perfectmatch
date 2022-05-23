@@ -237,6 +237,7 @@ export default {
       display: flex;
       flex: 0 0 100%;
       margin-top: 2rem;
+      position: relative;
 
       @media (min-width: 320px) {
         align-items: flex-start;
@@ -274,7 +275,9 @@ export default {
         }
 
         @media (min-width: 920px) {
-          margin: 0 auto;
+          position: absolute;
+          left: calc(50% - 116px);
+          margin-top: 0;
         }
       }
     }

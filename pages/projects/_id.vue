@@ -86,7 +86,7 @@ export default {
 
     @media (min-width: 920px) {
       margin-top: 4rem;
-      margin-bottom: 6rem;
+      margin-bottom: 10rem;
     }
   }
 
@@ -100,7 +100,7 @@ export default {
     }
 
     @media (min-width: 920px) {
-      padding-bottom: 8rem;
+      padding-bottom: 12rem;
     }
 
     h2,

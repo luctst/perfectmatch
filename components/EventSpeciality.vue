@@ -46,6 +46,7 @@ export default {
   @media (min-width: 920px) {
     padding-top: 0;
     flex-direction: row;
+    padding-bottom: 12rem;
   }
 
   &--title {

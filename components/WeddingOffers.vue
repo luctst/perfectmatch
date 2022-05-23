@@ -4,8 +4,8 @@
     :style="`background-color:${theme};`"
     class="offers--wrapper container-fluid">
       <div class="offers--wrapper--title" data-line>
-        <h2 v-html="content.first_title"></h2>
-        <h2 v-html="content.second_title"></h2>
+        <h2 v-html="content.first_title" :style="`color:${colorText};`"></h2>
+        <h2 v-html="content.second_title" :style="`color:${colorText};`"></h2>
       </div>
       <div class="offers--wrapper--items">
         <div
@@ -15,7 +15,7 @@
         :style="`border-bottom:1px solid ${borderColor};`"
         @click="switchActive(i)">
           <div class="offers--wrapper--items--item--title">
-            <h3>{{ item.title }}</h3>
+            <h3 :style="`color:${colorText};`">{{ item.title }}</h3>
             <div
             :style="`border:1px solid ${borderColor};background-color:${item.active ? borderColor : 'transparent'};`"
             class="is__container__img">
@@ -26,7 +26,7 @@
           <div
           v-if="item.active"
           class="offers--wrapper--items--item--subtitle">
-            <p class="subtitle" v-html="item.subtitle"></p>
+            <p class="subtitle" v-html="item.subtitle" :style="`color:${colorText};`"></p>
           </div>
         </div>
       </div>
@@ -50,6 +50,7 @@ export default {
     return {
       theme: '',
       borderColor: '',
+      colorText: '',
       items: [],
     };
   },
@@ -77,14 +78,17 @@ export default {
         case '/wedding/complete':
           this.theme = themes[0];
           this.borderColor = '#EDCDB8';
+          this.colorText = '#3B2321';
           break;
         case '/wedding/partial':
           this.theme = themes[1];
           this.borderColor = '#AED7C5';
+          this.colorText = '#2E332A';
           break;
         case '/wedding/dday':
           this.theme = themes[2];
           this.borderColor = '#DDC5E7';
+          this.colorText = '#3C2A44';
           break;
         default:
           break;

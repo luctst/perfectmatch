@@ -1,134 +1,141 @@
 <template>
-  <header ref="h" class="header container-fluid">
-    <section class="header--desktop">
-      <nav class="header--desktop--nav">
-        <ul class="header--desktop--nav--list">
-          <li
-          v-for="(item, i) in menuList"
-          :key="i"
-          :style="item.isBtn ? updateBackgroundBtn : ''"
-          :class="[renderClassItemList(item)]">
-            <div
-            v-if="item.dropdown"
-            @click="menuList[i].active = !menuList[i].active">
-              <div class="header--desktop--nav--list--item--dropdown--actions">
-                <span class="is__menu__link">{{ item.content }}</span>
-                <div>
-                  <dropdown-menu
-                  :class="menuList[i].active && 'menu__dropdown__open'"></dropdown-menu>
+  <header class="header">
+    <section ref="h" class="header--wrapper container-fluid">
+      <section class="header--wrapper--desktop">
+        <nav class="header--wrapper--desktop--nav">
+          <ul class="header--wrapper--desktop--nav--list">
+            <li
+            v-for="(item, i) in menuList"
+            :key="i"
+            :style="item.isBtn ? updateBackgroundBtn : ''"
+            :class="[renderClassItemList(item)]">
+              <div
+              v-if="item.dropdown"
+              @mouseenter="menuList[i].active = true">
+                <div class="header--wrapper--desktop--nav--list--item--dropdown--actions">
+                  <span class="is__menu__link">{{ item.content }}</span>
+                  <div>
+                    <dropdown-menu
+                    :class="menuList[i].active && 'menu__dropdown__open'"></dropdown-menu>
+                  </div>
+                </div>
+                <div
+                :style="`top:${menuList[i].active ? 0 : -500}px;`"
+                class="is__menu__dropdown__open"
+                @mouseleave="menuList[i].active = false">
+                  <div class="is__menu__dropdown__open__wrapper container-fluid">
+                    <router-link
+                    v-for="(itemDp, index) in item.dropdown"
+                    :key="index"
+                    class="menu--dropdown--item"
+                    :to="itemDp.href">
+                      <div
+                      :style="`border: 1px solid ${itemDp.borderColor};`"
+                      class="menu--dropdown--item--inner">
+                        <div class="menu--dropdown--item--inner--icon is__container__img">
+                          <component :is="itemDp.icon"></component>
+                        </div>
+                        <h3>
+                          {{ itemDp.content }}
+                        </h3>
+                      </div>
+                    </router-link>
+                  </div>
                 </div>
               </div>
-              <div v-if="menuList[i].active" class="is__menu__dropdown__open container-fluid">
-                <router-link
-                v-for="(itemDp, index) in item.dropdown"
-                :key="index"
-                class="menu--dropdown--item"
-                :to="itemDp.href">
-                  <div
-                  :style="`border: 1px solid ${itemDp.borderColor};`"
-                  class="menu--dropdown--item--inner">
-                    <div class="menu--dropdown--item--inner--icon is__container__img">
-                      <component :is="itemDp.icon"></component>
-                    </div>
-                    <h3>
-                      {{ itemDp.content }}
-                    </h3>
-                  </div>
-                </router-link>
-              </div>
-            </div>
-            <div
-            v-else-if="item.isBtn">
-              <nuxt-link
-              :to="`/${item.href}`"
-              class="is__menu__link">
-                {{ item.content }}
-              </nuxt-link>
-            </div>
-            <div
-            v-else-if="item.isLogo">
-              <nuxt-link to="/">
-                <logo></logo>
-              </nuxt-link>
-            </div>
-            <div
-            v-else>
-              <nuxt-link
-              :to="`/${item.href}`"
-              class="is__menu__link">{{ item.content }}</nuxt-link>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </section>
-    <section class="header--mobile">
-      <div class="header--mobile--wrapperlogo">
-        <logo></logo>
-      </div>
-      <div
-      class="header--mobile--wrapperburger"
-      @click="menuMobileOpen = !menuMobileOpen">
-        <menu-burger></menu-burger>
-      </div>
-      <div
-      v-if="menuMobileOpen"
-      class="is__menu__dropdown__mobile container-fluid">
-        <div class="is__menu__dropdown__mobile__header">
-          <div
-          class="is__container__img"
-          @click="menuMobileOpen = !menuMobileOpen">
-            <close></close>
-          </div>
-        </div>
-        <nav class="is__menu__dropdown__mobile__nav">
-          <ul class="is__menu__dropdown__mobile__nav__itemwrapper">
-            <template v-for="(item, y) in menuList">
-              <li
-              v-if="!item.isLogo"
-              :key="y"
-              class="is__menu__dropdown__mobile__nav__itemwrapper__child">
+              <div
+              v-else-if="item.isBtn">
                 <nuxt-link
-                @click.native="menuMobileOpen = false"
-                v-if="!item.dropdown"
                 :to="`/${item.href}`"
-                class="is__menu__dropdown__mobile__nav__itemwrapper__child__link">
+                class="is__menu__link">
                   {{ item.content }}
                 </nuxt-link>
-                <div
-                v-else
-                class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown"
-                @click="menuList[y].active = !menuList[y].active">
-                  <div class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__header">
-                    <div>{{ item.content }}</div>
-                    <div class="is__container__img">
-                      <accordeon-plus v-if="!item.active"></accordeon-plus>
-                      <accordeon-less v-else></accordeon-less>
-                    </div>
-                  </div>
-                  <div
-                  v-if="menuList[y].active"
-                  class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__body">
-                    <div
-                    v-for="(innerItem, p) in item.dropdown"
-                    :key="p">
-                      <div
-                      class="is__container__img">
-                        <component :is="innerItem.icon"></component>
-                      </div>
-                      <nuxt-link
-                      :to="innerItem.href"
-                      class="is__h3"
-                      @click.native="menuMobileOpen = !menuMobileOpen">
-                        {{ innerItem.content }}
-                      </nuxt-link>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </template>
+              </div>
+              <div
+              v-else-if="item.isLogo">
+                <nuxt-link to="/">
+                  <logo></logo>
+                </nuxt-link>
+              </div>
+              <div
+              v-else>
+                <nuxt-link
+                :to="`/${item.href}`"
+                class="is__menu__link">{{ item.content }}</nuxt-link>
+              </div>
+            </li>
           </ul>
         </nav>
-      </div>
+      </section>
+      <section class="header--wrapper--mobile">
+        <div class="header--wrapper--mobile--wrapperlogo">
+          <logo></logo>
+        </div>
+        <div
+        class="header--wrapper--mobile--wrapperburger"
+        @click="menuMobileOpen = !menuMobileOpen">
+          <menu-burger></menu-burger>
+        </div>
+        <div
+        v-if="menuMobileOpen"
+        class="is__menu__dropdown__mobile container-fluid">
+          <div class="is__menu__dropdown__mobile__header">
+            <div
+            class="is__container__img"
+            @click="menuMobileOpen = !menuMobileOpen">
+              <close></close>
+            </div>
+          </div>
+          <nav class="is__menu__dropdown__mobile__nav">
+            <ul class="is__menu__dropdown__mobile__nav__itemwrapper">
+              <template v-for="(item, y) in menuList">
+                <li
+                v-if="!item.isLogo"
+                :key="y"
+                class="is__menu__dropdown__mobile__nav__itemwrapper__child">
+                  <nuxt-link
+                  @click.native="menuMobileOpen = false"
+                  v-if="!item.dropdown"
+                  :to="`/${item.href}`"
+                  class="is__menu__dropdown__mobile__nav__itemwrapper__child__link">
+                    {{ item.content }}
+                  </nuxt-link>
+                  <div
+                  v-else
+                  class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown"
+                  @click="menuList[y].active = !menuList[y].active">
+                    <div class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__header">
+                      <div>{{ item.content }}</div>
+                      <div class="is__container__img">
+                        <accordeon-plus v-if="!item.active"></accordeon-plus>
+                        <accordeon-less v-else></accordeon-less>
+                      </div>
+                    </div>
+                    <div
+                    v-if="menuList[y].active"
+                    class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown__body">
+                      <div
+                      v-for="(innerItem, p) in item.dropdown"
+                      :key="p">
+                        <div
+                        class="is__container__img">
+                          <component :is="innerItem.icon"></component>
+                        </div>
+                        <nuxt-link
+                        :to="innerItem.href"
+                        class="is__h3"
+                        @click.native="menuMobileOpen = !menuMobileOpen">
+                          {{ innerItem.content }}
+                        </nuxt-link>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </template>
+            </ul>
+          </nav>
+        </div>
+      </section>
     </section>
   </header>
 </template>
@@ -221,10 +228,16 @@ export default {
         case 'Events':
           bgColor = color;
           break;
+        case 'A':
+          bgColor = color;
+          break;
         case 'articles-id':
           bgColor = color;
           break;
-        case 'Articles':
+        case 'P':
+          bgColor = color;
+          break;
+        case 'projects-id':
           bgColor = color;
           break;
         default:
@@ -303,18 +316,18 @@ export default {
     },
     renderClassItemList(itemData) {
       if (itemData.dropdown) {
-        return 'header--desktop--nav--list--item header--desktop--nav--list--item--dropdown';
+        return 'header--wrapper--desktop--nav--list--item header--wrapper--desktop--nav--list--item--dropdown';
       }
 
       if (itemData.isBtn) {
-        return 'header--desktop--nav--list--item header--desktop--nav--list--item--button';
+        return 'header--wrapper--desktop--nav--list--item header--wrapper--desktop--nav--list--item--button';
       }
 
       if (itemData.isLogo) {
-        return 'header--desktop--nav--list--item header--desktop--nav--list--item--logo';
+        return 'header--wrapper--desktop--nav--list--item header--wrapper--desktop--nav--list--item--logo';
       }
 
-      return 'header--desktop--nav--list--item';
+      return 'header--wrapper--desktop--nav--list--item';
     },
   },
 };
@@ -421,12 +434,15 @@ export default {
   box-sizing: border-box;
   position: absolute;
   width: 100%;
-  height: 100px;
-  top: 0;
   left: 0;
   z-index: -1;
   align-items: center;
   display: flex;
+  transition: top 400ms cubic-bezier(0.12, 0.67, 0.53, 1) 0s;
+
+  &__wrapper {
+    display: flex;
+  }
 
   .menu--dropdown--item {
     text-decoration: none;
@@ -445,7 +461,17 @@ export default {
 
       &--icon {
         margin-right: 16px;
-        width: 14%;
+        width: 12%;
+      }
+
+      h3 {
+        @media (min-width: 1100px) {
+          font-size: 2em;
+        }
+
+        @media (min-width: 1400px) {
+          font-size: 3em;
+        }
       }
     }
   }
@@ -478,132 +504,136 @@ export default {
 }
 
 .header {
-  box-sizing: border-box;
   height: 85px;
-  position: fixed;
-  width: 100%;
-  max-width: 100%;
-  z-index: 10;
-  transition: top .5s;
 
-  &--desktop {
-    align-items: center;
+  &--wrapper {
+    box-sizing: border-box;
     height: inherit;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+    transition: top .5s;
 
-    @media (min-width: 350px) {
-      display: none;
-    }
-    @media (min-width: 920px) {
-      display: flex;
+      &--desktop {
+      align-items: center;
+      height: inherit;
 
-      &--nav {
-        width: 100%;
+      @media (min-width: 350px) {
+        display: none;
+      }
+      @media (min-width: 920px) {
+        display: flex;
 
-        &--list {
-          align-items: center;
-          display: flex;
-          padding: 0;
-          margin: 0;
-          list-style-type: none;
+        &--nav {
+          width: 100%;
 
-          &--item {
-            margin-right: 16px;
-            &:last-child {
-              margin-right: 0;
-            }
+          &--list {
+            align-items: center;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
 
-            &--dropdown {
-              &:hover {
-                cursor: pointer;
+            &--item {
+              margin-right: 16px;
+              &:last-child {
+                margin-right: 0;
               }
 
-              &--actions {
-                align-items: center;
+              &--dropdown {
+                &:hover {
+                  cursor: pointer;
+                }
+
+                &--actions {
+                  align-items: center;
+                  display: flex;
+
+                  div {
+                    margin-left: 8px;
+                    margin-bottom: 6px;
+                  }
+                }
+              }
+
+              &--logo {
                 display: flex;
+                margin: 0 auto;
+                justify-content: center;
 
                 div {
-                  margin-left: 8px;
-                  margin-bottom: 6px;
+                  width: 80%;
+
+                  svg {
+                    object-fit: cover;
+                    max-width: 100%;
+                    max-height: 100%;
+                  }
+                }
+              }
+
+              &--button {
+                border-radius: 80px;
+                background-color: $colorWhite;
+                padding: 10px 14px 9px;
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: 950px) {
+        &--nav {
+          &--list {
+            &--item {
+              margin-right: 24px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+
+              &--logo {
+                margin: 0 auto;
+
+                div {
+                  width: 100%;
                 }
               }
             }
-
-            &--logo {
-              display: flex;
-              margin: 0 auto;
-              justify-content: center;
-
-              div {
-                width: 80%;
-
-                svg {
-                  object-fit: cover;
-                  max-width: 100%;
-                  max-height: 100%;
-                }
-              }
-            }
-
-            &--button {
-              border-radius: 80px;
-              background-color: $colorWhite;
-              padding: 10px 14px 9px;
-            }
           }
         }
       }
     }
 
-    @media (min-width: 950px) {
-      &--nav {
-        &--list {
-          &--item {
-            margin-right: 24px;
+    &--mobile {
+      height: inherit;
 
-            &:last-child {
-              margin-right: 0;
-            }
+      @media (min-width: 350px) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
 
-            &--logo {
-              margin: 0 auto;
+        &--wrapperlogo,
+        &--wrapperburger {
+          svg {
+            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
 
-              div {
-                width: 100%;
-              }
+        &--wrapperburger {
+          svg {
+            :hover {
+              cursor: pointer;
             }
           }
         }
       }
-    }
-  }
-
-  &--mobile {
-    height: inherit;
-
-    @media (min-width: 350px) {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-
-      &--wrapperlogo,
-      &--wrapperburger {
-        svg {
-          object-fit: cover;
-          max-width: 100%;
-          max-height: 100%;
-        }
+      @media (min-width: 920px) {
+        display: none;
       }
-
-      &--wrapperburger {
-        svg {
-          :hover {
-            cursor: pointer;
-          }
-        }
-      }
-    }
-    @media (min-width: 920px) {
-      display: none;
     }
   }
 }

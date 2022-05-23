@@ -90,6 +90,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.is__container__img {
+  max-width: 350px;
+}
+
 .active {
   h4 {
     text-decoration: underline;
@@ -126,16 +130,6 @@ export default {
   &--items--wrapper {
     display: flex;
 
-    &--item:nth-child(2) {
-      @media (min-width: 1400px) {
-        max-width: 25rem;
-      }
-
-      @media (min-width: 1800px) {
-        max-width: 30rem;
-      }
-    }
-
     &--item {
       display: inline-block;
       text-decoration: none;
@@ -161,7 +155,7 @@ export default {
       }
 
       @media (min-width: 1100px) {
-        max-width: 30vw;
+        max-width: 350px;
       }
 
       &--content {
@@ -189,14 +183,13 @@ export default {
     @media (min-width: 920px) {
       align-items: flex-start;
       flex-direction: row;
-      justify-content: space-between;
 
       &--item:not(:first-child) {
         margin-top: 0;
       }
 
       &--item {
-        &:last-child {
+        &:nth-child(3) {
           transform: translateY(-20%);
         }
       }

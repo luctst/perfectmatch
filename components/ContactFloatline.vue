@@ -50,7 +50,7 @@ export default {
 
   &--loop {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     top: 0;
 
     div {

@@ -60,7 +60,7 @@ export default {
 
     @media (min-width: 920px) {
       div {
-        max-width: none;
+        max-width: 500px;
       }
     }
   }
@@ -84,6 +84,7 @@ export default {
         text-align: left;
         margin-left: 0;
         margin-top: 40px;
+        margin-right: 37%;
       }
     }
 
