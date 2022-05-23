@@ -60,29 +60,31 @@ export default {
       })
     },
     shouldAddBodyPadding() {
-      const body = document.querySelector('body');
-
-      if (
-        this.$route.name === 'Contact'
-        || !this.$route.name
-      ) {
+      if (process.browser) {
+        const body = document.querySelector('body');
+  
+        if (
+          this.$route.name === 'Contact'
+          || !this.$route.name
+        ) {
+          if (!body.classList.contains('is__body__padding')) return true;
+  
+          body.classList.remove('is__body__padding');
+          return true;
+        }
+  
+        if (window.innerWidth >= 920) {
+          if (body.classList.contains('is__body__padding')) return true;
+  
+          body.classList.add('is__body__padding');
+          return true;
+        }
+  
         if (!body.classList.contains('is__body__padding')) return true;
-
+  
         body.classList.remove('is__body__padding');
         return true;
       }
-
-      if (window.innerWidth >= 920) {
-        if (body.classList.contains('is__body__padding')) return true;
-
-        body.classList.add('is__body__padding');
-        return true;
-      }
-
-      if (!body.classList.contains('is__body__padding')) return true;
-
-      body.classList.remove('is__body__padding');
-      return true;
     },
     async fetchRouteContent(newRoute) {
       try {
@@ -160,7 +162,7 @@ export default {
             { populate: {}}
           );
           const query = qs.stringify(populate, { encodeValuesOnly: true });
-          this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=fr-FR`,
+          this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=${this.$store.state.lang}`,
           )).data.attributes;
           return true;
         }
@@ -181,7 +183,7 @@ export default {
             },
             {}
           )
-        const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=fr-FR`);
+        const result = await this.$axios.$get(`${routesToFetch.apiRoutes}?populate=*&pagination[pageSize]=12&sort=createdAt:desc&locale=${this.$store.state.lang}`);
   
         this.content = {
           items: [...result.data],

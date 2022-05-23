@@ -135,7 +135,7 @@ export default {
     updateDataToPost(index, inputValue) {
       this.dataToPost[this.inputs[index].vModel] = inputValue;
     },
-    submit() {
+    async submit() {
       try {
         this.errors = this.inputs.map((inputData) => {
           if (!inputData.validateFn) return { ...this.errorDefault };
@@ -148,7 +148,34 @@ export default {
           }
         });
 
+        const canSend = this.errors.every((err) => err.active === false);
+        if (!canSend) {
+          return false;
+        }
+
         this.sending = true;
+        await this.$axios.post(
+          '/email',
+          {
+            to: process.env.NODE_ENV === 'development'
+              ? 'lucas.tostee@gmail.com'
+              : this.dataToPost.mail,
+            from: 'luc.tostee@outlook.fr',
+            replyTo: 'theperfectmatch.contact@gmail.com',
+            subject: `The Perfect Match - ${this.dataToPost.nom} ${this.dataToPost.name} a envoyé un mail depuis le formulaire`,
+            html: `
+            <h1>The Perfect Match</h1>
+            <div>Nom: <strong>${this.dataToPost.nom}</strong></div>
+            <div>Prénom: <strong>${this.dataToPost.name}</strong></div>
+            <div>Mail: <strong>${this.dataToPost.mail}</strong></div>
+            <div>Téléphone: <strong>${this.dataToPost.phone}</strong></div>
+            <div>Date de l'événement: <strong>${this.dataToPost.dateEvent}</strong></div>
+            <div>Type de l'événement: <strong>${this.dataToPost.typeEvent}</strong></div>
+            <div>Message: <strong>${this.dataToPost.message}</strong></div>
+            `,
+          },
+        );
+
         this.$toast.show(
           'Votre message a bien été envoyé',
           {

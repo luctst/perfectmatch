@@ -44,6 +44,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/toast',
+    '@nuxtjs/i18n',
   ],
   styleResources: {
     scss: ['@/assets/main.scss']
@@ -59,7 +60,15 @@ export default {
     theme: 'outline',
     keepOnHover: true,
   },
+  i18n: {
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_',
+      redirectOn: 'root',
+      defaultLocale: 'fr',
+    }
+  },
   server: {
     host: "0.0.0.0"
-  }
+  },
 }
