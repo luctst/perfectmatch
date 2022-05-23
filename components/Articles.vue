@@ -151,10 +151,6 @@ export default {
       }
 
       @media (min-width: 1025px) {
-        max-width: 300px;
-      }
-
-      @media (min-width: 1100px) {
         max-width: 350px;
       }
 

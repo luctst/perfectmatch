@@ -385,6 +385,18 @@ export default {
         flex: 0 0 33%;
       }
 
+      @media (min-width: 1602px) {
+        flex: 0 0 29%;
+      }
+
+      @media (min-width: 1642px) {
+        flex: 0 0 31%;
+      }
+
+      @media (min-width: 1740px) {
+        flex: 0 0 34%;
+      }
+
       @media (min-width: 1800px) {
         flex: 0 0 36%;
       }

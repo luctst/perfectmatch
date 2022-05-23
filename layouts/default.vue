@@ -1,14 +1,19 @@
 <template>
   <section>
     <template v-if="$fetchState.pending">
-      <loader></loader>
+      <!-- <loader></loader> -->
     </template>
     <template v-else-if="$fetchState.error">
       <error></error>
     </template>
     <template v-else>
+      <loader
+      v-if="!appAvailable"
+      :appAvailable="appAvailable"
+      :loaderDisplay="loaderDisplay"
+      @loaderDone="appAvailable = true"></loader>
       <router-view
-      v-if="content"
+      v-else
       :content="content"
       :pagination="pagination"
       keep-alive/>
@@ -22,10 +27,12 @@ import qs from 'qs';
 export default {
   data() {
     return {
+      appAvailable: false,
       pagination: {},
       content: false,
       allsTitle:null,
       showContent: false,
+      loaderDisplay: true,
     };
   },
   async fetch() {
@@ -34,10 +41,25 @@ export default {
   },
   watch: {
     async $route() {
+      this.loaderDisplay = true;
+      this.appAvailable = false;
+      this.content = false;
+
       this.shouldAddBodyPadding();
       await this.$fetch();
       this.findAllTitleofThePage();
-    }
+    },
+    content: {
+      handler(newValue) {
+        if (newValue) {
+          this.loaderDisplay = false;
+          return true;
+        }
+  
+        this.loaderDisplay = true;
+      },
+      deep: true,
+    },
   },
   created() {
     if (process.browser) {
@@ -88,7 +110,6 @@ export default {
     },
     async fetchRouteContent(newRoute) {
       try {
-        this.content = false;
         const routerData = newRoute ? { ...newRoute } : this.$route;
         const routesToFetch = this.$store.state.routes.find((r) => {
           if (

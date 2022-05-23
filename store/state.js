@@ -52,5 +52,15 @@ export default () => ({
       apiRoutes: 'contact',
       compoCategoryToFetch: 'contact,footer',
     },
+    {
+      path: '/legal',
+      apiRoutes: 'legal',
+      compoCategoryToFetch: 'legal,footer',
+    },
+    {
+      path: '/cgu',
+      apiRoutes: 'cgu',
+      compoCategoryToFetch: 'cgu,footer',
+    },
   ]
 })

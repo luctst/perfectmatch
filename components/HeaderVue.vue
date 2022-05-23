@@ -69,7 +69,9 @@
       </section>
       <section class="header--wrapper--mobile">
         <div class="header--wrapper--mobile--wrapperlogo">
-          <logo></logo>
+          <nuxt-link to="/">
+            <logo></logo>
+          </nuxt-link>
         </div>
         <div
         class="header--wrapper--mobile--wrapperburger"
@@ -504,11 +506,9 @@ export default {
 }
 
 .header {
-  height: 85px;
-
   &--wrapper {
     box-sizing: border-box;
-    height: inherit;
+    height: 85px;
     position: fixed;
     width: 100%;
     max-width: 100%;

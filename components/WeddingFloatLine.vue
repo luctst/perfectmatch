@@ -79,10 +79,10 @@ export default {
   box-sizing: content-box;
   position: relative;
   z-index: 3;
+  height: 51vh;
 
   @media (min-width: 350px) {
     padding-top: 120px;
-    height: 50vh;
   }
 
   @media (min-width: 1100px) {

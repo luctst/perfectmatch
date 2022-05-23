@@ -266,13 +266,15 @@ export default {
       }
 
       &--wrapper {
-        width: fit-content;
-
         @media (min-width: 350px) {
           align-items: center;
           flex-direction: column;
           display: flex;
           margin-bottom: 2rem;
+        }
+
+        @media (min-width: 920px) {
+          width: fit-content;
         }
 
         &--item {

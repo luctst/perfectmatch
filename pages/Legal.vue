@@ -4,21 +4,24 @@
     <main class="container legal--content">
       <h1><span>Mentions légales</span></h1>
       <div
-      v-for="(cc, i) in content"
+      v-for="(cc, i) in c"
       :key="i"
       class="subtitle"
       v-html="cc"></div>
     </main>
-    <footer-vue></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
 <script>
+import globalMixin from '~/mixins/global';
+
 export default {
   name: 'Legal',
+  mixins: [globalMixin],
   data() {
     return {
-      content: [
+      c: [
         'Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l\'économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs du site les présentes mentions légales. Le site est accessible à l\'adresse suivante : https://theperfectmatch.events L\'accès et l\'utilisation du Site sont soumis aux présentes "Mentions légales" détaillées ci-après ainsi qu\'aux lois et/ou règlements applicables. La connexion, l\'utilisation et l\'accès à ce Site impliquent l\'acceptation intégrale et sans réserve de l\'internaute de toutes les dispositions des présentes Mentions Légales.',
         '<span>ARTICLE 1 - INFORMATIONS LÉGALES</span>',
         'En vertu de l\'Article 6 de la Loi n° 2004-575 du 21 juin 2004 pour la confiance dans l\'économie numérique, il est précisé dans cet article l\'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.',

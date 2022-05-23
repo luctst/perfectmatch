@@ -4,21 +4,24 @@
     <main class="container cgu--content">
       <h1><span>Politique de confidentialité </span></h1>
       <div
-      v-for="(cc, i) in content"
+      v-for="(cc, i) in c"
       :key="i"
       class="subtitle"
       v-html="cc"></div>
     </main>
-    <footer-vue></footer-vue>
+    <footer-vue :content="content.footer"></footer-vue>
   </section>
 </template>
 
 <script>
+import globalMixin from '~/mixins/global';
+
 export default {
   name: 'Cgu',
+  mixins: [globalMixin],
   data() {
     return {
-      content: [
+      c: [
         'Nous attachons une importance toute particulière à la protection de vos données personnelles.',
         'La présente Politique de confidentialité a vocation à détailler de manière transparente la manière dont nous recueillons, stockons, utilisons et divulguons vos données personnelles lorsque vous utilisez le site Internet (le « Site ») et/ou que vous souhaitez obtenir des services ou informations proposés sur le Site (les « Services »).',
         'En utilisant le “Site” vous acceptez la présente Politique de confidentialité.',

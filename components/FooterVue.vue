@@ -91,8 +91,8 @@ div {
     min-height: 100vh;
     position: fixed;
     bottom: 0;
-    width: 100vw;
-    max-width: 100%;
+    width: 100vw!important;
+    max-width: 100%!important;
     z-index: -1;
     padding-bottom: 45px!important;
     justify-content: space-evenly;

@@ -297,12 +297,6 @@ export default {
         right: 50px;
       }
     }
-
-    @media (min-width: 1800px) {
-      &--second {
-        right: 15%;
-      }
-    }
   }
 }
 </style>

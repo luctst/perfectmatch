@@ -8,7 +8,7 @@
         <div class="subtitle" v-html="content.subtitle"></div>
         <div class="is__container__img">
           <img
-          :src="content.mainimage.data.attributes.formats.thumbnail.url"
+          :src="content.mainimage.data.attributes.formats.small.url"
           :alt="content.mainimage.data.attributes.alternativeText"/>
         </div>
       </header>
