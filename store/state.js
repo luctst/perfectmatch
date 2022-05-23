@@ -49,7 +49,7 @@ export default () => ({
     {
       path: '/contact',
       apiRoutes: 'contact',
-      compoCategoryToFetch: 'contact',
+      compoCategoryToFetch: 'contact,footer',
     },
   ]
 })

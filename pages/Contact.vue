@@ -1,9 +1,9 @@
 <template>
   <section class="contact">
     <header-vue></header-vue>
-    <contact-floatline></contact-floatline>
-    <contact-form></contact-form>
-    <contact-footer></contact-footer>
+    <contact-floatline :content="content.floatline"></contact-floatline>
+    <contact-form :content="content.formulaire"></contact-form>
+    <contact-footer :content="content.footer"></contact-footer>
   </section>
 </template>
 

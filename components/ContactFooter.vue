@@ -3,9 +3,9 @@
     <div class="footer--contact">
       <div class="footer--contact--infos">
         <div>Coordonnées</div>
-        <h6>Alexandra Sanchez</h6>
-        <h6>+33 6 51 79 15 08</h6>
-        <h6>contact@theperfectmatch.com</h6>
+        <h6>{{ renderProps(content.nom) }}</h6>
+        <h6>+{{ renderProps(content.phone) }}</h6>
+        <h6>{{ renderProps(content.mail) }}</h6>
       </div>
       <div class="footer--contact--social">
         <span>FB</span>
@@ -15,12 +15,12 @@
     </div>
     <div class="footer--legales">
       <div class="footer--legales--first">
-        <div>© 2022 The Perfect Match</div>
+        <div>© {{ new Date().getFullYear() }} {{ renderProps(content.perfectMatch) }}</div>
         <p>
-          <nuxt-link to="/legal">Mentions légales</nuxt-link>
+          <nuxt-link to="/legal">{{ renderProps(content.legale) }}</nuxt-link>
         </p>
         <p>
-          <nuxt-link to="/cgu">Politique de confidentialité</nuxt-link>
+          <nuxt-link to="/cgu">{{ renderProps(content.confidentialite) }}</nuxt-link>
         </p>
       </div>
       <div class="footer--legales--thanks">
@@ -36,8 +36,20 @@
 </template>
 
 <script>
+import globalMixin from '~/mixins/global';
+
 export default {
   name: 'ContactFooter',
+  mixins: [globalMixin],
+  methods: {
+    renderProps(propsContent) {
+      if (typeof propsContent !== 'string') {
+        return propsContent.default;
+      }
+  
+      return propsContent;
+    }
+  },
 };
 </script>
 

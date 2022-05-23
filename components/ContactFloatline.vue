@@ -6,26 +6,26 @@
       </div>
     </div>
     <div class="floatline--content" data-line>
-      <section><h1>Vous avez <div>besoin d'aide</div></h1></section>
-      <section><h1>dans l'organisation de</h1></section>
-      <section><h1>votre évènement ?</h1></section>
-      <div class="subtitle">Vous souhaitez des informations complémentaires ?</div>
-      <div class="subtitle"><span>Je vous invite à remplir ce formulaire ou me contacter directement.</span></div>
+      <section
+      v-for="(title, i) in content.titles"
+      :key="i">
+        <h1 v-html="title.content"></h1>
+      </section>
+      <div class="subtitle" v-html="parseMarkdown(content.subtitle)"></div>
     </div>
   </section>
 </template>
 
 <script>
 import LoopContact from '~/assets/img/loop-contact.svg?inline';
+import globalMixin from '~/mixins/global';
 
 export default {
   name: 'Floatline',
   components: {
     LoopContact,
   },
-  mounted() {
-    document.querySelector('body');
-  },
+  mixins: [globalMixin],
 };
 </script>
 

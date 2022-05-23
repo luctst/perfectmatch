@@ -36,12 +36,14 @@
 
 <script>
 import Send from '~/assets/img/send.svg?inline';
+import globalMixin from '~/mixins/global';
 
 export default {
   name: 'FormVue',
   components: {
     Send,
   },
+  mixins: [globalMixin],
   data() {
     return {
       errorDefault: {
@@ -54,46 +56,34 @@ export default {
       inputs: [
         {
           type: 'text',
-          label: 'Nom',
-          placeholder: 'Saissisez votre nom',
           vModel: 'nom',
           required: true,
           validateFn: this.checkEmptyValue,
         },
         {
           type: 'text',
-          label: 'Prénom',
-          placeholder: 'Saissisez votre prénom',
           vModel: 'name',
           required: true,
           validateFn: this.checkEmptyValue,
         },
         {
           type: 'email',
-          label: 'Adresse mail',
-          placeholder: 'Saissisez votre adresse mail',
           vModel: 'mail',
           required: true,
           validateFn: this.checkMail,
         },
         {
           type: 'tel',
-          label: 'Téléphone',
-          placeholder: 'Saissisez votre téléphone',
           vModel: 'phone',
           required: false,
         },
         {
           type: 'date',
-          label: 'Date de l\'évenement',
-          placeholder: 'JJ/MM/AAAA',
           vModel: 'dateEvent',
           required: false,
         },
         {
           type: 'select',
-          placeholder: 'Choissisez un type d\'évenement',
-          label: 'Type d\'événement',
           vModel: 'typeEvent',
           required: true,
           validateFn: this.checkEmptyValue,
@@ -111,8 +101,6 @@ export default {
         },
         {
           type: 'textarea',
-          placeholder: 'Saissisez votre message',
-          label: 'Message',
           vModel: 'message',
           required: false,
         },
@@ -120,6 +108,13 @@ export default {
     };
   },
   created() {
+    this.inputs = this.inputs.map((fieldData, i) => {
+      const fd = { ...fieldData };
+      fd.label = this.content.fieldformulaire[i].label;
+      fd.placeholder = this.content.fieldformulaire[i].placeholder;
+
+      return fd;
+    });
     this.errors = this.inputs.map(() => ({...this.errorDefault}));
   },
   methods: {
