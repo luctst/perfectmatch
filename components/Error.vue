@@ -12,9 +12,9 @@
         La page est introuvable ou une erreur est survenu, nous nous excusons du dérangement et vous invitons à revenir ultérieurement ou à nous contacter si l'erreur persiste.
       </div>
       <button class="is__btn__secondary">
-        <nuxt-link to="/">
+        <router-link to="/">
           Retour page d'accueil
-        </nuxt-link>
+        </router-link>
       </button>
     </main>
     <footer class="footer">
@@ -36,10 +36,10 @@
           <div class="footer--wrapper--legales--first">
             <div>© 2022 The Perfect Match</div>
             <p>
-              <nuxt-link to="/legal">Mentions légales</nuxt-link>
+              <router-link to="/legal">Mentions légales</router-link>
             </p>
             <p>
-              <nuxt-link to="/cgu">Politique de confidentialité</nuxt-link>
+              <router-link to="/cgu">Politique de confidentialité</router-link>
             </p>
           </div>
           <div class="footer--wrapper--legales--thanks">

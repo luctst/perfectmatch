@@ -6,9 +6,9 @@
     <div class="footer--title">
       <h2 v-html="renderProps(content.title)" class="is__h1" data-line></h2>
       <button class="is__btn__secondary">
-        <nuxt-link to="/contact">
+        <router-link to="/contact">
           {{ renderProps(content.button) }}
-        </nuxt-link>
+        </router-link>
       </button>
     </div>
     <div class="footer--contact">
@@ -28,10 +28,10 @@
       <div class="footer--legales--first">
         <div>© {{ new Date().getFullYear() }} {{ renderProps(content.perfectMatch) }}</div>
         <p>
-          <nuxt-link to="/legal">{{ renderProps(content.legale) }}</nuxt-link>
+          <router-link to="/legal">{{ renderProps(content.legale) }}</router-link>
         </p>
         <p>
-          <nuxt-link to="/cgu">{{ renderProps(content.confidentialite) }}</nuxt-link>
+          <router-link to="/cgu">{{ renderProps(content.confidentialite) }}</router-link>
         </p>
       </div>
       <div class="footer--legales--thanks">

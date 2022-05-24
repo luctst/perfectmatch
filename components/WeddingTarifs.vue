@@ -91,9 +91,9 @@
                   </span>
                 </p>
                 <button class="is__btn__secondary">
-                  <nuxt-link :to="`/contact?offer=${item.title}`">
+                  <router-link :to="`/contact?offer=${item.title}`">
                     Choisir
-                  </nuxt-link>
+                  </router-link>
                 </button>
               </div>
             </div>

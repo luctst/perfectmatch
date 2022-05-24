@@ -9,9 +9,9 @@
         <h2 v-html="content.title"></h2>
         <p v-html="parseMarkdown(content.subtitle)" class="subtitle"></p>
         <button class="is__btn__secondary">
-          <nuxt-link to="/events">
+          <router-link to="/events">
             {{ content.button }}
-          </nuxt-link>
+          </router-link>
         </button>
       </div>
       <div class="events--slidermobile">

@@ -16,7 +16,7 @@
         <button
         class="is__btn__secondary"
         :style="`color:${offer.colorText};`">
-          <nuxt-link :to="offer.btnHref">Découvrir</nuxt-link>
+          <router-link :to="offer.btnHref">Découvrir</router-link>
         </button>
       </div>
     </section>

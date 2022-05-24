@@ -17,10 +17,10 @@
       <div class="footer--legales--first">
         <div>© {{ new Date().getFullYear() }} {{ renderProps(content.perfectMatch) }}</div>
         <p>
-          <nuxt-link to="/legal">{{ renderProps(content.legale) }}</nuxt-link>
+          <router-link to="/legal">{{ renderProps(content.legale) }}</router-link>
         </p>
         <p>
-          <nuxt-link to="/cgu">{{ renderProps(content.confidentialite) }}</nuxt-link>
+          <router-link to="/cgu">{{ renderProps(content.confidentialite) }}</router-link>
         </p>
       </div>
       <div class="footer--legales--thanks">

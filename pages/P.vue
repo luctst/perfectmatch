@@ -15,7 +15,7 @@
           v-for="(project, y) in mosaicData.projects"
           :key="y"
           :class="`projects--body--mosaic${mosaicData.mid}--wrapper`">
-            <nuxt-link
+            <router-link
             :class="[`projects--body--mosaic${mosaicData.mid}--wrapper--item`, project.active && 'active']"
             :to="`/projects/${project.id}`"
             @mouseenter.native="project.active = true"
@@ -33,7 +33,7 @@
                 v-html="formatSubtitle(project.attributes.subtitle)"
                 class="subtitle"></p>
               </div>
-            </nuxt-link>
+            </router-link>
           </div>
         </section>
       </main>

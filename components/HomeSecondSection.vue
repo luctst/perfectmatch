@@ -5,9 +5,9 @@
         <h2 v-html="content.title"></h2>
         <div class="subtitle">{{ content.subtitle }}</div>
         <button class="is__btn__primary">
-          <nuxt-link to="/about">
+          <router-link to="/about">
             {{ content.button }}
-          </nuxt-link>
+          </router-link>
         </button>
       </div>
     </section>
