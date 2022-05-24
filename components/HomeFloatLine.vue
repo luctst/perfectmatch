@@ -14,12 +14,12 @@
         </div>
       </div>
       <div class="floatline--slidermobile">
-        <div class="is__container__img floatline--slidermobile--firstitem">
+        <div class="is__container__img floatline--slidermobile--firstitem" data-parallaxUpMobile>
           <img 
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
-        <div class="is__container__img floatline--slidermobile--seconditem">
+        <div class="is__container__img floatline--slidermobile--seconditem" data-parallaxUpMobile>
           <div class="floatline--slidermobile--seconditem--overlay">
             <img
             :src="content.imgright.data.attributes.url"
