@@ -3,7 +3,7 @@
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
         <div class="is__container__img formulasinfos--img--container">
-          <img data-parallaxUp
+          <img data-parallaxUp data-parallaxUpMobile
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"
           />
@@ -19,6 +19,7 @@
     </section>
   </section>
 </template>
+
 
 <script>
 import GlobalMixin from '~/mixins/global';
