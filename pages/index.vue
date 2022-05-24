@@ -20,6 +20,7 @@ import globalMixin from '~/mixins/global';
 
 export default {
   layout: 'default',
+  scrollToTop: true,
   mixins: [globalMixin],
 }
 </script>

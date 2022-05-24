@@ -96,11 +96,7 @@ export default {
 .the {
   padding-right: 18px;
 
-  @media (min-width: 1400px) {
-    max-width: 10%;
-  }
-
-  @media (min-width: 1800px) {
+  @media (min-width: 350px) {
     max-width: 10%;
   }
 }

@@ -49,6 +49,7 @@ export default {
   components: {
     VueSlickCarousel,
   },
+  scrollToTop: true,
   mixins: [globalMixin],
 };
 </script>

@@ -15,6 +15,7 @@ import globalMixin from '~/mixins/global';
 
 export default {
   name: 'Events',
+  scrollToTop: true,
   mixins: [globalMixin],
 };
 </script>

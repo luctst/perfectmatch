@@ -3,7 +3,11 @@
     <section class="tarif container-fluid" data-line>
       <h3 class="is__h2" v-html="content.title"></h3>
       <div class="subtitle" v-html="parseMarkdown(content.subtitle)"></div>
-      <button class="is__btn__primary">{{ content.button }}</button>
+      <button class="is__btn__primary">
+        <nuxt-link to="/contact">
+          {{ content.button }}
+        </nuxt-link>
+      </button>
     </section>
   </section>
 </template>

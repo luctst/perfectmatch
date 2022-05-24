@@ -36,6 +36,7 @@ import globalMixin from '~/mixins/global';
 export default {
   name: 'ArticleVue',
   mixins: [globalMixin],
+  scrollToTop: true,
   computed: {
     dateFormated() {
       const updatedAt = new Date(this.content.updatedAt);

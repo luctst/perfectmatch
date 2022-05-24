@@ -51,6 +51,7 @@
 <script>
 export default {
   name: 'Articles',
+  scrollToTop: true,
   props: {
     content: {
       type: [Array, Boolean, Object],

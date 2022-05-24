@@ -12,6 +12,7 @@ import globalMixin from '~/mixins/global';
 
 export default {
   name: 'Contact',
+  scrollToTop: true,
   mixins: [globalMixin],
 };
 </script>

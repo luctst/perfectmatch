@@ -17,6 +17,7 @@ import globalMixin from '~/mixins/global';
 export default {
   name: 'WeddingService',
   mixins: [globalMixin],
+  scrollToTop: true,
   layout: 'default',
 }
 </script>

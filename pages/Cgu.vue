@@ -19,6 +19,7 @@ import globalMixin from '~/mixins/global';
 export default {
   name: 'Cgu',
   mixins: [globalMixin],
+  scrollToTop: true,
   data() {
     return {
       c: [
