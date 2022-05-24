@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="floatline--profile">
-        <div ref="containerImg" class="is__container__img" data-rellax data-rellax-speed="-3">
+        <div ref="containerImg" class="is__container__img" data-parallaxUp>
           <img
           :src="content.imageProfile.data.attributes.url"
           :alt="content.imageProfile.data.attributes.alternativeText"/>

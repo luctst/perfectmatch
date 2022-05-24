@@ -3,7 +3,7 @@
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
         <div class="is__container__img formulasinfos--img--container">
-          <img
+          <img data-parallaxUp
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"
           />

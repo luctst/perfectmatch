@@ -28,13 +28,13 @@
         </div>
       </div>
       <div class="floatline--sliderdesktop">
-        <div class="is__container__img floatline--sliderdesktop--firstitem" data-rellax data-rellax-speed="2">
+        <div class="is__container__img floatline--sliderdesktop--firstitem" data-parallaxUp >
           <img  
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img floatline--sliderdesktop--seconditem">
-          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="-2">
+          <div class="floatline--sliderdesktop--seconditem--overlay " data-parallaxDown>
             <img 
             :src="content.imgright.data.attributes.url"
             :alt="content.imgright.data.attributes.alternativeText"/>
