@@ -158,13 +158,14 @@ export default {
           '/email',
           {
             to: process.env.NODE_ENV === 'development'
-              ? 'lucas.tostee@gmail.com'
+              ? 'theperfectmatch.contact@gmail.com'
               : this.dataToPost.mail,
-            from: 'luc.tostee@outlook.fr',
+            from: 'notif@camucamu.money',
             replyTo: 'theperfectmatch.contact@gmail.com',
             subject: `The Perfect Match - ${this.dataToPost.nom} ${this.dataToPost.name} a envoyé un mail depuis le formulaire`,
             html: `
             <h1>The Perfect Match</h1>
+            <div>Pour l'offre: <strong>${this.$route.query.offer ? this.$route.query.offer : 'Aucune offre renseignée'}</strong></div>
             <div>Nom: <strong>${this.dataToPost.nom}</strong></div>
             <div>Prénom: <strong>${this.dataToPost.name}</strong></div>
             <div>Mail: <strong>${this.dataToPost.mail}</strong></div>

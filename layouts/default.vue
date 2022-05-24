@@ -29,13 +29,21 @@ export default {
     this.content = false;
 
     this.isLoaderDisplay();
-    await this.fetchRouteContent();
+    const err = await this.fetchRouteContent();
     this.isLoaderDisplay();
+
+    if (err) {
+      throw err;
+    }
   },
   watch: {
     async $route() {
-      await this.$fetch();
+      const err = await this.$fetch();
       this.findAllTitleofThePage();
+
+      if (err) {
+        throw err;
+      }
     },
   },
   created() {
@@ -50,12 +58,14 @@ export default {
   methods: {
     isLoaderDisplay() {
       this.$nextTick(() => {
-        if (!this.content) {
-          return this.$nuxt.$loading.start();
+        if (this.$nuxt.$loading) {
+          if (!this.content) {
+            return this.$nuxt.$loading.start();
+          }
+          
+          this.$nuxt.$loading.finish();
+          this.shouldAddBodyPadding();
         }
-        
-        this.$nuxt.$loading.finish();
-        this.shouldAddBodyPadding();
       })
     },
     shouldAddBodyPadding() {
@@ -100,7 +110,10 @@ export default {
           return r.path === routerData.path;
         });
 
-        if (!routesToFetch) throw new Error('page do not exist');
+        if (!routesToFetch) {
+          this.content = (await this.$axios.$get('error?populate=*')).data.attributes;
+          return new Error('page de not exist');
+        }
   
         if (routesToFetch.path.includes(':')) {
           const components = (await this.$axios.$get('/content-type-builder/components'))
@@ -133,7 +146,7 @@ export default {
             ...pageResult,
             ...components,
           };
-          return true;
+          return false;
         }
   
         if (routesToFetch.compoCategoryToFetch) {
@@ -162,7 +175,7 @@ export default {
           const query = qs.stringify(populate, { encodeValuesOnly: true });
           this.content = (await this.$axios.$get(`/${routesToFetch.apiRoutes}?${query}&locale=${this.$store.state.lang}`,
           )).data.attributes;
-          return true;
+          return false;
         }
 
         const components = (await this.$axios.$get('/content-type-builder/components'))
@@ -188,7 +201,7 @@ export default {
           ...components,
         };
         this.pagination = result.meta.pagination;
-        return true;
+        return false;
       } catch (error) {
         throw error;
       }

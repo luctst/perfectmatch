@@ -4,9 +4,9 @@
       <h3 class="is__h2" v-html="content.title"></h3>
       <div class="subtitle" v-html="parseMarkdown(content.subtitle)"></div>
       <button class="is__btn__primary">
-        <router-link to="/contact">
+        <nuxt-link to="/contact">
           {{ content.button }}
-        </router-link>
+        </nuxt-link>
       </button>
     </section>
   </section>

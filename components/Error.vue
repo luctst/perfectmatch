@@ -125,6 +125,10 @@ export default {
     margin-left: 0;
     margin-right: 0;
 
+    @media (min-width: 920px) {
+      padding-bottom: 45px!important;
+    }
+
     &--contact {
       @media (min-width: 350px) {
         margin-top: 75px;
@@ -210,6 +214,10 @@ export default {
       }
   
       &--first {
+        p {
+          margin: 0;
+        }
+
         @media (min-width: 350px) {
           p:first-of-type {
             margin: 15px 0;
@@ -229,6 +237,10 @@ export default {
       }
   
       &--thanks {
+        p {
+          margin: 0;
+        }
+
         @media (min-width: 350px) {
           margin-bottom: 60px;
   

@@ -2,6 +2,7 @@ import { marked } from 'marked';
 
 export default {
   inheritAttrs: false,
+  scrollToTop: true,
   validate({ params, route, store }) {
     const routesToFetch = store.state.routes.find((r) => {
       if (Object.keys(params).length) {

@@ -65,7 +65,9 @@ export default {
   overflow: hidden;
   background-color: #FDEADD;
   height: 100vh;
-  position: relative;
+  position: fixed;
+  width: 100vw;
+  box-sizing: border-box;
   z-index: 20;
 }
 

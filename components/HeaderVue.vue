@@ -24,7 +24,7 @@
                 class="is__menu__dropdown__open"
                 @mouseleave="menuList[i].active = false">
                   <div class="is__menu__dropdown__open__wrapper container-fluid">
-                    <router-link
+                    <nuxt-link
                     v-for="(itemDp, index) in item.dropdown"
                     :key="index"
                     class="menu--dropdown--item"
@@ -39,29 +39,29 @@
                           {{ itemDp.content }}
                         </h3>
                       </div>
-                    </router-link>
+                    </nuxt-link>
                   </div>
                 </div>
               </div>
               <div
               v-else-if="item.isBtn">
-                <router-link
+                <nuxt-link
                 :to="`/${item.href}`"
                 class="is__menu__link">
                   {{ item.content }}
-                </router-link>
+                </nuxt-link>
               </div>
               <div
               v-else-if="item.isLogo">
-                <router-link to="/">
+                <nuxt-link to="/">
                   <logo></logo>
-                </router-link>
+                </nuxt-link>
               </div>
               <div
               v-else>
-                <router-link
+                <nuxt-link
                 :to="`/${item.href}`"
-                class="is__menu__link">{{ item.content }}</router-link>
+                class="is__menu__link">{{ item.content }}</nuxt-link>
               </div>
             </li>
           </ul>
@@ -69,9 +69,9 @@
       </section>
       <section class="header--wrapper--mobile">
         <div class="header--wrapper--mobile--wrapperlogo">
-          <router-link to="/">
+          <nuxt-link to="/">
             <logo></logo>
-          </router-link>
+          </nuxt-link>
         </div>
         <div
         class="header--wrapper--mobile--wrapperburger"
@@ -95,13 +95,13 @@
                 v-if="!item.isLogo"
                 :key="y"
                 class="is__menu__dropdown__mobile__nav__itemwrapper__child">
-                  <router-link
+                  <nuxt-link
                   @click.native="menuMobileOpen = false"
                   v-if="!item.dropdown"
                   :to="`/${item.href}`"
                   class="is__menu__dropdown__mobile__nav__itemwrapper__child__link">
                     {{ item.content }}
-                  </router-link>
+                  </nuxt-link>
                   <div
                   v-else
                   class="is__menu__dropdown__mobile__nav__itemwrapper__child__dropdown"
@@ -123,12 +123,12 @@
                         class="is__container__img">
                           <component :is="innerItem.icon"></component>
                         </div>
-                        <router-link
+                        <nuxt-link
                         :to="innerItem.href"
                         class="is__h3"
                         @click.native="menuMobileOpen = !menuMobileOpen">
                           {{ innerItem.content }}
-                        </router-link>
+                        </nuxt-link>
                       </div>
                     </div>
                   </div>
