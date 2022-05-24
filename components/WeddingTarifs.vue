@@ -382,7 +382,7 @@ export default {
       }
 
       @media (min-width: 1400px) {
-        flex: 0 0 33%;
+        flex: 0 0 19%;
       }
 
       @media (min-width: 1602px) {

@@ -2,7 +2,7 @@
   <section class="article--wrapper">
     <header-vue></header-vue>
     <main class="article container">
-      <header class="article--header">
+      <header class="article--header" data-line>
         <div class="title--tag">{{ dateFormated }}</div>
         <h1>{{ content.title }}</h1>
         <div class="subtitle" v-html="content.subtitle"></div>

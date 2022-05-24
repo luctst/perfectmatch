@@ -2,7 +2,7 @@
   <section class="articles--wrapper">
     <header-vue></header-vue>
     <section class="articles container-fluid">
-      <header class="articles--header">
+      <header class="articles--header data-line">
         <section><h1>Tous nos conseils</h1></section>
         <section><h1>Et <span>actualités</span></h1></section>
       </header>

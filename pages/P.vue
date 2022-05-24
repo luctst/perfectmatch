@@ -2,7 +2,7 @@
   <section class="projects--wrapper">
     <header-vue></header-vue>
     <section class="projects container-fluid">
-      <header class="projects--header">
+      <header class="projects--header" data-line>
         <section><h1>Découvrez</h1></section>
         <section><h1>Notre <span>portfolio</span></h1></section>
       </header>

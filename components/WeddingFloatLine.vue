@@ -7,11 +7,13 @@
         <loop-ddat v-if="$route.params.service === 'dday'"></loop-ddat>
       </div>
     </div>
-    <div class="floatline--content">
+    <div class="floatline--content" data-line>
       <div class="is__container__img">
-        <component :is="icon"></component>
+        <offers-first v-if="$route.params.service === 'complete'"></offers-first>
+        <flower-2 v-else-if="$route.params.service === 'partial'"></flower-2>
+        <flower-3 v-else></flower-3>
       </div>
-      <h1 data-line>{{ content.title }}</h1>
+      <h1>{{ content.title }}</h1>
     </div>
   </section>
 </template>
@@ -30,6 +32,9 @@ export default {
     Loop,
     LoopDdat,
     LoopPartial,
+    OffersFirst,
+    Flower2,
+    Flower3,
   },
   props: {
     content: {
@@ -58,15 +63,12 @@ export default {
       switch (this.$route.path) {
         case '/wedding/complete':
           this.theme = themes[0];
-          this.icon = OffersFirst;
           break;
         case '/wedding/partial':
           this.theme = themes[1];
-          this.icon = Flower2;
           break;
         default:
           this.theme = themes[2];
-          this.icon = Flower3;
           break;
       }
     }
@@ -118,8 +120,14 @@ export default {
     justify-content: center;
 
     div {
+      height: auto;
+
       @media (min-width: 350px) {
-        max-width: 30vw;
+        max-width: 20%;
+      }
+
+      @media (min-width: 920px) {
+        max-width: 10%;
       }
     }
 

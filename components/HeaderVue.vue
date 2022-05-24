@@ -472,6 +472,10 @@ export default {
         }
 
         @media (min-width: 1400px) {
+          font-size: 2.7em;
+        }
+
+        @media (min-width: 1800px) {
           font-size: 3em;
         }
       }

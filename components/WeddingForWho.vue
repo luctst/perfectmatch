@@ -187,9 +187,14 @@ export default {
         right: 0;
         margin: 0;
 
+        @media (min-width: 350px) {
+          max-width: 10%;
+        }
+
         @media (min-width: 1400px) {
           bottom: -32px;
           right: -14px;
+          max-width: 15%;
         }
       }
     }

@@ -15,7 +15,9 @@
         <p class="subtitle" :style="`color:${offer.colorText};`">{{ offer.content[1] }}</p>
         <button
         class="is__btn__secondary"
-        :style="`color:${offer.colorText};`">Découvrir</button>
+        :style="`color:${offer.colorText};`">
+          <nuxt-link :to="offer.btnHref">Découvrir</nuxt-link>
+        </button>
       </div>
     </section>
   </section>

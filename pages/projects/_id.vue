@@ -2,7 +2,7 @@
   <section class="project--wrapper">
     <header-vue></header-vue>
     <section class="project">
-      <div class="project--name container-fluid">
+      <div class="project--name container-fluid" data-line>
         <h1 v-html="content.project_name"></h1>
       </div>
       <div class="project--slider">

@@ -42,11 +42,9 @@ export default {
       available: true,
     };
   },
-  mounted() {
-    document.querySelector('body').classList.add('is__overflow__hidden');
-  },
   methods: {
     start() {
+      document.querySelector('body').classList.add('is__overflow__hidden');
       this.available = true;
     },
     finish() {
@@ -97,6 +95,14 @@ export default {
 
 .the {
   padding-right: 18px;
+
+  @media (min-width: 1400px) {
+    max-width: 10%;
+  }
+
+  @media (min-width: 1800px) {
+    max-width: 10%;
+  }
 }
 
 .perfect {

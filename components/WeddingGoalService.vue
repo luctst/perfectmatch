@@ -106,6 +106,10 @@ export default {
       div:first-child {
         max-width: 100vw;
         margin: 0 auto;
+
+        img {
+          max-height: 500px;
+        }
       }
 
       div:last-child {
@@ -141,33 +145,9 @@ export default {
       div:last-child {
         display: block;
         left: -5rem;
-        top: 12rem;
+        top: -10%;
         position: absolute;
         max-width: 16vw;
-      }
-    }
-
-    @media (min-width: 1100px) {
-      div:last-child {
-        top: 38%;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      div:last-child {
-        max-width: 14vw;
-      }
-    }
-
-    @media (min-width: 1400px) {
-      div:last-child {
-        top: 16rem;
-      }
-    }
-
-    @media (min-width: 1800px) {
-      div:last-child {
-        top: 22rem;
       }
     }
   }
