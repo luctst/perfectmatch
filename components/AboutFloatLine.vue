@@ -9,13 +9,14 @@
       <div class="floatline--title" data-line>
         <h1 v-html="content.title"></h1>
         <div class="floatline--title--extra">
-          <div v-html="content.subtitle" class="subtitle"></div>
+          <div class="subtitle" v-html="content.subtitle"></div>
           <span class="is__span__outside__h2"></span>
         </div>
       </div>
       <div class="floatline--profile">
-        <div ref="containerImg" class="is__container__img" data-parallaxUp>
-          <img
+        <div ref="containerImg" class="is__container__img">
+          <img  
+          data-parallaxDown
           :src="content.imageProfile.data.attributes.url"
           :alt="content.imageProfile.data.attributes.alternativeText"/>
         </div>

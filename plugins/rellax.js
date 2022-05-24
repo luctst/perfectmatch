@@ -4,6 +4,6 @@ import simpleParallax from 'simple-parallax-js';
 
 
 
-Object.defineProperty(Vue.prototype, "simpleParallax", {
+Object.defineProperty(Vue.prototype, "SimpleParallax", {
     value: simpleParallax
   });

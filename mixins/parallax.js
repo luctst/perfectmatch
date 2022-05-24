@@ -3,9 +3,9 @@ export default {
     data() {
         return {
          parallaxUp:null,
-         parallaxDown,
-         parallaxUpMobile,
-         parallaxDownMobile,
+         parallaxDown:null,
+         parallaxUpMobile:null,
+         parallaxDownMobile:null,
          elsUp : null,
          elsDown : null ,
          elsUpMobile : null,
@@ -24,12 +24,8 @@ export default {
       
     },
     mounted(){
-        console.log('MOUNTED')
         this.findAllElement()
         this.initInstanceParallax()
-    },
-    destroyed() { 
-        console.log("destroy");
     },
     methods: {
       findAllElement(){
@@ -40,19 +36,19 @@ export default {
       },
       initInstanceParallax(){
           if(window.innerWidth >= 1024){
-            this.parallaxUp = new this.simpleParallax(this.elsUp,{
+            this.parallaxUp = new this.SimpleParallax(this.elsUp,{
                 overflow:true,
             })
-            this.parallaxDown = new this.simpleParallax(this.elsDown,{
+            this.parallaxDown = new this.SimpleParallax(this.elsDown,{
                 overflow:true,
                 orientation: 'down',
             })
           }else{
-            this.parallaxUpMobile = new this.simpleParallax(this.elsUp,{
+            this.parallaxUpMobile = new this.SimpleParallax(this.elsUp,{
                 overflow:true,
                 maxTransition: 50
             })
-            this.parallaxDownMobile = new this.simpleParallax(this.elsDown,{
+            this.parallaxDownMobile = new this.SimpleParallax(this.elsDown,{
                 overflow:true,
                 orientation: 'down',
                 maxTransition: 50
