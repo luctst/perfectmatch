@@ -1,7 +1,7 @@
 export default {
   target: 'server',
   ssr: true,
-  // loading: '~/components/Loader.vue',
+  loading: '~/components/Loader.vue',
   head: {
     title: 'perfectmatch',
     htmlAttrs: {

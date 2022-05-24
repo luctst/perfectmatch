@@ -20,7 +20,7 @@
                   </div>
                 </div>
                 <div
-                :style="`top:${menuList[i].active ? 0 : -500}px;`"
+                :style="`top:${menuList[i].active ? 0 : -6000}px;`"
                 class="is__menu__dropdown__open"
                 @mouseleave="menuList[i].active = false">
                   <div class="is__menu__dropdown__open__wrapper container-fluid">
