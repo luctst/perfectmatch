@@ -118,11 +118,11 @@ export default {
   }
 
   @media (min-width: 920px) {
-    padding-top: 140px;
+    padding-top: 80px;
   }
 
   @media (min-width: 1200px) {
-    padding-bottom: 180px;
+    padding-bottom: 100px;
   }
 
   &--title {

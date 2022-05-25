@@ -4,6 +4,8 @@
       <div class="accord--picture">
         <div class="is__container__img">
           <img
+          data-parallaxUp
+          data-parallaxUpMobile
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"/>
         </div>

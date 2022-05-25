@@ -41,12 +41,12 @@ export default {
 
   @media (min-width: 350px) {
     height: auto;
-    padding-top: 35rem;
+    padding-top: 17rem;
     padding-bottom: 3rem;
   }
 
   @media (min-width: 810px) {
-    padding-top: 40rem;
+    padding-top: 10rem;
   }
 
   @media (min-width: 900px) {
@@ -82,7 +82,7 @@ export default {
 
       :nth-child(2) {
         &::after {
-          content: 'Humaines';
+          content: 'Humaine';
           display: inline-block;
           position: absolute;
           right: 0;

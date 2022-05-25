@@ -1,12 +1,9 @@
 import Vue from "vue";
-import Rellax from 'rellax'
-// NEED TO REFACTO FOR BETTER USE VUE LIFECYCLE
-window.addEventListener('load',function(){
-    new Rellax('[data-rellax]', {
-        breakpoints: [350],
-    });
-})
+import simpleParallax from 'simple-parallax-js';
+// https://jsrepos.com/lib/geosigno-simpleParallax-javascript-scroll
 
-Object.defineProperty(Vue.prototype, "Rellax", {
-    value: Rellax
+
+
+Object.defineProperty(Vue.prototype, "SimpleParallax", {
+    value: simpleParallax
   });

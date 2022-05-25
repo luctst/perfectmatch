@@ -3,14 +3,17 @@
     <section class="formulasinfos container-fluid">
       <div class="formulasinfos--img">
         <div class="is__container__img formulasinfos--img--container">
-          <img
+          <img 
+          data-parallaxUp 
+          data-parallaxUpMobile
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"
           />
         </div>
         <div
+        class="formulasinfos--img--content subtitle"
         v-html="parseMarkdown(content.imageSubtitle)"
-        class="formulasinfos--img--content subtitle"></div>
+        ></div>
       </div>
       <div class="formulasinfos--content" data-line>
         <p class="title--tag">Mariage</p>
@@ -19,6 +22,7 @@
     </section>
   </section>
 </template>
+
 
 <script>
 import GlobalMixin from '~/mixins/global';
@@ -81,7 +85,7 @@ export default {
     padding-top: 0;
 
     &--img {
-      max-width: 324px;
+      max-width: 280px;
       margin: 0;
     }
 

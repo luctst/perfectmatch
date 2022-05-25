@@ -6,8 +6,9 @@
         <div v-html="parseMarkdown(content.subtitle)" class="subtitle"></div>
       </div>
       <div class="third--picture">
-        <div class="is__container__img third--picture--wrapper">
+        <div class="is__container__img third--picture--wrapper"  data-parallaxUpMobile>
           <img 
+          data-parallaxUp
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"/>
         </div>

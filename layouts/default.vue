@@ -15,16 +15,18 @@
 
 <script>
 import qs from 'qs';
-
+import parallax from '~/mixins/parallax';
 export default {
+  mixins: [parallax],
   data() {
     return {
       pagination: {},
       content: false,
       allsTitle:null,
-      showContent: false
+      showContent: false,
     };
   },
+
   async fetch() {
     this.content = false;
 

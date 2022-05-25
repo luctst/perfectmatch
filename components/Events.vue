@@ -7,7 +7,7 @@
       <div class="events--content" data-line>
         <div class="title--tag">évènements</div>
         <h2 v-html="content.title"></h2>
-        <p v-html="parseMarkdown(content.subtitle)" class="subtitle"></p>
+        <p class="subtitle" v-html="parseMarkdown(content.subtitle)" ></p>
         <button class="is__btn__secondary">
           <nuxt-link to="/events">
             {{ content.button }}
@@ -16,7 +16,7 @@
       </div>
       <div class="events--slidermobile">
         <div class="is__container__img events--slidermobile--first">
-          <img
+          <img 
           :src="content.imageLeft.data.attributes.url"
           :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
@@ -30,15 +30,17 @@
       </div>
       <div class="events--sliderdesktop">
         <div class="is__container__img events--sliderdesktop--first">
-          <img
+          <img 
+          data-parallaxUp
           :src="content.imageLeft.data.attributes.url"
           :alt="content.imageLeft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img events--sliderdesktop--second">
           <div class="events--sliderdesktop--second--overlay">
-            <img
-              :src="content.imageRight.data.attributes.url"
-              :alt="content.imageRight.data.attributes.alternativeText"/>
+            <img 
+            data-parallaxUp
+            :src="content.imageRight.data.attributes.url"
+            :alt="content.imageRight.data.attributes.alternativeText"/>
           </div>
         </div>
       </div>

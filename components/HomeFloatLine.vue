@@ -1,5 +1,5 @@
 <template>
-  <section class="floatline--wrapper">
+  <section class="f floatline--wrapper">
     <section class="floatline container-fluid">
       <div class="floatline--loop is__container__img">
         <loop></loop>
@@ -14,12 +14,12 @@
         </div>
       </div>
       <div class="floatline--slidermobile">
-        <div class="is__container__img floatline--slidermobile--firstitem">
+        <div class="is__container__img floatline--slidermobile--firstitem" data-parallaxUpMobile>
           <img 
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
-        <div class="is__container__img floatline--slidermobile--seconditem">
+        <div class="is__container__img floatline--slidermobile--seconditem" data-parallaxUpMobile>
           <div class="floatline--slidermobile--seconditem--overlay">
             <img
             :src="content.imgright.data.attributes.url"
@@ -28,13 +28,13 @@
         </div>
       </div>
       <div class="floatline--sliderdesktop">
-        <div class="is__container__img floatline--sliderdesktop--firstitem" data-rellax data-rellax-speed="2">
+        <div class="is__container__img floatline--sliderdesktop--firstitem" data-parallaxUp >
           <img  
           :src="content.imgleft.data.attributes.url"
           :alt="content.imgleft.data.attributes.alternativeText"/>
         </div>
         <div class="is__container__img floatline--sliderdesktop--seconditem">
-          <div class="floatline--sliderdesktop--seconditem--overlay " data-rellax data-rellax-speed="-2">
+          <div class="floatline--sliderdesktop--seconditem--overlay " data-parallaxDown>
             <img 
             :src="content.imgright.data.attributes.url"
             :alt="content.imgright.data.attributes.alternativeText"/>

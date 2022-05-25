@@ -1,9 +1,10 @@
 <template>
-  <section class="floatline--wrapper">
+  <section class="f floatline--wrapper">
     <section class="floatline container-fluid">
       <div class="floatline--img--left">
-        <div class="is__container__img" data-rellax data-rellax-speed="2">
+        <div class="is__container__img">
           <img
+           data-parallaxDown
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"/>
         </div>
@@ -14,7 +15,7 @@
         <span></span>
       </div>
       <div class="floatline--img--right">
-        <div class="is__container__img" data-rellax data-rellax-speed="2">
+        <div class="is__container__img" >
           <logo-circle></logo-circle>
         </div>
       </div>

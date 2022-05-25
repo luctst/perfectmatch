@@ -1,5 +1,5 @@
 <template>
-  <section class="floatline" :style="`background-color:${theme};`">
+  <section class="f floatline" :style="`background-color:${theme};`">
     <div class="floatline--loop">
       <div class="is__container__img">
         <loop v-if="$route.params.service === 'complete'"></loop>
@@ -13,7 +13,7 @@
         <flower-2 v-else-if="$route.params.service === 'partial'"></flower-2>
         <flower-3 v-else></flower-3>
       </div>
-      <h1>{{ content.title }}</h1>
+      <h1 :style="`color:${colorText};`">{{ content.title }}</h1>
     </div>
   </section>
 </template>
@@ -59,16 +59,19 @@ export default {
   methods: {
     filledData() {
       const themes = ['#FDEADD', '#E0F4EB', '#F8ECFD'];
-
+      const colorText = ['#3B2321','#2d332a',  '#3c2a44'];
       switch (this.$route.path) {
         case '/wedding/complete':
           this.theme = themes[0];
+          this.colorText = colorText[0];
           break;
         case '/wedding/partial':
           this.theme = themes[1];
+           this.colorText = colorText[1];
           break;
         default:
           this.theme = themes[2];
+          this.colorText = colorText[2];
           break;
       }
     }

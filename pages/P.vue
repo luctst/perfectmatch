@@ -3,8 +3,8 @@
     <header-vue></header-vue>
     <section class="projects container-fluid">
       <header class="projects--header" data-line>
-        <section><h1>Découvrez</h1></section>
-        <section><h1>Notre <span>portfolio</span></h1></section>
+        <h2 class="is__h1">Découvrez</h2>
+        <h2 class="is__h1">Notre <span>portfolio</span></h2>
       </header>
       <main class="projects--body">
         <section
@@ -28,7 +28,7 @@
               </div>
               <div
               :class="`projects--body--mosaic${mosaicData.mid}--wrapper--item--content`">
-                <h4>{{ project.attributes.title }}</h4>
+                <h4 v-html="project.attributes.project_name"></h4>
                 <p
                 v-html="formatSubtitle(project.attributes.subtitle)"
                 class="subtitle"></p>
@@ -131,6 +131,16 @@ export default {
   background-color: $colorWhite;
 }
 
+.active {
+  div:last-child {
+    h4,
+    p {
+      text-decoration: underline;
+      text-decoration-color: #EDCDB8;
+    }
+  }
+}
+
 .projects {
   position: relative;
   z-index: 3;
@@ -148,10 +158,8 @@ export default {
       margin-bottom: 4rem;
     }
 
-    section {
-      h1 {
-        text-align: left;
-      }
+    h2 {
+      text-align: left;
     }
   }
 
