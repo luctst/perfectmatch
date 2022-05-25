@@ -3,8 +3,11 @@
     <section class="useless container-fluid">
       <div class="useless--img">
         <div class="is__container__img useless--img--wrapper">
-          <div class="useless--img--wrapper--overlay">
-            <img src="~/assets/img/Groupe13.jpg">
+          <div class="useless--img--wrapper--overlay"
+          data-parallaxUp
+          >
+            <img 
+            src="~/assets/img/Groupe13.jpg">
           </div>
         </div>
       </div>

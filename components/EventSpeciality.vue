@@ -7,7 +7,8 @@
       </div>
       <div class="speciality--img">
         <div class="is__container__img">
-          <img  
+          <img
+           data-parallaxDown
           :src="content.image.data.attributes.url"
           :alt="content.image.data.attributes.alternativeText"/>
         </div>

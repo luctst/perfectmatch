@@ -16,7 +16,8 @@
       <div class="floatline--profile">
         <div ref="containerImg" class="is__container__img">
           <img  
-          data-parallaxDown
+          data-parallaxDown 
+          data-parallaxDownMobileAbout
           :src="content.imageProfile.data.attributes.url"
           :alt="content.imageProfile.data.attributes.alternativeText"/>
         </div>
