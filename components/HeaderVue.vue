@@ -286,7 +286,6 @@ export default {
         }
   
         lastScrollTop = st <= 0 ? 0 : st;
-        
         if (header.classList.contains(isDisplayNone)) {
           header.classList.remove(isDisplayNone);
           header.classList.add(isHeaderVisible);

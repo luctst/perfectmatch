@@ -66,7 +66,6 @@ export default {
 
   @media (min-width: 1400px) {
     padding-top: 120px;
-    padding-bottom: 140px;
   }
 
   &--content {

@@ -1,5 +1,5 @@
 <template>
-  <section class="floatline" :style="`background-color:${theme};`">
+  <section class="f floatline" :style="`background-color:${theme};`">
     <div class="floatline--loop">
       <div class="is__container__img">
         <loop v-if="$route.params.service === 'complete'"></loop>

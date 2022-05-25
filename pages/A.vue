@@ -2,9 +2,9 @@
   <section class="articles--wrapper">
     <header-vue></header-vue>
     <section class="articles container-fluid">
-      <header class="articles--header data-line">
-        <section><h1>Tous nos conseils</h1></section>
-        <section><h1>Et <span>actualités</span></h1></section>
+      <header class="articles--header data-line" data-line>
+        <h2 class="is__h1">Tous nos conseils</h2>
+        <h2 class="is__h1">Et <span>actualités</span></h2>
       </header>
       <main class="articles--body">
         <section
@@ -152,6 +152,16 @@ export default {
   background-color: $colorWhite;
 }
 
+.active {
+  div:last-child {
+    h4,
+    p {
+      text-decoration: underline;
+      text-decoration-color: #EDCDB8;
+    }
+  }
+}
+
 .articles {
   position: relative;
   z-index: 3;
@@ -169,10 +179,8 @@ export default {
       margin-bottom: 4rem;
     }
 
-    section {
-      h1 {
-        text-align: left;
-      }
+    h2 {
+      text-align: left;
     }
   }
 

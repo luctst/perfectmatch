@@ -82,7 +82,7 @@ export default {
 
       :nth-child(2) {
         &::after {
-          content: 'Humaines';
+          content: 'Humaine';
           display: inline-block;
           position: absolute;
           right: 0;

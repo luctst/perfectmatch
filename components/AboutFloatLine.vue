@@ -1,5 +1,5 @@
 <template>
-  <section class="floatline--wrapper">
+  <section class="f floatline--wrapper">
     <div class="floatline--wrapper--loop">
       <div class="is__container__img">
         <loop></loop>

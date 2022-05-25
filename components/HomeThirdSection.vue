@@ -85,7 +85,7 @@ export default {
     padding-top: 0;
 
     &--img {
-      max-width: 324px;
+      max-width: 280px;
       margin: 0;
     }
 

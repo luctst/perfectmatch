@@ -447,8 +447,8 @@ export default {
   }
 
   @media (min-width: 1100px) {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   &--view--mobile,

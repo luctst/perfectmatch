@@ -9,7 +9,7 @@
         <vue-slick-carousel
         :draggable="true"
         :autoplay="true"
-        :autoplay-speed="5000"
+        :autoplay-speed="3000"
         :arrows="false"
         :dots="true"
         :infinite="true"
