@@ -209,7 +209,7 @@ export default {
       }
     },
     findAllTitleofThePage(){
-      this.allsTitle = document.querySelectorAll("h1[data-line],h2[data-line],[data-line] h2,[data-line] h1")
+      this.allsTitle = document.querySelectorAll("h1[data-line],h2[data-line],[data-line] h2,[data-line] h1, h3[data-line],[data-line] h3")
       this.splitLine(this.allsTitle,'line')
       this.observeTitle(this.allsTitle)
     }

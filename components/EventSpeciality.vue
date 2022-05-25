@@ -1,7 +1,7 @@
 <template>
   <section class="speciality--wrapper">
     <section class="speciality container-fluid">
-      <div class="speciality--title">
+      <div class="speciality--title" data-line>
         <h3 v-html="parseMarkdown(content.title)"></h3>
         <div class="subtitle" v-html="parseMarkdown(content.subtitle)"></div>
       </div>
