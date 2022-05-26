@@ -555,7 +555,6 @@ export default {
 
                   div {
                     margin-left: 8px;
-                    margin-bottom: 6px;
                   }
                 }
               }
