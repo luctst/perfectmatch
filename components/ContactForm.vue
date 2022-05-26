@@ -158,8 +158,8 @@ export default {
           '/email',
           {
             to: process.env.NODE_ENV === 'development'
-              ? 'theperfectmatch.contact@gmail.com'
-              : this.dataToPost.mail,
+              ? this.dataToPost.mail
+              : 'theperfectmatch.contact@gmail.com',
             from: 'notif@camucamu.money',
             replyTo: 'theperfectmatch.contact@gmail.com',
             subject: `The Perfect Match - ${this.dataToPost.nom} ${this.dataToPost.name} a envoyé un mail depuis le formulaire`,

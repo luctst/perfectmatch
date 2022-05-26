@@ -6,8 +6,9 @@
           <div class="useless--img--wrapper--overlay"
           data-parallaxUp
           >
-            <img 
-            src="~/assets/img/Groupe13.jpg">
+          <img 
+          :src="content.image.data.attributes.url"
+          :alt="content.image.data.attributes.alternativeText"/>
           </div>
         </div>
       </div>
@@ -16,8 +17,11 @@
 </template>
 
 <script>
+import global from '~/mixins/global';
+
 export default {
   name: 'Useless',
+  mixins: [global],
 };
 </script>
 

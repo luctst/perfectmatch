@@ -2,7 +2,7 @@
   <section class="events">
     <header-vue></header-vue>
     <event-float-line :content="content.floatline"></event-float-line>
-    <event-useless></event-useless>
+    <event-useless :content="content.imagealone"></event-useless>
     <event-speciality :content="content.speciality"></event-speciality>
     <event-offers :content="content.offers"></event-offers>
     <event-tarif :content="content.devis"></event-tarif>
