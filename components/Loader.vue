@@ -104,7 +104,7 @@ export default {
 }
 
 .perfect {
-  padding-right: 25px;
+  padding-right: 14px;
 }
 
 .loop {

@@ -41,7 +41,7 @@ export default {
 
   @media (min-width: 350px) {
     height: auto;
-    padding-top: 17rem;
+    padding-top: 30rem;
     padding-bottom: 3rem;
   }
 
