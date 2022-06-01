@@ -19,9 +19,15 @@
         <h6>{{ renderProps(content.mail) }}</h6>
       </div>
       <div class="footer--contact--social">
-        <span>FB</span>
-        <span>IG</span>
-        <span>IN</span>
+        <a href="" target="_blank">
+          <span>FB</span>
+        </a>
+        <a href="https://www.instagram.com/theperfectmatch.events/" target="_blank">
+          <span>IG</span>
+        </a>
+        <a href="" target="_blank">
+          <span>IN</span>
+        </a>
       </div>
     </div>
     <div class="footer--legales">
@@ -184,14 +190,19 @@ div {
         margin: 0 10px;
       }
 
-      span {
-        background-color: $colorWhite;
-        border-radius: 50%;
-        font-family: $mainTypo;
-        font-size: 12px;
-        padding: 10px 8px 9px 9px;
-        height: 33px;
-        width: 33px;
+      a {
+        color: $textColor;
+        text-decoration: none;
+
+        span {
+          background-color: $colorWhite;
+          border-radius: 50%;
+          font-family: $mainTypo;
+          font-size: 12px;
+          padding: 10px 8px 9px 9px;
+          height: 33px;
+          width: 33px;
+        }
       }
     }
   }
