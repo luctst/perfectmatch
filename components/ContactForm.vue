@@ -160,7 +160,7 @@ export default {
             to: process.env.NODE_ENV === 'development'
               ? this.dataToPost.mail
               : 'theperfectmatch.contact@gmail.com',
-            from: 'notif@camucamu.money',
+            from: 'theperfectmatch.contact@gmail.com',
             replyTo: 'theperfectmatch.contact@gmail.com',
             subject: `The Perfect Match - ${this.dataToPost.nom} ${this.dataToPost.name} a envoyé un mail depuis le formulaire`,
             html: `
