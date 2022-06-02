@@ -8,13 +8,13 @@
         <h6>{{ renderProps(content.mail) }}</h6>
       </div>
       <div class="footer--contact--social">
-        <a href="" target="_blank">
+        <a href="https://www.facebook.com/theperfectmatch.weddingandevents/" target="_blank">
           <span>FB</span>
         </a>
         <a href="https://www.instagram.com/theperfectmatch.events/" target="_blank">
           <span>IG</span>
         </a>
-        <a href="" target="_blank">
+        <a href="https://www.linkedin.com/showcase/theperfectmatchevents" target="_blank">
           <span>IN</span>
         </a>
       </div>
