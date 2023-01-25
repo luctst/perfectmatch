@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=staging nuxt",
+    "dev": "NODE_ENV=staging NODE_OPTIONS=--openssl-legacy-provider nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
