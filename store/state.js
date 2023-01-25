@@ -1,5 +1,5 @@
 export default () => ({
-  lang: 'fr-FR',
+  lang: 'fr',
   routes: [
     {
       path: '/a',
