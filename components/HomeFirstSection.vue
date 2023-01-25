@@ -3,8 +3,8 @@
     <section class="gettingmaried container-fluid">
       <div class="gettingmaried--title" data-line>
         <h2 v-html="content.firstTitle"></h2>
-        <h2>{{ content.secondTitle }}</h2>
-        <h2>{{ content.thirdTitle }}</h2>
+        <h2 v-html="content.secondTitle"></h2>
+        <h2 v-html="content.thirdTitle"></h2>
       </div>
       <div class="gettingmaried--circle">
         <div class="is__container__img">
