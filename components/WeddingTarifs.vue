@@ -35,7 +35,7 @@
             <div class="offers--options">
               <template v-for="(ops, i) in populateOffersOps">
                 <div
-                v-if="ops.availabilityForOffers[index] !== 'false'"
+                v-if="ops.availabilityForOffers[index] !== 'no'"
                 :key="i"
                 class="offers--options--item">
                   <div class="offers--options--item--title">
@@ -44,13 +44,13 @@
                   <div class="offers--options--item--availability">
                     <div class="offers--options--item--availability--item">
                       <div
-                      v-if="ops.availabilityForOffers[index] === 'true'"
+                      v-if="ops.availabilityForOffers[index] === 'yes'"
                       :style="`border: 1px solid ${populateOffers[index].checkColor};background-color:${populateOffers[index].checkColor};`"
                       class="is__container__img">
                         <check></check>
                       </div>
                       <div
-                      v-else-if="ops.availabilityForOffers[index] !== 'false'"
+                      v-else-if="ops.availabilityForOffers[index] !== 'no'"
                       class="subtitle">
                         {{ ops.availabilityForOffers[index] }}
                       </div>
@@ -114,13 +114,13 @@
                 :key="w"
                 class="offers--options--item--availability--item">
                   <div
-                  v-if="inner === 'true'"
+                  v-if="inner === 'yes'"
                   :style="`border: 1px solid ${populateOffers[w].checkColor};background-color:${populateOffers[w].checkColor};`"
                   class="is__container__img">
                     <check></check>
                   </div>
                   <div
-                  v-else-if="inner !== 'false'"
+                  v-else-if="inner !== 'no'"
                   class="subtitle">
                     {{ inner }}
                   </div>
